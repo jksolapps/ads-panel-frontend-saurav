@@ -1,0 +1,10 @@
+{
+	"apps": [
+		{
+			"name": "jksol-ads-frontend",
+			"script": "npx",
+			"interpreter": "none",
+			"args": "npx serve -s dist -p 5000"
+		}
+	]
+}

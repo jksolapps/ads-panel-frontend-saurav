@@ -1,0 +1,505 @@
+{
+	"revenue_dimension": [
+		{
+			"item_id": "1",
+			"display_name": "Apps",
+			"item_checked": true,
+			"item_key": "app_display_name",
+			"sortValue": "APP"
+		},
+		{
+			"item_id": "2",
+			"display_name": "Date",
+			"item_checked": true,
+			"item_key": "date",
+			"sortValue": "DATE"
+		},
+		{
+			"item_id": "3",
+			"display_name": "Campaign",
+			"item_checked": false,
+			"item_key": "firstUserCampaignName",
+			"sortValue": "CAMPAIGN_NAME"
+		}
+	],
+	"revenue_matrix": [
+		{
+			"item_id": "4",
+			"display_name": "Cost",
+			"item_checked": true,
+			"item_key": "advertiserAdCost",
+			"sortValue": "COST"
+		},
+		{
+			"item_id": "5",
+			"display_name": "First User Revenue",
+			"item_checked": true,
+			"item_key": "firstUserRevenue",
+			"sortValue": "FIRST_USER_REVENUE"
+		},
+		{
+			"item_id": "6",
+			"display_name": "Total Revenue",
+			"item_checked": true,
+			"item_key": "totalAdRevenue",
+			"sortValue": "TOTAL_REVENUE"
+		},
+		{
+			"item_id": "7",
+			"display_name": "Conversion",
+			"item_checked": true,
+			"item_key": "install",
+			"sortValue": "CONVERSION"
+		},
+		{
+			"item_id": "8",
+			"display_name": "CPI",
+			"item_checked": true,
+			"item_key": "CPI",
+			"sortValue": "CPI"
+		},
+		{
+			"item_id": "9",
+			"display_name": "ROAS of First user revenue",
+			"item_checked": true,
+			"item_key": "ROASFirstUserRevenue",
+			"sortValue": "ROAS_FIRST_USER_REVENUE"
+		},
+		{
+			"item_id": "10",
+			"display_name": "ROAS of Total user revenue",
+			"item_checked": true,
+			"item_key": "ROASTotalRevenue",
+			"sortValue": "ROAS_TOTAL_REVENUE"
+		},
+		{
+			"item_id": "11",
+			"display_name": "D0",
+			"item_checked": true,
+			"item_key": "D0",
+			"sortValue": "D0"
+		},
+		{
+			"item_id": "12",
+			"display_name": "D7",
+			"item_checked": true,
+			"item_key": "D7",
+			"sortValue": "D7"
+		},
+		{
+			"item_id": "13",
+			"display_name": "D14",
+			"item_checked": true,
+			"item_key": "D14",
+			"sortValue": "D14"
+		},
+		{
+			"item_id": "14",
+			"display_name": "D30",
+			"item_checked": true,
+			"item_key": "D30",
+			"sortValue": "D30"
+		},
+		{
+			"item_id": "15",
+			"display_name": "D60",
+			"item_checked": true,
+			"item_key": "D60",
+			"sortValue": "D60"
+		},
+		{
+			"item_id": "16",
+			"display_name": "D120",
+			"item_checked": true,
+			"item_key": "D120",
+			"sortValue": "D120"
+		},
+		{
+			"item_id": "17",
+			"display_name": "D180",
+			"item_checked": true,
+			"item_key": "D180",
+			"sortValue": "D180"
+		},
+		{
+			"item_id": "18",
+			"display_name": "D365",
+			"item_checked": true,
+			"item_key": "D365",
+			"sortValue": "D365"
+		}
+	],
+	"statistics_dimension": [
+		{
+			"item_id": "1",
+			"display_name": "Apps",
+			"item_checked": true,
+			"item_key": "app_display_name",
+			"sortValue": "APP"
+		},
+		{
+			"item_id": "2",
+			"display_name": "Date",
+			"item_checked": true,
+			"item_key": "date",
+			"sortValue": "DATE"
+		},
+		{
+			"item_id": "3",
+			"display_name": "App Version",
+			"item_checked": false,
+			"item_key": "appVersion",
+			"sortValue": "APP_VERSION"
+		}
+	],
+	"statistics_matrix": [
+		{
+			"sortValue": "DOWNLOADS",
+			"display_name": "Downloads",
+			"item_checked": true,
+			"item_key": "app_downloads",
+			"item_id": 4
+		},
+		{
+			"sortValue": "ACTIVE_USERS",
+			"display_name": "Active Users",
+			"item_checked": true,
+			"item_key": "active_user",
+			"item_id": 6
+		},
+		{
+			"sortValue": "AVG_SESSION",
+			"display_name": "Average Session",
+			"item_checked": true,
+			"item_key": "average_session",
+			"item_id": 14
+		},
+		{
+			"sortValue": "SESSION_DURATION",
+			"display_name": "Session Duration",
+			"item_checked": true,
+			"item_key": "session_duration",
+			"item_id": 15
+		},
+		{
+			"sortValue": "TIME_PER_USER",
+			"display_name": "Time per user",
+			"item_checked": true,
+			"item_key": "time_per_user",
+			"item_id": 16
+		},
+		{
+			"sortValue": "TOTAL_TIME",
+			"display_name": "Total Time",
+			"item_checked": true,
+			"item_key": "total_time_per_user",
+			"item_id": 17
+		},
+		{
+			"sortValue": "ORGANIC_DOWNLOAD",
+			"display_name": "Organic Download",
+			"item_checked": true,
+			"item_key": "organic_download",
+			"item_id": 19
+		},
+		{
+			"sortValue": "PAID_DOWNLOAD",
+			"display_name": "Paid Download",
+			"item_checked": true,
+			"item_key": "paid_download",
+			"item_id": 20
+		},
+		{
+			"sortValue": "OPEN_RATE",
+			"display_name": "Open Rate",
+			"item_checked": true,
+			"item_key": "open_rate",
+			"item_id": 21
+		},
+		{
+			"sortValue": "ORGANIC_DOWNLOAD_PERCENT",
+			"display_name": "Organic Download (%)",
+			"item_checked": true,
+			"item_key": "organic_download",
+			"item_id": 22
+		},
+		{
+			"sortValue": "PAID_DOWNLOAD_PERCENT",
+			"display_name": "Paid Download (%)",
+			"item_checked": true,
+			"item_key": "paid_download",
+			"item_id": 23
+		}
+	],
+	"single_report_dimension": [
+		{
+			"item_id": "1",
+			"api_key": "report_date",
+			"key": "Month",
+			"selected": false,
+			"child": false,
+			"api_Value": "MONTH",
+			"dimension_checked": true
+		},
+		{
+			"item_id": "2",
+			"api_key": "report_date",
+			"key": "Week",
+			"selected": false,
+			"child": false,
+			"api_Value": "WEEK",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "9",
+			"api_key": "report_date",
+			"key": "Year",
+			"selected": false,
+			"child": false,
+			"api_Value": "YEAR",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "3",
+			"api_key": "au_display_name",
+			"key": "Ad Unit",
+			"selected": false,
+			"child": false,
+			"api_Value": "AD_UNIT",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "4",
+			"api_key": "country_name",
+			"key": "Country",
+			"selected": false,
+			"child": false,
+			"api_Value": "COUNTRY",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "5",
+			"api_key": "au_format",
+			"key": "Format",
+			"selected": false,
+			"child": false,
+			"api_Value": "FORMAT",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "6",
+			"api_key": "mobile_os_version",
+			"key": "Mobile OS Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "MOBILE_OS_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "7",
+			"api_key": "gma_sdk_version",
+			"key": "GMA SDK Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "GMA_SDK_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "8",
+			"api_key": "app_version",
+			"key": "App Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "APP_VERSION_NAME",
+			"dimension_checked": false
+		}
+	],
+	"retention_dimension": [
+		{
+			"item_id": "1",
+			"api_key": "ar_install_date",
+			"key": "Install Date",
+			"selected": false,
+			"child": false,
+			"api_Value": "INSTALL_DATE",
+			"dimension_checked": true
+		},
+		{
+			"item_id": "2",
+			"api_key": "app_version",
+			"key": "App Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "APP_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "3",
+			"api_key": "country",
+			"key": "Country",
+			"selected": false,
+			"child": false,
+			"api_Value": "COUNTRY",
+			"dimension_checked": false
+		}
+	],
+	"allInOne_dimension": [
+		{
+			"item_id": "1",
+			"api_key": "date",
+			"key": "Date",
+			"selected": false,
+			"child": false,
+			"api_Value": "DATE",
+			"dimension_checked": true
+		},
+		{
+			"item_id": "2",
+			"api_key": "app_version",
+			"key": "App Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "APP_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "3",
+			"api_key": "country",
+			"key": "Country",
+			"selected": false,
+			"child": false,
+			"api_Value": "COUNTRY",
+			"dimension_checked": false
+		}
+	],
+	"monthly_analytics_metrics": [
+		{
+			"item_id": 1,
+			"item_name": "Apps",
+			"item_value": "apps_col",
+			"item_checked": true
+		},
+		{
+			"item_id": 2,
+			"item_name": "Country",
+			"item_value": "country_col",
+			"item_checked": false
+		},
+		{
+			"item_id": 3,
+			"item_name": "Month",
+			"item_value": "month_col",
+			"item_checked": false
+		},
+		{
+			"item_id": 4,
+			"item_name": "Cost",
+			"item_value": "total_cost_col",
+			"item_checked": true
+		},
+		{
+			"item_id": 5,
+			"item_name": "Revenue",
+			"item_value": "total_revenue_col",
+			"item_checked": true
+		},
+		{
+			"item_id": 6,
+			"item_name": "ROAS",
+			"item_value": "roas_col",
+			"item_checked": true
+		}
+	],
+	"all_apps_dimension": [
+		{
+			"item_id": "1",
+			"api_key": "report_date",
+			"key": "Month",
+			"selected": false,
+			"child": false,
+			"api_Value": "MONTH",
+			"dimension_checked": true
+		},
+		{
+			"item_id": "2",
+			"api_key": "report_date",
+			"key": "Week",
+			"selected": false,
+			"child": false,
+			"api_Value": "WEEK",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "3",
+			"api_key": "report_date",
+			"key": "Year",
+			"selected": false,
+			"child": false,
+			"api_Value": "YEAR",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "4",
+			"api_key": "au_display_name",
+			"key": "Ad Unit",
+			"selected": false,
+			"child": false,
+			"api_Value": "AD_UNIT",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "5",
+			"api_key": "country_name",
+			"key": "Country",
+			"selected": false,
+			"child": false,
+			"api_Value": "COUNTRY",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "6",
+			"api_key": "au_format",
+			"key": "Format",
+			"selected": false,
+			"child": false,
+			"api_Value": "FORMAT",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "7",
+			"api_key": "mobile_os_version",
+			"key": "Mobile OS Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "MOBILE_OS_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "8",
+			"api_key": "gma_sdk_version",
+			"key": "GMA SDK Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "GMA_SDK_VERSION",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "9",
+			"api_key": "app_version",
+			"key": "App Version",
+			"selected": false,
+			"child": false,
+			"api_Value": "APP_VERSION_NAME",
+			"dimension_checked": false
+		},
+		{
+			"item_id": "10",
+			"api_key": "app_display_name",
+			"key": "All Apps",
+			"selected": false,
+			"child": false,
+			"api_Value": "ALL_APPS",
+			"dimension_checked": false
+		}
+	]
+}

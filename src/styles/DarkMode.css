@@ -1,0 +1,1248 @@
+/** @format */
+
+:root {
+	--dark-color: #1c1c1d;
+	--dark-grey-color: #252728;
+	--dark-secondary-color: #3c3c3c;
+	--white-color: #fff;
+	--dark-red-color: #ff5e3b;
+	--dark-green-color: #04b488;
+	--border-color: #2e2e29;
+	--border-secondary-color: #838c96;
+	--hover-color: #ffffff1a;
+	--hover-secondary-color: #303233;
+	--secondary-color: #b8b8b8;
+	--light-bg-color: #3c3c3c;
+	--light-border-color: #80868b;
+	/* --dark-color: #121212;
+   --dark-grey-color: #1b1b1b;
+   --dark-secondary-color: #1f2937; */
+	/* --hover-secondary-color: #364459; */
+	/* --hover-color: #2a2a2a;
+   --hover-secondary-color: #2a2a2a; */
+}
+
+.more-button.more-open .more-box .downloadbtn {
+	padding: 6px 24px !important;
+	color: #5f6368;
+}
+
+.dark_mode,
+.dark_mode .app-bar-menu,
+.dark_mode .fix-box,
+.dark_mode .material-badge-product,
+.dark_mode .selectBox.show,
+.dark_mode .sidebar-open,
+/* .dark_mode .sidebar-wrap .logo-menu-box, */
+.dark_mode .material-callout,
+.dark_mode .blocking-spinner,
+.dark_mode .popup-full-wrapper,
+.dark_mode .more-button:after {
+	background: var(--dark-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .more-button.more-open .more-box .downloadbtn,
+.dark_mode .custom_login_wrap .login-logo p,
+.dark_mode .scan_box .scan_box_text,
+.dark_mode ~ .modal b,
+.dark_mode ~ .modal h5,
+.dark_mode ~ .modal ul li {
+	color: var(--white-color) !important;
+}
+
+.dark-tippy .new_custom_tooltip.cell_tooltip .tooltip_top {
+	color: var(--dark-color) !important;
+}
+
+.dark_mode .box-row,
+.dark_mode .custom-overview-select__menu,
+.dark_mode .custom_extra_menu_wrapper .custom-app-box.app_active,
+.dark_mode .table-container,
+.dark_mode .report-table-scroll .rdt_TableHead .rdt_TableCol,
+.dark_mode .report-table-scroll .rdt_TableHead .rdt_TableCol,
+.dark_mode .rdt_Table .rdt_TableBody .rdt_TableCell,
+.dark_mode .rdt_Table .rdt_TableBody .rdt_TableCell,
+.dark_mode .main-dimension-filter-box,
+.dark_mode .second-column-btn-inner,
+.dark_mode .custom_report_column span button,
+.dark_mode .custom_report_column button,
+.dark_mode .user-btn .profile-box,
+.dark_mode .rdt_TableHeadRow > div,
+.dark_mode .ready,
+.dark_mode .sidebar-wrap .logo-menu-box,
+.dark_mode .info-box-wrap .box-wrapper,
+.dark_mode .adunit-table-row .app-info-dashboard .app-item,
+.dark_mode .account-page-topbar .filter-bar-wrap,
+.dark_mode .analytics-page-topbar .filter-bar-wrap,
+.dark_mode .report-page-topbar .filter-bar-wrap,
+.dark_mode .report-table-popup-box .matrix-box,
+.dark_mode .particle-table-placeholder.noData,
+.dark_mode .rdt_TableHead .rdt_TableHeadRow,
+.dark_mode .rdt_TableBody .rdt_TableRow,
+.dark_mode .rdt_ExpanderRow,
+.dark_mode .popup-box-wrapper .box-wrapper .expanded-table tr th,
+.dark_mode .popup-box-wrapper .box-wrapper .expanded-table tr td,
+.dark_mode .segment-country-box .segment-search input,
+.dark_mode .d-content-btn,
+.dark_mode .country_prefix__control,
+.dark_mode .header_bottom_bar,
+.dark_mode .custom-search-filter .more-button,
+.dark_mode .section-menu,
+.dark_mode .sidebar-wrap,
+.dark_mode .notification-user-box,
+.dark_mode .popup-full-wrapper .action-bar-container,
+.dark_mode .account-page-topbar .more-button.three-icon-button,
+.dark_mode .report-page-topbar .more-button.three-icon-button,
+.dark_mode .header_top_bar,
+.dark_mode .popup-footer .d-content-btn,
+.dark_mode .three-icon-button,
+.dark_mode .custom_tan_stack_table .table_head_cell,
+.dark_mode .custom_tan_stack_table .table_raw,
+.dark_mode .custom_tan_stack_table .table_raw .table_cell,
+.dark_mode .custom_tan_stack_table .table_raw:nth-child(odd) .table_cell,
+.dark_mode ~ .modal .formula-box,
+.dark_mode ~ .modal .math-block {
+	background: var(--dark-grey-color) !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .redirect_link_wrap .redirect_btn,
+.dark_mode .empty_day .calendar-hover,
+.dark_mode .calendar-hover.weekly_total,
+.dark_mode .calendar-hover.zero-val,
+.dark_mode .custom_week_header > div:first-child,
+.dark_mode .custom_week_header > div,
+.dark_mode .user_country_graph_wrap {
+	background: var(--dark-grey-color) !important;
+	border-color: var(--light-border-color) !important;
+}
+
+.dark_mode .custom-overview-select__option,
+.dark_mode .custom-overview-select__menu-list,
+.dark_mode .more_btn_box .more_btn_item,
+.dark_mode .rdt_TableHeadRow .category-item,
+.dark_mode .search-result-box,
+.dark_mode .more-box a,
+.dark_mode .search-result-box .app-item,
+.dark_mode .full-and-multi-filter .apply-btn-wrap,
+.dark_mode .more-box,
+.dark_mode .app-line-chart-box .canvasjs-chart-tooltip > div,
+.dark_mode .custom-breakeven-tooltip,
+.dark_mode .ltv_graph_wrap .canvasjs-chart-tooltip > div,
+.dark_mode .ltv_tooltip,
+.dark_mode .country_prefix__menu,
+.dark_mode .country_prefix__option .dark_mode .add-permission-form-select .css-tr4s17-option,
+.dark_mode .add-permission-form-select .css-10wo9uf-option,
+.dark_mode .add-permission-form-select .css-d7l1ni-option,
+.dark_mode ~ .popup-modal-wrap .modal-content,
+.dark_mode ~ .basic-modal-wrap .modal-content,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box .snByac span,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__single-value .app-item,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__option .app-item,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__multi-value__label .app-item,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__multi-value,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select-css__multi-value,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select-css__multi-value__label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select-css__multi-value__label
+	.app-item,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input:-webkit-autofill,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input:-webkit-autofill:hover,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input:-webkit-autofill:focus,
+.dark_mode .tooltip-box,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input:-webkit-autofill:active,
+.dark_mode .menu-box-user,
+.dark_mode .input_otp_box input,
+.dark_mode .rmdp-ep-arrow:after,
+.dark_mode .rmdp-wrapper,
+.dark_mode .custom_month_range__menu-list,
+.dark_mode ~ .basic-modal-wrap .modal-content .input-box.react-select > div > div,
+.dark-tippy .copyMessage,
+.dark-tippy .custom-tooltip .copyMessage,
+.dark-tippy .new_custom_tooltip,
+.dark_mode .line-chart-box .canvasjs-chart-tooltip > div,
+.dark_mode .popup-footer .app-picker-footer,
+.dark_mode .popup-wrapper,
+.dark_mode .menu-popup-box .popup-wrapper .app-item,
+.dark_mode .popup-footer .d-content-btn,
+.dark_mode .profile-box .button-box,
+.dark-tippy .profile-box .button-box,
+.dark_mode .popup-footer .sign-btn,
+.dark-tippy .popup-footer .sign-btn,
+.dark_mode .popup-footer .dark-btn-option,
+.dark_mode .box-check .app-item,
+.dark_mode .right-result-row .app-item,
+.dark_mode .rdrStaticRange,
+.dark_mode .rdrCalendarWrapper,
+.dark_mode .rdrNextPrevButton,
+.dark_mode .rdrNextPrevButton,
+.dark_mode .search-icon-btn.i-btn,
+.dark_mode .clear-icon-btn.i-btn,
+.dark_mode .rdrDefinedRangesWrapper,
+.dark-tippy .tippy_content_submenu,
+.dark-tippy .tippy_content_submenu .app-item,
+.dark-tippy .tippy_content_submenu .primary-label,
+.dark-tippy .tippy_content_submenu .primary-label:hover,
+.dark-tippy .tippy_content_submenu .d-content-btn,
+.dark-tippy .group_select_footer,
+.dark_mode .ggV2,
+.dark_mode .ggV2 .app-item,
+.dark_mode .ggV2 .ggV2__searchInput {
+	background: var(--dark-secondary-color) !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark-tippy .tippy_extra_submenu .custom_extra_menu,
+.dark-tippy .tippy_extra_submenu .custom_extra_menu .section-menu {
+	background: var(--dark-secondary-color) !important;
+	color: var(--white-color) !important;
+	border: 0 !important;
+}
+
+.dark_mode .view-all-apps .copy-text .copyMessage::after {
+	border-color: var(--dark-secondary-color) !important;
+}
+
+.dark_mode .copy-text.label-value .copyMessage {
+	background: var(--light-bg-color) !important;
+}
+
+.dark-tippy .app-insight-col .copy-text .copyMessage::after {
+	border-color: var(--dark-secondary-color) !important;
+}
+
+.dark_mode .input-box.react-select > div > div,
+.dark_mode ~ .server-info-height .modal-content,
+.dark_mode ~ .info-modal-start .modal-content,
+.dark_mode ~ div:where(.swal2-container) div:where(.swal2-popup),
+.dark_mode .login-box,
+.dark_mode .custom_week_body .calendar-rows > .day:first-child,
+.dark_mode ~ .log_extra_modal .modal-content {
+	background: var(--dark-secondary-color) !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .filter-box .filter-btn {
+	background: #323232 !important;
+}
+
+.dark_mode .filter-box .filter-btn.btn-active {
+	background: var(--light-bg-color) !important;
+	border-color: var(--light-border-color) !important;
+}
+
+.dark_mode .month_range_filter .custom_month_range__control,
+.dark-tippy .group_select_menu .group_select_list,
+.dark-tippy .search-btn-input {
+	background: var(--light-bg-color) !important;
+	color: var(--white-color) !important;
+}
+.dark-tippy .search-btn-input::placeholder {
+	color: var(--secondary-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap,
+.dark_mode .heatmap_calendar .single-date-picker-wrap .rmdp-container .rmdp-input {
+	background: #323232 !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap.date_selected {
+	background: var(--light-bg-color) !important;
+	border: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap.date_selected .rmdp-container .rmdp-input {
+	background: var(--light-bg-color) !important;
+}
+
+.dark_mode .month_range_filter .custom_month_range__control {
+	border: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .ggV2,
+.dark_mode .ggV2__rightHead,
+.dark_mode .ggV2__search,
+.dark_mode .ggV2__left {
+	border-color: var(--light-border-color) !important;
+}
+
+.dark_mode .custom_week_header,
+.dark_mode .header_top_bar {
+	border-bottom: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .full-and-multi-filter .check-boxes-inner .box-check .app-item:hover {
+	background: transparent !important;
+}
+
+.dark_mode .analytics-table.analytics-campaign-table .rdt_TableHead .rdt_TableCol,
+.dark_mode .sidebar-open,
+.dark_mode .modal-content {
+	background-color: var(--dark-grey-color) !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .checkbox_popover {
+	background: var(--dark-secondary-color) !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .scorecard-name,
+.dark_mode h6,
+.dark_mode h5,
+.dark_mode h4,
+.dark_mode h3,
+.dark_mode h2,
+.dark-tippy h2,
+.dark_mode h1,
+.dark_mode .sm-title,
+.dark_mode table th,
+.dark_mode table td,
+.dark_mode .custom-overview-select__single-value,
+.dark_mode .app-item .primary-label,
+.dark_mode .more-box a span,
+.dark_mode .single_app_report .rdt_TableHead .rdt_TableCol_Sortable:hover .report_column_title,
+.dark_mode .custom_allInOne_table .rdt_TableHead .rdt_TableCol_Sortable .report_column_title,
+.dark_mode .info-box-wrap .box .content-box,
+.dark_mode .copy-text .copy-btn,
+.dark_mode .filter-box .filter-btn,
+.dark_mode .primary-percentage-label,
+.dark_mode .show-button,
+.dark_mode .box-check .search-title,
+.dark_mode .campagin-filter .box-check .primary-label,
+.dark_mode .noResult p,
+.dark_mode .report-table-popup-box .rdt_Table div:first-child,
+.dark_mode .settings-table-wrap .rdt_Table div,
+.dark_mode .dimension-box .dimension-title,
+.dark_mode .more-box .material-icons svg,
+.dark_mode .more-box .border-box-icon svg,
+.dark_mode .getting-item span,
+.dark_mode .particle-table-placeholder .empty-table-text,
+.dark_mode .topbar-search::placeholder,
+.dark_mode .result-cancel-btn.i-btn,
+.dark_mode .single_app_search_inner input::placeholder,
+.dark_mode .primary-label,
+.dark_mode .rdrDays .rdrDayNumber,
+.dark_mode .rdrDayNumber span,
+.dark_mode .country-text,
+.dark_mode .rdrMonthAndYearPickers select,
+.dark_mode .search-btn-input::placeholder,
+.dark_mode .custom-search-filter.unit-search input::placeholder,
+.dark_mode .search-input input,
+.dark_mode .search_menu_box input,
+.dark_mode .single_app_search_inner input,
+.dark_mode .custom-search-filter.unit-search input,
+.dark_mode .custom_campaign_tooltip .label-value,
+.dark_mode .breakeven-header,
+.dark_mode .breakeven-country,
+.dark_mode .breakeven-days,
+.dark_mode .ltv_title,
+.dark_mode .tab-top-bar .tab-item.tab-active,
+.dark_mode .tab-top-bar .tab-item,
+.dark_mode .rdt_TableRow button[data-testid='expander-button-undefined'],
+.dark_mode .country_prefix__option,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box .snByac,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .add-user-select__single-value,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .setting-select__single-value,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__option__single-value,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__option
+	.app-item
+	.primary-label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__option
+	.app-item
+	.primary-label:hover,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__single-value
+	.app-item
+	.primary-label,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .setting-select__multi-value__label,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .add-user-select__placeholder,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .setting-select__input-container,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .app-select__input-container,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__multi-value__label
+	.app-item
+	.primary-label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__multi-value__label
+	.app-item
+	.secondary-label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select-css__multi-value__label
+	.app-item
+	.primary-label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select-css__multi-value__label
+	.app-item
+	.secondary-label,
+.dark_mode .rdt_TableHeadRow div,
+.dark_mode .content-container p,
+.dark_mode .menu-item-user,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box input,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box textarea,
+.dark_mode .sub-text,
+.dark_mode .input-box input,
+.dark_mode .input-box textarea,
+.dark_mode ~ .face-login-model .face-disclaimer,
+.dark_mode .rdt_TableCell .getting-item .badge-soft-success.fw-normal,
+.dark_mode .countdown,
+.dark_mode .month_range_filter .custom_month_range__single-value,
+.dark_mode .single-date-picker-wrap .rmdp-container .rmdp-input::placeholder,
+.dark_mode .rmdp-week-day,
+.dark_mode .rmdp-header-values,
+.dark_mode .rmdp-day,
+.dark_mode .rmdp-week-day,
+.dark_mode .custom_month_range__option,
+.dark_mode .calendar-hover .cost-revenue,
+.dark_mode .calendar-hover .cost-revenue,
+.dark_mode .header_bottom_bar .header_value .copy-text .cost-roas,
+.dark_mode .calendar-date,
+.dark_mode
+	.rdt_Table
+	.rdt_TableBody
+	.rdt_TableCell
+	.table-report-value.value
+	.secondary-percentage-label,
+.dark_mode
+	.rdt_Table
+	.rdt_TableBody
+	.rdt_TableCell
+	.this-month-cell.value
+	.secondary-percentage-label,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.setting-select__value-container
+	.setting-select__placeholder,
+.dark_mode .custom-clear-all,
+.dark_mode .apply-btn,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__value-container
+	.app-select__placeholder,
+.dark_mode .rdt_Table .app-units,
+.dark_mode .getting-item span,
+.dark_mode .app-bar-menu .custom-search-filter input,
+.dark_mode .error_expand_box strong,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box > input,
+.dark_mode .popup-footer .dark-btn-option .theme-option span,
+.dark_mode .theme-option:hover svg,
+.dark_mode .rdrWeekDay,
+.dark_mode .rdrMonthName,
+.dark_mode b,
+.dark_mode strong,
+.dark_mode .server-info-head {
+	color: var(--white-color) !important;
+}
+
+.dark_mode .check-boxes-inner label,
+.dark_mode .country_prefix__indicator > svg,
+.dark_mode .remove-app-option > svg > path {
+	fill: var(--white-color) !important;
+}
+
+.dark_mode .app-item .primary-label:hover {
+	color: var(--white-color) !important;
+}
+
+.dark_mode .section-menu.active,
+.dark_mode .content-btn.bg-btn,
+.dark_mode .custom-overview-select__option--is-focused.custom-overview-select__option--is-selected,
+.dark_mode .custom-overview-select__option--is-selected,
+.dark_mode .more-box a:hover,
+.dark_mode .more-box .border-box:hover,
+.dark_mode .category-item:hover,
+.dark_mode .ready,
+.dark_mode .filter-title-box,
+.dark_mode .rdrSelected,
+.dark_mode .rdrInRange,
+.dark_mode .rdrStartEdge,
+.dark_mode .rdrEndEdge,
+.dark_mode .getting-item,
+.dark_mode .hover_tooltip_box .hover_tooltip,
+.dark_mode input:checked+.slider:before,
+.dark_mode .custom_pagination .page-item.active,
+.dark_mode .country_prefix__option--is-focused,
+.dark_mode .country_prefix__option--is-selected,
+.dark_mode .edit-icon-user,
+.dark_mode .custom-column .badge.badge-soft-info,
+.dark_mode .custom-column .badge.badge-soft-success,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .d-content-btn.bg-btn,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .d-content-btn:not(.view-all-app.d-content-btn):hover,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .add-user-select__option--is-selected,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .add-user-select__option--is-focused.add-user-select__option--is-selected,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .setting-select__option--is-focused,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .setting-select__option--is-selected,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select__option--is-focused,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select__option--is-selected,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select__option--is-focused .app-item,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select__option--is-selected .app-item,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .setting-select__multi-value,
+.dark_mode .button-top-wrap .d-content-btn,
+.dark_mode~.server-info-height .modal-content .modal-body .close-btn-modal .d-content-btn,
+.dark_mode~.info-modal-start .modal-content .modal-body .close-btn-modal .d-content-btn,
+.dark_mode~div:where(.swal2-container) .swal2-confirm,
+.dark_mode .form-wrap .login_otp_btn,
+.dark_mode .otp_button_wrap button,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .account-info-modal .d-content-btn,
+.dark_mode .custom_month_range__option--is-selected,
+.dark_mode .custom_month_range__option--is-focused,
+.dark_mode .more-button .more-box .border-box:hover,
+.dark_mode~.log_extra_modal .modal-content .close-btn-modal .d-content-btn,
+/* .dark_mode .login_otp_btn.active, */
+/* .dark_mode .login_otp_btn.active:hover, */
+.dark_mode .tab-slider,
+.dark-tippy .tippy_extra_submenu .custom_extra_menu .section-menu.active {
+	background-color: var(--dark-green-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .d-content-btn,
+.dark_mode .login-wrapper .form-wrap .login_otp_btn:hover,
+.dark_mode .otp_button_wrap button[type='submit']:hover {
+	background-color: #dffaf2 !important;
+	color: var(--dark-green-color) !important;
+}
+
+.dark_mode input:checked + .slider {
+	background-color: #dffaf2 !important;
+}
+
+.dark_mode .otp_button_wrap .resend_time_btn.timer_off {
+	background-color: #dffaf2 !important;
+	color: var(--dark-green-color) !important;
+}
+
+.dark-tippy .new_custom_tooltip::before {
+	border-right: 6px solid var(--dark-secondary-color);
+}
+
+.dark_mode .external-link-icon,
+.dark_mode .content-btn,
+.dark_mode .unit-table .copy-box .unit-name,
+.dark_mode .Account-table-scroll .rdt_Table .revenue-increase,
+.dark_mode .Account-table-scroll .rdt_Table .ecpm-increase,
+.dark_mode .Account-table-scroll .rdt_Table .impression-increase,
+.dark_mode .custom_unit_select .report_prev_value.highlight-positive,
+.dark_mode .custom_unit_select .report_prev_total.highlight-positive,
+.dark_mode .shimmer-spinner .text-secondary,
+.dark_mode .d-content-btn,
+.dark_mode .text-success,
+.dark_mode .email_change_link a,
+.dark_mode .custom-date-picker .rdrStaticRange.rdrStaticRangeSelected,
+.dark_mode .ggV2__clearAll {
+	color: var(--dark-green-color) !important;
+}
+
+.dark_mode
+	.home_date_select
+	.overview-select
+	.custom-overview-select__control.custom-overview-select__control--menu-is-open,
+.dark_mode .input-box:has(.input.text-add) {
+	border-color: var(--dark-green-color) !important;
+}
+
+.dark_mode .custom_login_tab button.login_otp_btn:not(.active),
+.dark_mode
+	.home_date_select
+	.overview-select
+	.custom-overview-select__control.custom-overview-select__control--menu-is-open
+	.custom-overview-select__indicators
+	svg {
+	color: var(--dark-green-color) !important;
+}
+
+.dark_mode .app-info-dashboard .app-overview-format > span,
+.dark_mode .sorting-description-label,
+.dark_mode .secondary-label,
+.dark_mode .time-stamp,
+.dark_mode .label-name,
+.dark_mode .button-box .text-box div,
+.dark-tippy .button-box .text-box div,
+.dark_mode .secondary-percentage-label,
+.dark-tippy .secondary-label,
+.dark_mode .group_settings_modal input::placeholder {
+	color: var(--secondary-color) !important;
+}
+
+.dark_mode .report-table-scroll.statistics_table .rdt_TableBody > div:last-child,
+.dark_mode .report-table-scroll.statistics_table .rdt_TableBody > div,
+.dark_mode .rdt_Table .rdt_TableBody > div:last-child,
+.dark_mode .rdt_Table .rdt_TableBody > div,
+.dark_mode .custom-search-filter,
+.dark_mode .custom-search-filter input,
+.dark_mode .line-chart-box .canvasjs-chart-tooltip > div {
+	border-color: var(--border-color) !important;
+	outline-color: var(--border-color) !important;
+}
+
+.dark_mode .rdt_TableBody .rdt_TableRow:hover .rdt_TableCell,
+.dark_mode
+	.new_parent_wrap
+	.custom_right_box
+	.right-box-wrap
+	.rdt_Table
+	.rdt_TableCell.hovered_column,
+.dark_mode
+	.new_parent_wrap
+	.custom_right_box
+	.right-box-wrap
+	.rdt_Table
+	.rdt_TableCol.hovered_column,
+.dark_mode .custom_tan_stack_table .table_raw:hover,
+.dark_mode .custom_tan_stack_table .table_raw:hover .table_cell,
+.dark_mode .table_without_virtualization table > tbody > tr:hover:not(.expanded_row),
+.dark_mode .table_without_virtualization table > tbody > tr:hover:not(.expanded_row) > td {
+	background-color: var(--hover-secondary-color) !important;
+	border-color: var(--border-color) !important;
+}
+
+.dark_mode .custom_tan_stack_table table .table_head .table_head_cell.hovered_column,
+.dark_mode .custom_tan_stack_table table .table_head .table_head_cell.hovered_column button,
+.dark_mode .custom_tan_stack_table table .table_raw .table_cell.hovered_column,
+.dark_mode .table_without_virtualization table > tbody > tr .hovered_column {
+	background-color: var(--hover-secondary-color) !important;
+}
+
+.dark_mode .fixed-columns .rdt_TableBody .rdt_TableRow:hover {
+	background: var(--dark-grey-color) !important;
+}
+
+/* .dark_mode .full-and-multi-filter .check-boxes-inner .box-check .app-item:hover {
+   background-color: var(--dark-grey-color) !important ;
+ } */
+
+.dark_mode .section-menu.report-nav:not(.active):hover,
+.dark_mode .menu-popup-box.hover-active .sub-menu,
+.dark_mode .rdrStaticRange:hover .rdrStaticRangeLabel,
+.dark_mode .rdrStaticRange:focus .rdrStaticRangeLabel,
+.dark_mode .rdrDayDisabled,
+.dark_mode .topBar-search .searched-box a:hover,
+.dark_mode .custom-date-picker .rdrStaticRange.rdrStaticRangeSelected,
+.dark_mode .rdrDayDisabled,
+.dark_mode .app-select-css .app-item:hover,
+.dark_mode .dimension_dropdown .border-box label:hover {
+	background: var(--hover-secondary-color) !important;
+}
+
+.dark_mode .result-box:hover,
+.dark_mode .box-check label:hover,
+/* .dark_mode .box-check label:hover .custom-app-box, */
+/* .dark_mode .full-and-multi-filter .check-boxes-inner .box-check .app-item:hover, */
+.dark_mode .ad-unit-filter .all-select-row .select-dropdown .group-input-flex:hover,
+.dark_mode .ad-unit-filter .all-select-row .select-dropdown.group-select-all:hover,
+.dark_mode .right-result-row .app-item:hover,
+.dark_mode .new_parent_wrap .home-overview .custom-search-filter input:focus,
+.dark_mode .new_parent_wrap .app-overview .custom-search-filter input:focus,
+.dark_mode .new_parent_wrap .app-overview .custom-search-filter input:hover,
+.dark_mode .custom-search-filter.unit-search input:focus,
+.dark_mode .new_parent_wrap .home-overview .custom-search-filter input:hover,
+.dark_mode .new_parent_wrap .app-overview .custom-search-filter input:hover,
+.dark_mode .apply-btn:hover,
+.dark_mode .ggRow--clickable:hover,
+.dark_mode .ggV2__row:hover,
+.dark_mode .ggV2__selectAll:hover,
+.dark_mode .ggV2__selectedRow:hover,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .add-user-select__option--is-focused:not(.add-user-select__option--is-selected) {
+	background-color: var(--hover-color) !important;
+}
+
+.dark_mode .box-check label:hover .custom-app-box {
+	background-color: transparent !important;
+}
+
+.dark_mode .menu-popup-box .popup-wrapper .app-item:hover,
+.dark-tippy .menu-popup-box .popup-wrapper .app-item:hover,
+.dark_mode .popup-footer .sign-btn:hover,
+.dark-tippy .popup-footer .sign-btn:hover,
+.dark_mode .menu-item-user:hover,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .custom_switch_label:hover,
+.dark_mode .custom-overview-select__option--is-focused,
+.dark_mode .app-bar-menu .custom-search-filter input:hover,
+.dark-tippy .group_select_menu .group_select_list:hover {
+	background-color: var(--hover-secondary-color) !important;
+}
+
+.dark_mode .shimmer-spinner.overlay-spinner,
+.dark_mode .disabled-div {
+	background-color: #393838 !important;
+	opacity: 0.5 !important;
+}
+
+.dark_mode .shimmer-spinner.overlay-spinner.white-spinner .spinner-border {
+	color: var(--dark-green-color) !important;
+}
+
+.dark_mode .apply-btn:hover {
+	background-color: var(--dark-secondary-color) !important;
+}
+
+.dark_mode .copy-text.label-value .copyMessage::after,
+.dark_mode .content-box .copy-text .copyMessage::after {
+	border-color: var(--light-bg-color) !important;
+}
+
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.input-box.react-select
+	> div
+	> div:focus
+	.dark_mode
+	.input-box.react-select
+	> div
+	> div:focus {
+	border: 2px solid var(--dark-green-color);
+}
+
+.dark_mode .line-chart-box .canvasjs-chart-tooltip>div,
+.dark_mode .popup-wrapper,
+.dark_mode .unit-table .custom-search-filter.unit-search input,
+.dark_mode .filter-box .filter-btn,
+.dark_mode .more-box,
+.dark_mode .app-info .app-item,
+.dark_mode table.app-performance-table tr:not(:last-child),
+/* .dark_mode .redirect_link_wrap .redirect_btn, */
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select__multi-value,
+.dark_mode~.popup-modal-wrap .modal-content .modal-body .app-select-css__multi-value__label,
+.dark_mode .dimension-value {
+	border: 1px solid var(--border-color) !important;
+}
+
+.dark_mode .calendar-main-box > div,
+.dark_mode .copy-text .copy-btn,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box > input,
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box textarea,
+.dark_mode ~ .basic-modal-wrap .modal-content .input-box.react-select > div > div,
+.dark_mode ~ .basic-modal-wrap .modal-content .input-box.react-select .app-select__multi-value,
+.dark_mode
+	.popup-box-wrapper
+	.box-wrapper
+	.analytics-expandable-property-table
+	.expanded-table
+	tr
+	th,
+.dark_mode
+	.popup-box-wrapper
+	.box-wrapper
+	.analytics-expandable-property-table
+	.expanded-table
+	tr
+	td,
+.dark_mode .heatmap_capsule {
+	border: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .calendar-hover.weekly_total,
+.dark_mode .heatmap_capsule .capsule_wrap.left-wrap {
+	border-right: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .new_parent_wrap .sidebar-wrap,
+.dark_mode .left-check-box {
+	border-right: 1px solid var(--border-color) !important;
+}
+
+.dark_mode .sub-menu-box {
+	border-top: 1px solid var(--border-color) !important;
+	border-bottom: 1px solid var(--border-color) !important;
+}
+
+.dark_mode .section-container,
+.dark_mode .info-box-wrap .box {
+	border-top: 1px solid var(--border-color) !important;
+}
+
+.dark_mode .custom-search-filter.unit-search,
+.dark_mode .search-input,
+.dark_mode .none-selected-text,
+.dark_mode .dimension-value .dimension-name,
+.dark_mode .calendar-hover.weekly_total,
+.dark_mode .app-bar-menu {
+	border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* .dark_mode .calendar-main-box .calendar-rows > div:not(:last-child, :first-child):nth-child(even) {
+   border-right: 1px solid var(--light-border-color) !important;
+   border-left: 1px solid var(--light-border-color) !important;
+ }
+ .calendar-main-box .calendar-rows:not(:last-child, :first-child):nth-child(even) > div {
+   border-top: 1px solid var(--light-border-color) !important;
+   border-bottom: 1px solid var(--light-border-color) !important;
+ } */
+.dark_mode .rmdp-ep-arrow[direction='top'] {
+	border-bottom: var(--dark-secondary-color) !important;
+}
+
+.dark_mode .custom-date-picker .rdrStaticRange.rdrStaticRangeSelected {
+	border-left: 3px solid #006149 !important;
+}
+
+.dark_mode .adunit-table-headrow,
+.dark_mode .app-info-dashboard,
+.dark_mode .line-chart,
+.dark_mode .app-info-dashboard .line-chart,
+.dark_mode .heatmap-page-topbar .right-bar-wrap {
+	background: var(--dark-grey-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .section-menu svg.new_icon > path {
+	fill: var(--white-color) !important;
+}
+
+.dark_mode .report-table-scroll .rdt_TableHeadRow:hover .rdt_TableCol .resizer-area,
+.dark_mode .table-scroll-analytics .rdt_TableHeadRow:hover .rdt_TableCol .resizer-area {
+	border-right: 1px solid var(--dark-green-color) !important;
+}
+
+.dark_mode .report-table-scroll .rdt_TableHeadRow .rdt_TableCol .resizer-area:hover,
+.dark_mode .table-scroll-analytics .rdt_TableHeadRow .rdt_TableCol .resizer-area:hover {
+	border-right: 1px solid var(--dark-green-color) !important;
+}
+
+.dark_mode .particle-table-placeholder.noData {
+	margin-bottom: unset !important;
+}
+
+.dark_mode .rdrPprevButton i {
+	border-color: transparent var(--white-color) transparent transparent;
+}
+
+.dark_mode .rdrNextButton i {
+	border-color: transparent transparent transparent var(--white-color);
+}
+
+.dark_mode .rmdp-arrow {
+	border: solid var(--white-color);
+	border-width: 0 2px 2px 0;
+}
+
+.dark_mode .custom-breakeven-tooltip::before {
+	border-right: 6px solid var(--dark-green-color) !important;
+}
+
+.dark_mode .report-table-box.error_table_box .custom_log_table .log_details_btn {
+	background-color: var(--dark-green-color);
+	color: var(--white-color);
+}
+
+.dark_mode .tab-top-bar .tab-item:before {
+	background-color: var(--white-color) !important;
+}
+
+.dark_mode .tab-top-bar .tab-item.tab-active:hover,
+.dark_mode .tab-top-bar .tab-item:hover {
+	background-color: unset !important;
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box:has(.input.text-add),
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .input-box:has(.input.input-active) {
+	border-color: 2px solid var(--dark-green-color) !important;
+	border: 1px solid var(--dark-green-color) !important;
+}
+
+.dark_mode .sidebar-wrap .logo-menu-box img,
+.dark_mode .logo.login-logo img,
+.dark_mode .logo-menu-box img {
+	filter: brightness(0) invert(1);
+}
+
+.dark_mode .box2 .tooltip-row .help_icon,
+.dark_mode .scan_box svg path {
+	fill: var(--white-color) !important;
+}
+
+.menu-item-user.delete {
+	color: #e53935 !important;
+}
+
+.dark_mode .section-menu svg > g,
+.dark_mode .login-logo svg path,
+.dark_mode .analytics_campaign_select_wrap .remove_icon svg path,
+.dark_mode .section-menu.active svg.new_icon path {
+	fill: white !important;
+}
+
+/* .dark_mode .custom_week_header > div:first-child {
+   background-color: rgb(224 224 224 / 19%) !important;
+} */
+
+.dark_mode .calendar-hover .cost-revenue {
+	color: #ffffff;
+}
+
+.dark_mode .tooltip-inner .tooltip-value .prefix.first::before {
+	background-color: #a3c0f9 !important;
+}
+
+.app-insights-box .shimmer-spinner.overlay-spinner {
+	z-index: 6 !important;
+	min-height: 183px;
+}
+
+.app-insights-box .popup-box-wrapper {
+	margin: unset !important;
+}
+
+.app-insights-topbar {
+	margin-bottom: 12px;
+}
+
+.dark_mode .particle-table-placeholder svg g g circle {
+	fill: var(--dark-grey-color);
+}
+
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.setting-select__control.setting-select__control--is-focused.setting-select__control--menu-is-open,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__control.app-select__control--is-focused.app-select__control--menu-is-open,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.analytics-setting-select
+	.analytics-select__control.analytics-select__control--is-focused.analytics-select__control--menu-is-open,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.analytics_campaign_select_wrap
+	.country_prefix__control.country_prefix__control--is-focused.country_prefix__control--menu-is-open,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.country_prefix__control.country_prefix__control--is-focused.country_prefix__control--menu-is-open {
+	box-shadow: 0 0 0 1px var(--dark-green-color);
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body input:-webkit-autofill {
+	box-shadow: 0 0 0 30px var(--dark-secondary-color) inset !important;
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .add-user-select {
+	box-shadow: 0 0 0 30px var(--dark-secondary-color) inset !important;
+}
+
+.dark_mode .theme-option.active svg,
+.dark-tippy .theme-option.active svg,
+.dark_mode .popup-footer .dark-btn-option .theme-option.active span,
+.dark-tippy .server-info-head,
+.dark-tippy .ip-head {
+	color: var(--white-color) !important;
+}
+
+.dark_mode .theme-option.active {
+	background-color: var(--dark-green-color);
+}
+
+.dark_mode .theme-option {
+	background-color: var(--dark-secondary-color);
+}
+
+.dark_mode .theme-option:hover:not(.active) {
+	background-color: var(--hover-secondary-color);
+}
+
+.dark_mode .card-footer .content-btn {
+	background-color: transparent !important;
+}
+
+.dark_mode .custom_login_wrap .custom_video_box .scan_box {
+	background: linear-gradient(to bottom right, #b6d5ff, #dbb9ff);
+}
+
+.dark_mode .otp_verification_wrapper .input_otp_box > input {
+	border-color: #e2e2e2 !important;
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .secondary-label {
+	color: var(--secondary-color);
+}
+
+.dark_mode .redirect_link_wrap .redirect_btn:not(:last-child) svg path {
+	fill: var(--white-color);
+}
+
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.app-select__control.app-select__control--is-focused,
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.setting-select__control.setting-select__control--is-focused,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.analytics-setting-select
+	.analytics-select__control.analytics-select__control--is-focused,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.analytics_campaign_select_wrap
+	.country_prefix__control.country_prefix__control--is-focused,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.country_prefix__control.country_prefix__control--is-focused.country_prefix__control--menu-is-open,
+.dark_mode
+	.rdt_TableBody
+	.rdt_TableCell
+	.country_prefix__control.country_prefix__control--is-focused {
+	box-shadow: 0 0 0 1px var(--dark-green-color) !important;
+}
+
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.setting-select__option--is-focused:not(.setting-select__option--is-selected),
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.country_prefix__option--is-focused:not(.country_prefix__option--is-selected),
+.dark_mode
+	.custom_month_range__menu
+	.custom_month_range__option--is-focused:not(.custom_month_range__option--is-selected) {
+	background-color: var(--hover-secondary-color) !important;
+}
+
+.country_prefix__control .country_prefix__single-value {
+	color: var(--white-color);
+}
+
+.dark_mode .particle-table-placeholder svg g g circle {
+	fill: #afafaf;
+}
+
+.dark_mode .view-all-apps .copy-text .copyMessage::after,
+.dark_mode .scorecard .copy-text .copyMessage::after {
+	border-color: var(--dark-secondary-color) !important;
+}
+
+.dark_mode .hover_tooltip_box .hover_tooltip::before {
+	border-color: var(--dark-green-color) transparent transparent transparent !important;
+}
+
+.dark_mode
+	~ .popup-modal-wrap
+	.modal-content
+	.modal-body
+	.omit_modal_switch_box
+	.custom_switch_label
+	.omit_check_icon
+	path,
+.dark_mode .custom_camera_indicator svg path {
+	fill: var(--dark-green-color) !important;
+}
+
+.dark_mode ~ .popup-modal-wrap .modal-content .modal-body .custom_switch_label.omitted span {
+	color: var(--secondary-color);
+}
+
+.dark_mode .single_app_report_table .custom_column_icon:hover {
+	background-color: var(--hover-secondary-color) !important;
+}
+
+.dark_mode .single_app_report .rdt_TableCol .rdt_TableCol_Sortable:hover svg {
+	opacity: 0.8 !important;
+}
+
+.dark_mode .rdrDayDisabled,
+.dark_mode .rdrDayPassive {
+	opacity: 0.5 !important;
+}
+
+.dark_mode .box-check span:nth-child(2) {
+	color: var(--white-color);
+}
+
+.dark_mode .custom_pagination .page-item.active {
+	border-color: var(--dark-green-color);
+}
+
+.dark_mode .rdt_Table {
+	background-color: var(--dark-grey-color);
+}
+
+.dark_mode .drag-icon,
+.dark_mode .drag-icon-matrix {
+	opacity: 0.5 !important;
+}
+
+.omit-class:hover .drag-icon,
+.dark_mode .dimension-name.active:hover .drag-icon-matrix {
+	opacity: 1 !important;
+}
+
+.dark_mode .filter-box .filter-btn.btn-active {
+	background: #2fddb136 !important;
+	border-color: var(--light-border-color) !important;
+}
+
+.dark_mode .month_range_filter .custom_month_range__control {
+	background: #2fddb136 !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap,
+.dark_mode .heatmap_calendar .single-date-picker-wrap .rmdp-container .rmdp-input,
+.dark_mode .custom_extra_menu .section-menu:not(.active):hover,
+.dark-tippy .tippy_extra_submenu .custom_extra_menu .section-menu:not(.active):hover {
+	background: #323232 !important;
+	border-color: var(--border-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap.date_selected {
+	background: #2fddb136 !important;
+	border: 1px solid var(--light-border-color) !important;
+}
+
+.dark_mode .heatmap_calendar .single-date-picker-wrap.date_selected .rmdp-container .rmdp-input {
+	background: rgb(44 78 70) !important;
+}
+
+/* general select */
+.dark_mode .general_select__control {
+	background-color: transparent !important;
+	border: 1px solid #80868b !important;
+}
+
+.dark_mode .general_select__control--is-focused {
+	box-shadow: none !important;
+}
+
+.dark_mode .general_select__single-value,
+.dark_mode select {
+	color: var(--white-color) !important;
+}
+
+.dark-tippy .general_select__menu {
+	background: var(--dark-secondary-color) !important;
+	color: var(--white-color) !important;
+}
+
+.dark-tippy .custom_logout_modal .swal2-icon-content img {
+	filter: brightness(2);
+}
+
+.dark_mode
+	~ .basic-modal-wrap.group_edit_modal
+	.modal-content
+	.input-box.react-select
+	> .app-select-css
+	> div:last-child {
+	border: none !important;
+}
+
+.dark_mode .tooltip-row .material-icons {
+	color: rgba(255, 255, 255, 50%);
+}
+
+.dark_mode .custom_login_wrap.login-box input::placeholder,
+.dark-tippy .custom_tooltip_content .secondary_label {
+	color: var(--secondary-color) !important;
+}
+
+.dark_mode select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url('/src/assets/images/down-arrow2.svg');
+	background-repeat: no-repeat;
+	background-position: right 5px center;
+	background-size: 15px;
+}
+
+.dark_mode::-webkit-scrollbar-thumb,
+.dark_mode ::-webkit-scrollbar-thumb {
+	background-color: var(--border-secondary-color) !important;
+}
+
+.dark_mode .metrics-graph-container.user_country_graph,
+.dark_mode .user_country_graph_wrap,
+.dark_mode .graph_table_wrap.single_app_report_table .table-container,
+.dark_mode .user_country_graph .graph_title {
+	border-color: var(--border-color) !important;
+}
+
+.dark_mode .metric-header-wrap {
+  color: #e0e0e0;
+}
+
+.dark_mode .metric-main-label {
+  color: #ffffff;
+}
+
+.dark_mode .metric-dropdown-icon,
+.dark_mode .metric-plus-icon,
+.dark_mode .metric-close-icon {
+  background: transparent;
+  color: #e0e0e0;
+}
+
+.dark_mode .metric-dropdown-menu {
+  background: #1e1e1e;
+  border-color: #444;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.dark_mode .metric-dropdown-menu li {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dark_mode .metric-dropdown-menu li:hover {
+  background: #333333;
+  color: #ffffff;
+}

@@ -1,0 +1,34 @@
+.version-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.version-metric-card {
+  min-width: 0;
+}
+
+.single-app-chart .canvasjs-chart-tooltip>div {
+  padding: 11p 7px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 5px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: #ffffff !important;
+}
+
+.single-app-chart .canvasjs-chart-tooltip .tooltip-inner {
+  flex-direction: column;
+}
+
+.single-insights-topbar {
+  height: unset !important;
+  line-height: unset !important;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .version-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

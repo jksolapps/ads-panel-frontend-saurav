@@ -1,0 +1,1556 @@
+{
+	"all_ad_formats": [
+		{
+			"id": "1",
+			"name": "App Open",
+			"type": "app_open"
+		},
+		{
+			"id": "2",
+			"name": "Banner",
+			"type": "banner"
+		},
+		{
+			"id": "3",
+			"name": "Interstitial",
+			"type": "interstitial"
+		},
+		{
+			"id": "4",
+			"name": "Native",
+			"type": "native"
+		},
+		{
+			"id": "5",
+			"name": "Rewarded",
+			"type": "rewarded"
+		}
+	],
+	"dimension": [
+		{
+			"id": "APP",
+			"name": "Apps",
+			"dimension_checked": true,
+			"key": "app_display_name",
+			"pin_key": true,
+			"data_column_id": 1
+		},
+		{
+			"id": "DATE",
+			"name": "Date",
+			"dimension_checked": true,
+			"key": "report_date",
+			"pin_key": false,
+			"data_column_id": 2
+		},
+		{
+			"id": "DAY",
+			"name": "Day",
+			"dimension_checked": false,
+			"key": "report_date",
+			"pin_key": false,
+			"data_column_id": 3
+		},
+		{
+			"id": "AD_UNIT",
+			"name": "Ad Unit",
+			"dimension_checked": false,
+			"key": "au_display_name",
+			"pin_key": false,
+			"data_column_id": 4
+		},
+		{
+			"id": "FORMAT",
+			"name": "Format",
+			"dimension_checked": false,
+			"key": "au_format",
+			"pin_key": false,
+			"data_column_id": 5
+		},
+		{
+			"id": "COUNTRY",
+			"name": "Country",
+			"dimension_checked": false,
+			"key": "country_name",
+			"pin_key": false,
+			"data_column_id": 6
+		},
+		{
+			"id": "APP_VERSION_NAME",
+			"name": "App Version",
+			"dimension_checked": false,
+			"key": "app_version",
+			"pin_key": false,
+			"data_column_id": 7
+		}
+	],
+	"dimension_width": [
+		{
+			"id": "APP",
+			"name": "Apps",
+			"data_column_id": 1
+		},
+		{
+			"id": "DATE",
+			"name": "Date",
+			"data_column_id": 2
+		},
+		{
+			"id": "DAY",
+			"name": "Day",
+			"data_column_id": 3
+		},
+		{
+			"id": "AD_UNIT",
+			"name": "Ad Unit",
+			"data_column_id": 4
+		},
+		{
+			"id": "FORMAT",
+			"name": "Format",
+			"data_column_id": 5
+		},
+		{
+			"id": "COUNTRY",
+			"name": "Country",
+			"data_column_id": 6
+		},
+		{
+			"id": "APP_VERSION_NAME",
+			"name": "App Version",
+			"data_column_id": 7
+		}
+	],
+	"metrics": [
+		{
+			"id": "AD_REQUESTS",
+			"name": "Requests",
+			"metrics_checked": true,
+			"drag_id": "request"
+		},
+		{
+			"id": "CLICKS",
+			"name": "Clicks",
+			"metrics_checked": true,
+			"drag_id": "clicks"
+		},
+		{
+			"id": "ESTIMATED_EARNINGS",
+			"name": "Est. earnings",
+			"metrics_checked": true,
+			"drag_id": "estimated-earnings"
+		},
+		{
+			"id": "IMPRESSIONS",
+			"name": "Impressions",
+			"metrics_checked": true,
+			"drag_id": "impressions"
+		},
+		{
+			"id": "IMPRESSION_CTR",
+			"name": "CTR (%)",
+			"metrics_checked": true,
+			"drag_id": "impression-ctr"
+		},
+		{
+			"id": "IMPRESSION_RPM",
+			"name": "Observed eCPM",
+			"metrics_checked": true,
+			"drag_id": "observed-ecpm"
+		},
+		{
+			"id": "MATCHED_REQUESTS",
+			"name": "Matched Requests",
+			"metrics_checked": true,
+			"drag_id": "matched-requests"
+		},
+		{
+			"id": "MATCH_RATE",
+			"name": "Match Rate (%)",
+			"metrics_checked": true,
+			"drag_id": "match-rate"
+		},
+		{
+			"id": "SHOW_RATE",
+			"name": "Show Rate (%)",
+			"metrics_checked": true,
+			"drag_id": "show-rate"
+		}
+	],
+	"all_countries": [
+		{
+			"id": "1",
+			"alpha2_code": "US",
+			"name": "United States"
+		},
+		{
+			"id": "2",
+			"alpha2_code": "CA",
+			"name": "Canada"
+		},
+		{
+			"id": "3",
+			"alpha2_code": "GB",
+			"name": "United Kingdom"
+		},
+		{
+			"id": "4",
+			"alpha2_code": "BR",
+			"name": "Brazil"
+		},
+		{
+			"id": "5",
+			"alpha2_code": "AU",
+			"name": "Australia"
+		},
+		{
+			"id": "6",
+			"alpha2_code": "IN",
+			"name": "India"
+		},
+		{
+			"id": "7",
+			"alpha2_code": "ZA",
+			"name": "South Africa"
+		},
+		{
+			"id": "8",
+			"alpha2_code": "FR",
+			"name": "France"
+		},
+		{
+			"id": "9",
+			"alpha2_code": "MX",
+			"name": "Mexico"
+		},
+		{
+			"id": "10",
+			"alpha2_code": "ES",
+			"name": "Spain"
+		},
+		{
+			"id": "11",
+			"alpha2_code": "JP",
+			"name": "Japan"
+		},
+		{
+			"id": "12",
+			"alpha2_code": "PH",
+			"name": "Philippines"
+		},
+		{
+			"id": "13",
+			"alpha2_code": "PR",
+			"name": "Puerto Rico"
+		},
+		{
+			"id": "14",
+			"alpha2_code": "AE",
+			"name": "United Arab Emirates"
+		},
+		{
+			"id": "15",
+			"alpha2_code": "SA",
+			"name": "Saudi Arabia"
+		},
+		{
+			"id": "16",
+			"alpha2_code": "NG",
+			"name": "Nigeria"
+		},
+		{
+			"id": "17",
+			"alpha2_code": "CL",
+			"name": "Chile"
+		},
+		{
+			"id": "18",
+			"alpha2_code": "NZ",
+			"name": "New Zealand"
+		},
+		{
+			"id": "19",
+			"alpha2_code": "SG",
+			"name": "Singapore"
+		},
+		{
+			"id": "20",
+			"alpha2_code": "PE",
+			"name": "Peru"
+		},
+		{
+			"id": "21",
+			"alpha2_code": "CO",
+			"name": "Colombia"
+		},
+		{
+			"id": "22",
+			"alpha2_code": "IE",
+			"name": "Ireland"
+		},
+		{
+			"id": "23",
+			"alpha2_code": "AR",
+			"name": "Argentina"
+		},
+		{
+			"id": "24",
+			"alpha2_code": "KE",
+			"name": "Kenya"
+		},
+		{
+			"id": "25",
+			"alpha2_code": "BE",
+			"name": "Belgium"
+		},
+		{
+			"id": "26",
+			"alpha2_code": "DE",
+			"name": "Germany"
+		},
+		{
+			"id": "27",
+			"alpha2_code": "MY",
+			"name": "Malaysia"
+		},
+		{
+			"id": "28",
+			"alpha2_code": "GH",
+			"name": "Ghana"
+		},
+		{
+			"id": "29",
+			"alpha2_code": "CH",
+			"name": "Switzerland"
+		},
+		{
+			"id": "30",
+			"alpha2_code": "IT",
+			"name": "Italy"
+		},
+		{
+			"id": "31",
+			"alpha2_code": "TZ",
+			"name": "Tanzania, United Republic of"
+		},
+		{
+			"id": "32",
+			"alpha2_code": "IL",
+			"name": "Israel"
+		},
+		{
+			"id": "33",
+			"alpha2_code": "ID",
+			"name": "Indonesia"
+		},
+		{
+			"id": "34",
+			"alpha2_code": "JM",
+			"name": "Jamaica"
+		},
+		{
+			"id": "35",
+			"alpha2_code": "KR",
+			"name": "South Korea"
+		},
+		{
+			"id": "36",
+			"alpha2_code": "NL",
+			"name": "Netherlands"
+		},
+		{
+			"id": "37",
+			"alpha2_code": "KW",
+			"name": "Kuwait"
+		},
+		{
+			"id": "38",
+			"alpha2_code": "CR",
+			"name": "Costa Rica"
+		},
+		{
+			"id": "39",
+			"alpha2_code": "UG",
+			"name": "Uganda"
+		},
+		{
+			"id": "40",
+			"alpha2_code": "BD",
+			"name": "Bangladesh"
+		},
+		{
+			"id": "41",
+			"alpha2_code": "ET",
+			"name": "Ethiopia"
+		},
+		{
+			"id": "42",
+			"alpha2_code": "SE",
+			"name": "Sweden"
+		},
+		{
+			"id": "43",
+			"alpha2_code": "RO",
+			"name": "Romania"
+		},
+		{
+			"id": "44",
+			"alpha2_code": "EC",
+			"name": "Ecuador"
+		},
+		{
+			"id": "45",
+			"alpha2_code": "PK",
+			"name": "Pakistan"
+		},
+		{
+			"id": "46",
+			"alpha2_code": "UY",
+			"name": "Uruguay"
+		},
+		{
+			"id": "47",
+			"alpha2_code": "PA",
+			"name": "Panama"
+		},
+		{
+			"id": "48",
+			"alpha2_code": "ZM",
+			"name": "Zambia"
+		},
+		{
+			"id": "49",
+			"alpha2_code": "TH",
+			"name": "Thailand"
+		},
+		{
+			"id": "50",
+			"alpha2_code": "AT",
+			"name": "Austria"
+		},
+		{
+			"id": "51",
+			"alpha2_code": "ZW",
+			"name": "Zimbabwe"
+		},
+		{
+			"id": "52",
+			"alpha2_code": "QA",
+			"name": "Qatar"
+		},
+		{
+			"id": "53",
+			"alpha2_code": "PT",
+			"name": "Portugal"
+		},
+		{
+			"id": "54",
+			"alpha2_code": "PL",
+			"name": "Poland"
+		},
+		{
+			"id": "55",
+			"alpha2_code": "HK",
+			"name": "Hong Kong"
+		},
+		{
+			"id": "56",
+			"alpha2_code": "NO",
+			"name": "Norway"
+		},
+		{
+			"id": "57",
+			"alpha2_code": "LK",
+			"name": "Sri Lanka"
+		},
+		{
+			"id": "58",
+			"alpha2_code": "MU",
+			"name": "Mauritius"
+		},
+		{
+			"id": "59",
+			"alpha2_code": "GR",
+			"name": "Greece"
+		},
+		{
+			"id": "60",
+			"alpha2_code": "EG",
+			"name": "Egypt"
+		},
+		{
+			"id": "61",
+			"alpha2_code": "HU",
+			"name": "Hungary"
+		},
+		{
+			"id": "62",
+			"alpha2_code": "BH",
+			"name": "Bahrain"
+		},
+		{
+			"id": "63",
+			"alpha2_code": "TT",
+			"name": "Trinidad and Tobago"
+		},
+		{
+			"id": "64",
+			"alpha2_code": "DK",
+			"name": "Denmark"
+		},
+		{
+			"id": "65",
+			"alpha2_code": "OM",
+			"name": "Oman"
+		},
+		{
+			"id": "66",
+			"alpha2_code": "NA",
+			"name": "Namibia"
+		},
+		{
+			"id": "67",
+			"alpha2_code": "TR",
+			"name": "Turkey"
+		},
+		{
+			"id": "68",
+			"alpha2_code": "FI",
+			"name": "Finland"
+		},
+		{
+			"id": "69",
+			"alpha2_code": "BS",
+			"name": "Bahamas"
+		},
+		{
+			"id": "70",
+			"alpha2_code": "BW",
+			"name": "Botswana"
+		},
+		{
+			"id": "71",
+			"alpha2_code": "HR",
+			"name": "Croatia"
+		},
+		{
+			"id": "72",
+			"alpha2_code": "PY",
+			"name": "Paraguay"
+		},
+		{
+			"id": "73",
+			"alpha2_code": "LT",
+			"name": "Lithuania"
+		},
+		{
+			"id": "74",
+			"alpha2_code": "MZ",
+			"name": "Mozambique"
+		},
+		{
+			"id": "75",
+			"alpha2_code": "VN",
+			"name": "Viet Nam"
+		},
+		{
+			"id": "76",
+			"alpha2_code": "MT",
+			"name": "Malta"
+		},
+		{
+			"id": "77",
+			"alpha2_code": "MN",
+			"name": "Mongolia"
+		},
+		{
+			"id": "78",
+			"alpha2_code": "BG",
+			"name": "Bulgaria"
+		},
+		{
+			"id": "79",
+			"alpha2_code": "CY",
+			"name": "Cyprus"
+		},
+		{
+			"id": "80",
+			"alpha2_code": "NP",
+			"name": "Nepal"
+		},
+		{
+			"id": "81",
+			"alpha2_code": "MK",
+			"name": "Macedonia (the former Yugoslav Republic of)"
+		},
+		{
+			"id": "82",
+			"alpha2_code": "SI",
+			"name": "Slovenia"
+		},
+		{
+			"id": "83",
+			"alpha2_code": "MA",
+			"name": "Morocco"
+		},
+		{
+			"id": "84",
+			"alpha2_code": "CZ",
+			"name": "Czech Republic"
+		},
+		{
+			"id": "85",
+			"alpha2_code": "BO",
+			"name": "Bolivia (Plurinational State of)"
+		},
+		{
+			"id": "86",
+			"alpha2_code": "CM",
+			"name": "Cameroon"
+		},
+		{
+			"id": "87",
+			"alpha2_code": "GE",
+			"name": "Georgia"
+		},
+		{
+			"id": "88",
+			"alpha2_code": "CD",
+			"name": "Congo (Democratic Republic of)"
+		},
+		{
+			"id": "89",
+			"alpha2_code": "AL",
+			"name": "Albania"
+		},
+		{
+			"id": "90",
+			"alpha2_code": "GY",
+			"name": "Guyana"
+		},
+		{
+			"id": "91",
+			"alpha2_code": "RS",
+			"name": "Serbia"
+		},
+		{
+			"id": "92",
+			"alpha2_code": "RW",
+			"name": "Rwanda"
+		},
+		{
+			"id": "93",
+			"alpha2_code": "DO",
+			"name": "Dominican Republic"
+		},
+		{
+			"id": "94",
+			"alpha2_code": "SN",
+			"name": "Senegal"
+		},
+		{
+			"id": "95",
+			"alpha2_code": "LB",
+			"name": "Lebanon"
+		},
+		{
+			"id": "96",
+			"alpha2_code": "LV",
+			"name": "Latvia"
+		},
+		{
+			"id": "97",
+			"alpha2_code": "UA",
+			"name": "Ukraine"
+		},
+		{
+			"id": "98",
+			"alpha2_code": "SK",
+			"name": "Slovakia"
+		},
+		{
+			"id": "99",
+			"alpha2_code": "KH",
+			"name": "Cambodia"
+		},
+		{
+			"id": "100",
+			"alpha2_code": "UZ",
+			"name": "Uzbekistan"
+		},
+		{
+			"id": "101",
+			"alpha2_code": "LU",
+			"name": "Luxembourg"
+		},
+		{
+			"id": "102",
+			"alpha2_code": "JO",
+			"name": "Jordan"
+		},
+		{
+			"id": "103",
+			"alpha2_code": "MD",
+			"name": "Moldova (Republic of)"
+		},
+		{
+			"id": "104",
+			"alpha2_code": "BA",
+			"name": "Bosnia and Herzegovina"
+		},
+		{
+			"id": "105",
+			"alpha2_code": "EE",
+			"name": "Estonia"
+		},
+		{
+			"id": "106",
+			"alpha2_code": "BB",
+			"name": "Barbados"
+		},
+		{
+			"id": "107",
+			"alpha2_code": "FJ",
+			"name": "Fiji"
+		},
+		{
+			"id": "108",
+			"alpha2_code": "GT",
+			"name": "Guatemala"
+		},
+		{
+			"id": "109",
+			"alpha2_code": "SO",
+			"name": "Somalia"
+		},
+		{
+			"id": "110",
+			"alpha2_code": "TW",
+			"name": "Taiwan, Province of China"
+		},
+		{
+			"id": "111",
+			"alpha2_code": "DZ",
+			"name": "Algeria"
+		},
+		{
+			"id": "112",
+			"alpha2_code": "AO",
+			"name": "Angola"
+		},
+		{
+			"id": "113",
+			"alpha2_code": "PG",
+			"name": "Papua New Guinea"
+		},
+		{
+			"id": "114",
+			"alpha2_code": "AM",
+			"name": "Armenia"
+		},
+		{
+			"id": "115",
+			"alpha2_code": "IS",
+			"name": "Iceland"
+		},
+		{
+			"id": "116",
+			"alpha2_code": "GU",
+			"name": "Guam"
+		},
+		{
+			"id": "117",
+			"alpha2_code": "SV",
+			"name": "El Salvador"
+		},
+		{
+			"id": "118",
+			"alpha2_code": "HT",
+			"name": "Haiti"
+		},
+		{
+			"id": "119",
+			"alpha2_code": "TN",
+			"name": "Tunisia"
+		},
+		{
+			"id": "120",
+			"alpha2_code": "AZ",
+			"name": "Azerbaijan"
+		},
+		{
+			"id": "121",
+			"alpha2_code": "HN",
+			"name": "Honduras"
+		},
+		{
+			"id": "122",
+			"alpha2_code": "MW",
+			"name": "Malawi"
+		},
+		{
+			"id": "123",
+			"alpha2_code": "KZ",
+			"name": "Kazakhstan"
+		},
+		{
+			"id": "124",
+			"alpha2_code": "SL",
+			"name": "Sierra Leone"
+		},
+		{
+			"id": "125",
+			"alpha2_code": "LS",
+			"name": "Lesotho"
+		},
+		{
+			"id": "126",
+			"alpha2_code": "GN",
+			"name": "Guinea"
+		},
+		{
+			"id": "127",
+			"alpha2_code": "SZ",
+			"name": "Swaziland"
+		},
+		{
+			"id": "128",
+			"alpha2_code": "IQ",
+			"name": "Iraq"
+		},
+		{
+			"id": "129",
+			"alpha2_code": "BF",
+			"name": "Burkina Faso"
+		},
+		{
+			"id": "130",
+			"alpha2_code": "BI",
+			"name": "Burundi"
+		},
+		{
+			"id": "131",
+			"alpha2_code": "ME",
+			"name": "Montenegro"
+		},
+		{
+			"id": "132",
+			"alpha2_code": "AW",
+			"name": "Aruba"
+		},
+		{
+			"id": "133",
+			"alpha2_code": "TG",
+			"name": "Togo"
+		},
+		{
+			"id": "134",
+			"alpha2_code": "SR",
+			"name": "Suriname"
+		},
+		{
+			"id": "135",
+			"alpha2_code": "GA",
+			"name": "Gabon"
+		},
+		{
+			"id": "136",
+			"alpha2_code": "KG",
+			"name": "Kyrgyzstan"
+		},
+		{
+			"id": "137",
+			"alpha2_code": "MR",
+			"name": "Mauritania"
+		},
+		{
+			"id": "138",
+			"alpha2_code": "BJ",
+			"name": "Benin"
+		},
+		{
+			"id": "139",
+			"alpha2_code": "ML",
+			"name": "Mali"
+		},
+		{
+			"id": "140",
+			"alpha2_code": "NI",
+			"name": "Nicaragua"
+		},
+		{
+			"id": "141",
+			"alpha2_code": "MQ",
+			"name": "Martinique"
+		},
+		{
+			"id": "142",
+			"alpha2_code": "BZ",
+			"name": "Belize"
+		},
+		{
+			"id": "143",
+			"alpha2_code": "CN",
+			"name": "China"
+		},
+		{
+			"id": "144",
+			"alpha2_code": "TD",
+			"name": "Chad"
+		},
+		{
+			"id": "145",
+			"alpha2_code": "KY",
+			"name": "Cayman Islands"
+		},
+		{
+			"id": "146",
+			"alpha2_code": "BN",
+			"name": "Brunei Darussalam"
+		},
+		{
+			"id": "147",
+			"alpha2_code": "VI",
+			"name": "Virgin Islands (U.S.)"
+		},
+		{
+			"id": "148",
+			"alpha2_code": "MV",
+			"name": "Maldives"
+		},
+		{
+			"id": "149",
+			"alpha2_code": "LR",
+			"name": "Liberia"
+		},
+		{
+			"id": "150",
+			"alpha2_code": "GP",
+			"name": "Guadeloupe"
+		},
+		{
+			"id": "151",
+			"alpha2_code": "LA",
+			"name": "Lao People's Democratic Republic"
+		},
+		{
+			"id": "152",
+			"alpha2_code": "SS",
+			"name": "South Sudan"
+		},
+		{
+			"id": "153",
+			"alpha2_code": "CU",
+			"name": "Cuba"
+		},
+		{
+			"id": "154",
+			"alpha2_code": "AF",
+			"name": "Afghanistan"
+		},
+		{
+			"id": "155",
+			"alpha2_code": "VE",
+			"name": "Venezuela (Bolivarian Republic of)"
+		},
+		{
+			"id": "156",
+			"alpha2_code": "MG",
+			"name": "Madagascar"
+		},
+		{
+			"id": "157",
+			"alpha2_code": "GD",
+			"name": "Grenada"
+		},
+		{
+			"id": "158",
+			"alpha2_code": "NE",
+			"name": "Niger"
+		},
+		{
+			"id": "159",
+			"alpha2_code": "XK",
+			"name": "Kosovo"
+		},
+		{
+			"id": "160",
+			"alpha2_code": "MM",
+			"name": "Myanmar"
+		},
+		{
+			"id": "161",
+			"alpha2_code": "MO",
+			"name": "Macao"
+		},
+		{
+			"id": "162",
+			"alpha2_code": "CV",
+			"name": "Cabo Verde"
+		},
+		{
+			"id": "163",
+			"alpha2_code": "CI",
+			"name": "Côte d'Ivoire"
+		},
+		{
+			"id": "164",
+			"alpha2_code": "JE",
+			"name": "Jersey"
+		},
+		{
+			"id": "165",
+			"alpha2_code": "BM",
+			"name": "Bermuda"
+		},
+		{
+			"id": "166",
+			"alpha2_code": "SC",
+			"name": "Seychelles"
+		},
+		{
+			"id": "167",
+			"alpha2_code": "AS",
+			"name": "American Samoa"
+		},
+		{
+			"id": "168",
+			"alpha2_code": "AG",
+			"name": "Antigua and Barbuda"
+		},
+		{
+			"id": "169",
+			"alpha2_code": "VU",
+			"name": "Vanuatu"
+		},
+		{
+			"id": "170",
+			"alpha2_code": "SD",
+			"name": "Sudan"
+		},
+		{
+			"id": "171",
+			"alpha2_code": "BT",
+			"name": "Bhutan"
+		},
+		{
+			"id": "172",
+			"alpha2_code": "DM",
+			"name": "Dominica"
+		},
+		{
+			"id": "173",
+			"alpha2_code": "GM",
+			"name": "Gambia"
+		},
+		{
+			"id": "174",
+			"alpha2_code": "TJ",
+			"name": "Tajikistan"
+		},
+		{
+			"id": "175",
+			"alpha2_code": "BY",
+			"name": "Belarus"
+		},
+		{
+			"id": "176",
+			"alpha2_code": "WS",
+			"name": "Samoa"
+		},
+		{
+			"id": "177",
+			"alpha2_code": "IM",
+			"name": "Isle of Man"
+		},
+		{
+			"id": "178",
+			"alpha2_code": "KM",
+			"name": "Comoros"
+		},
+		{
+			"id": "179",
+			"alpha2_code": "LY",
+			"name": "Libya"
+		},
+		{
+			"id": "180",
+			"alpha2_code": "GG",
+			"name": "Guernsey"
+		},
+		{
+			"id": "181",
+			"alpha2_code": "SB",
+			"name": "Solomon Islands"
+		},
+		{
+			"id": "182",
+			"alpha2_code": "GL",
+			"name": "Greenland"
+		},
+		{
+			"id": "183",
+			"alpha2_code": "IR",
+			"name": "Iran (Islamic Republic of)"
+		},
+		{
+			"id": "184",
+			"alpha2_code": "CW",
+			"name": "Curaçao"
+		},
+		{
+			"id": "185",
+			"alpha2_code": "MP",
+			"name": "Northern Mariana Islands"
+		},
+		{
+			"id": "186",
+			"alpha2_code": "YT",
+			"name": "Mayotte"
+		},
+		{
+			"id": "187",
+			"alpha2_code": "PS",
+			"name": "Palestine, State of"
+		},
+		{
+			"id": "188",
+			"alpha2_code": "DJ",
+			"name": "Djibouti"
+		},
+		{
+			"id": "189",
+			"alpha2_code": "YE",
+			"name": "Yemen"
+		},
+		{
+			"id": "190",
+			"alpha2_code": "PF",
+			"name": "French Polynesia"
+		},
+		{
+			"id": "191",
+			"alpha2_code": "AI",
+			"name": "Anguilla"
+		},
+		{
+			"id": "192",
+			"alpha2_code": "GF",
+			"name": "French Guiana"
+		},
+		{
+			"id": "193",
+			"alpha2_code": "AD",
+			"name": "Andorra"
+		},
+		{
+			"id": "194",
+			"alpha2_code": "LC",
+			"name": "Saint Lucia"
+		},
+		{
+			"id": "195",
+			"alpha2_code": "NC",
+			"name": "New Caledonia"
+		},
+		{
+			"id": "196",
+			"alpha2_code": "TL",
+			"name": "Timor-Leste"
+		},
+		{
+			"id": "197",
+			"alpha2_code": "PW",
+			"name": "Palau"
+		},
+		{
+			"id": "198",
+			"alpha2_code": "TC",
+			"name": "Turks and Caicos Islands"
+		},
+		{
+			"id": "199",
+			"alpha2_code": "GW",
+			"name": "Guinea-Bissau"
+		},
+		{
+			"id": "200",
+			"alpha2_code": "CF",
+			"name": "Central African Republic"
+		},
+		{
+			"id": "201",
+			"alpha2_code": "KI",
+			"name": "Kiribati"
+		},
+		{
+			"id": "202",
+			"alpha2_code": "MH",
+			"name": "Marshall Islands"
+		},
+		{
+			"id": "203",
+			"alpha2_code": "SX",
+			"name": "Sint Maarten (Dutch part)"
+		},
+		{
+			"id": "204",
+			"alpha2_code": "FO",
+			"name": "Faroe Islands"
+		},
+		{
+			"id": "205",
+			"alpha2_code": "GI",
+			"name": "Gibraltar"
+		},
+		{
+			"id": "206",
+			"alpha2_code": "TM",
+			"name": "Turkmenistan"
+		},
+		{
+			"id": "207",
+			"alpha2_code": "CG",
+			"name": "Congo"
+		},
+		{
+			"id": "208",
+			"alpha2_code": "TO",
+			"name": "Tonga"
+		},
+		{
+			"id": "209",
+			"alpha2_code": "KN",
+			"name": "Saint Kitts and Nevis"
+		},
+		{
+			"id": "210",
+			"alpha2_code": "VC",
+			"name": "Saint Vincent and the Grenadines"
+		},
+		{
+			"id": "211",
+			"alpha2_code": "RE",
+			"name": "Réunion"
+		},
+		{
+			"id": "212",
+			"alpha2_code": "CK",
+			"name": "Cook Islands"
+		},
+		{
+			"id": "213",
+			"alpha2_code": "NR",
+			"name": "Nauru"
+		},
+		{
+			"id": "214",
+			"alpha2_code": "VG",
+			"name": "Virgin Islands (British)"
+		},
+		{
+			"id": "215",
+			"alpha2_code": "SY",
+			"name": "Syrian Arab Republic"
+		},
+		{
+			"id": "216",
+			"alpha2_code": "GQ",
+			"name": "Equatorial Guinea"
+		},
+		{
+			"id": "217",
+			"alpha2_code": "MS",
+			"name": "Montserrat"
+		},
+		{
+			"id": "218",
+			"alpha2_code": "BQ",
+			"name": "Bonaire, Sint Eustatius and Saba"
+		},
+		{
+			"id": "219",
+			"alpha2_code": "EH",
+			"name": "Western Sahara"
+		},
+		{
+			"id": "220",
+			"alpha2_code": "TV",
+			"name": "Tuvalu"
+		},
+		{
+			"id": "221",
+			"alpha2_code": "MC",
+			"name": "Monaco"
+		},
+		{
+			"id": "222",
+			"alpha2_code": "SM",
+			"name": "San Marino"
+		},
+		{
+			"id": "223",
+			"alpha2_code": "RU",
+			"name": "Russian Federation"
+		},
+		{
+			"id": "224",
+			"alpha2_code": "AQ",
+			"name": "Antarctica"
+		},
+		{
+			"id": "225",
+			"alpha2_code": "ER",
+			"name": "Eritrea"
+		},
+		{
+			"id": "226",
+			"alpha2_code": "LI",
+			"name": "Liechtenstein"
+		},
+		{
+			"id": "227",
+			"alpha2_code": "MF",
+			"name": "Saint Martin (French part)"
+		},
+		{
+			"id": "228",
+			"alpha2_code": "SJ",
+			"name": "Svalbard and Jan Mayen"
+		},
+		{
+			"id": "229",
+			"alpha2_code": "NF",
+			"name": "Norfolk Island"
+		},
+		{
+			"id": "230",
+			"alpha2_code": "ST",
+			"name": "Sao Tome and Principe"
+		},
+		{
+			"id": "231",
+			"alpha2_code": "SH",
+			"name": "Saint Helena, Ascension and Tristan da Cunha"
+		},
+		{
+			"id": "232",
+			"alpha2_code": "FM",
+			"name": "Micronesia (Federated States of)"
+		},
+		{
+			"id": "233",
+			"alpha2_code": "IO",
+			"name": "British Indian Ocean Territory"
+		},
+		{
+			"id": "234",
+			"alpha2_code": "CC",
+			"name": "Cocos (Keeling) Islands"
+		},
+		{
+			"id": "235",
+			"alpha2_code": "FK",
+			"name": "Falkland Islands (Malvinas)"
+		},
+		{
+			"id": "236",
+			"alpha2_code": "NU",
+			"name": "Niue"
+		},
+		{
+			"id": "237",
+			"alpha2_code": "PN",
+			"name": "Pitcairn"
+		},
+		{
+			"id": "238",
+			"alpha2_code": "BL",
+			"name": "Saint Barthélemy"
+		},
+		{
+			"id": "239",
+			"alpha2_code": "PM",
+			"name": "Saint Pierre and Miquelon"
+		},
+		{
+			"id": "240",
+			"alpha2_code": "GS",
+			"name": "South Georgia and the South Sandwich Islands"
+		},
+		{
+			"id": "241",
+			"alpha2_code": "UM",
+			"name": "United States Minor Outlying Islands"
+		},
+		{
+			"id": "242",
+			"alpha2_code": "WF",
+			"name": "Wallis and Futuna"
+		},
+		{
+			"id": "243",
+			"alpha2_code": "AX",
+			"name": "Åland Islands"
+		},
+		{
+			"id": "244",
+			"alpha2_code": "BV",
+			"name": "Bouvet Island"
+		},
+		{
+			"id": "245",
+			"alpha2_code": "CX",
+			"name": "Christmas Island"
+		},
+		{
+			"id": "246",
+			"alpha2_code": "TF",
+			"name": "French Southern Territories"
+		},
+		{
+			"id": "247",
+			"alpha2_code": "HM",
+			"name": "Heard Island and McDonald Islands"
+		},
+		{
+			"id": "248",
+			"alpha2_code": "VA",
+			"name": "Holy See"
+		},
+		{
+			"id": "249",
+			"alpha2_code": "KP",
+			"name": "Korea (Democratic People's Republic of)"
+		},
+		{
+			"id": "250",
+			"alpha2_code": "KR",
+			"name": "Korea (Republic of)"
+		},
+		{
+			"id": "251",
+			"alpha2_code": "LA",
+			"name": "Lao People's Democratic Republic"
+		},
+		{
+			"id": "252",
+			"alpha2_code": "TK",
+			"name": "Tokelau"
+		},
+		{
+			"id": "253",
+			"alpha2_code": "UR",
+			"name": "Unknown Region"
+		}
+	],
+	"analytics_dimension": [
+		{
+			"id": "Apps",
+			"key": "Apps",
+			"name": "Apps",
+			"value": "APP",
+			"pin_key": false,
+			"dimension_checked": true,
+			"sortValue": "Apps",
+			"api_id": "Apps",
+			"child": false
+		},
+		{
+			"id": "firstUserCampaignId",
+			"key": "firstUserCampaignId",
+			"name": "Campaign Name",
+			"value": "CAMPAIGN_NAME",
+			"pin_key": false,
+			"dimension_checked": false,
+			"api_id": "firstUserCampaignName",
+			"child": false
+		},
+		{
+			"id": "Date",
+			"key": "Date",
+			"name": "Date",
+			"value": "DATE",
+			"pin_key": false,
+			"dimension_checked": false,
+			"api_id": "date",
+			"child": true
+		}
+	],
+	"analytics_dimension2": [
+		{
+			"id": "Apps",
+			"dimension_id": 5,
+			"data_column_id": 5,
+			"key": "Apps",
+			"name": "Apps",
+			"value": "APP",
+			"pin_key": true,
+			"dimension_checked": true,
+			"sortValue": "Apps",
+			"api_id": "app_auto_id"
+		},
+		{
+			"id": "firstUserCampaignId",
+			"dimension_id": 2,
+			"data_column_id": 2,
+			"key": "firstUserCampaignId",
+			"name": "Campaign Name",
+			"value": "CAMPAIGN_NAME",
+			"pin_key": false,
+			"dimension_checked": true,
+			"api_id": "firstUserCampaignId"
+		},
+		{
+			"id": "Date",
+			"dimension_id": 3,
+			"data_column_id": 3,
+			"key": "Date",
+			"name": "Date",
+			"value": "DATE",
+			"pin_key": false,
+			"dimension_checked": false,
+			"api_id": "date"
+		}
+	],
+	"all_group_by": [
+		{
+			"id": "1",
+			"name": "Week",
+			"value": "WEEK"
+		},
+		{
+			"id": "2",
+			"name": "Month",
+			"value": "MONTH"
+		},
+		{
+			"id": "3",
+			"name": "Quarter",
+			"value": "QUARTER"
+		}
+	],
+	"statistics_dimension": [
+		{
+			"id": "APP",
+			"name": "Apps",
+			"dimension_checked": true,
+			"key": "app_display_name",
+			"data_column_id": 1
+		},
+		{
+			"id": "DATE",
+			"name": "Date",
+			"dimension_checked": false,
+			"key": "date",
+			"data_column_id": 2
+		},
+		{
+			"id": "APP_VERSION",
+			"name": "App Version",
+			"dimension_checked": false,
+			"key": "app_version",
+			"data_column_id": 3
+		}
+	]
+}

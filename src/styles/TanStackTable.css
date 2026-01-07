@@ -1,0 +1,162 @@
+/** @format */
+
+.custom_tan_stack_table .user_count {
+	font-size: 14px !important;
+	font-weight: 400 !important;
+}
+
+.custom_tan_stack_table .table_head_cell .user_count {
+	font-weight: 500 !important;
+}
+
+.custom_tan_stack_table .secondary-percentage-label {
+	font-size: 10px !important;
+}
+
+:root[data-vis='percentage'] .custom_tan_stack_table .secondary-percentage-label {
+	font-size: 14px !important;
+}
+
+.new_parent_wrap .custom_tan_stack_table table tr th {
+	padding: 0 !important;
+	display: flex;
+}
+
+/* .custom_tan_stack_table table tr {
+	display: flex;
+}
+
+.custom_tan_stack_table table tr th:before {
+	content: none !important;
+} */
+
+.custom_tan_stack_table table tr .table_head_cell:before {
+	content: '';
+	position: absolute;
+	border-bottom: 4px solid #7baaf7;
+	bottom: 0;
+	left: 0;
+	width: calc(100% - 4px);
+}
+
+.custom_tan_stack_table table tr .table_head_cell.sticky_cell:before {
+	border-bottom-color: #26b624a6;
+}
+
+.custom_tan_stack_table table tr .table_head_cell {
+	padding: 0 !important;
+}
+
+.custom_tan_stack_table .table_head_cell .table-left-header {
+	margin-bottom: 0 !important;
+}
+
+.custom_tan_stack_table .app-img img {
+	max-width: 70%;
+}
+
+.custom_tan_stack_table .app-item {
+	padding: 0;
+	height: auto;
+	background-color: transparent;
+}
+
+.popup-box-wrapper .box-wrapper .custom_tan_stack_table tbody tr td {
+	padding: 0 !important;
+}
+
+.custom_tan_stack_table .analytics-header-dimension {
+	margin-bottom: 5px !important;
+}
+
+.Account-Table .table-container .custom_tan_stack_table table tr .table_head_cell {
+	border-right: none;
+}
+
+.custom_tan_stack_table .table_raw:nth-child(odd),
+.custom_tan_stack_table .table_raw:nth-child(odd) .table_cell,
+.table_without_virtualization table > tbody > tr:nth-child(odd) {
+	background: #f8f9fa !important;
+}
+
+.custom_tan_stack_table .table_raw:hover,
+.custom_tan_stack_table .table_raw:hover .table_cell,
+.table_without_virtualization table > tbody > tr:hover:not(.expanded_row) {
+	background-color: #ececec !important;
+}
+
+.custom_tan_stack_table .table_head_cell {
+	padding: 6px 0;
+}
+
+.custom_tan_stack_table .table-title,
+.custom_tan_stack_table .this_month .this-month-field {
+	padding: 0 !important;
+}
+
+.custom_tan_stack_table .secondary-percentage-label {
+	text-align: center;
+}
+
+.custom_tan_stack_table .table_head .secondary-percentage-label {
+	font-weight: 500;
+	color: #000;
+}
+
+.custom_tan_stack_table .revenue-increase,
+.custom_tan_stack_table .ecpm-increase,
+.custom_tan_stack_table .impression-increase {
+	color: #007a00cf !important;
+	font-weight: bolder !important;
+}
+
+.custom_tan_stack_table .revenue-decrease,
+.custom_tan_stack_table .ecpm-decrease,
+.custom_tan_stack_table .impression-decrease {
+	color: #ff0000b5 !important;
+	font-weight: bolder !important;
+}
+
+.custom_tan_stack_table .primary-percentage-label {
+	text-align: center;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.custom_tan_stack_table .table_head:hover .table_head_cell .resizer-area {
+	opacity: 0.25;
+	border-right: 1px solid rgb(26, 115, 232);
+	transition: border-right 0.5s ease-in-out;
+}
+
+.custom_tan_stack_table table.simple_table tr .table_head_cell:before {
+	content: none !important;
+}
+
+.custom_tan_stack_table .report-header-dimension {
+	margin-bottom: 0 !important;
+}
+
+.basic_tan_stack_table .table_raw .table_cell {
+	padding: 8px 20px !important;
+}
+.basic_tan_stack_table .table_head .table_head_cell > span {
+	padding: 12px 20px !important;
+}
+.custom_tan_stack_table .error_expand_box {
+	padding: 20px;
+}
+.custom_tan_stack_table .error_expand_box > p {
+	float: none;
+}
+.custom_tan_stack_table.error_tan_stack_table table > tbody td {
+	line-height: 31px;
+}
+.error_tan_stack_table .custom-column {
+	word-break: break-all;
+}
+.custom_tan_stack_table .custom_tiny_font {
+	font-size: 10px !important;
+}

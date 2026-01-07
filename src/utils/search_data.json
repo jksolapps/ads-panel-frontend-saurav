@@ -1,0 +1,5002 @@
+[
+	{
+		"app_auto_id": "1",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.1",
+		"app_icon": "https://play-lh.googleusercontent.com/icon1=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000001",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "2",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.2",
+		"app_icon": "https://play-lh.googleusercontent.com/icon2=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000002",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "3",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon3=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000003",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "4",
+		"app_display_name": "Daily Planner 4",
+		"app_store_id": "com.dailyplanner.4",
+		"app_icon": "https://play-lh.googleusercontent.com/icon4=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000004",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "5",
+		"app_display_name": "Task Manager Pro 5",
+		"app_store_id": "com.taskmanager.pro.5",
+		"app_icon": "https://play-lh.googleusercontent.com/icon5=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000005",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "6",
+		"app_display_name": "Quick Memo 6",
+		"app_store_id": "com.quickmemo.6",
+		"app_icon": "https://play-lh.googleusercontent.com/icon6=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000006",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "7",
+		"app_display_name": "Journal & Diary 7",
+		"app_store_id": "com.journal.diary.7",
+		"app_icon": "https://play-lh.googleusercontent.com/icon7=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000007",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "8",
+		"app_display_name": "NoteBook 8",
+		"app_store_id": "com.notebook.notes.8",
+		"app_icon": "https://play-lh.googleusercontent.com/icon8=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000008",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "9",
+		"app_display_name": "Smart ToDo 9",
+		"app_store_id": "com.smart.todo.9",
+		"app_icon": "https://play-lh.googleusercontent.com/icon9=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000009",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "10",
+		"app_display_name": "Event Schedule 10",
+		"app_store_id": "com.events.schedule.10",
+		"app_icon": "https://play-lh.googleusercontent.com/icon10=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000010",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "11",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.11",
+		"app_icon": "https://play-lh.googleusercontent.com/icon11=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000011",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "12",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.12",
+		"app_icon": "https://play-lh.googleusercontent.com/icon12=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000012",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "13",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon13=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000013",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "14",
+		"app_display_name": "Daily Planner 14",
+		"app_store_id": "com.dailyplanner.14",
+		"app_icon": "https://play-lh.googleusercontent.com/icon14=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000014",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "15",
+		"app_display_name": "Task Manager Pro 15",
+		"app_store_id": "com.taskmanager.pro.15",
+		"app_icon": "https://play-lh.googleusercontent.com/icon15=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000015",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "16",
+		"app_display_name": "Quick Memo 16",
+		"app_store_id": "com.quickmemo.16",
+		"app_icon": "https://play-lh.googleusercontent.com/icon16=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000016",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "17",
+		"app_display_name": "Journal & Diary 17",
+		"app_store_id": "com.journal.diary.17",
+		"app_icon": "https://play-lh.googleusercontent.com/icon17=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000017",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "18",
+		"app_display_name": "NoteBook 18",
+		"app_store_id": "com.notebook.notes.18",
+		"app_icon": "https://play-lh.googleusercontent.com/icon18=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000018",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "19",
+		"app_display_name": "Smart ToDo 19",
+		"app_store_id": "com.smart.todo.19",
+		"app_icon": "https://play-lh.googleusercontent.com/icon19=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000019",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "20",
+		"app_display_name": "Event Schedule 20",
+		"app_store_id": "com.events.schedule.20",
+		"app_icon": "https://play-lh.googleusercontent.com/icon20=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000020",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "21",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.21",
+		"app_icon": "https://play-lh.googleusercontent.com/icon21=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000021",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "22",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.22",
+		"app_icon": "https://play-lh.googleusercontent.com/icon22=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000022",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "23",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon23=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000023",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "24",
+		"app_display_name": "Daily Planner 24",
+		"app_store_id": "com.dailyplanner.24",
+		"app_icon": "https://play-lh.googleusercontent.com/icon24=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000024",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "25",
+		"app_display_name": "Task Manager Pro 25",
+		"app_store_id": "com.taskmanager.pro.25",
+		"app_icon": "https://play-lh.googleusercontent.com/icon25=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000025",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "26",
+		"app_display_name": "Quick Memo 26",
+		"app_store_id": "com.quickmemo.26",
+		"app_icon": "https://play-lh.googleusercontent.com/icon26=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000026",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "27",
+		"app_display_name": "Journal & Diary 27",
+		"app_store_id": "com.journal.diary.27",
+		"app_icon": "https://play-lh.googleusercontent.com/icon27=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000027",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "28",
+		"app_display_name": "NoteBook 28",
+		"app_store_id": "com.notebook.notes.28",
+		"app_icon": "https://play-lh.googleusercontent.com/icon28=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000028",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "29",
+		"app_display_name": "Smart ToDo 29",
+		"app_store_id": "com.smart.todo.29",
+		"app_icon": "https://play-lh.googleusercontent.com/icon29=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000029",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "30",
+		"app_display_name": "Event Schedule 30",
+		"app_store_id": "com.events.schedule.30",
+		"app_icon": "https://play-lh.googleusercontent.com/icon30=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000030",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "31",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.31",
+		"app_icon": "https://play-lh.googleusercontent.com/icon31=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000031",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "32",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.32",
+		"app_icon": "https://play-lh.googleusercontent.com/icon32=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000032",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "33",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon33=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000033",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "34",
+		"app_display_name": "Daily Planner 34",
+		"app_store_id": "com.dailyplanner.34",
+		"app_icon": "https://play-lh.googleusercontent.com/icon34=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000034",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "35",
+		"app_display_name": "Task Manager Pro 35",
+		"app_store_id": "com.taskmanager.pro.35",
+		"app_icon": "https://play-lh.googleusercontent.com/icon35=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000035",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "36",
+		"app_display_name": "Quick Memo 36",
+		"app_store_id": "com.quickmemo.36",
+		"app_icon": "https://play-lh.googleusercontent.com/icon36=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000036",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "37",
+		"app_display_name": "Journal & Diary 37",
+		"app_store_id": "com.journal.diary.37",
+		"app_icon": "https://play-lh.googleusercontent.com/icon37=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000037",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "38",
+		"app_display_name": "NoteBook 38",
+		"app_store_id": "com.notebook.notes.38",
+		"app_icon": "https://play-lh.googleusercontent.com/icon38=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000038",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "39",
+		"app_display_name": "Smart ToDo 39",
+		"app_store_id": "com.smart.todo.39",
+		"app_icon": "https://play-lh.googleusercontent.com/icon39=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000039",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "40",
+		"app_display_name": "Event Schedule 40",
+		"app_store_id": "com.events.schedule.40",
+		"app_icon": "https://play-lh.googleusercontent.com/icon40=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000040",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "41",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.41",
+		"app_icon": "https://play-lh.googleusercontent.com/icon41=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000041",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "42",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.42",
+		"app_icon": "https://play-lh.googleusercontent.com/icon42=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000042",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "43",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon43=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000043",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "44",
+		"app_display_name": "Daily Planner 44",
+		"app_store_id": "com.dailyplanner.44",
+		"app_icon": "https://play-lh.googleusercontent.com/icon44=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000044",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "45",
+		"app_display_name": "Task Manager Pro 45",
+		"app_store_id": "com.taskmanager.pro.45",
+		"app_icon": "https://play-lh.googleusercontent.com/icon45=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000045",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "46",
+		"app_display_name": "Quick Memo 46",
+		"app_store_id": "com.quickmemo.46",
+		"app_icon": "https://play-lh.googleusercontent.com/icon46=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000046",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "47",
+		"app_display_name": "Journal & Diary 47",
+		"app_store_id": "com.journal.diary.47",
+		"app_icon": "https://play-lh.googleusercontent.com/icon47=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000047",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "48",
+		"app_display_name": "NoteBook 48",
+		"app_store_id": "com.notebook.notes.48",
+		"app_icon": "https://play-lh.googleusercontent.com/icon48=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000048",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "49",
+		"app_display_name": "Smart ToDo 49",
+		"app_store_id": "com.smart.todo.49",
+		"app_icon": "https://play-lh.googleusercontent.com/icon49=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000049",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "50",
+		"app_display_name": "Event Schedule 50",
+		"app_store_id": "com.events.schedule.50",
+		"app_icon": "https://play-lh.googleusercontent.com/icon50=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000050",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "51",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.51",
+		"app_icon": "https://play-lh.googleusercontent.com/icon51=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000051",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "52",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.52",
+		"app_icon": "https://play-lh.googleusercontent.com/icon52=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000052",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "53",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon53=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000053",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "54",
+		"app_display_name": "Daily Planner 54",
+		"app_store_id": "com.dailyplanner.54",
+		"app_icon": "https://play-lh.googleusercontent.com/icon54=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000054",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "55",
+		"app_display_name": "Task Manager Pro 55",
+		"app_store_id": "com.taskmanager.pro.55",
+		"app_icon": "https://play-lh.googleusercontent.com/icon55=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000055",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "56",
+		"app_display_name": "Quick Memo 56",
+		"app_store_id": "com.quickmemo.56",
+		"app_icon": "https://play-lh.googleusercontent.com/icon56=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000056",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "57",
+		"app_display_name": "Journal & Diary 57",
+		"app_store_id": "com.journal.diary.57",
+		"app_icon": "https://play-lh.googleusercontent.com/icon57=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000057",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "58",
+		"app_display_name": "NoteBook 58",
+		"app_store_id": "com.notebook.notes.58",
+		"app_icon": "https://play-lh.googleusercontent.com/icon58=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000058",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "59",
+		"app_display_name": "Smart ToDo 59",
+		"app_store_id": "com.smart.todo.59",
+		"app_icon": "https://play-lh.googleusercontent.com/icon59=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000059",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "60",
+		"app_display_name": "Event Schedule 60",
+		"app_store_id": "com.events.schedule.60",
+		"app_icon": "https://play-lh.googleusercontent.com/icon60=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000060",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "61",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.61",
+		"app_icon": "https://play-lh.googleusercontent.com/icon61=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000061",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "62",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.62",
+		"app_icon": "https://play-lh.googleusercontent.com/icon62=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000062",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "63",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon63=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000063",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "64",
+		"app_display_name": "Daily Planner 64",
+		"app_store_id": "com.dailyplanner.64",
+		"app_icon": "https://play-lh.googleusercontent.com/icon64=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000064",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "65",
+		"app_display_name": "Task Manager Pro 65",
+		"app_store_id": "com.taskmanager.pro.65",
+		"app_icon": "https://play-lh.googleusercontent.com/icon65=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000065",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "66",
+		"app_display_name": "Quick Memo 66",
+		"app_store_id": "com.quickmemo.66",
+		"app_icon": "https://play-lh.googleusercontent.com/icon66=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000066",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "67",
+		"app_display_name": "Journal & Diary 67",
+		"app_store_id": "com.journal.diary.67",
+		"app_icon": "https://play-lh.googleusercontent.com/icon67=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000067",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "68",
+		"app_display_name": "NoteBook 68",
+		"app_store_id": "com.notebook.notes.68",
+		"app_icon": "https://play-lh.googleusercontent.com/icon68=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000068",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "69",
+		"app_display_name": "Smart ToDo 69",
+		"app_store_id": "com.smart.todo.69",
+		"app_icon": "https://play-lh.googleusercontent.com/icon69=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000069",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "70",
+		"app_display_name": "Event Schedule 70",
+		"app_store_id": "com.events.schedule.70",
+		"app_icon": "https://play-lh.googleusercontent.com/icon70=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000070",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "71",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.71",
+		"app_icon": "https://play-lh.googleusercontent.com/icon71=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000071",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "72",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.72",
+		"app_icon": "https://play-lh.googleusercontent.com/icon72=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000072",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "73",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon73=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000073",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "74",
+		"app_display_name": "Daily Planner 74",
+		"app_store_id": "com.dailyplanner.74",
+		"app_icon": "https://play-lh.googleusercontent.com/icon74=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000074",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "75",
+		"app_display_name": "Task Manager Pro 75",
+		"app_store_id": "com.taskmanager.pro.75",
+		"app_icon": "https://play-lh.googleusercontent.com/icon75=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000075",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "76",
+		"app_display_name": "Quick Memo 76",
+		"app_store_id": "com.quickmemo.76",
+		"app_icon": "https://play-lh.googleusercontent.com/icon76=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000076",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "77",
+		"app_display_name": "Journal & Diary 77",
+		"app_store_id": "com.journal.diary.77",
+		"app_icon": "https://play-lh.googleusercontent.com/icon77=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000077",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "78",
+		"app_display_name": "NoteBook 78",
+		"app_store_id": "com.notebook.notes.78",
+		"app_icon": "https://play-lh.googleusercontent.com/icon78=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000078",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "79",
+		"app_display_name": "Smart ToDo 79",
+		"app_store_id": "com.smart.todo.79",
+		"app_icon": "https://play-lh.googleusercontent.com/icon79=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000079",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "80",
+		"app_display_name": "Event Schedule 80",
+		"app_store_id": "com.events.schedule.80",
+		"app_icon": "https://play-lh.googleusercontent.com/icon80=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000080",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "81",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.81",
+		"app_icon": "https://play-lh.googleusercontent.com/icon81=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000081",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "82",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.82",
+		"app_icon": "https://play-lh.googleusercontent.com/icon82=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000082",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "83",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon83=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000083",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "84",
+		"app_display_name": "Daily Planner 84",
+		"app_store_id": "com.dailyplanner.84",
+		"app_icon": "https://play-lh.googleusercontent.com/icon84=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000084",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "85",
+		"app_display_name": "Task Manager Pro 85",
+		"app_store_id": "com.taskmanager.pro.85",
+		"app_icon": "https://play-lh.googleusercontent.com/icon85=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000085",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "86",
+		"app_display_name": "Quick Memo 86",
+		"app_store_id": "com.quickmemo.86",
+		"app_icon": "https://play-lh.googleusercontent.com/icon86=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000086",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "87",
+		"app_display_name": "Journal & Diary 87",
+		"app_store_id": "com.journal.diary.87",
+		"app_icon": "https://play-lh.googleusercontent.com/icon87=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000087",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "88",
+		"app_display_name": "NoteBook 88",
+		"app_store_id": "com.notebook.notes.88",
+		"app_icon": "https://play-lh.googleusercontent.com/icon88=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000088",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "89",
+		"app_display_name": "Smart ToDo 89",
+		"app_store_id": "com.smart.todo.89",
+		"app_icon": "https://play-lh.googleusercontent.com/icon89=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000089",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "90",
+		"app_display_name": "Event Schedule 90",
+		"app_store_id": "com.events.schedule.90",
+		"app_icon": "https://play-lh.googleusercontent.com/icon90=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000090",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "91",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.91",
+		"app_icon": "https://play-lh.googleusercontent.com/icon91=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000091",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "92",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.92",
+		"app_icon": "https://play-lh.googleusercontent.com/icon92=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000092",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "93",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon93=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000093",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "94",
+		"app_display_name": "Daily Planner 94",
+		"app_store_id": "com.dailyplanner.94",
+		"app_icon": "https://play-lh.googleusercontent.com/icon94=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000094",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "95",
+		"app_display_name": "Task Manager Pro 95",
+		"app_store_id": "com.taskmanager.pro.95",
+		"app_icon": "https://play-lh.googleusercontent.com/icon95=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000095",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "96",
+		"app_display_name": "Quick Memo 96",
+		"app_store_id": "com.quickmemo.96",
+		"app_icon": "https://play-lh.googleusercontent.com/icon96=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000096",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "97",
+		"app_display_name": "Journal & Diary 97",
+		"app_store_id": "com.journal.diary.97",
+		"app_icon": "https://play-lh.googleusercontent.com/icon97=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000097",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "98",
+		"app_display_name": "NoteBook 98",
+		"app_store_id": "com.notebook.notes.98",
+		"app_icon": "https://play-lh.googleusercontent.com/icon98=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000098",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "99",
+		"app_display_name": "Smart ToDo 99",
+		"app_store_id": "com.smart.todo.99",
+		"app_icon": "https://play-lh.googleusercontent.com/icon99=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000099",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "100",
+		"app_display_name": "Event Schedule 100",
+		"app_store_id": "com.events.schedule.100",
+		"app_icon": "https://play-lh.googleusercontent.com/icon100=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000100",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "101",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.101",
+		"app_icon": "https://play-lh.googleusercontent.com/icon101=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000101",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "102",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.102",
+		"app_icon": "https://play-lh.googleusercontent.com/icon102=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000102",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "103",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon103=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000103",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "104",
+		"app_display_name": "Daily Planner 104",
+		"app_store_id": "com.dailyplanner.104",
+		"app_icon": "https://play-lh.googleusercontent.com/icon104=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000104",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "105",
+		"app_display_name": "Task Manager Pro 105",
+		"app_store_id": "com.taskmanager.pro.105",
+		"app_icon": "https://play-lh.googleusercontent.com/icon105=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000105",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "106",
+		"app_display_name": "Quick Memo 106",
+		"app_store_id": "com.quickmemo.106",
+		"app_icon": "https://play-lh.googleusercontent.com/icon106=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000106",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "107",
+		"app_display_name": "Journal & Diary 107",
+		"app_store_id": "com.journal.diary.107",
+		"app_icon": "https://play-lh.googleusercontent.com/icon107=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000107",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "108",
+		"app_display_name": "NoteBook 108",
+		"app_store_id": "com.notebook.notes.108",
+		"app_icon": "https://play-lh.googleusercontent.com/icon108=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000108",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "109",
+		"app_display_name": "Smart ToDo 109",
+		"app_store_id": "com.smart.todo.109",
+		"app_icon": "https://play-lh.googleusercontent.com/icon109=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000109",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "110",
+		"app_display_name": "Event Schedule 110",
+		"app_store_id": "com.events.schedule.110",
+		"app_icon": "https://play-lh.googleusercontent.com/icon110=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000110",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "111",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.111",
+		"app_icon": "https://play-lh.googleusercontent.com/icon111=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000111",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "112",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.112",
+		"app_icon": "https://play-lh.googleusercontent.com/icon112=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000112",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "113",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon113=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000113",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "114",
+		"app_display_name": "Daily Planner 114",
+		"app_store_id": "com.dailyplanner.114",
+		"app_icon": "https://play-lh.googleusercontent.com/icon114=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000114",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "115",
+		"app_display_name": "Task Manager Pro 115",
+		"app_store_id": "com.taskmanager.pro.115",
+		"app_icon": "https://play-lh.googleusercontent.com/icon115=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000115",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "116",
+		"app_display_name": "Quick Memo 116",
+		"app_store_id": "com.quickmemo.116",
+		"app_icon": "https://play-lh.googleusercontent.com/icon116=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000116",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "117",
+		"app_display_name": "Journal & Diary 117",
+		"app_store_id": "com.journal.diary.117",
+		"app_icon": "https://play-lh.googleusercontent.com/icon117=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000117",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "118",
+		"app_display_name": "NoteBook 118",
+		"app_store_id": "com.notebook.notes.118",
+		"app_icon": "https://play-lh.googleusercontent.com/icon118=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000118",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "119",
+		"app_display_name": "Smart ToDo 119",
+		"app_store_id": "com.smart.todo.119",
+		"app_icon": "https://play-lh.googleusercontent.com/icon119=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000119",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "120",
+		"app_display_name": "Event Schedule 120",
+		"app_store_id": "com.events.schedule.120",
+		"app_icon": "https://play-lh.googleusercontent.com/icon120=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000120",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "121",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.121",
+		"app_icon": "https://play-lh.googleusercontent.com/icon121=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000121",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "122",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.122",
+		"app_icon": "https://play-lh.googleusercontent.com/icon122=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000122",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "123",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon123=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000123",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "124",
+		"app_display_name": "Daily Planner 124",
+		"app_store_id": "com.dailyplanner.124",
+		"app_icon": "https://play-lh.googleusercontent.com/icon124=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000124",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "125",
+		"app_display_name": "Task Manager Pro 125",
+		"app_store_id": "com.taskmanager.pro.125",
+		"app_icon": "https://play-lh.googleusercontent.com/icon125=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000125",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "126",
+		"app_display_name": "Quick Memo 126",
+		"app_store_id": "com.quickmemo.126",
+		"app_icon": "https://play-lh.googleusercontent.com/icon126=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000126",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "127",
+		"app_display_name": "Journal & Diary 127",
+		"app_store_id": "com.journal.diary.127",
+		"app_icon": "https://play-lh.googleusercontent.com/icon127=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000127",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "128",
+		"app_display_name": "NoteBook 128",
+		"app_store_id": "com.notebook.notes.128",
+		"app_icon": "https://play-lh.googleusercontent.com/icon128=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000128",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "129",
+		"app_display_name": "Smart ToDo 129",
+		"app_store_id": "com.smart.todo.129",
+		"app_icon": "https://play-lh.googleusercontent.com/icon129=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000129",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "130",
+		"app_display_name": "Event Schedule 130",
+		"app_store_id": "com.events.schedule.130",
+		"app_icon": "https://play-lh.googleusercontent.com/icon130=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000130",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "131",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.131",
+		"app_icon": "https://play-lh.googleusercontent.com/icon131=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000131",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "132",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.132",
+		"app_icon": "https://play-lh.googleusercontent.com/icon132=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000132",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "133",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon133=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000133",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "134",
+		"app_display_name": "Daily Planner 134",
+		"app_store_id": "com.dailyplanner.134",
+		"app_icon": "https://play-lh.googleusercontent.com/icon134=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000134",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "135",
+		"app_display_name": "Task Manager Pro 135",
+		"app_store_id": "com.taskmanager.pro.135",
+		"app_icon": "https://play-lh.googleusercontent.com/icon135=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000135",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "136",
+		"app_display_name": "Quick Memo 136",
+		"app_store_id": "com.quickmemo.136",
+		"app_icon": "https://play-lh.googleusercontent.com/icon136=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000136",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "137",
+		"app_display_name": "Journal & Diary 137",
+		"app_store_id": "com.journal.diary.137",
+		"app_icon": "https://play-lh.googleusercontent.com/icon137=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000137",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "138",
+		"app_display_name": "NoteBook 138",
+		"app_store_id": "com.notebook.notes.138",
+		"app_icon": "https://play-lh.googleusercontent.com/icon138=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000138",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "139",
+		"app_display_name": "Smart ToDo 139",
+		"app_store_id": "com.smart.todo.139",
+		"app_icon": "https://play-lh.googleusercontent.com/icon139=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000139",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "140",
+		"app_display_name": "Event Schedule 140",
+		"app_store_id": "com.events.schedule.140",
+		"app_icon": "https://play-lh.googleusercontent.com/icon140=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000140",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "141",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.141",
+		"app_icon": "https://play-lh.googleusercontent.com/icon141=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000141",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "142",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.142",
+		"app_icon": "https://play-lh.googleusercontent.com/icon142=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000142",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "143",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon143=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000143",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "144",
+		"app_display_name": "Daily Planner 144",
+		"app_store_id": "com.dailyplanner.144",
+		"app_icon": "https://play-lh.googleusercontent.com/icon144=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000144",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "145",
+		"app_display_name": "Task Manager Pro 145",
+		"app_store_id": "com.taskmanager.pro.145",
+		"app_icon": "https://play-lh.googleusercontent.com/icon145=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000145",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "146",
+		"app_display_name": "Quick Memo 146",
+		"app_store_id": "com.quickmemo.146",
+		"app_icon": "https://play-lh.googleusercontent.com/icon146=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000146",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "147",
+		"app_display_name": "Journal & Diary 147",
+		"app_store_id": "com.journal.diary.147",
+		"app_icon": "https://play-lh.googleusercontent.com/icon147=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000147",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "148",
+		"app_display_name": "NoteBook 148",
+		"app_store_id": "com.notebook.notes.148",
+		"app_icon": "https://play-lh.googleusercontent.com/icon148=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000148",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "149",
+		"app_display_name": "Smart ToDo 149",
+		"app_store_id": "com.smart.todo.149",
+		"app_icon": "https://play-lh.googleusercontent.com/icon149=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000149",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "150",
+		"app_display_name": "Event Schedule 150",
+		"app_store_id": "com.events.schedule.150",
+		"app_icon": "https://play-lh.googleusercontent.com/icon150=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000150",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "151",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.151",
+		"app_icon": "https://play-lh.googleusercontent.com/icon151=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000151",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "152",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.152",
+		"app_icon": "https://play-lh.googleusercontent.com/icon152=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000152",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "153",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon153=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000153",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "154",
+		"app_display_name": "Daily Planner 154",
+		"app_store_id": "com.dailyplanner.154",
+		"app_icon": "https://play-lh.googleusercontent.com/icon154=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000154",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "155",
+		"app_display_name": "Task Manager Pro 155",
+		"app_store_id": "com.taskmanager.pro.155",
+		"app_icon": "https://play-lh.googleusercontent.com/icon155=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000155",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "156",
+		"app_display_name": "Quick Memo 156",
+		"app_store_id": "com.quickmemo.156",
+		"app_icon": "https://play-lh.googleusercontent.com/icon156=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000156",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "157",
+		"app_display_name": "Journal & Diary 157",
+		"app_store_id": "com.journal.diary.157",
+		"app_icon": "https://play-lh.googleusercontent.com/icon157=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000157",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "158",
+		"app_display_name": "NoteBook 158",
+		"app_store_id": "com.notebook.notes.158",
+		"app_icon": "https://play-lh.googleusercontent.com/icon158=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000158",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "159",
+		"app_display_name": "Smart ToDo 159",
+		"app_store_id": "com.smart.todo.159",
+		"app_icon": "https://play-lh.googleusercontent.com/icon159=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000159",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "160",
+		"app_display_name": "Event Schedule 160",
+		"app_store_id": "com.events.schedule.160",
+		"app_icon": "https://play-lh.googleusercontent.com/icon160=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000160",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "161",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.161",
+		"app_icon": "https://play-lh.googleusercontent.com/icon161=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000161",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "162",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.162",
+		"app_icon": "https://play-lh.googleusercontent.com/icon162=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000162",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "163",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon163=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000163",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "164",
+		"app_display_name": "Daily Planner 164",
+		"app_store_id": "com.dailyplanner.164",
+		"app_icon": "https://play-lh.googleusercontent.com/icon164=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000164",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "165",
+		"app_display_name": "Task Manager Pro 165",
+		"app_store_id": "com.taskmanager.pro.165",
+		"app_icon": "https://play-lh.googleusercontent.com/icon165=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000165",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "166",
+		"app_display_name": "Quick Memo 166",
+		"app_store_id": "com.quickmemo.166",
+		"app_icon": "https://play-lh.googleusercontent.com/icon166=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000166",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "167",
+		"app_display_name": "Journal & Diary 167",
+		"app_store_id": "com.journal.diary.167",
+		"app_icon": "https://play-lh.googleusercontent.com/icon167=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000167",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "168",
+		"app_display_name": "NoteBook 168",
+		"app_store_id": "com.notebook.notes.168",
+		"app_icon": "https://play-lh.googleusercontent.com/icon168=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000168",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "169",
+		"app_display_name": "Smart ToDo 169",
+		"app_store_id": "com.smart.todo.169",
+		"app_icon": "https://play-lh.googleusercontent.com/icon169=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000169",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "170",
+		"app_display_name": "Event Schedule 170",
+		"app_store_id": "com.events.schedule.170",
+		"app_icon": "https://play-lh.googleusercontent.com/icon170=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000170",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "171",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.171",
+		"app_icon": "https://play-lh.googleusercontent.com/icon171=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000171",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "172",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.172",
+		"app_icon": "https://play-lh.googleusercontent.com/icon172=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000172",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "173",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon173=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000173",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "174",
+		"app_display_name": "Daily Planner 174",
+		"app_store_id": "com.dailyplanner.174",
+		"app_icon": "https://play-lh.googleusercontent.com/icon174=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000174",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "175",
+		"app_display_name": "Task Manager Pro 175",
+		"app_store_id": "com.taskmanager.pro.175",
+		"app_icon": "https://play-lh.googleusercontent.com/icon175=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000175",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "176",
+		"app_display_name": "Quick Memo 176",
+		"app_store_id": "com.quickmemo.176",
+		"app_icon": "https://play-lh.googleusercontent.com/icon176=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000176",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "177",
+		"app_display_name": "Journal & Diary 177",
+		"app_store_id": "com.journal.diary.177",
+		"app_icon": "https://play-lh.googleusercontent.com/icon177=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000177",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "178",
+		"app_display_name": "NoteBook 178",
+		"app_store_id": "com.notebook.notes.178",
+		"app_icon": "https://play-lh.googleusercontent.com/icon178=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000178",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "179",
+		"app_display_name": "Smart ToDo 179",
+		"app_store_id": "com.smart.todo.179",
+		"app_icon": "https://play-lh.googleusercontent.com/icon179=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000179",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "180",
+		"app_display_name": "Event Schedule 180",
+		"app_store_id": "com.events.schedule.180",
+		"app_icon": "https://play-lh.googleusercontent.com/icon180=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000180",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "181",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.181",
+		"app_icon": "https://play-lh.googleusercontent.com/icon181=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000181",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "182",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.182",
+		"app_icon": "https://play-lh.googleusercontent.com/icon182=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000182",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "183",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon183=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000183",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "184",
+		"app_display_name": "Daily Planner 184",
+		"app_store_id": "com.dailyplanner.184",
+		"app_icon": "https://play-lh.googleusercontent.com/icon184=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000184",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "185",
+		"app_display_name": "Task Manager Pro 185",
+		"app_store_id": "com.taskmanager.pro.185",
+		"app_icon": "https://play-lh.googleusercontent.com/icon185=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000185",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "186",
+		"app_display_name": "Quick Memo 186",
+		"app_store_id": "com.quickmemo.186",
+		"app_icon": "https://play-lh.googleusercontent.com/icon186=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000186",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "187",
+		"app_display_name": "Journal & Diary 187",
+		"app_store_id": "com.journal.diary.187",
+		"app_icon": "https://play-lh.googleusercontent.com/icon187=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000187",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "188",
+		"app_display_name": "NoteBook 188",
+		"app_store_id": "com.notebook.notes.188",
+		"app_icon": "https://play-lh.googleusercontent.com/icon188=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000188",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "189",
+		"app_display_name": "Smart ToDo 189",
+		"app_store_id": "com.smart.todo.189",
+		"app_icon": "https://play-lh.googleusercontent.com/icon189=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000189",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "190",
+		"app_display_name": "Event Schedule 190",
+		"app_store_id": "com.events.schedule.190",
+		"app_icon": "https://play-lh.googleusercontent.com/icon190=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000190",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "191",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.191",
+		"app_icon": "https://play-lh.googleusercontent.com/icon191=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000191",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "192",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.192",
+		"app_icon": "https://play-lh.googleusercontent.com/icon192=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000192",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "193",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon193=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000193",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "194",
+		"app_display_name": "Daily Planner 194",
+		"app_store_id": "com.dailyplanner.194",
+		"app_icon": "https://play-lh.googleusercontent.com/icon194=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000194",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "195",
+		"app_display_name": "Task Manager Pro 195",
+		"app_store_id": "com.taskmanager.pro.195",
+		"app_icon": "https://play-lh.googleusercontent.com/icon195=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000195",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "196",
+		"app_display_name": "Quick Memo 196",
+		"app_store_id": "com.quickmemo.196",
+		"app_icon": "https://play-lh.googleusercontent.com/icon196=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000196",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "197",
+		"app_display_name": "Journal & Diary 197",
+		"app_store_id": "com.journal.diary.197",
+		"app_icon": "https://play-lh.googleusercontent.com/icon197=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000197",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "198",
+		"app_display_name": "NoteBook 198",
+		"app_store_id": "com.notebook.notes.198",
+		"app_icon": "https://play-lh.googleusercontent.com/icon198=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000198",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "199",
+		"app_display_name": "Smart ToDo 199",
+		"app_store_id": "com.smart.todo.199",
+		"app_icon": "https://play-lh.googleusercontent.com/icon199=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000199",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "200",
+		"app_display_name": "Event Schedule 200",
+		"app_store_id": "com.events.schedule.200",
+		"app_icon": "https://play-lh.googleusercontent.com/icon200=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000200",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "201",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.201",
+		"app_icon": "https://play-lh.googleusercontent.com/icon201=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000201",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "202",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.202",
+		"app_icon": "https://play-lh.googleusercontent.com/icon202=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000202",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "203",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon203=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000203",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "204",
+		"app_display_name": "Daily Planner 204",
+		"app_store_id": "com.dailyplanner.204",
+		"app_icon": "https://play-lh.googleusercontent.com/icon204=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000204",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "205",
+		"app_display_name": "Task Manager Pro 205",
+		"app_store_id": "com.taskmanager.pro.205",
+		"app_icon": "https://play-lh.googleusercontent.com/icon205=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000205",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "206",
+		"app_display_name": "Quick Memo 206",
+		"app_store_id": "com.quickmemo.206",
+		"app_icon": "https://play-lh.googleusercontent.com/icon206=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000206",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "207",
+		"app_display_name": "Journal & Diary 207",
+		"app_store_id": "com.journal.diary.207",
+		"app_icon": "https://play-lh.googleusercontent.com/icon207=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000207",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "208",
+		"app_display_name": "NoteBook 208",
+		"app_store_id": "com.notebook.notes.208",
+		"app_icon": "https://play-lh.googleusercontent.com/icon208=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000208",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "209",
+		"app_display_name": "Smart ToDo 209",
+		"app_store_id": "com.smart.todo.209",
+		"app_icon": "https://play-lh.googleusercontent.com/icon209=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000209",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "210",
+		"app_display_name": "Event Schedule 210",
+		"app_store_id": "com.events.schedule.210",
+		"app_icon": "https://play-lh.googleusercontent.com/icon210=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000210",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "211",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.211",
+		"app_icon": "https://play-lh.googleusercontent.com/icon211=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000211",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "212",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.212",
+		"app_icon": "https://play-lh.googleusercontent.com/icon212=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000212",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "213",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon213=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000213",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "214",
+		"app_display_name": "Daily Planner 214",
+		"app_store_id": "com.dailyplanner.214",
+		"app_icon": "https://play-lh.googleusercontent.com/icon214=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000214",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "215",
+		"app_display_name": "Task Manager Pro 215",
+		"app_store_id": "com.taskmanager.pro.215",
+		"app_icon": "https://play-lh.googleusercontent.com/icon215=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000215",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "216",
+		"app_display_name": "Quick Memo 216",
+		"app_store_id": "com.quickmemo.216",
+		"app_icon": "https://play-lh.googleusercontent.com/icon216=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000216",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "217",
+		"app_display_name": "Journal & Diary 217",
+		"app_store_id": "com.journal.diary.217",
+		"app_icon": "https://play-lh.googleusercontent.com/icon217=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000217",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "218",
+		"app_display_name": "NoteBook 218",
+		"app_store_id": "com.notebook.notes.218",
+		"app_icon": "https://play-lh.googleusercontent.com/icon218=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000218",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "219",
+		"app_display_name": "Smart ToDo 219",
+		"app_store_id": "com.smart.todo.219",
+		"app_icon": "https://play-lh.googleusercontent.com/icon219=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000219",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "220",
+		"app_display_name": "Event Schedule 220",
+		"app_store_id": "com.events.schedule.220",
+		"app_icon": "https://play-lh.googleusercontent.com/icon220=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000220",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "221",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.221",
+		"app_icon": "https://play-lh.googleusercontent.com/icon221=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000221",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "222",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.222",
+		"app_icon": "https://play-lh.googleusercontent.com/icon222=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000222",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "223",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon223=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000223",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "224",
+		"app_display_name": "Daily Planner 224",
+		"app_store_id": "com.dailyplanner.224",
+		"app_icon": "https://play-lh.googleusercontent.com/icon224=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000224",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "225",
+		"app_display_name": "Task Manager Pro 225",
+		"app_store_id": "com.taskmanager.pro.225",
+		"app_icon": "https://play-lh.googleusercontent.com/icon225=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000225",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "226",
+		"app_display_name": "Quick Memo 226",
+		"app_store_id": "com.quickmemo.226",
+		"app_icon": "https://play-lh.googleusercontent.com/icon226=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000226",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "227",
+		"app_display_name": "Journal & Diary 227",
+		"app_store_id": "com.journal.diary.227",
+		"app_icon": "https://play-lh.googleusercontent.com/icon227=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000227",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "228",
+		"app_display_name": "NoteBook 228",
+		"app_store_id": "com.notebook.notes.228",
+		"app_icon": "https://play-lh.googleusercontent.com/icon228=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000228",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "229",
+		"app_display_name": "Smart ToDo 229",
+		"app_store_id": "com.smart.todo.229",
+		"app_icon": "https://play-lh.googleusercontent.com/icon229=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000229",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "230",
+		"app_display_name": "Event Schedule 230",
+		"app_store_id": "com.events.schedule.230",
+		"app_icon": "https://play-lh.googleusercontent.com/icon230=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000230",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "231",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.231",
+		"app_icon": "https://play-lh.googleusercontent.com/icon231=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000231",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "232",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.232",
+		"app_icon": "https://play-lh.googleusercontent.com/icon232=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000232",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "233",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon233=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000233",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "234",
+		"app_display_name": "Daily Planner 234",
+		"app_store_id": "com.dailyplanner.234",
+		"app_icon": "https://play-lh.googleusercontent.com/icon234=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000234",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "235",
+		"app_display_name": "Task Manager Pro 235",
+		"app_store_id": "com.taskmanager.pro.235",
+		"app_icon": "https://play-lh.googleusercontent.com/icon235=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000235",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "236",
+		"app_display_name": "Quick Memo 236",
+		"app_store_id": "com.quickmemo.236",
+		"app_icon": "https://play-lh.googleusercontent.com/icon236=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000236",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "237",
+		"app_display_name": "Journal & Diary 237",
+		"app_store_id": "com.journal.diary.237",
+		"app_icon": "https://play-lh.googleusercontent.com/icon237=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000237",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "238",
+		"app_display_name": "NoteBook 238",
+		"app_store_id": "com.notebook.notes.238",
+		"app_icon": "https://play-lh.googleusercontent.com/icon238=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000238",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "239",
+		"app_display_name": "Smart ToDo 239",
+		"app_store_id": "com.smart.todo.239",
+		"app_icon": "https://play-lh.googleusercontent.com/icon239=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000239",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "240",
+		"app_display_name": "Event Schedule 240",
+		"app_store_id": "com.events.schedule.240",
+		"app_icon": "https://play-lh.googleusercontent.com/icon240=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000240",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "241",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.241",
+		"app_icon": "https://play-lh.googleusercontent.com/icon241=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000241",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "242",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.242",
+		"app_icon": "https://play-lh.googleusercontent.com/icon242=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000242",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "243",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon243=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000243",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "244",
+		"app_display_name": "Daily Planner 244",
+		"app_store_id": "com.dailyplanner.244",
+		"app_icon": "https://play-lh.googleusercontent.com/icon244=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000244",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "245",
+		"app_display_name": "Task Manager Pro 245",
+		"app_store_id": "com.taskmanager.pro.245",
+		"app_icon": "https://play-lh.googleusercontent.com/icon245=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000245",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "246",
+		"app_display_name": "Quick Memo 246",
+		"app_store_id": "com.quickmemo.246",
+		"app_icon": "https://play-lh.googleusercontent.com/icon246=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000246",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "247",
+		"app_display_name": "Journal & Diary 247",
+		"app_store_id": "com.journal.diary.247",
+		"app_icon": "https://play-lh.googleusercontent.com/icon247=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000247",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "248",
+		"app_display_name": "NoteBook 248",
+		"app_store_id": "com.notebook.notes.248",
+		"app_icon": "https://play-lh.googleusercontent.com/icon248=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000248",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "249",
+		"app_display_name": "Smart ToDo 249",
+		"app_store_id": "com.smart.todo.249",
+		"app_icon": "https://play-lh.googleusercontent.com/icon249=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000249",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "250",
+		"app_display_name": "Event Schedule 250",
+		"app_store_id": "com.events.schedule.250",
+		"app_icon": "https://play-lh.googleusercontent.com/icon250=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000250",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "251",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.251",
+		"app_icon": "https://play-lh.googleusercontent.com/icon251=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000251",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "252",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.252",
+		"app_icon": "https://play-lh.googleusercontent.com/icon252=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000252",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "253",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon253=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000253",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "254",
+		"app_display_name": "Daily Planner 254",
+		"app_store_id": "com.dailyplanner.254",
+		"app_icon": "https://play-lh.googleusercontent.com/icon254=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000254",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "255",
+		"app_display_name": "Task Manager Pro 255",
+		"app_store_id": "com.taskmanager.pro.255",
+		"app_icon": "https://play-lh.googleusercontent.com/icon255=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000255",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "256",
+		"app_display_name": "Quick Memo 256",
+		"app_store_id": "com.quickmemo.256",
+		"app_icon": "https://play-lh.googleusercontent.com/icon256=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000256",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "257",
+		"app_display_name": "Journal & Diary 257",
+		"app_store_id": "com.journal.diary.257",
+		"app_icon": "https://play-lh.googleusercontent.com/icon257=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000257",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "258",
+		"app_display_name": "NoteBook 258",
+		"app_store_id": "com.notebook.notes.258",
+		"app_icon": "https://play-lh.googleusercontent.com/icon258=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000258",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "259",
+		"app_display_name": "Smart ToDo 259",
+		"app_store_id": "com.smart.todo.259",
+		"app_icon": "https://play-lh.googleusercontent.com/icon259=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000259",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "260",
+		"app_display_name": "Event Schedule 260",
+		"app_store_id": "com.events.schedule.260",
+		"app_icon": "https://play-lh.googleusercontent.com/icon260=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000260",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "261",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.261",
+		"app_icon": "https://play-lh.googleusercontent.com/icon261=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000261",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "262",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.262",
+		"app_icon": "https://play-lh.googleusercontent.com/icon262=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000262",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "263",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon263=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000263",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "264",
+		"app_display_name": "Daily Planner 264",
+		"app_store_id": "com.dailyplanner.264",
+		"app_icon": "https://play-lh.googleusercontent.com/icon264=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000264",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "265",
+		"app_display_name": "Task Manager Pro 265",
+		"app_store_id": "com.taskmanager.pro.265",
+		"app_icon": "https://play-lh.googleusercontent.com/icon265=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000265",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "266",
+		"app_display_name": "Quick Memo 266",
+		"app_store_id": "com.quickmemo.266",
+		"app_icon": "https://play-lh.googleusercontent.com/icon266=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000266",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "267",
+		"app_display_name": "Journal & Diary 267",
+		"app_store_id": "com.journal.diary.267",
+		"app_icon": "https://play-lh.googleusercontent.com/icon267=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000267",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "268",
+		"app_display_name": "NoteBook 268",
+		"app_store_id": "com.notebook.notes.268",
+		"app_icon": "https://play-lh.googleusercontent.com/icon268=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000268",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "269",
+		"app_display_name": "Smart ToDo 269",
+		"app_store_id": "com.smart.todo.269",
+		"app_icon": "https://play-lh.googleusercontent.com/icon269=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000269",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "270",
+		"app_display_name": "Event Schedule 270",
+		"app_store_id": "com.events.schedule.270",
+		"app_icon": "https://play-lh.googleusercontent.com/icon270=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000270",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "271",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.271",
+		"app_icon": "https://play-lh.googleusercontent.com/icon271=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000271",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "272",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.272",
+		"app_icon": "https://play-lh.googleusercontent.com/icon272=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000272",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "273",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon273=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000273",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "274",
+		"app_display_name": "Daily Planner 274",
+		"app_store_id": "com.dailyplanner.274",
+		"app_icon": "https://play-lh.googleusercontent.com/icon274=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000274",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "275",
+		"app_display_name": "Task Manager Pro 275",
+		"app_store_id": "com.taskmanager.pro.275",
+		"app_icon": "https://play-lh.googleusercontent.com/icon275=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000275",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "276",
+		"app_display_name": "Quick Memo 276",
+		"app_store_id": "com.quickmemo.276",
+		"app_icon": "https://play-lh.googleusercontent.com/icon276=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000276",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "277",
+		"app_display_name": "Journal & Diary 277",
+		"app_store_id": "com.journal.diary.277",
+		"app_icon": "https://play-lh.googleusercontent.com/icon277=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000277",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "278",
+		"app_display_name": "NoteBook 278",
+		"app_store_id": "com.notebook.notes.278",
+		"app_icon": "https://play-lh.googleusercontent.com/icon278=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000278",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "279",
+		"app_display_name": "Smart ToDo 279",
+		"app_store_id": "com.smart.todo.279",
+		"app_icon": "https://play-lh.googleusercontent.com/icon279=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000279",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "280",
+		"app_display_name": "Event Schedule 280",
+		"app_store_id": "com.events.schedule.280",
+		"app_icon": "https://play-lh.googleusercontent.com/icon280=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000280",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "281",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.281",
+		"app_icon": "https://play-lh.googleusercontent.com/icon281=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000281",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "282",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.282",
+		"app_icon": "https://play-lh.googleusercontent.com/icon282=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000282",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "283",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon283=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000283",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "284",
+		"app_display_name": "Daily Planner 284",
+		"app_store_id": "com.dailyplanner.284",
+		"app_icon": "https://play-lh.googleusercontent.com/icon284=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000284",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "285",
+		"app_display_name": "Task Manager Pro 285",
+		"app_store_id": "com.taskmanager.pro.285",
+		"app_icon": "https://play-lh.googleusercontent.com/icon285=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000285",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "286",
+		"app_display_name": "Quick Memo 286",
+		"app_store_id": "com.quickmemo.286",
+		"app_icon": "https://play-lh.googleusercontent.com/icon286=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000286",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "287",
+		"app_display_name": "Journal & Diary 287",
+		"app_store_id": "com.journal.diary.287",
+		"app_icon": "https://play-lh.googleusercontent.com/icon287=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000287",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "288",
+		"app_display_name": "NoteBook 288",
+		"app_store_id": "com.notebook.notes.288",
+		"app_icon": "https://play-lh.googleusercontent.com/icon288=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000288",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "289",
+		"app_display_name": "Smart ToDo 289",
+		"app_store_id": "com.smart.todo.289",
+		"app_icon": "https://play-lh.googleusercontent.com/icon289=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000289",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "290",
+		"app_display_name": "Event Schedule 290",
+		"app_store_id": "com.events.schedule.290",
+		"app_icon": "https://play-lh.googleusercontent.com/icon290=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000290",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "291",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.291",
+		"app_icon": "https://play-lh.googleusercontent.com/icon291=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000291",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "292",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.292",
+		"app_icon": "https://play-lh.googleusercontent.com/icon292=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000292",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "293",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon293=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000293",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "294",
+		"app_display_name": "Daily Planner 294",
+		"app_store_id": "com.dailyplanner.294",
+		"app_icon": "https://play-lh.googleusercontent.com/icon294=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000294",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "295",
+		"app_display_name": "Task Manager Pro 295",
+		"app_store_id": "com.taskmanager.pro.295",
+		"app_icon": "https://play-lh.googleusercontent.com/icon295=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000295",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "296",
+		"app_display_name": "Quick Memo 296",
+		"app_store_id": "com.quickmemo.296",
+		"app_icon": "https://play-lh.googleusercontent.com/icon296=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000296",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "297",
+		"app_display_name": "Journal & Diary 297",
+		"app_store_id": "com.journal.diary.297",
+		"app_icon": "https://play-lh.googleusercontent.com/icon297=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000297",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "298",
+		"app_display_name": "NoteBook 298",
+		"app_store_id": "com.notebook.notes.298",
+		"app_icon": "https://play-lh.googleusercontent.com/icon298=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000298",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "299",
+		"app_display_name": "Smart ToDo 299",
+		"app_store_id": "com.smart.todo.299",
+		"app_icon": "https://play-lh.googleusercontent.com/icon299=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000299",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "300",
+		"app_display_name": "Event Schedule 300",
+		"app_store_id": "com.events.schedule.300",
+		"app_icon": "https://play-lh.googleusercontent.com/icon300=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000300",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "301",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.301",
+		"app_icon": "https://play-lh.googleusercontent.com/icon301=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000301",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "302",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.302",
+		"app_icon": "https://play-lh.googleusercontent.com/icon302=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000302",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "303",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon303=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000303",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "304",
+		"app_display_name": "Daily Planner 304",
+		"app_store_id": "com.dailyplanner.304",
+		"app_icon": "https://play-lh.googleusercontent.com/icon304=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000304",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "305",
+		"app_display_name": "Task Manager Pro 305",
+		"app_store_id": "com.taskmanager.pro.305",
+		"app_icon": "https://play-lh.googleusercontent.com/icon305=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000305",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "306",
+		"app_display_name": "Quick Memo 306",
+		"app_store_id": "com.quickmemo.306",
+		"app_icon": "https://play-lh.googleusercontent.com/icon306=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000306",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "307",
+		"app_display_name": "Journal & Diary 307",
+		"app_store_id": "com.journal.diary.307",
+		"app_icon": "https://play-lh.googleusercontent.com/icon307=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000307",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "308",
+		"app_display_name": "NoteBook 308",
+		"app_store_id": "com.notebook.notes.308",
+		"app_icon": "https://play-lh.googleusercontent.com/icon308=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000308",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "309",
+		"app_display_name": "Smart ToDo 309",
+		"app_store_id": "com.smart.todo.309",
+		"app_icon": "https://play-lh.googleusercontent.com/icon309=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000309",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "310",
+		"app_display_name": "Event Schedule 310",
+		"app_store_id": "com.events.schedule.310",
+		"app_icon": "https://play-lh.googleusercontent.com/icon310=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000310",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "311",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.311",
+		"app_icon": "https://play-lh.googleusercontent.com/icon311=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000311",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "312",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.312",
+		"app_icon": "https://play-lh.googleusercontent.com/icon312=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000312",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "313",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon313=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000313",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "314",
+		"app_display_name": "Daily Planner 314",
+		"app_store_id": "com.dailyplanner.314",
+		"app_icon": "https://play-lh.googleusercontent.com/icon314=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000314",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "315",
+		"app_display_name": "Task Manager Pro 315",
+		"app_store_id": "com.taskmanager.pro.315",
+		"app_icon": "https://play-lh.googleusercontent.com/icon315=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000315",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "316",
+		"app_display_name": "Quick Memo 316",
+		"app_store_id": "com.quickmemo.316",
+		"app_icon": "https://play-lh.googleusercontent.com/icon316=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000316",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "317",
+		"app_display_name": "Journal & Diary 317",
+		"app_store_id": "com.journal.diary.317",
+		"app_icon": "https://play-lh.googleusercontent.com/icon317=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000317",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "318",
+		"app_display_name": "NoteBook 318",
+		"app_store_id": "com.notebook.notes.318",
+		"app_icon": "https://play-lh.googleusercontent.com/icon318=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000318",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "319",
+		"app_display_name": "Smart ToDo 319",
+		"app_store_id": "com.smart.todo.319",
+		"app_icon": "https://play-lh.googleusercontent.com/icon319=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000319",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "320",
+		"app_display_name": "Event Schedule 320",
+		"app_store_id": "com.events.schedule.320",
+		"app_icon": "https://play-lh.googleusercontent.com/icon320=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000320",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "321",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.321",
+		"app_icon": "https://play-lh.googleusercontent.com/icon321=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000321",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "322",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.322",
+		"app_icon": "https://play-lh.googleusercontent.com/icon322=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000322",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "323",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon323=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000323",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "324",
+		"app_display_name": "Daily Planner 324",
+		"app_store_id": "com.dailyplanner.324",
+		"app_icon": "https://play-lh.googleusercontent.com/icon324=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000324",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "325",
+		"app_display_name": "Task Manager Pro 325",
+		"app_store_id": "com.taskmanager.pro.325",
+		"app_icon": "https://play-lh.googleusercontent.com/icon325=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000325",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "326",
+		"app_display_name": "Quick Memo 326",
+		"app_store_id": "com.quickmemo.326",
+		"app_icon": "https://play-lh.googleusercontent.com/icon326=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000326",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "327",
+		"app_display_name": "Journal & Diary 327",
+		"app_store_id": "com.journal.diary.327",
+		"app_icon": "https://play-lh.googleusercontent.com/icon327=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000327",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "328",
+		"app_display_name": "NoteBook 328",
+		"app_store_id": "com.notebook.notes.328",
+		"app_icon": "https://play-lh.googleusercontent.com/icon328=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000328",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "329",
+		"app_display_name": "Smart ToDo 329",
+		"app_store_id": "com.smart.todo.329",
+		"app_icon": "https://play-lh.googleusercontent.com/icon329=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000329",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "330",
+		"app_display_name": "Event Schedule 330",
+		"app_store_id": "com.events.schedule.330",
+		"app_icon": "https://play-lh.googleusercontent.com/icon330=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000330",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "331",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.331",
+		"app_icon": "https://play-lh.googleusercontent.com/icon331=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000331",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "332",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.332",
+		"app_icon": "https://play-lh.googleusercontent.com/icon332=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000332",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "333",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon333=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000333",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "334",
+		"app_display_name": "Daily Planner 334",
+		"app_store_id": "com.dailyplanner.334",
+		"app_icon": "https://play-lh.googleusercontent.com/icon334=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000334",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "335",
+		"app_display_name": "Task Manager Pro 335",
+		"app_store_id": "com.taskmanager.pro.335",
+		"app_icon": "https://play-lh.googleusercontent.com/icon335=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000335",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "336",
+		"app_display_name": "Quick Memo 336",
+		"app_store_id": "com.quickmemo.336",
+		"app_icon": "https://play-lh.googleusercontent.com/icon336=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000336",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "337",
+		"app_display_name": "Journal & Diary 337",
+		"app_store_id": "com.journal.diary.337",
+		"app_icon": "https://play-lh.googleusercontent.com/icon337=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000337",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "338",
+		"app_display_name": "NoteBook 338",
+		"app_store_id": "com.notebook.notes.338",
+		"app_icon": "https://play-lh.googleusercontent.com/icon338=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000338",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "339",
+		"app_display_name": "Smart ToDo 339",
+		"app_store_id": "com.smart.todo.339",
+		"app_icon": "https://play-lh.googleusercontent.com/icon339=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000339",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "340",
+		"app_display_name": "Event Schedule 340",
+		"app_store_id": "com.events.schedule.340",
+		"app_icon": "https://play-lh.googleusercontent.com/icon340=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000340",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "341",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.341",
+		"app_icon": "https://play-lh.googleusercontent.com/icon341=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000341",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "342",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.342",
+		"app_icon": "https://play-lh.googleusercontent.com/icon342=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000342",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "343",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon343=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000343",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "344",
+		"app_display_name": "Daily Planner 344",
+		"app_store_id": "com.dailyplanner.344",
+		"app_icon": "https://play-lh.googleusercontent.com/icon344=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000344",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "345",
+		"app_display_name": "Task Manager Pro 345",
+		"app_store_id": "com.taskmanager.pro.345",
+		"app_icon": "https://play-lh.googleusercontent.com/icon345=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000345",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "346",
+		"app_display_name": "Quick Memo 346",
+		"app_store_id": "com.quickmemo.346",
+		"app_icon": "https://play-lh.googleusercontent.com/icon346=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000346",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "347",
+		"app_display_name": "Journal & Diary 347",
+		"app_store_id": "com.journal.diary.347",
+		"app_icon": "https://play-lh.googleusercontent.com/icon347=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000347",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "348",
+		"app_display_name": "NoteBook 348",
+		"app_store_id": "com.notebook.notes.348",
+		"app_icon": "https://play-lh.googleusercontent.com/icon348=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000348",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "349",
+		"app_display_name": "Smart ToDo 349",
+		"app_store_id": "com.smart.todo.349",
+		"app_icon": "https://play-lh.googleusercontent.com/icon349=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000349",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "350",
+		"app_display_name": "Event Schedule 350",
+		"app_store_id": "com.events.schedule.350",
+		"app_icon": "https://play-lh.googleusercontent.com/icon350=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000350",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "351",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.351",
+		"app_icon": "https://play-lh.googleusercontent.com/icon351=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000351",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "352",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.352",
+		"app_icon": "https://play-lh.googleusercontent.com/icon352=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000352",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "353",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon353=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000353",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "354",
+		"app_display_name": "Daily Planner 354",
+		"app_store_id": "com.dailyplanner.354",
+		"app_icon": "https://play-lh.googleusercontent.com/icon354=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000354",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "355",
+		"app_display_name": "Task Manager Pro 355",
+		"app_store_id": "com.taskmanager.pro.355",
+		"app_icon": "https://play-lh.googleusercontent.com/icon355=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000355",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "356",
+		"app_display_name": "Quick Memo 356",
+		"app_store_id": "com.quickmemo.356",
+		"app_icon": "https://play-lh.googleusercontent.com/icon356=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000356",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "357",
+		"app_display_name": "Journal & Diary 357",
+		"app_store_id": "com.journal.diary.357",
+		"app_icon": "https://play-lh.googleusercontent.com/icon357=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000357",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "358",
+		"app_display_name": "NoteBook 358",
+		"app_store_id": "com.notebook.notes.358",
+		"app_icon": "https://play-lh.googleusercontent.com/icon358=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000358",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "359",
+		"app_display_name": "Smart ToDo 359",
+		"app_store_id": "com.smart.todo.359",
+		"app_icon": "https://play-lh.googleusercontent.com/icon359=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000359",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "360",
+		"app_display_name": "Event Schedule 360",
+		"app_store_id": "com.events.schedule.360",
+		"app_icon": "https://play-lh.googleusercontent.com/icon360=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000360",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "361",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.361",
+		"app_icon": "https://play-lh.googleusercontent.com/icon361=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000361",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "362",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.362",
+		"app_icon": "https://play-lh.googleusercontent.com/icon362=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000362",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "363",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon363=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000363",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "364",
+		"app_display_name": "Daily Planner 364",
+		"app_store_id": "com.dailyplanner.364",
+		"app_icon": "https://play-lh.googleusercontent.com/icon364=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000364",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "365",
+		"app_display_name": "Task Manager Pro 365",
+		"app_store_id": "com.taskmanager.pro.365",
+		"app_icon": "https://play-lh.googleusercontent.com/icon365=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000365",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "366",
+		"app_display_name": "Quick Memo 366",
+		"app_store_id": "com.quickmemo.366",
+		"app_icon": "https://play-lh.googleusercontent.com/icon366=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000366",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "367",
+		"app_display_name": "Journal & Diary 367",
+		"app_store_id": "com.journal.diary.367",
+		"app_icon": "https://play-lh.googleusercontent.com/icon367=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000367",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "368",
+		"app_display_name": "NoteBook 368",
+		"app_store_id": "com.notebook.notes.368",
+		"app_icon": "https://play-lh.googleusercontent.com/icon368=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000368",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "369",
+		"app_display_name": "Smart ToDo 369",
+		"app_store_id": "com.smart.todo.369",
+		"app_icon": "https://play-lh.googleusercontent.com/icon369=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000369",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "370",
+		"app_display_name": "Event Schedule 370",
+		"app_store_id": "com.events.schedule.370",
+		"app_icon": "https://play-lh.googleusercontent.com/icon370=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000370",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "371",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.371",
+		"app_icon": "https://play-lh.googleusercontent.com/icon371=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000371",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "372",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.372",
+		"app_icon": "https://play-lh.googleusercontent.com/icon372=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000372",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "373",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon373=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000373",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "374",
+		"app_display_name": "Daily Planner 374",
+		"app_store_id": "com.dailyplanner.374",
+		"app_icon": "https://play-lh.googleusercontent.com/icon374=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000374",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "375",
+		"app_display_name": "Task Manager Pro 375",
+		"app_store_id": "com.taskmanager.pro.375",
+		"app_icon": "https://play-lh.googleusercontent.com/icon375=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000375",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "376",
+		"app_display_name": "Quick Memo 376",
+		"app_store_id": "com.quickmemo.376",
+		"app_icon": "https://play-lh.googleusercontent.com/icon376=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000376",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "377",
+		"app_display_name": "Journal & Diary 377",
+		"app_store_id": "com.journal.diary.377",
+		"app_icon": "https://play-lh.googleusercontent.com/icon377=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000377",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "378",
+		"app_display_name": "NoteBook 378",
+		"app_store_id": "com.notebook.notes.378",
+		"app_icon": "https://play-lh.googleusercontent.com/icon378=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000378",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "379",
+		"app_display_name": "Smart ToDo 379",
+		"app_store_id": "com.smart.todo.379",
+		"app_icon": "https://play-lh.googleusercontent.com/icon379=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000379",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "380",
+		"app_display_name": "Event Schedule 380",
+		"app_store_id": "com.events.schedule.380",
+		"app_icon": "https://play-lh.googleusercontent.com/icon380=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000380",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "381",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.381",
+		"app_icon": "https://play-lh.googleusercontent.com/icon381=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000381",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "382",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.382",
+		"app_icon": "https://play-lh.googleusercontent.com/icon382=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000382",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "383",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon383=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000383",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "384",
+		"app_display_name": "Daily Planner 384",
+		"app_store_id": "com.dailyplanner.384",
+		"app_icon": "https://play-lh.googleusercontent.com/icon384=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000384",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "385",
+		"app_display_name": "Task Manager Pro 385",
+		"app_store_id": "com.taskmanager.pro.385",
+		"app_icon": "https://play-lh.googleusercontent.com/icon385=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000385",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "386",
+		"app_display_name": "Quick Memo 386",
+		"app_store_id": "com.quickmemo.386",
+		"app_icon": "https://play-lh.googleusercontent.com/icon386=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000386",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "387",
+		"app_display_name": "Journal & Diary 387",
+		"app_store_id": "com.journal.diary.387",
+		"app_icon": "https://play-lh.googleusercontent.com/icon387=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000387",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "388",
+		"app_display_name": "NoteBook 388",
+		"app_store_id": "com.notebook.notes.388",
+		"app_icon": "https://play-lh.googleusercontent.com/icon388=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000388",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "389",
+		"app_display_name": "Smart ToDo 389",
+		"app_store_id": "com.smart.todo.389",
+		"app_icon": "https://play-lh.googleusercontent.com/icon389=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000389",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "390",
+		"app_display_name": "Event Schedule 390",
+		"app_store_id": "com.events.schedule.390",
+		"app_icon": "https://play-lh.googleusercontent.com/icon390=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000390",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "391",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.391",
+		"app_icon": "https://play-lh.googleusercontent.com/icon391=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000391",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "392",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.392",
+		"app_icon": "https://play-lh.googleusercontent.com/icon392=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000392",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "393",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon393=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000393",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "394",
+		"app_display_name": "Daily Planner 394",
+		"app_store_id": "com.dailyplanner.394",
+		"app_icon": "https://play-lh.googleusercontent.com/icon394=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000394",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "395",
+		"app_display_name": "Task Manager Pro 395",
+		"app_store_id": "com.taskmanager.pro.395",
+		"app_icon": "https://play-lh.googleusercontent.com/icon395=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000395",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "396",
+		"app_display_name": "Quick Memo 396",
+		"app_store_id": "com.quickmemo.396",
+		"app_icon": "https://play-lh.googleusercontent.com/icon396=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000396",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "397",
+		"app_display_name": "Journal & Diary 397",
+		"app_store_id": "com.journal.diary.397",
+		"app_icon": "https://play-lh.googleusercontent.com/icon397=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000397",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "398",
+		"app_display_name": "NoteBook 398",
+		"app_store_id": "com.notebook.notes.398",
+		"app_icon": "https://play-lh.googleusercontent.com/icon398=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000398",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "399",
+		"app_display_name": "Smart ToDo 399",
+		"app_store_id": "com.smart.todo.399",
+		"app_icon": "https://play-lh.googleusercontent.com/icon399=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000399",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "400",
+		"app_display_name": "Event Schedule 400",
+		"app_store_id": "com.events.schedule.400",
+		"app_icon": "https://play-lh.googleusercontent.com/icon400=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000400",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "401",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.401",
+		"app_icon": "https://play-lh.googleusercontent.com/icon401=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000401",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "402",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.402",
+		"app_icon": "https://play-lh.googleusercontent.com/icon402=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000402",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "403",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon403=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000403",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "404",
+		"app_display_name": "Daily Planner 404",
+		"app_store_id": "com.dailyplanner.404",
+		"app_icon": "https://play-lh.googleusercontent.com/icon404=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000404",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "405",
+		"app_display_name": "Task Manager Pro 405",
+		"app_store_id": "com.taskmanager.pro.405",
+		"app_icon": "https://play-lh.googleusercontent.com/icon405=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000405",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "406",
+		"app_display_name": "Quick Memo 406",
+		"app_store_id": "com.quickmemo.406",
+		"app_icon": "https://play-lh.googleusercontent.com/icon406=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000406",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "407",
+		"app_display_name": "Journal & Diary 407",
+		"app_store_id": "com.journal.diary.407",
+		"app_icon": "https://play-lh.googleusercontent.com/icon407=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000407",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "408",
+		"app_display_name": "NoteBook 408",
+		"app_store_id": "com.notebook.notes.408",
+		"app_icon": "https://play-lh.googleusercontent.com/icon408=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000408",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "409",
+		"app_display_name": "Smart ToDo 409",
+		"app_store_id": "com.smart.todo.409",
+		"app_icon": "https://play-lh.googleusercontent.com/icon409=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000409",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "410",
+		"app_display_name": "Event Schedule 410",
+		"app_store_id": "com.events.schedule.410",
+		"app_icon": "https://play-lh.googleusercontent.com/icon410=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000410",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "411",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.411",
+		"app_icon": "https://play-lh.googleusercontent.com/icon411=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000411",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "412",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.412",
+		"app_icon": "https://play-lh.googleusercontent.com/icon412=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000412",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "413",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon413=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000413",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "414",
+		"app_display_name": "Daily Planner 414",
+		"app_store_id": "com.dailyplanner.414",
+		"app_icon": "https://play-lh.googleusercontent.com/icon414=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000414",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "415",
+		"app_display_name": "Task Manager Pro 415",
+		"app_store_id": "com.taskmanager.pro.415",
+		"app_icon": "https://play-lh.googleusercontent.com/icon415=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000415",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "416",
+		"app_display_name": "Quick Memo 416",
+		"app_store_id": "com.quickmemo.416",
+		"app_icon": "https://play-lh.googleusercontent.com/icon416=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000416",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "417",
+		"app_display_name": "Journal & Diary 417",
+		"app_store_id": "com.journal.diary.417",
+		"app_icon": "https://play-lh.googleusercontent.com/icon417=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000417",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "418",
+		"app_display_name": "NoteBook 418",
+		"app_store_id": "com.notebook.notes.418",
+		"app_icon": "https://play-lh.googleusercontent.com/icon418=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000418",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "419",
+		"app_display_name": "Smart ToDo 419",
+		"app_store_id": "com.smart.todo.419",
+		"app_icon": "https://play-lh.googleusercontent.com/icon419=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000419",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "420",
+		"app_display_name": "Event Schedule 420",
+		"app_store_id": "com.events.schedule.420",
+		"app_icon": "https://play-lh.googleusercontent.com/icon420=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000420",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "421",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.421",
+		"app_icon": "https://play-lh.googleusercontent.com/icon421=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000421",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "422",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.422",
+		"app_icon": "https://play-lh.googleusercontent.com/icon422=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000422",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "423",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon423=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000423",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "424",
+		"app_display_name": "Daily Planner 424",
+		"app_store_id": "com.dailyplanner.424",
+		"app_icon": "https://play-lh.googleusercontent.com/icon424=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000424",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "425",
+		"app_display_name": "Task Manager Pro 425",
+		"app_store_id": "com.taskmanager.pro.425",
+		"app_icon": "https://play-lh.googleusercontent.com/icon425=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000425",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "426",
+		"app_display_name": "Quick Memo 426",
+		"app_store_id": "com.quickmemo.426",
+		"app_icon": "https://play-lh.googleusercontent.com/icon426=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000426",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "427",
+		"app_display_name": "Journal & Diary 427",
+		"app_store_id": "com.journal.diary.427",
+		"app_icon": "https://play-lh.googleusercontent.com/icon427=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000427",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "428",
+		"app_display_name": "NoteBook 428",
+		"app_store_id": "com.notebook.notes.428",
+		"app_icon": "https://play-lh.googleusercontent.com/icon428=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000428",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "429",
+		"app_display_name": "Smart ToDo 429",
+		"app_store_id": "com.smart.todo.429",
+		"app_icon": "https://play-lh.googleusercontent.com/icon429=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000429",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "430",
+		"app_display_name": "Event Schedule 430",
+		"app_store_id": "com.events.schedule.430",
+		"app_icon": "https://play-lh.googleusercontent.com/icon430=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000430",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "431",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.431",
+		"app_icon": "https://play-lh.googleusercontent.com/icon431=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000431",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "432",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.432",
+		"app_icon": "https://play-lh.googleusercontent.com/icon432=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000432",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "433",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon433=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000433",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "434",
+		"app_display_name": "Daily Planner 434",
+		"app_store_id": "com.dailyplanner.434",
+		"app_icon": "https://play-lh.googleusercontent.com/icon434=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000434",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "435",
+		"app_display_name": "Task Manager Pro 435",
+		"app_store_id": "com.taskmanager.pro.435",
+		"app_icon": "https://play-lh.googleusercontent.com/icon435=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000435",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "436",
+		"app_display_name": "Quick Memo 436",
+		"app_store_id": "com.quickmemo.436",
+		"app_icon": "https://play-lh.googleusercontent.com/icon436=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000436",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "437",
+		"app_display_name": "Journal & Diary 437",
+		"app_store_id": "com.journal.diary.437",
+		"app_icon": "https://play-lh.googleusercontent.com/icon437=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000437",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "438",
+		"app_display_name": "NoteBook 438",
+		"app_store_id": "com.notebook.notes.438",
+		"app_icon": "https://play-lh.googleusercontent.com/icon438=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000438",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "439",
+		"app_display_name": "Smart ToDo 439",
+		"app_store_id": "com.smart.todo.439",
+		"app_icon": "https://play-lh.googleusercontent.com/icon439=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000439",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "440",
+		"app_display_name": "Event Schedule 440",
+		"app_store_id": "com.events.schedule.440",
+		"app_icon": "https://play-lh.googleusercontent.com/icon440=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000440",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "441",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.441",
+		"app_icon": "https://play-lh.googleusercontent.com/icon441=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000441",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "442",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.442",
+		"app_icon": "https://play-lh.googleusercontent.com/icon442=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000442",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "443",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon443=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000443",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "444",
+		"app_display_name": "Daily Planner 444",
+		"app_store_id": "com.dailyplanner.444",
+		"app_icon": "https://play-lh.googleusercontent.com/icon444=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000444",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "445",
+		"app_display_name": "Task Manager Pro 445",
+		"app_store_id": "com.taskmanager.pro.445",
+		"app_icon": "https://play-lh.googleusercontent.com/icon445=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000445",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "446",
+		"app_display_name": "Quick Memo 446",
+		"app_store_id": "com.quickmemo.446",
+		"app_icon": "https://play-lh.googleusercontent.com/icon446=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000446",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "447",
+		"app_display_name": "Journal & Diary 447",
+		"app_store_id": "com.journal.diary.447",
+		"app_icon": "https://play-lh.googleusercontent.com/icon447=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000447",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "448",
+		"app_display_name": "NoteBook 448",
+		"app_store_id": "com.notebook.notes.448",
+		"app_icon": "https://play-lh.googleusercontent.com/icon448=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000448",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "449",
+		"app_display_name": "Smart ToDo 449",
+		"app_store_id": "com.smart.todo.449",
+		"app_icon": "https://play-lh.googleusercontent.com/icon449=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000449",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "450",
+		"app_display_name": "Event Schedule 450",
+		"app_store_id": "com.events.schedule.450",
+		"app_icon": "https://play-lh.googleusercontent.com/icon450=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000450",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "451",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.451",
+		"app_icon": "https://play-lh.googleusercontent.com/icon451=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000451",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "452",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.452",
+		"app_icon": "https://play-lh.googleusercontent.com/icon452=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000452",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "453",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon453=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000453",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "454",
+		"app_display_name": "Daily Planner 454",
+		"app_store_id": "com.dailyplanner.454",
+		"app_icon": "https://play-lh.googleusercontent.com/icon454=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000454",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "455",
+		"app_display_name": "Task Manager Pro 455",
+		"app_store_id": "com.taskmanager.pro.455",
+		"app_icon": "https://play-lh.googleusercontent.com/icon455=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000455",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "456",
+		"app_display_name": "Quick Memo 456",
+		"app_store_id": "com.quickmemo.456",
+		"app_icon": "https://play-lh.googleusercontent.com/icon456=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000456",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "457",
+		"app_display_name": "Journal & Diary 457",
+		"app_store_id": "com.journal.diary.457",
+		"app_icon": "https://play-lh.googleusercontent.com/icon457=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000457",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "458",
+		"app_display_name": "NoteBook 458",
+		"app_store_id": "com.notebook.notes.458",
+		"app_icon": "https://play-lh.googleusercontent.com/icon458=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000458",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "459",
+		"app_display_name": "Smart ToDo 459",
+		"app_store_id": "com.smart.todo.459",
+		"app_icon": "https://play-lh.googleusercontent.com/icon459=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000459",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "460",
+		"app_display_name": "Event Schedule 460",
+		"app_store_id": "com.events.schedule.460",
+		"app_icon": "https://play-lh.googleusercontent.com/icon460=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000460",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "461",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.461",
+		"app_icon": "https://play-lh.googleusercontent.com/icon461=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000461",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "462",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.462",
+		"app_icon": "https://play-lh.googleusercontent.com/icon462=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000462",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "463",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon463=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000463",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "464",
+		"app_display_name": "Daily Planner 464",
+		"app_store_id": "com.dailyplanner.464",
+		"app_icon": "https://play-lh.googleusercontent.com/icon464=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000464",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "465",
+		"app_display_name": "Task Manager Pro 465",
+		"app_store_id": "com.taskmanager.pro.465",
+		"app_icon": "https://play-lh.googleusercontent.com/icon465=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000465",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "466",
+		"app_display_name": "Quick Memo 466",
+		"app_store_id": "com.quickmemo.466",
+		"app_icon": "https://play-lh.googleusercontent.com/icon466=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000466",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "467",
+		"app_display_name": "Journal & Diary 467",
+		"app_store_id": "com.journal.diary.467",
+		"app_icon": "https://play-lh.googleusercontent.com/icon467=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000467",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "468",
+		"app_display_name": "NoteBook 468",
+		"app_store_id": "com.notebook.notes.468",
+		"app_icon": "https://play-lh.googleusercontent.com/icon468=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000468",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "469",
+		"app_display_name": "Smart ToDo 469",
+		"app_store_id": "com.smart.todo.469",
+		"app_icon": "https://play-lh.googleusercontent.com/icon469=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000469",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "470",
+		"app_display_name": "Event Schedule 470",
+		"app_store_id": "com.events.schedule.470",
+		"app_icon": "https://play-lh.googleusercontent.com/icon470=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000470",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "471",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.471",
+		"app_icon": "https://play-lh.googleusercontent.com/icon471=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000471",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "472",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.472",
+		"app_icon": "https://play-lh.googleusercontent.com/icon472=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000472",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "473",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon473=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000473",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "474",
+		"app_display_name": "Daily Planner 474",
+		"app_store_id": "com.dailyplanner.474",
+		"app_icon": "https://play-lh.googleusercontent.com/icon474=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000474",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "475",
+		"app_display_name": "Task Manager Pro 475",
+		"app_store_id": "com.taskmanager.pro.475",
+		"app_icon": "https://play-lh.googleusercontent.com/icon475=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000475",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "476",
+		"app_display_name": "Quick Memo 476",
+		"app_store_id": "com.quickmemo.476",
+		"app_icon": "https://play-lh.googleusercontent.com/icon476=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000476",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "477",
+		"app_display_name": "Journal & Diary 477",
+		"app_store_id": "com.journal.diary.477",
+		"app_icon": "https://play-lh.googleusercontent.com/icon477=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000477",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "478",
+		"app_display_name": "NoteBook 478",
+		"app_store_id": "com.notebook.notes.478",
+		"app_icon": "https://play-lh.googleusercontent.com/icon478=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000478",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "479",
+		"app_display_name": "Smart ToDo 479",
+		"app_store_id": "com.smart.todo.479",
+		"app_icon": "https://play-lh.googleusercontent.com/icon479=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000479",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "480",
+		"app_display_name": "Event Schedule 480",
+		"app_store_id": "com.events.schedule.480",
+		"app_icon": "https://play-lh.googleusercontent.com/icon480=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000480",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	},
+	{
+		"app_auto_id": "481",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.481",
+		"app_icon": "https://play-lh.googleusercontent.com/icon481=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000481",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nova Tech Labs"
+	},
+	{
+		"app_auto_id": "482",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.482",
+		"app_icon": "https://play-lh.googleusercontent.com/icon482=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000482",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AppVibe Studio"
+	},
+	{
+		"app_auto_id": "483",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon483=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000483",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BrightApps"
+	},
+	{
+		"app_auto_id": "484",
+		"app_display_name": "Daily Planner 484",
+		"app_store_id": "com.dailyplanner.484",
+		"app_icon": "https://play-lh.googleusercontent.com/icon484=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000484",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Bino Tech Developer"
+	},
+	{
+		"app_auto_id": "485",
+		"app_display_name": "Task Manager Pro 485",
+		"app_store_id": "com.taskmanager.pro.485",
+		"app_icon": "https://play-lh.googleusercontent.com/icon485=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000485",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NextWave Apps"
+	},
+	{
+		"app_auto_id": "486",
+		"app_display_name": "Quick Memo 486",
+		"app_store_id": "com.quickmemo.486",
+		"app_icon": "https://play-lh.googleusercontent.com/icon486=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000486",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "DreamHub Studio"
+	},
+	{
+		"app_auto_id": "487",
+		"app_display_name": "Journal & Diary 487",
+		"app_store_id": "com.journal.diary.487",
+		"app_icon": "https://play-lh.googleusercontent.com/icon487=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000487",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Zenith Creations"
+	},
+	{
+		"app_auto_id": "488",
+		"app_display_name": "NoteBook 488",
+		"app_store_id": "com.notebook.notes.488",
+		"app_icon": "https://play-lh.googleusercontent.com/icon488=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000488",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Vruksh Raj"
+	},
+	{
+		"app_auto_id": "489",
+		"app_display_name": "Smart ToDo 489",
+		"app_store_id": "com.smart.todo.489",
+		"app_icon": "https://play-lh.googleusercontent.com/icon489=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000489",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Brilliant App Square"
+	},
+	{
+		"app_auto_id": "490",
+		"app_display_name": "Event Schedule 490",
+		"app_store_id": "com.events.schedule.490",
+		"app_icon": "https://play-lh.googleusercontent.com/icon490=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000490",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "PixelWorks Studio"
+	},
+	{
+		"app_auto_id": "491",
+		"app_display_name": "Calendar",
+		"app_store_id": "com.calendar.491",
+		"app_icon": "https://play-lh.googleusercontent.com/icon491=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000491",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SkyLab Systems"
+	},
+	{
+		"app_auto_id": "492",
+		"app_display_name": "Calendar 2025",
+		"app_store_id": "com.calendar2025.492",
+		"app_icon": "https://play-lh.googleusercontent.com/icon492=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000492",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "BluePeak Labs"
+	},
+	{
+		"app_auto_id": "493",
+		"app_display_name": "AI Notes: Notein & Notebook",
+		"app_store_id": "notepad.notebook.checklist.calendar.todolist.stickynotes.colornotes",
+		"app_icon": "https://play-lh.googleusercontent.com/icon493=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000493",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "AsterByte Studio"
+	},
+	{
+		"app_auto_id": "494",
+		"app_display_name": "Daily Planner 494",
+		"app_store_id": "com.dailyplanner.494",
+		"app_icon": "https://play-lh.googleusercontent.com/icon494=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000494",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Quantum Apps"
+	},
+	{
+		"app_auto_id": "495",
+		"app_display_name": "Task Manager Pro 495",
+		"app_store_id": "com.taskmanager.pro.495",
+		"app_icon": "https://play-lh.googleusercontent.com/icon495=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000495",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Stellar Softworks"
+	},
+	{
+		"app_auto_id": "496",
+		"app_display_name": "Quick Memo 496",
+		"app_store_id": "com.quickmemo.496",
+		"app_icon": "https://play-lh.googleusercontent.com/icon496=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000496",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Orchid Mobile"
+	},
+	{
+		"app_auto_id": "497",
+		"app_display_name": "Journal & Diary 497",
+		"app_store_id": "com.journal.diary.497",
+		"app_icon": "https://play-lh.googleusercontent.com/icon497=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000497",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "LimeLight Apps"
+	},
+	{
+		"app_auto_id": "498",
+		"app_display_name": "NoteBook 498",
+		"app_store_id": "com.notebook.notes.498",
+		"app_icon": "https://play-lh.googleusercontent.com/icon498=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000498",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "NeonLeaf Studio"
+	},
+	{
+		"app_auto_id": "499",
+		"app_display_name": "Smart ToDo 499",
+		"app_store_id": "com.smart.todo.499",
+		"app_icon": "https://play-lh.googleusercontent.com/icon499=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000499",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "SilverGrid Labs"
+	},
+	{
+		"app_auto_id": "500",
+		"app_display_name": "Event Schedule 500",
+		"app_store_id": "com.events.schedule.500",
+		"app_icon": "https://play-lh.googleusercontent.com/icon500=w240-h480",
+		"app_admob_app_id": "ca-app-pub-2119569646877974~1000000500",
+		"app_platform": "2",
+		"app_approval_state": "1",
+		"app_console_name": "Nimbus Creations"
+	}
+]

@@ -1,0 +1,186 @@
+/** @format */
+
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { DataContext } from '../../context/DataContext';
+import { MdContentCopy } from 'react-icons/md';
+import Footer from '../Footer';
+import { useParams } from 'react-router-dom';
+import DataTable from 'react-data-table-component';
+import CustomLoadingIndicator from '../DataTableComponents/CustomLoadingIndicator';
+import CustomNoDataComponent from '../DataTableComponents/CustomNoDataComponent';
+import { Spinner } from 'react-bootstrap';
+import { ReactComponent as TableSortArrow } from '../../assets/images/arrow-dwon.svg';
+import CustomUnitPagination from './CustomUnitPagination';
+import { IoSearch } from 'react-icons/io5';
+import { useQueryFetch } from '../../hooks/useQueryFetch';
+
+const AdUnitsContentBox = () => {
+	const { searchUnitId } = useContext(DataContext);
+	const { id } = useParams();
+	const [adUnitData, setAdUnitData] = useState([]);
+	const [spinnerFlag, setSpinnerFlag] = useState(true);
+	const [totalUnitData, setTotalUnitData] = useState(100);
+	const [adSearchUnitData, setAdSearchUnitData] = useState([]);
+	const [responseData, setResponse] = useState([]);
+
+	const appFormData = new FormData();
+	appFormData.append('user_id', localStorage.getItem('id'));
+	appFormData.append('user_token', localStorage.getItem('token'));
+	appFormData.append('app_auto_id', id);
+
+	const { data: apiResponse, isSuccess: apiSucesss } = useQueryFetch(
+		['app-ad-units', id],
+		'list-app-ad-units',
+		appFormData,
+		{
+			enabled: !!id,
+			staleTime: 60 * 1000,
+			refetchOnMount: 'ifStale',
+		}
+	);
+
+	useEffect(() => {
+		if (!apiResponse || !apiSucesss) return;
+		const initialData = apiResponse?.info?.map((item, index) => ({
+			...item,
+			increment_id: index + 1,
+		}));
+		setAdUnitData(initialData === undefined ? [] : initialData);
+		setAdSearchUnitData(initialData === undefined ? [] : initialData);
+		setResponse(apiResponse);
+		if (apiResponse?.status_code === 1) {
+			setSpinnerFlag(false);
+			setTotalUnitData(apiResponse?.info?.length);
+		}
+	}, [apiResponse, apiSucesss, id]);
+
+	//Copy text
+	const [copyId, setCopyId] = useState('');
+	const handleCopyText = async (id) => {
+		try {
+			await navigator.clipboard.writeText(id);
+			setCopyId(id);
+			setTimeout(() => {
+				setCopyId(null);
+			}, 1500);
+		} catch (err) {
+			throw new Error(err);
+		}
+	};
+
+	//Search
+	const [searchText, setSearchText] = useState('');
+	const handleSearch = (e) => {
+		e.preventDefault();
+		const searchText = e.target.value;
+		setSearchText(searchText);
+		setAdUnitData(
+			adSearchUnitData.filter((app) => {
+				return (
+					app?.au_format_display_name.toLowerCase().includes(searchText) ||
+					app?.au_id.toLowerCase().includes(searchText)
+				);
+			})
+		);
+	};
+
+	// Table Data
+	const columns = [
+		{
+			name: 'Id',
+			selector: (row) => row['increment_id'],
+			sortable: false,
+			width: '70px',
+		},
+		{
+			name: 'Ad units',
+			selector: (row) => row['au_id'],
+			cell: (units) => (
+				<div className='copy-text ad-units'>
+					<div className='copy-box'>
+						<div className='unit-name'>{units?.au_display_name}</div>
+						<span className='id-text' onClick={() => handleCopyText(units?.au_id)}>
+							{units?.au_id}
+							<MdContentCopy className='material-icons' />
+							{units?.au_id == copyId && <div className='copyMessage ad-unit'>Copied </div>}
+						</span>
+					</div>
+				</div>
+			),
+			sortable: true,
+		},
+		{
+			name: 'Ad format',
+			selector: (row) => row['au_format_display_name'],
+			sortable: true,
+		},
+	];
+
+	const [currentUnitPage, setCurrentUnitPage] = useState(1);
+	const [itemsPerPage] = useState(100);
+	const totalUnitPage = totalUnitData / itemsPerPage;
+
+	const indexOfLastItem = currentUnitPage * itemsPerPage;
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	const currentAdUnitData = adUnitData?.slice(indexOfFirstItem, indexOfLastItem);
+
+	return (
+		<div className={`right-box-wrap`}>
+			<div className='main-box-wrapper pdglr24'>
+				<div className='main-box-row'>
+					<>
+						<div className='top-bar'>
+							<h1 className='title'>Ad units</h1>
+						</div>
+						<div className='table-container custom_table_container_border ad-units-box unit-table'>
+							<div className='custom-search-filter unit-search'>
+								<form>
+									<IoSearch className='top_search_icon' />
+									<input
+										type='search'
+										value={searchText}
+										onChange={(e) => handleSearch(e, searchUnitId)}
+										placeholder='Search for ad units by ad unit name or ad format'
+									/>
+								</form>
+							</div>
+							{responseData?.status_code === 0 ? (
+								<div className='shimmer-spinner'>
+									<CustomNoDataComponent />
+								</div>
+							) : spinnerFlag ? (
+								<div className='shimmer-spinner'>
+									<Spinner animation='border' variant='secondary' />
+								</div>
+							) : (
+								<DataTable
+									columns={columns}
+									data={currentAdUnitData}
+									className='ad-unit-table'
+									pagination={true}
+									paginationPerPage={100}
+									progressPending={false}
+									fixedHeader
+									fixedHeaderScrollHeight={'68.1vh'}
+									progressComponent={<CustomLoadingIndicator />}
+									noDataComponent={<CustomNoDataComponent />}
+									sortIcon={<TableSortArrow />}
+									paginationComponent={() => (
+										<CustomUnitPagination
+											totalUnitPage={Math.ceil(totalUnitPage)}
+											currentUnitPage={currentUnitPage}
+											setCurrentUnitPage={setCurrentUnitPage}
+										/>
+									)}
+								/>
+							)}
+						</div>
+					</>
+				</div>
+				<Footer />
+			</div>
+		</div>
+	);
+};
+
+export default AdUnitsContentBox;

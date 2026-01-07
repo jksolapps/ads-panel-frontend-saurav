@@ -1,0 +1,29 @@
+{
+	"all_ad_formats": [
+		{
+			"item_id": "1",
+			"item_name": "App Open",
+			"type": "app_open"
+		},
+		{
+			"item_id": "2",
+			"item_name": "Banner",
+			"type": "banner"
+		},
+		{
+			"item_id": "3",
+			"item_name": "Interstitial",
+			"type": "interstitial"
+		},
+		{
+			"item_id": "4",
+			"item_name": "Native",
+			"type": "native"
+		},
+		{
+			"item_id": "5",
+			"item_name": "Rewarded",
+			"type": "rewarded"
+		}
+	]
+}
