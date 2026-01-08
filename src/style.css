@@ -9613,7 +9613,7 @@ table.app-performance-table tr:not(:last-child) {
 }
 
 .adunit-line-chart .line-chart-box .canvasjs-chart-tooltip {
-	top: -52px !important;
+	top: -42px !important;
 	bottom: unset !important;
 	/* left: -186px !important; */
 }

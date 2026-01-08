@@ -1818,6 +1818,288 @@ const ReportContentBox = () => {
 			},
 
 			{
+				id: 'ACTIVE_USER',
+				accessorKey: 'active_users',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>Active users</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_active_users,
+									prevTotalRecordsData?.total_active_users
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.active_users || '0';
+					const previous = r?.prev_active_users || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'ACTIVE_USER',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('ACTIVE_USER', false),
+				},
+			},
+
+			{
+				id: 'ARPU',
+				accessorKey: 'arpu',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>ARPU</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_arpu,
+									prevTotalRecordsData?.total_arpu
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.arpu || '0';
+					const previous = r?.prev_arpu || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'ARPU',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('ARPU', false),
+				},
+			},
+
+			{
+				id: 'ARPDAU',
+				accessorKey: 'arpdau',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>ARPDAU</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_arpdau,
+									prevTotalRecordsData?.total_arpdau
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.arpdau || '0';
+					const previous = r?.prev_arpdau || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'ARPDAU',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('ARPDAU', false),
+				},
+			},
+
+			{
+				id: 'DAU_AV',
+				accessorKey: 'dau_av',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>DAU AV</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_dau_av,
+									prevTotalRecordsData?.total_dau_av
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.dau_av || '0';
+					const previous = r?.prev_dau_av || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'DAU_AV',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('DAU_AV', false),
+				},
+			},
+
+			{
+				id: 'AV_RATE',
+				accessorKey: 'av_rate',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>AV RATE</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_av_rate,
+									prevTotalRecordsData?.total_av_rate
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.av_rate || '0';
+					const previous = r?.prev_av_rate || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'AV_RATE',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('AV_RATE', false),
+				},
+			},
+
+			{
+				id: 'IMPR_PER_USER',
+				accessorKey: 'impr_per_user',
+				header: () => (
+					<div className='report-title'>
+						<div className='report-header'>Impression/User</div>
+						{!!totalRecordsData && (
+							<div className='report-total'>
+								{getHighlightedTotal(
+									totalRecordsData?.total_impr_per_user,
+									prevTotalRecordsData?.total_impr_per_user
+								)}
+							</div>
+						)}
+					</div>
+				),
+				cell: ({ row }) => {
+					const r = row.original;
+					const current = r?.impr_per_user || '0';
+					const previous = r?.prev_impr_per_user || '0';
+					const highlightClass = getHighlightClass(current, previous);
+
+					const currentValue = Number(String(current).replace(/,/g, ''));
+					const previousValue = Number(String(previous).replace(/,/g, ''));
+					const percentageMove = calculatePercentageChange(currentValue, previousValue);
+
+					return (
+						<MetricCell
+							isUnitSwitch={isUnitSwitch}
+							current={current}
+							previous={previous}
+							highlightClass={highlightClass}
+							percentageMove={percentageMove}
+						/>
+					);
+				},
+				enableSorting: true,
+				minSize: 120,
+				size: 120,
+				meta: {
+					sortValue: 'IMPR_PER_USER',
+					alignMent: 'right',
+					isDynamic: true,
+					...getMatrixMeta('IMPR_PER_USER', false),
+				},
+			},
+
+			{
 				id: 'SHOW_RATE',
 				accessorKey: 'show_rate',
 				header: () => (
@@ -2102,6 +2384,12 @@ const ReportContentBox = () => {
 			matched_requests: 'Matched requests',
 			match_rate: 'Match rate (%)',
 			impressions: 'Impressions',
+			active_users: 'Active users',
+			arpu: 'ARPU',
+			arpdau: 'ARPDAU',
+			dau_av: 'DAU_AV',
+			av_rate: 'AV Rate',
+			impr_per_user: 'Impression/User',
 			show_rate: 'Show rate (%)',
 			clicks: 'Clicks',
 			impression_ctr: 'CTR (%)',

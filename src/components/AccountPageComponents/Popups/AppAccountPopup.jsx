@@ -136,7 +136,6 @@ const AppAccountPopup = ({
 	};
 
 	const handleClear = () => {
-		setIgnoreAppId(true);
 		const resetData = filterPopupData?.map((v) => ({
 			...v,
 			item_checked: false,
