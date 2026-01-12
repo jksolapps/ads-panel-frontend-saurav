@@ -40,6 +40,17 @@ export const AppListProvider = ({ children }) => {
 		}
 	);
 
+	const { data: settingAppList } = useQueryFetch(
+		['setting-apps-list', isLoggedIn, userData, selectedGroup],
+		'setting-apps-list',
+		formData,
+		{
+			enabled: isLoggedIn,
+			staleTime: FIVE_MIN,
+			refetchOnMount: 'ifStale',
+		}
+	);
+
 	const groupFormData = useMemo(() => {
 		if (!isLoggedIn) return null;
 		const fd = new FormData();
@@ -66,6 +77,7 @@ export const AppListProvider = ({ children }) => {
 	const value = {
 		appList,
 		campaignFilter,
+		settingAppList
 	};
 	return <AppListContext.Provider value={value}>{children}</AppListContext.Provider>;
 };

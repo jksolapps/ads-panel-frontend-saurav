@@ -26,7 +26,7 @@ import useUserApi from '../../hooks/useUserApi';
 import { useAppList } from '../../context/AppListContext';
 
 const AnalyticsSettings = () => {
-	const { appList } = useAppList();
+	const { settingAppList: appList } = useAppList();
 
 	const { addUserFlag, setAddUserFlag } = useContext(DataContext);
 	const { popupFlags, setPopupFlags } = useContext(ReportContext);
