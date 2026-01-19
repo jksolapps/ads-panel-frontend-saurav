@@ -47,7 +47,7 @@ export function useAccountColumns({
         raw.report_value ??
         raw.this_month_original ??
         raw.last_month_original ??
-		raw.total_month_original ??
+        raw.total_month_original ??
         raw.value ??
         raw.amount ??
         raw.metric ??
@@ -112,40 +112,6 @@ export function useAccountColumns({
     return value;
   }
 
-	function calculatePercentage(current, previous) {
-		if (previous !== 0 && previous !== null && !isNaN(previous)) {
-			return (current / Math.abs(previous)) * 100;
-		}
-		return current === 0 ? 0 : 100;
-   	}
-
-function calcPercentage(current, previous) {
-  if (previous !== 0 && previous != null && !isNaN(previous)) {
-    return (current / Math.abs(previous)) * 100;
-  }
-  return current === 0 ? 0 : 100;
-}
-
-function getCssClass(type, percent, diff) {
-  if (type === 'Revenue') {
-    if (diff >= 10 || diff <= -10) {
-      return percent >= 110 ? 'revenue-increase' : 'revenue-decrease';
-    }
-  }
-
-  if (type === 'Impressions') {
-    if (diff >= 5000 || diff <= -5000) {
-      return percent >= 50 ? 'impression-increase' : 'impression-decrease';
-    }
-  }
-
-  if (type === 'eCPM') {
-    return percent >= 50 ? 'ecpm-increase' : 'ecpm-decrease';
-  }
-
-  return '';
-}
-
   const numericSortingFn = (rowA, rowB, columnId) => {
     const a = parseMetricValue(rowA.getValue(columnId));
     const b = parseMetricValue(rowB.getValue(columnId));
@@ -168,13 +134,9 @@ function getCssClass(type, percent, diff) {
   const isLast15Days = selectedDays <= 15;
 
   const isThisMonth =
-    start.isSame(today.clone().startOf('month'), 'day') &&
-    end.isSame(today, 'day');
+    start.isSame(today.clone().startOf('month'), 'day') && end.isSame(today, 'day');
 
-  const shouldShowTotalMonth =
-    !isDefaultRange &&
-    !isLast15Days &&
-    !isThisMonth;
+  const shouldShowTotalMonth = !isDefaultRange && !isLast15Days && !isThisMonth;
 
   const staticColumns = useMemo(
     () => [
@@ -235,232 +197,123 @@ function getCssClass(type, percent, diff) {
         cell: ({ row }) => <div>{row.original.row_type}</div>,
         meta: { omit: !checkMark.some((item) => item.type_auto_name == 'Type'), omitValue: 'Type' },
       },
+
       {
-        id: 'last_month',
-        // header: () => (
-        //   <div className="table-title">
-        //     <div className="table-left-header">
-        //       <div style={{ marginLeft: '5px' }}>Last</div>
-        //       <div>Month</div>
-        //     </div>
-        //     <div>
-        //       {typeIndex == undefined || typeIndex?.length == 0 ? (
-        //         <>
-        //           <div
-        //             className="last-month-field"
-        //             title={
-        //               '$' +
-        //               indianNumberFormat(
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[0]?.Revenue?.last_month)
-        //                 )
-        //               )
-        //             }
-        //           >
-        //             {summaryData?.[0]?.Revenue?.last_month
-        //               ? '$' +
-        //                 indianNumberFormat(
-        //                   formatValue(microValueConvert(summaryData?.[0]?.Revenue?.last_month))
-        //                 )
-        //               : '-'}
-        //           </div>
-        //         </>
-        //       ) : (
-        //         <>
-        //           {typeIndex?.length == 1 && typeIndex?.includes('1') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[0]?.Revenue?.last_month)
-        //                 ) > 1e5
-        //                   ? '$' +
-        //                     indianNumberFormat(
-        //                       formatTooltipValue(
-        //                         '' + microValueConvert(summaryData?.[0]?.Revenue?.last_month)
-        //                       )
-        //                     )
-        //                   : null
-        //               }
-        //             >
-        //               {summaryData?.[0]?.Revenue?.last_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[0]?.Revenue?.last_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //           {typeIndex?.length == 1 && typeIndex?.includes('3') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={indianNumberFormat(
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[1]?.Impressions?.last_month)
-        //                 )
-        //               )}
-        //             >
-        //               {summaryData?.[1]?.Impressions?.last_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[1]?.Impressions?.last_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //           {typeIndex?.length > 1 && typeIndex?.includes('1') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={
-        //                 '$' +
-        //                 indianNumberFormat(
-        //                   formatTooltipValue(
-        //                     String(microValueConvert(summaryData?.[0]?.Revenue?.last_month))
-        //                   )
-        //                 )
-        //               }
-        //             >
-        //               {summaryData?.[0]?.Revenue?.last_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[0]?.Revenue?.last_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //         </>
-        //       )}
-        //     </div>
-        //   </div>
-        // ),
+    id: 'last_month',
+    header: () => {
+        const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
 
-        header: () => {
-  const isImpression = typeIndex?.includes('3');
+        const currentValue = microValueConvert(
+            isImpression
+                ? summaryData?.[1]?.Impressions?.last_month
+                : summaryData?.[0]?.Revenue?.last_month
+        );
 
-  const currentValue = microValueConvert(
-    isImpression
-      ? summaryData?.[1]?.Impressions?.last_month
-      : summaryData?.[0]?.Revenue?.last_month
-  );
+        const previousValue = microValueConvert(
+            isImpression
+                ? summaryData?.[1]?.Impressions?.previous_month
+                : summaryData?.[0]?.Revenue?.previous_month
+        );
 
-  const previousValue = microValueConvert(
-    isImpression
-      ? summaryData?.[1]?.Impressions?.previous_month
-      : summaryData?.[0]?.Revenue?.previous_month
-  );
+        // Formula: (current / previous) × 100
+        let percentageVal = 0;
+        if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
+            percentageVal = (currentValue / Math.abs(previousValue)) * 100;
+        } else {
+            percentageVal = currentValue === 0 ? 0 : 100;
+        }
 
-  const percentageValue = calculatePercentage(currentValue, previousValue);
+        // CSS class for color
+        let cssClass = '';
+        const diff = currentValue - previousValue;
+        if (!isImpression) {
+            // Revenue: green if >= 110%, red if < 110%
+            if (diff >= 10 || diff <= -10) {
+                cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
+            }
+        } else {
+            // Impressions: green if >= 50%, red if < 50%
+            if (diff >= 5000 || diff <= -5000) {
+                cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
+            }
+        }
 
-  let cssClass = '';
-  if (!isImpression) {
-    if (currentValue - previousValue >= 10 || currentValue - previousValue <= -10) {
-      cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
-    }
-  } else {
-    if (currentValue - previousValue >= 5000 || currentValue - previousValue <= -5000) {
-      cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
-    }
-  }
+        return (
+            <div className="table-title">
+                <div className="table-left-header">
+                    <div>Last</div>
+                    <div>Month</div>
+                </div>
 
-  return (
-    <div className="table-title">
-      <div className="table-left-header">
-        <div>Last</div>
-        <div>Month</div>
-      </div>
+                <div className="primary-percentage-label">
+                    {currentValue
+                        ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
+                        : '-'}
+                </div>
 
-      <div className="primary-percentage-label">
-        {currentValue ? indianNumberFormat(formatValue(currentValue)) : '-'}
-      </div>
+                <div className={`secondary-percentage-label ${cssClass}`}>
+                    {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
+                </div>
+            </div>
+        );
+    },
+    accessorKey: 'last_month_original',
+    size: 95,
+    cell: ({ row }) => {
+        const app = row.original;
 
-      <div className={`secondary-percentage-label ${cssClass}`}>
-        {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-      </div>
-    </div>
-  );
+        // Get values
+        const lastMonth = parseFloat(String(app?.last_month_original).replace(/[^\d.-]/g, ''));
+        const previousMonth = parseFloat(String(app?.previous_month_original ?? 0).replace(/[^\d.-]/g, ''));
+
+        // Calculate percentage: (last_month / previous_month) × 100
+        let percentageValue = 0;
+        if (previousMonth !== 0 && previousMonth != null && !isNaN(previousMonth)) {
+            percentageValue = (lastMonth / Math.abs(previousMonth)) * 100;
+        } else {
+            percentageValue = lastMonth === 0 ? 0 : 100;
+        }
+
+        // Determine CSS class based on row_type
+        let cssClass = '';
+        const diff = lastMonth - previousMonth;
+
+        if (app.row_type === 'Revenue') {
+            if (diff >= 10 || diff <= -10) {
+                cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
+            }
+        } else if (app.row_type === 'eCPM') {
+            cssClass = percentageValue >= 50 ? 'ecpm-increase' : 'ecpm-decrease';
+        } else if (app.row_type === 'Impressions') {
+            if (diff >= 5000 || diff <= -5000) {
+                cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
+            }
+        }
+
+        return (
+            <div
+                className="last-month-cell no-select cursor-pointer"
+                onDoubleClick={handleDoubleClick}
+            >
+                <div className="primary-percentage-label last-month-column">
+                    {app.last_month_original
+                        ? indianNumberFormat(formatValue(app.last_month_original))
+                        : '-'}
+                </div>
+
+                <div className={`secondary-percentage-label ${cssClass}`}>
+                    {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
+                </div>
+            </div>
+        );
+    },
+    sortingFn: numericSortingFn,
+    meta: {
+        omit: !checkMark.some((item) => item.type_auto_name == 'Last Month'),
+        omitValue: 'Last Month',
+    },
 },
 
-        accessorKey: 'last_month_original',
-        size: 95,
-        // cell: ({ row }) => (
-        //   <div
-        //     className="last-month-cell no-select cursor-pointer"
-        //     title={
-        //       formatTooltipValue(row.original?.last_month_original) > 1e5
-        //         ? indianNumberFormat(formatTooltipValue(row.original?.last_month_original))
-        //         : null
-        //     }
-        //     onDoubleClick={handleDoubleClick}
-        //   >
-        //     <div className="primary-percentage-label last-month-column">
-        //       {row.original.last_month_original
-        //         ? indianNumberFormat(formatValue(row.original.last_month_original))
-        //         : '-'}
-        //     </div>
-        //   </div>
-        // ),
-
-        cell: ({ row }) => {
-          const app = row.original;
-
-          let percentageValue = 0;
-          let cssClass = '';
-
-          const lastMonth = parseFloat(String(app?.last_month_original).replace(/[^\d.-]/g, ''));
-
-          // previous to last month
-          const previousMonth = parseFloat(
-            String(app?.previous_month_original ?? 0).replace(/[^\d.-]/g, '')
-          );
-
-          percentageValue = calculatePercentage(lastMonth, previousMonth);
-
-          if (app.row_type === 'Revenue') {
-            if (lastMonth - previousMonth >= 10 || lastMonth - previousMonth <= -10) {
-              cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
-            }
-          }
-
-          if (app.row_type === 'eCPM') {
-            if (percentageValue >= 50) cssClass = 'ecpm-increase';
-            else cssClass = 'ecpm-decrease';
-          }
-
-          if (app.row_type === 'Impressions') {
-            if (lastMonth - previousMonth >= 5000 || lastMonth - previousMonth <= -5000) {
-              cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
-            }
-          }
-
-          return (
-            <div
-              className="last-month-cell no-select cursor-pointer"
-              onDoubleClick={handleDoubleClick}
-            >
-              <div className="primary-percentage-label last-month-column">
-                {app.last_month_original
-                  ? indianNumberFormat(formatValue(app.last_month_original))
-                  : '-'}
-              </div>
-
-              <div className={`secondary-percentage-label ${cssClass}`}>
-                {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-              </div>
-            </div>
-          );
-        },
-        sortingFn: numericSortingFn,
-        meta: {
-          omit: !checkMark.some((item) => item.type_auto_name == 'Last Month'),
-          omitValue: 'Last Month',
-        },
-      },
       {
         id: 'this_month',
         header: () => (
@@ -655,216 +508,126 @@ function getCssClass(type, percent, diff) {
           omitValue: 'This Month',
         },
       },
+
       {
-        id: 'total_month',
-        // header: () => (
-        //   <div className="table-title">
-        //     <div className="table-left-header">
-        //       <div style={{ marginLeft: '5px' }}>Total</div>
-        //     </div>
-        //     <div>
-        //       {typeIndex == undefined || typeIndex?.length == 0 ? (
-        //         <>
-        //           <div
-        //             className="last-month-field"
-        //             title={
-        //               '$' +
-        //               indianNumberFormat(
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[0]?.Revenue?.total_month)
-        //                 )
-        //               )
-        //             }
-        //           >
-        //             {summaryData?.[0]?.Revenue?.total_month
-        //               ? '$' +
-        //                 indianNumberFormat(
-        //                   formatValue(microValueConvert(summaryData?.[0]?.Revenue?.total_month))
-        //                 )
-        //               : '-'}
-        //           </div>
-        //         </>
-        //       ) : (
-        //         <>
-        //           {typeIndex?.length == 1 && typeIndex?.includes('1') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[0]?.Revenue?.total_month)
-        //                 ) > 1e5
-        //                   ? '$' +
-        //                     indianNumberFormat(
-        //                       formatTooltipValue(
-        //                         '' + microValueConvert(summaryData?.[0]?.Revenue?.total_month)
-        //                       )
-        //                     )
-        //                   : null
-        //               }
-        //             >
-        //               {summaryData?.[0]?.Revenue?.total_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[0]?.Revenue?.total_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //           {typeIndex?.length == 1 && typeIndex?.includes('3') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={indianNumberFormat(
-        //                 formatTooltipValue(
-        //                   '' + microValueConvert(summaryData?.[1]?.Impressions?.total_month)
-        //                 )
-        //               )}
-        //             >
-        //               {summaryData?.[1]?.Impressions?.total_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[1]?.Impressions?.total_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //           {typeIndex?.length > 1 && typeIndex?.includes('1') && (
-        //             <div
-        //               className="last-month-field"
-        //               title={
-        //                 '$' +
-        //                 indianNumberFormat(
-        //                   formatTooltipValue(
-        //                     String(microValueConvert(summaryData?.[0]?.Revenue?.total_month))
-        //                   )
-        //                 )
-        //               }
-        //             >
-        //               {summaryData?.[0]?.Revenue?.total_month
-        //                 ? '$' +
-        //                   indianNumberFormat(
-        //                     formatValue(
-        //                       String(microValueConvert(summaryData?.[0]?.Revenue?.total_month))
-        //                     )
-        //                   )
-        //                 : '-'}
-        //             </div>
-        //           )}
-        //         </>
-        //       )}
-        //     </div>
-        //   </div>
-        // ),
+    id: 'total_month',
+    header: () => {
+        const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
 
-        header: () => {
-  const isImpression = typeIndex?.includes('3');
+        const currentValue = microValueConvert(
+            isImpression
+                ? summaryData?.[1]?.Impressions?.total_month
+                : summaryData?.[0]?.Revenue?.total_month
+        );
 
-  const currentValue = microValueConvert(
-    isImpression
-      ? summaryData?.[1]?.Impressions?.total_month
-      : summaryData?.[0]?.Revenue?.total_month
-  );
+        const previousValue = microValueConvert(
+            isImpression
+                ? summaryData?.[1]?.Impressions?.total_previous_month
+                : summaryData?.[0]?.Revenue?.total_previous_month
+        );
 
-  const previousValue = microValueConvert(
-    isImpression
-      ? summaryData?.[1]?.Impressions?.total_previous_month
-      : summaryData?.[0]?.Revenue?.total_previous_month
-  );
+        // Formula: (current / previous) × 100
+        let percentageVal = 0;
+        if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
+            percentageVal = (currentValue / Math.abs(previousValue)) * 100;
+        } else {
+            percentageVal = currentValue === 0 ? 0 : 100;
+        }
 
-  const percentageValue = calculatePercentage(currentValue, previousValue);
+        // CSS class for color
+        let cssClass = '';
+        const diff = currentValue - previousValue;
+        if (!isImpression) {
+            // Revenue: green if >= 110%, red if < 110%
+            if (diff >= 10 || diff <= -10) {
+                cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
+            }
+        } else {
+            // Impressions: green if >= 50%, red if < 50%
+            if (diff >= 5000 || diff <= -5000) {
+                cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
+            }
+        }
 
-  let cssClass = '';
-  if (!isImpression) {
-    if (currentValue - previousValue >= 10 || currentValue - previousValue <= -10) {
-      cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
-    }
-  } else {
-    if (currentValue - previousValue >= 5000 || currentValue - previousValue <= -5000) {
-      cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
-    }
-  }
+        return (
+            <div className="table-title">
+                <div className="table-left-header">Total</div>
 
-  return (
-    <div className="table-title">
-      <div className="table-left-header">Total</div>
+                <div className="primary-percentage-label">
+                    {currentValue
+                        ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
+                        : '-'}
+                </div>
 
-      <div className="primary-percentage-label">
-        {currentValue ? indianNumberFormat(formatValue(currentValue)) : '-'}
-      </div>
-
-      <div className={`secondary-percentage-label ${cssClass}`}>
-        {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-      </div>
-    </div>
-  );
-},
-
-        accessorKey: 'total_month_original',
-        size: 95,
-        cell: ({ row }) => {
-          const app = row.original;
-
-          let percentageValue = 0;
-          let cssClass = '';
-
-          const previousValue = parseFloat(
-            app?.total_previous_month_original?.replace(/[^\d.-]/g, '')
-          );
-          const currentValue = parseFloat(app?.total_month_original?.replace(/[^\d.-]/g, ''));
-
-          if (previousValue !== 0) {
-            percentageValue = (currentValue / Math.abs(previousValue)) * 100;
-          } else {
-            percentageValue = currentValue === 0 ? 0 : 100;
-          }
-
-          // 🎨 same rules as This Month
-          if (app.row_type === 'Revenue') {
-            if (percentageValue >= 110) cssClass = 'revenue-increase';
-          }
-
-          if (app.row_type === 'eCPM') {
-            if (percentageValue >= 50) cssClass = 'ecpm-increase';
-          }
-
-          if (app.row_type === 'Impressions') {
-            if (percentageValue >= 50) cssClass = 'impression-increase';
-          }
-
-          app.total_percentage_change = String(percentageValue || '0');
-
-          return (
-            <div
-              className="last-month-cell no-select cursor-pointer"
-              onDoubleClick={handleDoubleClick}
-            >
-              <div className="primary-percentage-label last-month-column">
-                {app.total_month_original
-                  ? indianNumberFormat(formatValue(app.total_month_original))
-                  : '-'}
-              </div>
-
-              <div className={`secondary-percentage-label ${cssClass}`}>
-                {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-              </div>
+                <div className={`secondary-percentage-label ${cssClass}`}>
+                    {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
+                </div>
             </div>
-          );
-        },
+        );
+    },
+    accessorKey: 'total_month_original',
+    size: 95,
+    cell: ({ row }) => {
+        const app = row.original;
 
-        sortingFn: numericSortingFn,
-        meta: {
-          omit:
+        // Get values
+        const totalMonth = parseFloat(String(app?.total_month_original).replace(/[^\d.-]/g, ''));
+        const totalPreviousMonth = parseFloat(String(app?.total_previous_month_original ?? 0).replace(/[^\d.-]/g, ''));
+
+        // Calculate percentage: (total_month / total_previous_month) × 100
+        let percentageValue = 0;
+        if (totalPreviousMonth !== 0 && totalPreviousMonth != null && !isNaN(totalPreviousMonth)) {
+            percentageValue = (totalMonth / Math.abs(totalPreviousMonth)) * 100;
+        } else {
+            percentageValue = totalMonth === 0 ? 0 : 100;
+        }
+
+        // Determine CSS class based on row_type
+        let cssClass = '';
+        const diff = totalMonth - totalPreviousMonth;
+
+        if (app.row_type === 'Revenue') {
+            if (diff >= 10 || diff <= -10) {
+                cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
+            }
+        } else if (app.row_type === 'eCPM') {
+            cssClass = percentageValue >= 50 ? 'ecpm-increase' : 'ecpm-decrease';
+        } else if (app.row_type === 'Impressions') {
+            if (diff >= 5000 || diff <= -5000) {
+                cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
+            }
+        }
+
+        app.total_percentage_change = String(percentageValue || '0');
+
+        return (
+            <div
+                className="last-month-cell no-select cursor-pointer"
+                onDoubleClick={handleDoubleClick}
+            >
+                <div className="primary-percentage-label last-month-column">
+                    {app.total_month_original
+                        ? indianNumberFormat(formatValue(app.total_month_original))
+                        : '-'}
+                </div>
+
+                <div className={`secondary-percentage-label ${cssClass}`}>
+                    {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
+                </div>
+            </div>
+        );
+    },
+    sortingFn: numericSortingFn,
+    meta: {
+        omit:
             !shouldShowTotalMonth ||
             checkMark.some((item) => item.type_auto_name === 'Total'),
-            omitValue: 'Total',
-          },
-        },
-      ],
-      [handleDoubleClick, percentageInfo, checkMark]
-    );
+        omitValue: 'Total',
+    },
+},
+    ],
+    [handleDoubleClick, percentageInfo, checkMark]
+  );
 
   const dynamicColumns = useMemo(() => {
     return Array.from({ length: diffDays }, (_, index) => {

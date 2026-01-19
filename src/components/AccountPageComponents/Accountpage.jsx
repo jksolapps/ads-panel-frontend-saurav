@@ -480,25 +480,55 @@ const Accountpage = () => {
 			});
 		}
 		const totals = {};
+		// resonseInArray?.forEach((item) => {
+		// 	const { row_type, this_month, last_month, total_month } = item;
+		// 	const convertedThismonth = this_month;
+		// 	const convertedLastmonth = last_month;
+		// 	const convertedTotalmonth = total_month;
+		// 	const thisMonthCount = +convertedThismonth ? +convertedThismonth : 0;
+		// 	const lastMonthCount = +convertedLastmonth ? +convertedLastmonth : 0;
+		// 	const totalMonthCount = +convertedTotalmonth ? +convertedTotalmonth : 0;
+		// 	if (!totals[row_type]) {
+		// 		totals[row_type] = {
+		// 			this_month: 0,
+		// 			last_month: 0,
+		// 			total_month: 0,
+		// 		};
+		// 	}
+		// 	totals[row_type].this_month += thisMonthCount;
+		// 	totals[row_type].last_month += lastMonthCount;
+		// 	totals[row_type].total_month += totalMonthCount;
+		// });
+
 		resonseInArray?.forEach((item) => {
-			const { row_type, this_month, last_month, total_month } = item;
-			const convertedThismonth = this_month;
-			const convertedLastmonth = last_month;
-			const convertedTotalmonth = total_month;
-			const thisMonthCount = +convertedThismonth ? +convertedThismonth : 0;
-			const lastMonthCount = +convertedLastmonth ? +convertedLastmonth : 0;
-			const totalMonthCount = +convertedTotalmonth ? +convertedTotalmonth : 0;
-			if (!totals[row_type]) {
-				totals[row_type] = {
-					this_month: 0,
-					last_month: 0,
-					total_month: 0,
-				};
-			}
-			totals[row_type].this_month += thisMonthCount;
-			totals[row_type].last_month += lastMonthCount;
-			totals[row_type].total_month += totalMonthCount;
-		});
+    const { row_type, this_month, last_month, total_month, previous_month, total_previous_month } = item;
+    const convertedThismonth = this_month;
+    const convertedLastmonth = last_month;
+    const convertedTotalmonth = total_month;
+    const convertedPreviousmonth = previous_month;
+    const convertedTotalPreviousmonth = total_previous_month;
+
+    const thisMonthCount = +convertedThismonth ? +convertedThismonth : 0;
+    const lastMonthCount = +convertedLastmonth ? +convertedLastmonth : 0;
+    const totalMonthCount = +convertedTotalmonth ? +convertedTotalmonth : 0;
+    const previousMonthCount = +convertedPreviousmonth ? +convertedPreviousmonth : 0;
+    const totalPreviousMonthCount = +convertedTotalPreviousmonth ? +convertedTotalPreviousmonth : 0;
+
+    if (!totals[row_type]) {
+        totals[row_type] = {
+            this_month: 0,
+            last_month: 0,
+            total_month: 0,
+            previous_month: 0,
+            total_previous_month: 0,
+        };
+    }
+    totals[row_type].this_month += thisMonthCount;
+    totals[row_type].last_month += lastMonthCount;
+    totals[row_type].total_month += totalMonthCount;
+    totals[row_type].previous_month += previousMonthCount;
+    totals[row_type].total_previous_month += totalPreviousMonthCount;
+});
 		const this_month =
 			(totals?.Revenue?.this_month_original / totals?.Impressions?.this_month_original) * 1000;
 		const last_month =

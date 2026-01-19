@@ -274,11 +274,16 @@ const AppPerformance = ({ overviewSelect }) => {
                       <th className="chart-col"></th>
                     )}
                     <th>Est. earnings</th>
+
                     <th>
-                      <div className="metric-header-wrap">
+                      <div ref={impressionDropdownRef} className="metric-header-wrap">
                         <span
                           className="metric-main-label"
-                          onClick={() => setShowImpressionDropdown((prev) => !prev)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowPlusDropdown(false);
+                            setShowImpressionDropdown((prev) => !prev);
+                          }}
                         >
                           {metricOptions.find((m) => m.key === impressionMetric)?.label ||
                             'Impressions'}
@@ -286,88 +291,52 @@ const AppPerformance = ({ overviewSelect }) => {
 
                         <span
                           className="metric-dropdown-icon"
-                          onClick={() => setShowImpressionDropdown((prev) => !prev)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowPlusDropdown(false);
+                            setShowImpressionDropdown((prev) => !prev);
+                          }}
                         >
                           <FaCaretDown size={14} />
                         </span>
 
-                        {!extraMetric && (
-                          <span
-                            className="metric-plus-icon"
-                            onClick={() => setShowPlusDropdown((prev) => !prev)}
-                          >
-                            <IoAdd size={14} />
-                          </span>
+                        {showImpressionDropdown && (
+                          <ul className="metric-dropdown-menu">
+                            {impressionDropdownOptions.map((opt) => (
+                              <li
+                                key={opt.key}
+                                onClick={() => {
+                                  onImpressionSelect(opt.key);
+                                  setShowImpressionDropdown(false);
+                                }}
+                              >
+                                {opt.label}
+                              </li>
+                            ))}
+                          </ul>
                         )}
 
-                        <div ref={impressionDropdownRef}>
-                          {showImpressionDropdown && (
-                            <ul className="metric-dropdown-menu">
-                              {impressionDropdownOptions.map((opt) => (
-                                <li
-                                  key={opt.key}
-                                  onClick={() => {
-                                    onImpressionSelect(opt.key);
-                                    setShowImpressionDropdown(false);
-                                  }}
-                                >
-                                  {opt.label}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
+                        {!extraMetric && (
+                          <div ref={plusDropdownRef}>
+                            <span
+                              className="metric-plus-icon"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setShowImpressionDropdown(false);
+                                setShowPlusDropdown((prev) => !prev);
+                              }}
+                            >
+                              <IoAdd size={14} />
+                            </span>
 
-                        <div ref={plusDropdownRef}>
-                          {showPlusDropdown && !extraMetric && (
-                            <ul className="metric-dropdown-menu">
-                              {plusDropdownOptions.map((opt) => (
-                                <li
-                                  key={opt.key}
-                                  onClick={() => {
-                                    onPlusSelect(opt.key);
-                                    setShowPlusDropdown(false);
-                                  }}
-                                >
-                                  {opt.label}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    </th>
-
-                    {extraMetric && (
-                      <th>
-                        <div className="metric-header-wrap">
-                          <span
-                            className="metric-main-label"
-                            onClick={() => setShowExtraDropdown((prev) => !prev)}
-                          >
-                            {metricOptions.find((m) => m.key === extraMetric)?.label}
-                          </span>
-
-                          <span
-                            className="metric-dropdown-icon"
-                            onClick={() => setShowExtraDropdown((prev) => !prev)}
-                          >
-                            <FaCaretDown size={14} />
-                          </span>
-
-                          <span className="metric-close-icon" onClick={removeExtraMetric}>
-                            <MdOutlineClose size={14} />
-                          </span>
-
-                          <div ref={extraDropdownRef}>
-                            {showExtraDropdown && (
+                            {showPlusDropdown && (
                               <ul className="metric-dropdown-menu">
-                                {extraColumnDropdownOptions.map((opt) => (
+                                {plusDropdownOptions.map((opt) => (
                                   <li
                                     key={opt.key}
                                     onClick={() => {
-                                      onExtraColumnSelect(opt.key);
-                                      setShowExtraDropdown(false);
+                                      onPlusSelect(opt.key);
+                                      setShowPlusDropdown(false);
                                     }}
                                   >
                                     {opt.label}
@@ -376,6 +345,58 @@ const AppPerformance = ({ overviewSelect }) => {
                               </ul>
                             )}
                           </div>
+                        )}
+                      </div>
+                    </th>
+
+                    {extraMetric && (
+                      <th>
+                        <div ref={extraDropdownRef} className="metric-header-wrap">
+                          <span
+                            className="metric-main-label"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowExtraDropdown((prev) => !prev);
+                            }}
+                          >
+                            {metricOptions.find((m) => m.key === extraMetric)?.label}
+                          </span>
+
+                          <span
+                            className="metric-dropdown-icon"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowExtraDropdown((prev) => !prev);
+                            }}
+                          >
+                            <FaCaretDown size={14} />
+                          </span>
+
+                          <span
+                            className="metric-close-icon"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              removeExtraMetric();
+                            }}
+                          >
+                            <MdOutlineClose size={14} />
+                          </span>
+
+                          {showExtraDropdown && (
+                            <ul className="metric-dropdown-menu">
+                              {extraColumnDropdownOptions.map((opt) => (
+                                <li
+                                  key={opt.key}
+                                  onClick={() => {
+                                    onExtraColumnSelect(opt.key);
+                                    setShowExtraDropdown(false);
+                                  }}
+                                >
+                                  {opt.label}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </th>
                     )}
