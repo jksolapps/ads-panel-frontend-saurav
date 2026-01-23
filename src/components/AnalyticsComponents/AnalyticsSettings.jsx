@@ -87,7 +87,7 @@ const AnalyticsSettings = () => {
 	const [isSwitchBox, setIsSwitchBox] = useState({});
 
 	useEffect(() => {
-		const allappslist = appList.aaData;
+		const allappslist = appList?.aaData;
 		if (allappslist?.length > 0) {
 			const value = allappslist?.map((options) => {
 				return {
