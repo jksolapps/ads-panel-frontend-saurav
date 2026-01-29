@@ -130,7 +130,21 @@ const RetentionBox = () => {
 	const isSingleAppSelected = useMemo(() => retentionCheckedApp?.length == 1, [retentionCheckedApp]);
 	const isGroupSelected = useMemo(() => finalGroupBy?.length != 0, [finalGroupBy]);
 
-	const { campaignFilter: filterData } = useAppList();
+	// const { campaignFilter: filterData } = useAppList();
+
+	const { campaignFilter: rawFilterData } = useAppList();
+
+	const filterData = useMemo(() => {
+  if (!rawFilterData) return null;
+
+  return {
+    ...rawFilterData,
+    list_apps: rawFilterData.list_apps?.filter(
+      (app) => Number(app.app_visibility) === 1
+    ) || [],
+    list_campaign: rawFilterData.list_campaign || [],
+  };
+}, [rawFilterData]);
 
 	const finalApp = useMemo(
 		() => retentionCheckedApp?.map((item) => item?.app_auto_id),

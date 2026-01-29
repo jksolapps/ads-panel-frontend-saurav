@@ -484,6 +484,11 @@
 	color: var(--white-color) !important;
 }
 
+.dark_mode .custom-search-filter.unit-search input:hover {
+	background-color: var(--hover-color) !important;
+	border-color: var(--light-border-color) !important;
+}
+
 .dark_mode .section-menu.active,
 .dark_mode .content-btn.bg-btn,
 .dark_mode .custom-overview-select__option--is-focused.custom-overview-select__option--is-selected,

@@ -1204,9 +1204,9 @@ a.button-box:hover {
 	align-items: center;
 	box-sizing: border-box;
 	display: flex;
-	height: 50px;
+	/* height: 50px; */
 	line-height: 32px;
-	padding: 15px 0;
+	padding: 0px 0 12px 4px !important;
 	z-index: 1;
 }
 
@@ -1261,6 +1261,8 @@ a.button-box:hover {
 	width: 100%;
 	position: relative;
 }
+
+
 
 .sm-title {
 	font-size: 18px;
@@ -1751,7 +1753,7 @@ td {
 .table-wrap {
 	width: 100%;
 	float: left;
-	margin-top: 8px;
+	/* margin-top: 8px; */
 }
 
 .table-wrap thead {
@@ -7626,7 +7628,7 @@ table.app-performance-table tr:not(:last-child) {
 
 .app-performance-table th,
 .app-performance-table td {
-	padding: 2px 0;
+	padding: 0px 0px;
 }
 
 .app-performance-table-wrap {
@@ -19474,11 +19476,8 @@ div:where(.swal2-container) {
   align-items: center;
   justify-content: center;
 }
-
 .metric-dropdown-menu {
   position: absolute;
-  top: 26px;
-  left: 0;
   z-index: 9999;
   background: #fff;
   list-style: none;
@@ -19486,8 +19485,11 @@ div:where(.swal2-container) {
   margin: 0;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 150px;
+  width: 120px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  top: calc(100% + 4px);
+  right: 0;
+  left: auto;
 }
 
 .metric-dropdown-menu li {
@@ -19502,13 +19504,10 @@ div:where(.swal2-container) {
   background: #f4f4f4;
 }
 
-/* .app-performance-table-wrap .scroll-container {
-  overflow: auto !important;
-} */
-
 .app-performance-table-wrap .scroll-container {
   flex: 1;
   overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .app-performance-table {
@@ -19610,10 +19609,6 @@ div:where(.swal2-container) {
     min-width: 120px;
     width: 120px;
     padding: 8px 6px;
-  }
-
-  .line-chart {
-    display: none;
   }
 
   .app-performance-table td.line-chart {

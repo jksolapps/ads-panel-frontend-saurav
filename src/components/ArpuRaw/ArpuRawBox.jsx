@@ -105,7 +105,12 @@ const ArpuRawBox = () => {
 
 	//fetch app list
 	const { campaignFilter } = useAppList();
-	const filterData = campaignFilter?.list_apps;
+	// const filterData = campaignFilter?.list_apps;
+	const filterData = useMemo(() => {
+  return campaignFilter?.list_apps?.filter(
+    (app) => Number(app.app_visibility) === 1
+  ) || [];
+}, [campaignFilter]);
 
 	useEffect(() => {
 		if (!isFilterDataLoaded && filterData) {

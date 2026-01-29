@@ -92,7 +92,21 @@ const HeatmapBox = ({ heatmapApp, setHeatmapApp }) => {
 	const user_id = localStorage.getItem('id');
 	const user_token = localStorage.getItem('token');
 
-	const { campaignFilter: filterData } = useAppList();
+	// const { campaignFilter: filterData } = useAppList();
+
+	const { campaignFilter: rawFilterData } = useAppList();
+
+	const filterData = useMemo(() => {
+  if (!rawFilterData) return null;
+
+  return {
+    ...rawFilterData,
+    list_apps: rawFilterData.list_apps?.filter(
+      (app) => Number(app.app_visibility) === 1
+    ) || [],
+    list_campaign: rawFilterData.list_campaign || [],
+  };
+}, [rawFilterData]);
 
 	const filterAppList = useMemo(() => {
 		return filterData?.list_apps || [];

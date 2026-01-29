@@ -149,7 +149,21 @@ const AnalyticsMonthBox = () => {
 	);
 
 	//campaign Filter Data
-	const { campaignFilter: filterData } = useAppList();
+	// const { campaignFilter: filterData } = useAppList();
+
+	const { campaignFilter: rawFilterData } = useAppList();
+
+	const filterData = useMemo(() => {
+  if (!rawFilterData) return null;
+
+  return {
+    ...rawFilterData,
+    list_apps: rawFilterData.list_apps?.filter(
+      (app) => Number(app.app_visibility) === 1
+    ) || [],
+    list_campaign: rawFilterData.list_campaign || [],
+  };
+}, [rawFilterData]);
 
 	// Optimized formData
 	const formData = useMemo(() => {

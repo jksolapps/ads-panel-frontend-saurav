@@ -108,21 +108,42 @@ const AppDashboard = () => {
 	}, [filterDate]);
 
 	const { campaignFilter: filterData } = useAppList();
-	const appsList = filterData?.list_apps || [];
+	const allAppsList  = filterData?.list_apps || [];
+
+
+const appsList = useMemo(() => {
+  return allAppsList.filter((app) => Number(app.app_visibility) === 1);
+}, [allAppsList]);
+
+	// const appMetaMap = useMemo(() => {
+	// 	const map = {};
+	// 	appsList.forEach((app) => {
+	// 		map[app.app_auto_id] = {
+	// 			name: app.app_display_name,
+	// 			icon: app.app_icon,
+	// 			console: app.app_console_name,
+	// 			platform: app.app_platform === '2' ? 'Android' : 'iOS',
+	// 			package: app.app_store_id,
+	// 		};
+	// 	});
+	// 	return map;
+	// }, [appsList]);
 
 	const appMetaMap = useMemo(() => {
-		const map = {};
-		appsList.forEach((app) => {
-			map[app.app_auto_id] = {
-				name: app.app_display_name,
-				icon: app.app_icon,
-				console: app.app_console_name,
-				platform: app.app_platform === '2' ? 'Android' : 'iOS',
-				package: app.app_store_id,
-			};
-		});
-		return map;
-	}, [appsList]);
+  const map = {};
+  appsList.forEach((app) => {
+    map[app.app_auto_id] = {
+      name: app.app_display_name,
+      icon: app.app_icon,
+      console: app.app_console_name,
+      platform: app.app_platform === '2' ? 'Android' : 'iOS',
+      package: app.app_store_id,
+      app_visibility: app.app_visibility, // Store visibility for reference
+    };
+  });
+  return map;
+}, [appsList]);
+
 
 	const getChange = (current, previous) => {
 		if (+current === 0 || +previous === 0) return '0%';
@@ -1093,6 +1114,7 @@ const AppDashboard = () => {
 		orderByItem,
 		platformItem,
 		selectedGroup,
+		allAppsList
 	]);
 
 	const renderMetricCell = (

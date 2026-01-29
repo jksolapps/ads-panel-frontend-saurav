@@ -1,21 +1,17 @@
-/** @format */
-
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ReactComponent as EmptyTableIcon } from '../../assets/images/empty-table-icon.svg';
-import Select from 'react-select';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import AppInfoBox from '../GeneralComponents/AppInfoBox';
-import { DataContext } from '../../context/DataContext';
-import CanvasChartItem from '../ChartComponents/AreaChartForRightBox';
-import { formatDate, microValueConvert } from '../../utils/helper';
-import { useQueryFetch } from '../../hooks/useQueryFetch';
-import { useGroupSettings } from '../../context/GroupSettingsContext';
-import { BsPlus } from 'react-icons/bs';
-import { IoMdClose } from 'react-icons/io';
-import { IoAdd, IoCaretDown } from 'react-icons/io5';
 import { FaCaretDown } from 'react-icons/fa';
+import { IoAdd } from 'react-icons/io5';
 import { MdOutlineClose } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import Select from 'react-select';
+import { ReactComponent as EmptyTableIcon } from '../../assets/images/empty-table-icon.svg';
+import { DataContext } from '../../context/DataContext';
+import { useGroupSettings } from '../../context/GroupSettingsContext';
+import { useQueryFetch } from '../../hooks/useQueryFetch';
+import { formatDate, microValueConvert } from '../../utils/helper';
+import CanvasChartItem from '../ChartComponents/AreaChartForRightBox';
+import AppInfoBox from '../GeneralComponents/AppInfoBox';
 
 const AppPerformance = ({ overviewSelect }) => {
   const { setData } = useContext(DataContext);
@@ -192,7 +188,7 @@ const AppPerformance = ({ overviewSelect }) => {
 
   const computedMaxHeight = (() => {
     const isSmall = window.innerWidth < 530;
-    return isSmall ? '353px' : '362px';
+    return isSmall ? '353px' : '360px';
   })();
 
   return (
@@ -200,6 +196,9 @@ const AppPerformance = ({ overviewSelect }) => {
       className={`box-row box2 ${
         appPerformanceData?.[performanceSelect]?.length < 5 ? '' : 'app-performance-box'
       }`}
+      style={{
+        overflow: "hidden"
+      }}
     >
       {isFetching && (
         <div className="shimmer-spinner overlay-spinner ">
@@ -282,6 +281,7 @@ const AppPerformance = ({ overviewSelect }) => {
                           onClick={(e) => {
                             e.stopPropagation();
                             setShowPlusDropdown(false);
+                            setShowExtraDropdown(false);
                             setShowImpressionDropdown((prev) => !prev);
                           }}
                         >
@@ -294,6 +294,7 @@ const AppPerformance = ({ overviewSelect }) => {
                           onClick={(e) => {
                             e.stopPropagation();
                             setShowPlusDropdown(false);
+                            setShowExtraDropdown(false);
                             setShowImpressionDropdown((prev) => !prev);
                           }}
                         >
@@ -323,6 +324,7 @@ const AppPerformance = ({ overviewSelect }) => {
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setShowImpressionDropdown(false);
+                                setShowExtraDropdown(false);
                                 setShowPlusDropdown((prev) => !prev);
                               }}
                             >
@@ -356,6 +358,8 @@ const AppPerformance = ({ overviewSelect }) => {
                             className="metric-main-label"
                             onClick={(e) => {
                               e.stopPropagation();
+                              setShowPlusDropdown(false);
+                              setShowImpressionDropdown(false);
                               setShowExtraDropdown((prev) => !prev);
                             }}
                           >
@@ -366,6 +370,8 @@ const AppPerformance = ({ overviewSelect }) => {
                             className="metric-dropdown-icon"
                             onClick={(e) => {
                               e.stopPropagation();
+                              setShowPlusDropdown(false);
+                              setShowImpressionDropdown(false);
                               setShowExtraDropdown((prev) => !prev);
                             }}
                           >
@@ -377,6 +383,7 @@ const AppPerformance = ({ overviewSelect }) => {
                             onClick={(e) => {
                               e.stopPropagation();
                               removeExtraMetric();
+                              setShowExtraDropdown(false);
                             }}
                           >
                             <MdOutlineClose size={14} />

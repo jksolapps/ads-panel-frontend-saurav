@@ -238,7 +238,15 @@ const AdunitPerformance = ({
     if (isAnalyticsApp) {
       return isSmall ? '295px' : '283px';
     }
-    return isSmall ? '353px' : '362px';
+    return isSmall ? '353px' : '350px';
+  })();
+
+  const computedMMinHeight = (() => {
+    const isSmall = window.innerWidth < 530;
+    if (isAnalyticsApp) {
+      return isSmall ? '295px' : '283px';
+    }
+    return isSmall ? '353px' : '330px';
   })();
 
   const hasData =
@@ -251,7 +259,7 @@ const AdunitPerformance = ({
 
   return (
     <div
-      className={`box-row box2 app-performance-box${
+      className={`box-row box2 app-performance-box ${
         adUnitPerformanceData?.[performanceSelect]?.length < 5 &&
         adUnitPerformanceData?.[performanceSelect]?.length !== 0
           ? ' less_data'
@@ -314,8 +322,8 @@ const AdunitPerformance = ({
             className="scroll-container"
             style={{
               overflowY: 'auto',
-              minHeight: computedMaxHeight,
               maxHeight: computedMaxHeight,
+              minHeight: computedMMinHeight
             }}
           >
             <table className="app-performance-table ad-unit-performance adunit-table-row">

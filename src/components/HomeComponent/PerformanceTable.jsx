@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap';
 import { MdClose, MdMoreVert } from 'react-icons/md';
 import { FiDownload } from 'react-icons/fi';
 import { IoEyeOff } from 'react-icons/io5';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { indianNumberFormat } from '../../utils/helper';
 import { all_apps_dimension } from '../../utils/table_helper.json';
@@ -55,8 +56,8 @@ function versionToSortableInt(parts) {
 }
 
 const PerformanceTable = () => {
-
   const { selectedGroup } = useGroupSettings();
+  const queryClient = useQueryClient();
 
   const [singleReportData, setSingleReportData] = useState([]);
   const [searchData, setSearchData] = useState([]);
@@ -124,21 +125,24 @@ const PerformanceTable = () => {
   }, [firstColumnDimension, secondColumnDimension]);
 
   // Map visible table columns to CSV keys for the worker
-  const visibleCsvKeys = useMemo(() => ({
-    cost: Boolean(columnVisibility.AD_COST),
-    estimated_earnings: Boolean(columnVisibility.ESTIMATED_EARNINGS),
-    roas: Boolean(columnVisibility.ROAS),
-    fsr: Boolean(columnVisibility.CUMULATIVE_EARNINGS),
-    cumulative_roas: Boolean(columnVisibility.CUMULATIVE_ROAS),
-    profit: Boolean(columnVisibility.PROFIT),
-    observed_ecpm: Boolean(columnVisibility.IMPRESSION_RPM),
-    ad_requests: Boolean(columnVisibility.AD_REQUESTS),
-    match_rate: Boolean(columnVisibility.MATCH_RATE),
-    impressions: Boolean(columnVisibility.IMPRESSIONS),
-    show_rate: Boolean(columnVisibility.SHOW_RATE),
-    clicks: Boolean(columnVisibility.CLICKS),
-    impression_ctr: Boolean(columnVisibility.IMPRESSION_CTR),
-  }), [columnVisibility]);
+  const visibleCsvKeys = useMemo(
+    () => ({
+      cost: Boolean(columnVisibility.AD_COST),
+      estimated_earnings: Boolean(columnVisibility.ESTIMATED_EARNINGS),
+      roas: Boolean(columnVisibility.ROAS),
+      fsr: Boolean(columnVisibility.CUMULATIVE_EARNINGS),
+      cumulative_roas: Boolean(columnVisibility.CUMULATIVE_ROAS),
+      profit: Boolean(columnVisibility.PROFIT),
+      observed_ecpm: Boolean(columnVisibility.IMPRESSION_RPM),
+      ad_requests: Boolean(columnVisibility.AD_REQUESTS),
+      match_rate: Boolean(columnVisibility.MATCH_RATE),
+      impressions: Boolean(columnVisibility.IMPRESSIONS),
+      show_rate: Boolean(columnVisibility.SHOW_RATE),
+      clicks: Boolean(columnVisibility.CLICKS),
+      impression_ctr: Boolean(columnVisibility.IMPRESSION_CTR),
+    }),
+    [columnVisibility]
+  );
 
   const formData = useMemo(() => {
     const fd = new FormData();
@@ -146,18 +150,19 @@ const PerformanceTable = () => {
     fd.append('user_token', user_token);
     fd.append('selected_dimension', finalDimension);
     if (selectedGroup?.length > 0) {
-		  fd.append('gg_id', selectedGroup);
-	  }
+      fd.append('gg_id', selectedGroup);
+    }
 
     return fd;
-  }, [finalDimension, user_id, user_token]);
+  }, [finalDimension, user_id, user_token, selectedGroup]);
 
   const {
     data: apiResponse,
     isSuccess: apiSucesss,
     isFetching,
+    refetch,
   } = useQueryFetch(
-    [firstColumnDimension, secondColumnDimension, "group_select", selectedGroup],
+    [firstColumnDimension, secondColumnDimension, 'group_select', selectedGroup, finalDimension],
     'analytics-report-all-apps-db',
     formData,
     {
@@ -165,6 +170,40 @@ const PerformanceTable = () => {
       refetchOnMount: 'ifStale',
     }
   );
+
+  // Listen for app visibility changes
+  // useEffect(() => {
+  //   const handleVisibilityChange = () => {
+  //     // Force immediate refetch when app visibility changes
+  //     refetch();
+  //   };
+
+  //   // Listen for visibility toggle events
+  //   window.addEventListener('app-visibility-changed', handleVisibilityChange);
+
+  //   return () => {
+  //     window.removeEventListener('app-visibility-changed', handleVisibilityChange);
+  //   };
+  // }, [refetch]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      queryClient.removeQueries({
+        predicate: (query) => query.queryKey.includes('analytics-report-all-apps-db'),
+      });
+
+      setSingleReportData([]);
+      setSearchData([]);
+      setCsvData([]);
+      setTotalRecordsData(null);
+    };
+
+    window.addEventListener('app-visibility-changed', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('app-visibility-changed', handleVisibilityChange);
+    };
+  }, [queryClient]);
 
   const workerRef = useRef(null);
   const reqIdRef = useRef(0);
@@ -217,6 +256,13 @@ const PerformanceTable = () => {
           },
         });
       }
+    } else {
+      // Handle empty data or error
+      setSingleReportData([]);
+      setCsvData([]);
+      setTotalRecordsData(null);
+      setSearchData([]);
+      setIsLoaderVisible(false);
     }
   }, [apiResponse, apiSucesss, firstColumnDimension, secondColumnDimension]);
 
@@ -225,6 +271,16 @@ const PerformanceTable = () => {
     if (!workerRef.current) return;
     // Ensure we have base data to process
     const baseData = searchData?.length ? searchData : [];
+
+    // Only process if we have data
+    if (baseData.length === 0) {
+      setSingleReportData([]);
+      setCsvData([]);
+      setTotalRecordsData(null);
+      setIsLoaderVisible(false);
+      return;
+    }
+
     setIsLoaderVisible(true);
     reqIdRef.current += 1;
 
@@ -249,7 +305,7 @@ const PerformanceTable = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     timeoutRef.current = setTimeout(() => {
-      if (workerRef.current) {
+      if (workerRef.current && searchData?.length > 0) {
         setIsLoaderVisible(true);
         reqIdRef.current += 1;
 
@@ -274,7 +330,7 @@ const PerformanceTable = () => {
     setSearchText(query);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
-    if (workerRef.current) {
+    if (workerRef.current && searchData?.length > 0) {
       setIsLoaderVisible(true);
       reqIdRef.current += 1;
 
@@ -371,7 +427,7 @@ const PerformanceTable = () => {
       id: colFirstId,
       accessorFn: (row) => dimensionSortValue(firstColumnDimension, row),
       header: () => (
-        <div className='dimension-column custom_report_column'>
+        <div className="dimension-column custom_report_column">
           <ColumnDropdown
             columnName={firstColumnDimension}
             setIsLoaderVisible={setIsLoaderVisible}
@@ -391,7 +447,6 @@ const PerformanceTable = () => {
         </div>
       ),
       cell: ({ row }) => {
-
         if (firstColumnDimension === 'ALL_APPS') {
           return (
             <div className="report_column_box custom_word_ellipsis">
@@ -409,8 +464,8 @@ const PerformanceTable = () => {
 
         const v = dimensionValueLabel(firstColumnDimension, row.original);
         return (
-          <div className='report_column_box custom_word_ellipsis'>
-            <div className='report_main_value' title={v}>
+          <div className="report_column_box custom_word_ellipsis">
+            <div className="report_main_value" title={v}>
               {v}
             </div>
           </div>
@@ -426,7 +481,7 @@ const PerformanceTable = () => {
       accessorFn: (row) =>
         secondColumnDimension ? dimensionSortValue(secondColumnDimension, row) : '',
       header: () => (
-        <div className='dimension-column extra_column custom_report_column'>
+        <div className="dimension-column extra_column custom_report_column">
           <SecondColumnFilter
             columnName={secondColumnDimension || '( No Select )'}
             setIsLoaderVisible={setIsLoaderVisible}
@@ -445,8 +500,7 @@ const PerformanceTable = () => {
         </div>
       ),
       cell: ({ row }) => {
-
-         if (secondColumnDimension === 'ALL_APPS') {
+        if (secondColumnDimension === 'ALL_APPS') {
           return (
             <div className="report_column_box custom_word_ellipsis">
               <AppInfoBox
@@ -465,8 +519,8 @@ const PerformanceTable = () => {
           ? dimensionValueLabel(secondColumnDimension, row.original)
           : '(not set)';
         return (
-          <div className='report_column_box custom_word_ellipsis'>
-            <div className='report_main_value' title={v}>
+          <div className="report_column_box custom_word_ellipsis">
+            <div className="report_main_value" title={v}>
               {v}
             </div>
           </div>
@@ -482,10 +536,10 @@ const PerformanceTable = () => {
     };
 
     const headerWithTotal = (title, total) => (
-      <div className='report-title custom_right_head'>
-        <div className='top_total'>
-          <div className='report-header'>{title}</div>
-          <div className='report-total'>{total}</div>
+      <div className="report-title custom_right_head">
+        <div className="top_total">
+          <div className="report-header">{title}</div>
+          <div className="report-total">{total}</div>
         </div>
       </div>
     );
@@ -501,10 +555,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('Cost', indianNumberFormat(totalRecordsData.total_cost))
           ) : (
-            <div className='report-title custom_right_head'>Cost</div>
+            <div className="report-title custom_right_head">Cost</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box'>
+          <div className="report_column_box">
             {row.original?.cost ? indianNumberFormat(row.original.cost) : '$0.00'}
           </div>
         ),
@@ -526,26 +580,28 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             <Tippy
               content={'Actual Earnings'}
-              placement='top'
+              placement="top"
               duration={0}
               offset={[0, 0]}
-              className='custom_black_tippy'
+              className="custom_black_tippy"
             >
-              <div className='report-title custom_right_head'>
-                <div className='top_total'>
-                  <div className='report-header hover_tooltip_box title_tooltip'>
+              <div className="report-title custom_right_head">
+                <div className="top_total">
+                  <div className="report-header hover_tooltip_box title_tooltip">
                     <span>Earnings</span>
                   </div>
-                  <div className='report-total'>
+                  <div className="report-total">
                     {indianNumberFormat(totalRecordsData.total_estimated_earnings)}
                   </div>
                 </div>
               </div>
             </Tippy>
           ) : (
-            <div className='report-title custom_right_head'>Earnings</div>
+            <div className="report-title custom_right_head">Earnings</div>
           ),
-        cell: ({ row }) => <div className='report_column_box'>{row.original?.estimated_earnings}</div>,
+        cell: ({ row }) => (
+          <div className="report_column_box">{row.original?.estimated_earnings}</div>
+        ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_estimated_earnings,
           minWidth: 125,
@@ -568,28 +624,28 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             <Tippy
               content={'Actual ROAS'}
-              placement='top'
+              placement="top"
               duration={0}
               offset={[0, 0]}
-              className='custom_black_tippy'
+              className="custom_black_tippy"
             >
-              <div className='report-title custom_right_head'>
-                <div className='top_total'>
-                  <div className='report-header hover_tooltip_box title_tooltip'>
+              <div className="report-title custom_right_head">
+                <div className="top_total">
+                  <div className="report-header hover_tooltip_box title_tooltip">
                     <span>A.ROAS</span>
                   </div>
-                  <div className='report-total'>{totalRecordsData?.total_roas}</div>
+                  <div className="report-total">{totalRecordsData?.total_roas}</div>
                 </div>
               </div>
             </Tippy>
           ) : (
-            <div className='report-title custom_right_head'>A.ROAS</div>
+            <div className="report-title custom_right_head">A.ROAS</div>
           ),
         cell: ({ row }) => {
           const cost = parseMoney(row.original?.cost);
           const rev = parseMoney(row.original?.estimated_earnings);
           const roas = cost ? (rev / cost).toFixed(2) : '0.00';
-          return <div className='report_column_box'>{roas}</div>;
+          return <div className="report_column_box">{roas}</div>;
         },
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_roas,
@@ -609,25 +665,27 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             <Tippy
               content={'Cumulative Earning'}
-              placement='top'
+              placement="top"
               duration={0}
               offset={[0, 0]}
-              className='custom_black_tippy'
+              className="custom_black_tippy"
             >
-              <div className='report-title custom_right_head'>
-                <div className='top_total'>
-                  <div className='report-header hover_tooltip_box title_tooltip'>
+              <div className="report-title custom_right_head">
+                <div className="top_total">
+                  <div className="report-header hover_tooltip_box title_tooltip">
                     <span>C.Earning</span>
                   </div>
-                  <div className='report-total'>{indianNumberFormat(totalRecordsData?.total_fsr)}</div>
+                  <div className="report-total">
+                    {indianNumberFormat(totalRecordsData?.total_fsr)}
+                  </div>
                 </div>
               </div>
             </Tippy>
           ) : (
-            <div className='report-title custom_right_head'>C.Earnings</div>
+            <div className="report-title custom_right_head">C.Earnings</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box'>{indianNumberFormat(row.original?.fsr)}</div>
+          <div className="report_column_box">{indianNumberFormat(row.original?.fsr)}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_fsr,
@@ -651,28 +709,28 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             <Tippy
               content={'Cumulative ROAS'}
-              placement='top'
+              placement="top"
               duration={0}
               offset={[0, 0]}
-              className='custom_black_tippy'
+              className="custom_black_tippy"
             >
-              <div className='report-title custom_right_head'>
-                <div className='top_total'>
-                  <div className='report-header hover_tooltip_box title_tooltip'>
+              <div className="report-title custom_right_head">
+                <div className="top_total">
+                  <div className="report-header hover_tooltip_box title_tooltip">
                     <span>C.ROAS</span>
                   </div>
-                  <div className='report-total'>{totalRecordsData?.total_cumulative_roas}</div>
+                  <div className="report-total">{totalRecordsData?.total_cumulative_roas}</div>
                 </div>
               </div>
             </Tippy>
           ) : (
-            <div className='report-title custom_right_head'>C.ROAS</div>
+            <div className="report-title custom_right_head">C.ROAS</div>
           ),
         cell: ({ row }) => {
           const cost = parseMoney(row.original?.cost);
           const rev = parseMoney(row.original?.fsr);
           const v = cost ? (rev / cost).toFixed(2) : '0.00';
-          return <div className='report_column_box'>{v}</div>;
+          return <div className="report_column_box">{v}</div>;
         },
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_cumulative_roas,
@@ -694,24 +752,24 @@ const PerformanceTable = () => {
         },
         header: () =>
           totalRecordsData ? (
-            <div className='report-title custom_right_head'>
-              <div className='top_total'>
-                <div className='report-header'>Profit</div>
-                <div className='report-total'>
+            <div className="report-title custom_right_head">
+              <div className="top_total">
+                <div className="report-header">Profit</div>
+                <div className="report-total">
                   {(Number(totalRecordsData?.total_profit) < 0 ? '- $' : '$') +
                     indianNumberFormat(Math.abs(Number(totalRecordsData?.total_profit)))}
                 </div>
               </div>
             </div>
           ) : (
-            <div className='report-title custom_right_head'>Profit</div>
+            <div className="report-title custom_right_head">Profit</div>
           ),
         cell: ({ row }) => {
           const cost = parseMoney(row.original?.cost);
           const rev = parseMoney(row.original?.estimated_earnings);
           const profit = rev - cost;
           return (
-            <div className='report_column_box'>
+            <div className="report_column_box">
               {(profit < 0 ? '- $' : '$') + indianNumberFormat(Math.abs(profit.toFixed(2)))}
             </div>
           );
@@ -734,10 +792,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('eCPM', indianNumberFormat(totalRecordsData.total_observed_ecpm))
           ) : (
-            <div className='report-title custom_right_head'>eCPM</div>
+            <div className="report-title custom_right_head">eCPM</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.observed_ecpm}</div>
+          <div className="report_column_box custom_right_head">{row.original?.observed_ecpm}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_observed_ecpm,
@@ -757,10 +815,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('Requests', indianNumberFormat(totalRecordsData.total_ad_requests))
           ) : (
-            <div className='report-title custom_right_head'>Requests</div>
+            <div className="report-title custom_right_head">Requests</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.ad_requests}</div>
+          <div className="report_column_box custom_right_head">{row.original?.ad_requests}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_ad_requests,
@@ -778,31 +836,31 @@ const PerformanceTable = () => {
         accessorFn: (row) => parsePercent(row.match_rate),
         header: () =>
           totalRecordsData ? (
-            <div className='report-title custom_right_head'>
-              <div className='top_total'>
-                <div className='report-header'>Match rate</div>
+            <div className="report-title custom_right_head">
+              <div className="top_total">
+                <div className="report-header">Match rate</div>
                 <Tippy
                   content={indianNumberFormat(totalRecordsData?.total_matched_requests)}
-                  placement='top'
+                  placement="top"
                   duration={0}
                   offset={[0, 2]}
-                  className='custom_black_tippy'
+                  className="custom_black_tippy"
                 >
-                  <div className='report-total'>{totalRecordsData?.total_match_rate}</div>
+                  <div className="report-total">{totalRecordsData?.total_match_rate}</div>
                 </Tippy>
               </div>
             </div>
           ) : (
-            <div className='report-title custom_right_head'>Match rate (%)</div>
+            <div className="report-title custom_right_head">Match rate (%)</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head hover_tooltip_box'>
+          <div className="report_column_box custom_right_head hover_tooltip_box">
             <Tippy
               content={row.original?.matched_requests}
-              placement='top'
+              placement="top"
               duration={0}
               offset={[0, 2]}
-              className='custom_black_tippy'
+              className="custom_black_tippy"
             >
               <span>{row.original?.match_rate}</span>
             </Tippy>
@@ -826,10 +884,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('Impressions', indianNumberFormat(totalRecordsData.total_impressions))
           ) : (
-            <div className='report-title custom_right_head'>Impressions</div>
+            <div className="report-title custom_right_head">Impressions</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.impressions}</div>
+          <div className="report_column_box custom_right_head">{row.original?.impressions}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_impressions,
@@ -849,10 +907,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('Show rate', totalRecordsData.total_show_rate)
           ) : (
-            <div className='report-title custom_right_head'>Show rate (%)</div>
+            <div className="report-title custom_right_head">Show rate (%)</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.show_rate}</div>
+          <div className="report_column_box custom_right_head">{row.original?.show_rate}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_show_rate,
@@ -872,10 +930,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('Clicks', indianNumberFormat(totalRecordsData.total_clicks))
           ) : (
-            <div className='report-title custom_right_head'>Clicks</div>
+            <div className="report-title custom_right_head">Clicks</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.clicks}</div>
+          <div className="report_column_box custom_right_head">{row.original?.clicks}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_clicks,
@@ -895,10 +953,10 @@ const PerformanceTable = () => {
           totalRecordsData ? (
             headerWithTotal('CTR', totalRecordsData.total_impression_ctr)
           ) : (
-            <div className='report-title custom_right_head'>CTR (%)</div>
+            <div className="report-title custom_right_head">CTR (%)</div>
           ),
         cell: ({ row }) => (
-          <div className='report_column_box custom_right_head'>{row.original?.impression_ctr}</div>
+          <div className="report_column_box custom_right_head">{row.original?.impression_ctr}</div>
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_impression_ctr,
@@ -926,11 +984,11 @@ const PerformanceTable = () => {
   ]);
 
   const modalColumns = useMemo(() => {
-  	return tanstackColumns.map((c) => ({
-  		name: typeof c.header === 'function' ? c.header() : c.header,
-  		sortValue: c.id,
-  		omit: Boolean(c?.meta?.omit),
-  	}));
+    return tanstackColumns.map((c) => ({
+      name: typeof c.header === 'function' ? c.header() : c.header,
+      sortValue: c.id,
+      omit: Boolean(c?.meta?.omit),
+    }));
   }, [tanstackColumns]);
 
   const applyModalColumns = (updatedCols) => {
@@ -957,9 +1015,9 @@ const PerformanceTable = () => {
         !singleReportData.length ? 'no_data_table_wrap' : ''
       }`}
     >
-      <div className='userBoxWrap user-section-wrapper'>
-        <div className='popup-full-box form-box-wrap form-wizard'>
-          <div className='popup-box-wrapper'>
+      <div className="userBoxWrap user-section-wrapper">
+        <div className="popup-full-box form-box-wrap form-wizard">
+          <div className="popup-box-wrapper">
             <div
               className={`box-wrapper table-container ${
                 secondColumnDimension ? 'extra_column_visible' : ''
@@ -967,34 +1025,34 @@ const PerformanceTable = () => {
               style={{ zIndex: 8 }}
             >
               {showOverlayLoader && (
-                <div className='shimmer-spinner overlay-spinner'>
-                  <Spinner animation='border' variant='secondary' />
+                <div className="shimmer-spinner overlay-spinner">
+                  <Spinner animation="border" variant="secondary" />
                 </div>
               )}
 
-              <div className='custom-search-filter single_app_search'>
-                <div className='single_app_search_inner'>
+              <div className="custom-search-filter single_app_search">
+                <div className="single_app_search_inner">
                   <input
                     value={searchText}
                     onChange={handleSearch}
-                    placeholder='Search...'
-                    autoComplete='off'
+                    placeholder="Search..."
+                    autoComplete="off"
                   />
                   {searchText?.length > 0 && (
-                    <MdClose className='search-close' onClick={handleSearchClose} />
+                    <MdClose className="search-close" onClick={handleSearchClose} />
                   )}
                 </div>
 
-                <div className='more-button three-icon-button more_btn_box'>
+                <div className="more-button three-icon-button more_btn_box">
                   {singleReportData && (
-                    <div className='row_count'>Total rows : {singleReportData?.length}</div>
+                    <div className="row_count">Total rows : {singleReportData?.length}</div>
                   )}
-                  <MdMoreVert className='material-icons' />
-                  <div className='more-box w-250'>
-                    <div className='border-box'>
+                  <MdMoreVert className="material-icons" />
+                  <div className="more-box w-250">
+                    <div className="border-box">
                       {csvData?.length > 0 && (
-                        <CSVLink className='downloadbtn' filename='all-report.csv' data={csvData}>
-                          <span className='material-icons'>
+                        <CSVLink className="downloadbtn" filename="all-report.csv" data={csvData}>
+                          <span className="material-icons">
                             <FiDownload />
                           </span>
                           Download CSV
@@ -1002,8 +1060,11 @@ const PerformanceTable = () => {
                       )}
                     </div>
 
-                    <div className='border-box more_btn_item' onClick={() => setOmitModalShow(true)}>
-                      <span className='material-icons'>
+                    <div
+                      className="border-box more_btn_item"
+                      onClick={() => setOmitModalShow(true)}
+                    >
+                      <span className="material-icons">
                         <IoEyeOff />
                       </span>
                       <span>Hide/Show column</span>
@@ -1013,20 +1074,20 @@ const PerformanceTable = () => {
               </div>
 
               <GeneralTanStackTable
-                className='statistics_table single_app_report report-table-scroll'
+                className="statistics_table single_app_report report-table-scroll"
                 data={singleReportData}
                 columns={tanstackColumns}
-                variant='sticky'
+                variant="sticky"
                 height={tableHeight}
                 rowHeight={36}
                 enableSorting
                 enableResize
-                columnResizeMode='onChange'
+                columnResizeMode="onChange"
                 enableVirtualization
                 overscan={10}
                 stickyColumns={secondColumnDimension ? 2 : 1}
-                defaultSortColumn='FirstColumn_MONTH'
-                defaultSortDirection='desc'
+                defaultSortColumn="FirstColumn_MONTH"
+                defaultSortDirection="desc"
               />
             </div>
           </div>

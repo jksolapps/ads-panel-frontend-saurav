@@ -10,6 +10,7 @@ import { useGroupSettings } from '../../context/GroupSettingsContext';
 import useAppsApi from '../../hooks/useAppsApi';
 import useGeneratePagination from '../../hooks/useGeneratePagination';
 import { useQueryFetch } from '../../hooks/useQueryFetch';
+import { flushAllCachesExcept } from '../../lib/reactQueryUtils';
 import AccountPageAccountPopup from '../AccountPageComponents/Popups/AccountPageAccountPopup';
 import AppAccountPopup from '../AccountPageComponents/Popups/AppAccountPopup';
 import CustomPaginationComponent from '../CustomPaginationComponent';
@@ -155,7 +156,9 @@ const AppContentBox = () => {
     setAppPaginationList(paginationLinks);
   }, [appTotalPages]);
 
-  const handleToggleVisibility = async (appAutoId) => {
+  const handleToggleVisibility = async (appAutoId, currentVisibility) => {
+    const nextVisibility = currentVisibility ? 0 : 1;
+
     try {
       queryClient.setQueryData(APPS_LIST_QUERY_KEY, (oldData) => {
         if (!oldData?.aaData) return oldData;
@@ -164,10 +167,47 @@ const AppContentBox = () => {
           ...oldData,
           aaData: oldData.aaData.map((app) =>
             Number(app.app_auto_id) === Number(appAutoId)
-              ? {
-                  ...app,
-                  app_visibility: Number(app.app_visibility) === 1 ? 0 : 1,
-                }
+              ? { ...app, app_visibility: nextVisibility }
+              : app
+          ),
+        };
+      });
+
+      queryClient.setQueriesData({ queryKey: ['global-app-list'], exact: false }, (oldData) => {
+        if (!oldData?.aaData) return oldData;
+
+        return {
+          ...oldData,
+          aaData: oldData.aaData.map((app) =>
+            Number(app.app_auto_id) === Number(appAutoId)
+              ? { ...app, app_visibility: nextVisibility }
+              : app
+          ),
+        };
+      });
+
+      queryClient.setQueriesData({ queryKey: ['account-filter-data'], exact: false }, (oldData) => {
+        if (!oldData?.all_app_list) return oldData;
+
+        return {
+          ...oldData,
+          all_app_list: oldData.all_app_list.map((app) =>
+            Number(app.app_auto_id) === Number(appAutoId)
+              ? { ...app, app_visibility: nextVisibility }
+              : app
+          ),
+        };
+      });
+
+      // Update account-filter-data cache
+      queryClient.setQueriesData({ queryKey: ['global-campaign-list'], exact: false }, (oldData) => {
+        if (!oldData?.list_apps) return oldData;
+
+        return {
+          ...oldData,
+          list_apps: oldData.list_apps.map((app) =>
+            Number(app.app_auto_id) === Number(appAutoId)
+              ? { ...app, app_visibility: nextVisibility }
               : app
           ),
         };
@@ -179,9 +219,17 @@ const AppContentBox = () => {
       payload.append('app_auto_id', appAutoId);
 
       await useAppsApi('toggle-app-visibility', payload);
-    } catch (error) {
-      console.error('Toggle failed', error);
 
+      flushAllCachesExcept(queryClient, [
+        'apps-list-table',
+        'global-app-list',
+        'group_select',
+        'account-filter-data',
+        'global-campaign-list',
+        'setting-apps-list',
+      ]);
+    } catch (err) {
+      console.error(err);
       queryClient.invalidateQueries(['apps-list-table']);
     }
   };
@@ -234,7 +282,7 @@ const AppContentBox = () => {
             <input
               type="checkbox"
               id="checkbox"
-              onClick={() => handleToggleVisibility(app?.app_auto_id)}
+              onChange={() => handleToggleVisibility(app.app_auto_id, isVisible)}
               checked={isVisible}
             />
             <div className="slider round"></div>

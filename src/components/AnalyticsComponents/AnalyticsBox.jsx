@@ -137,7 +137,19 @@ const AnalyticsBox = () => {
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 	const currentAnalyticsData = analyticsData?.slice(indexOfFirstItem, indexOfLastItem);
 
-	const { campaignFilter: filterData } = useAppList();
+	const { campaignFilter: rawFilterData  } = useAppList();
+
+	const filterData = useMemo(() => {
+  if (!rawFilterData) return null;
+
+  return {
+    ...rawFilterData,
+    list_apps: rawFilterData.list_apps?.filter(
+      (app) => Number(app.app_visibility) === 1
+    ) || [],
+    list_campaign: rawFilterData.list_campaign || [],
+  };
+}, [rawFilterData]);
 
 	const finalCampaign = useMemo(
 		() => campaignId?.map((item) => item.campaign_auto_id),

@@ -24,7 +24,22 @@ const CampaignBox = memo(() => {
 	const [filterDate, setFilterDate] = useState(localDateRange ? localDateRange : '');
 
 	// app-list
-	const { campaignFilter: filterData } = useAppList();
+	// const { campaignFilter: filterData } = useAppList();
+
+	const { campaignFilter: rawFilterData } = useAppList();
+
+const filterData = useMemo(() => {
+  if (!rawFilterData) return null;
+
+  return {
+    ...rawFilterData,
+    list_apps: rawFilterData.list_apps?.filter(
+      (app) => Number(app.app_visibility) === 1
+    ) || [],
+    list_campaign: rawFilterData.list_campaign || [],
+  };
+}, [rawFilterData]);
+
 
 	const filterAppList = useMemo(() => filterData?.list_apps || [], [filterData]);
 	const filterCampaignList = useMemo(() => filterData?.list_campaign || [], [filterData]);

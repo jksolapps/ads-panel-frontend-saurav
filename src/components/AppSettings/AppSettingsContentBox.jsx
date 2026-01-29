@@ -1,14 +1,36 @@
 /** @format */
 
-import React, { useState } from "react";
-import { MdHelpOutline, MdContentCopy, MdCheckCircle } from "react-icons/md";
-import Footer from "../Footer";
-import { Spinner } from "react-bootstrap";
-import { LuExternalLink } from "react-icons/lu";
+import React, { useContext, useState } from 'react';
+import {
+  MdHelpOutline,
+  MdContentCopy,
+  MdCheckCircle,
+  MdOutlineSpeed,
+  MdOutlineSmartphone,
+  MdSettingsApplications,
+} from 'react-icons/md';
+import Footer from '../Footer';
+import { Spinner } from 'react-bootstrap';
+import { LuExternalLink } from 'react-icons/lu';
+import Tippy from '@tippyjs/react';
+import { Link, useParams } from 'react-router-dom';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { DataContext } from '../../context/DataContext';
+import AppDetailAppInfo from '../GeneralComponents/AppDetailAppInfo';
+import SearchBar from '../GeneralComponents/SearchBar';
 
 const AppSettingsContentBox = ({ settingsData }) => {
-  //Copy text
-  const [copyAppId, setCopyAppId] = useState("");
+  const { id } = useParams();
+
+  const { appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } = useContext(DataContext);
+
+  const [copyAppId, setCopyAppId] = useState('');
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
+
   const handleCopyText = async (id) => {
     try {
       await navigator.clipboard.writeText(id);
@@ -22,8 +44,148 @@ const AppSettingsContentBox = ({ settingsData }) => {
   };
   return (
     <div className="right-box-wrap app-setting-wrap">
-      <div className="main-box-wrapper pdglr24">
+      <div className="main-box-wrapper pdglr24 app-overview">
         <div className="main-box-row">
+          <div className="custom_app_details_top">
+            <div className="app-info">
+              <AppDetailAppInfo
+                app_auto_id={settingsData?.app_info?.app_auto_id}
+                app_icon={settingsData?.app_info?.app_icon}
+                app_platform={settingsData?.app_info?.app_platform}
+                app_display_name={settingsData?.app_info?.app_display_name}
+                app_console_name={settingsData?.app_info?.app_console_name}
+                app_store_id={settingsData?.app_info?.app_store_id}
+                admob_email={settingsData?.app_info?.admob_email}
+              />
+            </div>
+            <SearchBar
+              id={id}
+              appTab={appTab}
+              setIsAppLoaderVisible={setIsAppLoaderVisible}
+              setIsSearched={setIsSearched}
+            />
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              {settingsData?.app_info?.is_app_property == '1' && role == '1' ? (
+                <div className="redirect_link_wrap">
+                  <div
+                    className="redirect_btn"
+                    onClick={() =>
+                      navigate('/arpu', {
+                        state: { app_auto_id: settingsData?.app_info?.app_auto_id },
+                      })
+                    }
+                  >
+                    <RetentionPlusPlusIcon className="app_details_icon" />
+                    <span>ARPU</span>
+                  </div>
+                  <div
+                    className="redirect_btn"
+                    onClick={() =>
+                      navigate('/arpu-raw', {
+                        state: { app_auto_id: settingsData?.app_info?.app_auto_id },
+                      })
+                    }
+                  >
+                    <AllInOneIcon className="app_details_icon" />
+                    <span>ARPU Raw</span>
+                  </div>
+                  <div
+                    className="redirect_btn"
+                    onClick={() =>
+                      navigate('/analytics', {
+                        state: { app_auto_id: settingsData?.app_info?.app_auto_id },
+                      })
+                    }
+                  >
+                    <IoAnalytics />
+                    <span>Analytics</span>
+                  </div>
+                  <div
+                    className="redirect_btn"
+                    onClick={() =>
+                      navigate('/heatmap', {
+                        state: { app_auto_id: settingsData?.app_info?.app_auto_id },
+                      })
+                    }
+                  >
+                    <MdOutlineCalendarMonth />
+                    <span>Heatmap</span>
+                  </div>
+                </div>
+              ) : (
+                <div />
+              )}
+
+              <Tippy
+                content={
+                  <div className="custom_extra_menu_wrapper tippy_extra_submenu">
+                    <div className="custom_extra_menu">
+                      <Link
+                        onClick={() => {
+                          setAppTab({
+                            detailsPage: true,
+                            settingPage: false,
+                            unitPage: false,
+                          });
+                          closeMenu();
+                        }}
+                        className={appTab?.detailsPage ? 'section-menu active' : 'section-menu'}
+                      >
+                        <MdOutlineSpeed />
+                        <span className="menu-item-label">App Overview</span>
+                      </Link>
+
+                      <Link
+                        onClick={() => {
+                          setAppTab({
+                            detailsPage: false,
+                            settingPage: false,
+                            unitPage: true,
+                          });
+                          closeMenu();
+                        }}
+                        className={appTab.unitPage ? 'section-menu active' : 'section-menu'}
+                      >
+                        <MdOutlineSmartphone />
+                        <span className="menu-item-label">Ad Units</span>
+                      </Link>
+
+                      <Link
+                        onClick={() => {
+                          setAppTab({
+                            detailsPage: false,
+                            settingPage: true,
+                            unitPage: false,
+                          });
+                          closeMenu();
+                        }}
+                        className={appTab.settingPage ? 'section-menu active' : 'section-menu'}
+                      >
+                        <MdSettingsApplications />
+                        <span className="menu-item-label">App Settings</span>
+                      </Link>
+                    </div>
+                  </div>
+                }
+                placement="right-start"
+                interactive
+                visible={isMenuOpen}
+                onClickOutside={closeMenu}
+                appendTo={() => document.body}
+              >
+                <div className="three-dot-menu" onClick={toggleMenu}>
+                  <BsThreeDotsVertical size={20} />
+                </div>
+              </Tippy>
+            </div>
+          </div>
           <div className="top-bar">
             <h1 className="title">App settings</h1>
           </div>
@@ -45,12 +207,12 @@ const AppSettingsContentBox = ({ settingsData }) => {
                             <h4>App name</h4>
                             <p>The name of your app.</p>
                             <p>
-                              If your app is listed on the Google Play or Apple
-                              app store, this is automatically populated.&nbsp;
+                              If your app is listed on the Google Play or Apple app store, this is
+                              automatically populated.&nbsp;
                             </p>
                             <p>
-                              <strong>Note</strong>: We recommend matching your
-                              app name with the app store listing.&nbsp;&nbsp;
+                              <strong>Note</strong>: We recommend matching your app name with the
+                              app store listing.&nbsp;&nbsp;
                             </p>
                           </div>
                         </div>
@@ -58,9 +220,7 @@ const AppSettingsContentBox = ({ settingsData }) => {
                     </div>
                   </div>
                   <div className="content-box">
-                    <p className="app_display_name">
-                      {settingsData?.app_info?.app_display_name}
-                    </p>
+                    <p className="app_display_name">{settingsData?.app_info?.app_display_name}</p>
                   </div>
                 </div>
                 <div className="box">
@@ -74,12 +234,12 @@ const AppSettingsContentBox = ({ settingsData }) => {
                             <h4>App ID</h4>
                             <p>The Id of your app.</p>
                             <p>
-                              If your app is listed on the Google Play or Apple
-                              app store, this is automatically populated.&nbsp;
+                              If your app is listed on the Google Play or Apple app store, this is
+                              automatically populated.&nbsp;
                             </p>
                             <p>
-                              <strong>Note</strong>: We recommend matching your
-                              app Id with the app store listing.&nbsp;&nbsp;
+                              <strong>Note</strong>: We recommend matching your app Id with the app
+                              store listing.&nbsp;&nbsp;
                             </p>
                           </div>
                         </div>
@@ -92,24 +252,19 @@ const AppSettingsContentBox = ({ settingsData }) => {
                         <div className="copy" id="copy-1">
                           <button
                             className="copy-btn"
-                            onClick={() =>
-                              handleCopyText(
-                                settingsData?.app_info?.app_admob_app_id
-                              )
-                            }
+                            onClick={() => handleCopyText(settingsData?.app_info?.app_admob_app_id)}
                           >
                             <MdContentCopy className="material-icons" />
                             {settingsData?.app_info?.app_admob_app_id}
                           </button>
-                          {settingsData?.app_info?.app_admob_app_id ==
-                            copyAppId && (
-                              <div className="copyMessage">Copied</div>
-                            )}
+                          {settingsData?.app_info?.app_admob_app_id == copyAppId && (
+                            <div className="copyMessage">Copied</div>
+                          )}
                         </div>
                       </div>
                     </div>
                   ) : (
-                    "-"
+                    '-'
                   )}
                 </div>
                 <div className="box">
@@ -123,13 +278,12 @@ const AppSettingsContentBox = ({ settingsData }) => {
                             <h4>App store details</h4>
                             <p>The Id of your App Store.</p>
                             <p>
-                              If your app is listed on the Google Play or Apple
-                              app store, this is automatically populated.&nbsp;
+                              If your app is listed on the Google Play or Apple app store, this is
+                              automatically populated.&nbsp;
                             </p>
                             <p>
-                              <strong>Note</strong>: We recommend matching your
-                              App Store Id with the app store
-                              listing.&nbsp;&nbsp;
+                              <strong>Note</strong>: We recommend matching your App Store Id with
+                              the app store listing.&nbsp;&nbsp;
                             </p>
                           </div>
                         </div>
@@ -143,19 +297,16 @@ const AppSettingsContentBox = ({ settingsData }) => {
                         <div
                           className="copy-text color-2"
                           id="color-2"
-                          onClick={() =>
-                            handleCopyText(settingsData?.app_info?.app_store_id)
-                          }
+                          onClick={() => handleCopyText(settingsData?.app_info?.app_store_id)}
                         >
                           <div className="copy" id="copy-2">
                             <button className="copy-btn">
                               <MdContentCopy className="material-icons" />
                               {settingsData?.app_info?.app_store_id}
                             </button>
-                            {settingsData?.app_info?.app_store_id ==
-                              copyAppId && (
-                                <div className="copyMessage">Copied</div>
-                              )}
+                            {settingsData?.app_info?.app_store_id == copyAppId && (
+                              <div className="copyMessage">Copied</div>
+                            )}
                           </div>
                         </div>
                         <a
@@ -172,7 +323,7 @@ const AppSettingsContentBox = ({ settingsData }) => {
                       </div>
                     </div>
                   ) : (
-                    "-"
+                    '-'
                   )}
                 </div>
                 <div className="box">
@@ -186,12 +337,12 @@ const AppSettingsContentBox = ({ settingsData }) => {
                             <h4>Console Name</h4>
                             <p>The name of your app.</p>
                             <p>
-                              If your app is listed on the Google Play or Apple
-                              app store, this is automatically populated.&nbsp;
+                              If your app is listed on the Google Play or Apple app store, this is
+                              automatically populated.&nbsp;
                             </p>
                             <p>
-                              <strong>Note</strong>: We recommend matching your
-                              app name with the app store listing.&nbsp;&nbsp;
+                              <strong>Note</strong>: We recommend matching your app name with the
+                              app store listing.&nbsp;&nbsp;
                             </p>
                           </div>
                         </div>
@@ -202,14 +353,14 @@ const AppSettingsContentBox = ({ settingsData }) => {
                     <p className="app_display_name">
                       {settingsData?.app_info?.app_console_name
                         ? settingsData?.app_info?.app_console_name
-                        : "-"}
+                        : '-'}
                       <a
                         href={
                           settingsData?.app_info?.app_platform == 2
                             ? `https://play.google.com/store/apps/developer?id=${settingsData?.app_info?.app_console_name?.replaceAll(
-                              " ",
-                              "+"
-                            )}`
+                                ' ',
+                                '+'
+                              )}`
                             : `https://apps.apple.com/developer/id${settingsData?.app_info?.app_console_name}`
                         }
                         target="_blank"
@@ -231,12 +382,12 @@ const AppSettingsContentBox = ({ settingsData }) => {
                             <h4>Approval status</h4>
                             <p>The name of your app.</p>
                             <p>
-                              If your app is listed on the Google Play or Apple
-                              app store, this is automatically populated.&nbsp;
+                              If your app is listed on the Google Play or Apple app store, this is
+                              automatically populated.&nbsp;
                             </p>
                             <p>
-                              <strong>Note</strong>: We recommend matching your
-                              app name with the app store listing.&nbsp;&nbsp;
+                              <strong>Note</strong>: We recommend matching your app name with the
+                              app store listing.&nbsp;&nbsp;
                             </p>
                           </div>
                         </div>

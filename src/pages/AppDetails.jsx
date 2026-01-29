@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AppDetailsContentBox from '../components/AppDetails/AppDetailsContentBox';
 import Sidebar from '../components/Sidebar';
 import { Helmet } from 'react-helmet-async';
@@ -17,6 +17,14 @@ const AppDetails = () => {
     setAppInfo(data);
   };
 
+  useEffect(() => {
+    setAppTab({
+      detailsPage: true,
+      settingPage: false,
+      unitPage: false,
+    });
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -32,7 +40,7 @@ const AppDetails = () => {
           <TopBar />
           {appTab.detailsPage && <AppDetailsContentBox appInfo={appInfo} />}
           {appTab.settingPage && <AppSettingsContentBox settingsData={appInfo} />}
-          {appTab.unitPage && <AppUnitsContentBox />}
+          {appTab.unitPage && <AppUnitsContentBox appInfo={appInfo} />}
         </div>
       </div>
     </>
