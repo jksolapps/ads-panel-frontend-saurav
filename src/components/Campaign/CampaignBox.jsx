@@ -477,8 +477,16 @@ const filterData = useMemo(() => {
 		}
 	}, [finalCampaign, isCampaignApplied, isClearClicked, initialConvertedData]);
 
-	const showMainLoader = isPending && !isPlaceholderData;
-	const showOverlayLoader = isFetching && isPlaceholderData;
+	// const showMainLoader = isPending && !isPlaceholderData;
+	// const showOverlayLoader = isFetching && isPlaceholderData;
+
+	const hasAnyApp = filterAppList && filterAppList.length > 0;
+
+const showMainLoader =
+  hasAnyApp && isPending && !isPlaceholderData;
+
+const showOverlayLoader =
+  hasAnyApp && isFetching && isPlaceholderData;
 
 	return (
 		<div className='right-box-wrap custom_ads_ui'>
