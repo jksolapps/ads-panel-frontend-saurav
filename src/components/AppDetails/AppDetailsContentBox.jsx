@@ -282,7 +282,7 @@ const AppDetailsContentBox = ({ appInfo }) => {
                   </div>
                 </div>
                 <div className="scorecard">
-                  <div className="label-name">Yesterday so far</div>
+                  <div className="label-name">Yesterday</div>
                   <div className="label-value copy-text">
                     <span>
                       {appOverviewData?.status_code !== 1
@@ -314,7 +314,7 @@ const AppDetailsContentBox = ({ appInfo }) => {
                   </div>
                 </div>
                 <div className="scorecard">
-                  <div className="label-name">Last Month so far</div>
+                  <div className="label-name">Last Month</div>
                   <div className="label-value copy-text">
                     <span>
                       {appOverviewData?.status_code !== 1

@@ -19464,6 +19464,7 @@ div:where(.swal2-container) {
   font-weight: 500;
   min-width: 50px;
   display: inline-block;
+  padding-right: 3px;
 }
 
 .metric-dropdown-icon,
@@ -19526,7 +19527,7 @@ div:where(.swal2-container) {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 0px;
   position: relative;
   max-width: 100%;
 }
@@ -19546,6 +19547,7 @@ div:where(.swal2-container) {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 0px 2px;
 }
 
 .metric-plus-icon{
