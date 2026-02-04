@@ -186,9 +186,9 @@ const RightContentBox = () => {
                                     setIsLoaderVisible={setIsLoaderVisible}
 								/>
 							</div>
-							<div className="single_app_report_table">
+							{/* <div className="single_app_report_table">
 								<PerformanceTable />
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>
