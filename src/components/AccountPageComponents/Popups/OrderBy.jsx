@@ -75,42 +75,77 @@ const OrderBy = ({
 	const [checkedPlatform, setCheckedPlatform] = useState([]);
 	const [searchText, setSearchText] = useState('');
 
-	useEffect(() => {
-		if (orderToggle && accountType?.length > 0) {
-			const uniqueOrderIds = Array.from(new Set(accountType?.map((item) => item.order_id)));
-			const filteredInitialData = initialData?.filter((item) =>
-				uniqueOrderIds.includes(item.order_id)
-			);
-			const updatedInitialData = [...filteredInitialData];
-			updatedInitialData[1].item_checked = orderToggle;
+	// useEffect(() => {
+	// 	if (orderToggle && accountType?.length > 0) {
+	// 		const uniqueOrderIds = Array.from(new Set(accountType?.map((item) => item.order_id)));
+	// 		const filteredInitialData = initialData?.filter((item) =>
+	// 			uniqueOrderIds.includes(item.order_id)
+	// 		);
+	// 		const updatedInitialData = [...filteredInitialData];
+	// 		updatedInitialData[1].item_checked = orderToggle;
 
-			const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
-			const finalUpdatedData = updatedInitialData?.map((item) => {
-				const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
-				return {
-					...item,
-					item_checked: isChecked ? isChecked : !localData ? item?.item_checked : false,
-				};
-			});
-			setAllPlatformData(finalUpdatedData);
-			setFilteredPlatformData(finalUpdatedData);
-			setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
-		} else {
-			const uniqueOrderIds = Array.from(new Set(accountType?.map((item) => item.order_id)));
-			// Filter initialData based on unique order_ids
-			const filteredInitialData = initialData?.filter((item) =>
-				uniqueOrderIds.includes(item.order_id)
-			);
-			const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
-			const finalUpdatedData = filteredInitialData?.map((item) => {
-				const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
-				return { ...item, item_checked: isChecked ? isChecked : false };
-			});
-			setAllPlatformData(finalUpdatedData);
-			setFilteredPlatformData(finalUpdatedData);
-			setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
-		}
-	}, [orderToggle, accountType]);
+	// 		const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
+	// 		const finalUpdatedData = updatedInitialData?.map((item) => {
+	// 			const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
+	// 			return {
+	// 				...item,
+	// 				item_checked: isChecked ? isChecked : !localData ? item?.item_checked : false,
+	// 			};
+	// 		});
+	// 		setAllPlatformData(finalUpdatedData);
+	// 		setFilteredPlatformData(finalUpdatedData);
+	// 		setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
+	// 	} else {
+	// 		const uniqueOrderIds = Array.from(new Set(accountType?.map((item) => item.order_id)));
+	// 		// Filter initialData based on unique order_ids
+	// 		const filteredInitialData = initialData?.filter((item) =>
+	// 			uniqueOrderIds.includes(item.order_id)
+	// 		);
+	// 		const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
+	// 		const finalUpdatedData = filteredInitialData?.map((item) => {
+	// 			const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
+	// 			return { ...item, item_checked: isChecked ? isChecked : false };
+	// 		});
+	// 		setAllPlatformData(finalUpdatedData);
+	// 		setFilteredPlatformData(finalUpdatedData);
+	// 		setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
+	// 	}
+	// }, [orderToggle, accountType]);
+
+	useEffect(() => {
+  const uniqueOrderIds = accountType?.length > 0
+    ? Array.from(new Set(accountType?.map((item) => item.order_id)))
+    : ['1', '2', '3'];
+  const filteredInitialData = initialData?.filter((item) =>
+    uniqueOrderIds.includes(item.order_id)
+  );
+
+  if (orderToggle && accountType?.length > 0) {
+    const updatedInitialData = [...filteredInitialData];
+    updatedInitialData[1].item_checked = orderToggle;
+
+    const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
+    const finalUpdatedData = updatedInitialData?.map((item) => {
+      const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
+      return {
+        ...item,
+        item_checked: isChecked ? isChecked : !localData ? item?.item_checked : false,
+      };
+    });
+    setAllPlatformData(finalUpdatedData);
+    setFilteredPlatformData(finalUpdatedData);
+    setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
+  } else {
+    const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_order_filter'));
+    const finalUpdatedData = filteredInitialData?.map((item) => {
+      const isChecked = localData?.some((app) => app.type_auto_id == item.type_auto_id);
+      return { ...item, item_checked: isChecked ? isChecked : false };
+    });
+    setAllPlatformData(finalUpdatedData);
+    setFilteredPlatformData(finalUpdatedData);
+    setaccountOrder(finalUpdatedData?.filter((item) => item?.item_checked));
+  }
+}, [orderToggle, accountType]);
 
 	useEffect(() => {
 		setCheckedPlatform(filteredPlatformData.filter((item) => item.item_checked));

@@ -166,7 +166,6 @@ const AppContentBox = () => {
       admob_email: v?.app_admob_email,
       id: i,
     }));
-    console.log("🚀 ~ AppContentBox ~ uniqueAppData:", uniqueAppData)
 
     let data = response?.aaData;
 

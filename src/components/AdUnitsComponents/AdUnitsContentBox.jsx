@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { DataContext } from '../../context/DataContext';
 import {
   MdContentCopy,
+  MdOutlineCalendarMonth,
   MdOutlineSmartphone,
   MdOutlineSpeed,
   MdSettingsApplications,
@@ -22,9 +23,12 @@ import Tippy from '@tippyjs/react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import AppDetailAppInfo from '../GeneralComponents/AppDetailAppInfo';
 import SearchBar from '../GeneralComponents/SearchBar';
+import { ReactComponent as RetentionPlusPlusIcon } from '../../assets/images/retention_pp.svg';
+import { ReactComponent as AllInOneIcon } from '../../assets/images/app_all_in_one.svg';
+import { IoAnalytics } from 'react-icons/io5';
 
 const AdUnitsContentBox = ({ appInfo }) => {
-  const { searchUnitId, appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } =
+  const {role, searchUnitId, appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } =
     useContext(DataContext);
   const { id } = useParams();
   const [adUnitData, setAdUnitData] = useState([]);
@@ -140,7 +144,9 @@ const AdUnitsContentBox = ({ appInfo }) => {
   const currentAdUnitData = adUnitData?.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className={`right-box-wrap`}>
+    <div className={`right-box-wrap ${
+        appInfo?.app_info?.is_app_property == '1' ? 'custom_analytics_app' : 'custom_normal_app'
+      }`}>
       <div className="main-box-wrapper pdglr24 app-overview">
         <div className="main-box-row">
           <div className="custom_app_details_top">

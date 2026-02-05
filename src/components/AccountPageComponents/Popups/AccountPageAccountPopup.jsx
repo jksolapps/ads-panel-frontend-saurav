@@ -100,6 +100,7 @@ const AccountPageAccountPopup = ({
 	};
 	const handleApply = (e, close) => {
 		e.preventDefault();
+		 close();
 		setSelectedFilter('AccountPageAccountPopup');
 		setSearchText('');
 		setIsReportLoaderVisible(true);

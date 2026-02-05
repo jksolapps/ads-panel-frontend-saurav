@@ -259,6 +259,7 @@ const AppDetailsContentBox = ({ appInfo }) => {
                 </Tippy>
               </div>
             </div>
+
             <div className="box-row grey-box app-details-grey-box">
               {appOverviewData?.status_code !== 1 || isAppLoaderVisible?.activityPerformance ? (
                 <div className="shimmer-spinner overlay-spinner white-spinner">

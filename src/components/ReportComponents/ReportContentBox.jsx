@@ -623,8 +623,17 @@ const ReportContentBox = () => {
     });
   }
 
-  const isAccountReady = finalSelectedAccount !== undefined;
-  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+  // const isAccountReady = finalSelectedAccount !== undefined;
+  // const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+
+  const isAccountReady = finalSelectedAccount !== undefined && finalSelectedAccount !== '' && finalSelectedAccount !== null;
+const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+
+  useEffect(() => {
+  if (isQueryEnabled && !reportResponse) {
+    setMainLoaderVisible(true);
+  }
+}, [isQueryEnabled]);
 
   const {
     data: reportResponse,
@@ -2640,8 +2649,14 @@ const ReportContentBox = () => {
 
   const { addClass } = useStickyOnScroll({ topSpace: 15 });
 
-  const showMainLoader = isPending && !isPlaceholderData;
-  const showOverlayLoader = isFetching && isPlaceholderData;
+  // const showMainLoader = isPending && !isPlaceholderData;
+  // const showOverlayLoader = isFetching && isPlaceholderData;
+
+//   const showMainLoader = !isFilterDataLoaded || (isQueryEnabled && isPending && !isPlaceholderData) || (isQueryEnabled && !reportResponse && !isPlaceholderData);
+// const showOverlayLoader = isFetching && isPlaceholderData;
+
+const showMainLoader = mainLoaderVisible;
+const showOverlayLoader = isFetching && !isPending;
 
   const handleSortingChange = (updater) => {
     setSortingColumn((prev) => {

@@ -8,6 +8,7 @@ import {
   MdOutlineSpeed,
   MdOutlineSmartphone,
   MdSettingsApplications,
+  MdOutlineCalendarMonth,
 } from 'react-icons/md';
 import Footer from '../Footer';
 import { Spinner } from 'react-bootstrap';
@@ -18,11 +19,14 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { DataContext } from '../../context/DataContext';
 import AppDetailAppInfo from '../GeneralComponents/AppDetailAppInfo';
 import SearchBar from '../GeneralComponents/SearchBar';
+import { ReactComponent as RetentionPlusPlusIcon } from '../../assets/images/retention_pp.svg';
+import { ReactComponent as AllInOneIcon } from '../../assets/images/app_all_in_one.svg';
+import { IoAnalytics } from 'react-icons/io5';
 
 const AppSettingsContentBox = ({ settingsData }) => {
   const { id } = useParams();
 
-  const { appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } = useContext(DataContext);
+  const { role, appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } = useContext(DataContext);
 
   const [copyAppId, setCopyAppId] = useState('');
 
@@ -43,7 +47,9 @@ const AppSettingsContentBox = ({ settingsData }) => {
     }
   };
   return (
-    <div className="right-box-wrap app-setting-wrap">
+    <div className={`right-box-wrap app-setting-wrap ${
+        settingsData?.app_info?.is_app_property == '1' ? 'custom_analytics_app' : 'custom_normal_app'
+      }`}>
       <div className="main-box-wrapper pdglr24 app-overview">
         <div className="main-box-row">
           <div className="custom_app_details_top">

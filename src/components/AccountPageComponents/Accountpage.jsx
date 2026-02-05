@@ -191,34 +191,6 @@ const Accountpage = () => {
     }
   );
 
-  // useEffect(() => {
-  // 	if (!isAppSuccess || !appResponse) return;
-  // 	const response = appResponse;
-  // 	const uniqueAppData = response?.all_app_list
-  // 		?.filter((v, i, self) => self?.findIndex((t) => t?.admob_email === v?.admob_email) === i)
-  // 		.map((v, i) => ({
-  // 			...v,
-  // 			item_checked: false,
-  // 			id: i,
-  // 		}));
-
-  // 	let data = response?.all_app_list;
-
-  // 	const uniqueAppAutoIdObjects = [];
-  // 	Object?.keys(data)?.forEach((key) => {
-  // 		const entry = data[key];
-
-  // 		if (!uniqueAppAutoIdObjects.some((obj) => obj?.app_auto_id === entry?.app_auto_id)) {
-  // 			uniqueAppAutoIdObjects?.push(entry);
-  // 		}
-  // 	});
-  // 	setAllAppList(uniqueAppAutoIdObjects);
-  // 	setFilterData(uniqueAppAutoIdObjects);
-  // 	setFilterAccountData(uniqueAppData);
-  // 	setFilterPopupData(response);
-  // 	setIsDataPresent(true);
-  // }, [appResponse, isAppSuccess]);
-
   useEffect(() => {
     if (!isAppSuccess || !appResponse) return;
     const response = appResponse;
@@ -353,7 +325,7 @@ const Accountpage = () => {
     [accountPlatform]
   );
 
-  // 3) Final queryKey – only primitives, so it’s stable across refresh
+  // 3) Final queryKey – only primitives, so it's stable across refresh
   const queryKey = useMemo(
     () => [
       'account-table',
@@ -511,25 +483,6 @@ const Accountpage = () => {
       });
     }
     const totals = {};
-    // resonseInArray?.forEach((item) => {
-    // 	const { row_type, this_month, last_month, total_month } = item;
-    // 	const convertedThismonth = this_month;
-    // 	const convertedLastmonth = last_month;
-    // 	const convertedTotalmonth = total_month;
-    // 	const thisMonthCount = +convertedThismonth ? +convertedThismonth : 0;
-    // 	const lastMonthCount = +convertedLastmonth ? +convertedLastmonth : 0;
-    // 	const totalMonthCount = +convertedTotalmonth ? +convertedTotalmonth : 0;
-    // 	if (!totals[row_type]) {
-    // 		totals[row_type] = {
-    // 			this_month: 0,
-    // 			last_month: 0,
-    // 			total_month: 0,
-    // 		};
-    // 	}
-    // 	totals[row_type].this_month += thisMonthCount;
-    // 	totals[row_type].last_month += lastMonthCount;
-    // 	totals[row_type].total_month += totalMonthCount;
-    // });
 
     resonseInArray?.forEach((item) => {
       const {
@@ -1023,12 +976,6 @@ const Accountpage = () => {
       });
       setSortedArray([]);
 
-      //need to remove this line
-      // const totalCopies = 20;
-      // const newData = [];
-      // for (let i = 0; i < totalCopies; i++) {
-      // 	newData.push(...appList);
-      // }
       setUpdatedTableNewData(appList ? appList : []);
     } else {
       setSortedArray([]);
@@ -1418,6 +1365,7 @@ const Accountpage = () => {
             setPageNumber={setAppPageNumber}
             setIsReportLoaderVisible={setIsReportLoaderVisible}
             setCurrentUnitPage={setCurrentUnitPage}
+            filterPopupData={filterPopupData}
           />
         );
       case 'CheckMark':
@@ -1448,8 +1396,11 @@ const Accountpage = () => {
     <React.Fragment key={filterName + index}>{renderComponent(filterName)}</React.Fragment>
   ));
 
-  const isFirstLoad = isLoading && !response;
-  const isRefetching = isFetching && !!response;
+  // FIX #1: Improved loader logic - show overlay when fetching (including filter changes)
+  // Only show main loader on very first load (no data exists yet)
+  const isFirstLoad = isLoading && !response && updateTableNewData.length === 0;
+  // Show overlay loader when we have existing data and are fetching new data
+  const showOverlayLoader = isFetching && (!!response || updateTableNewData.length > 0);
 
   return (
     <div className="right-box-wrap">
@@ -1542,7 +1493,8 @@ const Accountpage = () => {
           <>
             <div className={`Account-Table ${defaultShortValue}`}>
               <div className={`table-container ad-units-box user-table-box `}>
-                {isRefetching && (
+                {/* FIX #1: Use combined showOverlayLoader for overlay spinner */}
+                {showOverlayLoader && (
                   <div className="shimmer-spinner overlay-spinner">
                     <Spinner animation="border" variant="secondary" />
                   </div>

@@ -34,14 +34,11 @@ export function useAccountColumns({
   function parseMetricValue(raw) {
     if (raw == null) return 0;
 
-    // Already numeric
     if (typeof raw === 'number') {
       return Number.isFinite(raw) ? raw : 0;
     }
 
-    // Handle accessorFn returning objects (like date-wise cells)
     if (typeof raw === 'object') {
-      // Try common keys you use in this file
       const candidate =
         raw.report_value_original ??
         raw.report_value ??
@@ -54,7 +51,7 @@ export function useAccountColumns({
         null;
 
       if (candidate != null) {
-        return parseMetricValue(candidate); // recurse once into actual value
+        return parseMetricValue(candidate);
       }
 
       return 0;
@@ -65,17 +62,14 @@ export function useAccountColumns({
     let v = raw.trim().toUpperCase();
     if (!v) return 0;
 
-    // Handle accounting negative style: (1,234.56)
     let isNegative = false;
     if (v.startsWith('(') && v.endsWith(')')) {
       isNegative = true;
       v = v.slice(1, -1).trim();
     }
 
-    // Detect percentage BEFORE stripping symbols
     const isPercent = v.includes('%');
 
-    // Handle suffixes only when not percentage: K, M, B
     let multiplier = 1;
     if (!isPercent) {
       if (v.endsWith('K')) {
@@ -90,8 +84,6 @@ export function useAccountColumns({
       }
     }
 
-    // Strip everything except digits, decimal, sign
-    // (removes currency symbols, commas, spaces, %, etc.)
     v = v.replace(/[^0-9.+-]/g, '');
     if (!v) return 0;
 
@@ -100,7 +92,6 @@ export function useAccountColumns({
 
     let value = num;
 
-    // Convert percent → 0–1 range so 50% == 0.5 for sorting consistency
     if (isPercent) {
       value = value / 100;
     } else {
@@ -199,120 +190,120 @@ export function useAccountColumns({
       },
 
       {
-    id: 'last_month',
-    header: () => {
-        const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
+        id: 'last_month',
+        header: () => {
+          const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
 
-        const currentValue = microValueConvert(
+          const currentValue = microValueConvert(
             isImpression
-                ? summaryData?.[1]?.Impressions?.last_month
-                : summaryData?.[0]?.Revenue?.last_month
-        );
+              ? summaryData?.[1]?.Impressions?.last_month
+              : summaryData?.[0]?.Revenue?.last_month
+          );
 
-        const previousValue = microValueConvert(
+          const previousValue = microValueConvert(
             isImpression
-                ? summaryData?.[1]?.Impressions?.previous_month
-                : summaryData?.[0]?.Revenue?.previous_month
-        );
+              ? summaryData?.[1]?.Impressions?.previous_month
+              : summaryData?.[0]?.Revenue?.previous_month
+          );
 
-        // Formula: (current / previous) × 100
-        let percentageVal = 0;
-        if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
+          let percentageVal = 0;
+          if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
             percentageVal = (currentValue / Math.abs(previousValue)) * 100;
-        } else {
+          } else {
             percentageVal = currentValue === 0 ? 0 : 100;
-        }
+          }
 
-        // CSS class for color
-        let cssClass = '';
-        const diff = currentValue - previousValue;
-        if (!isImpression) {
-            // Revenue: green if >= 110%, red if < 110%
+          let cssClass = '';
+          const diff = currentValue - previousValue;
+          if (!isImpression) {
             if (diff >= 10 || diff <= -10) {
-                cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
+              cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
             }
-        } else {
-            // Impressions: green if >= 50%, red if < 50%
+          } else {
             if (diff >= 5000 || diff <= -5000) {
-                cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
+              cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
             }
-        }
+          }
 
-        return (
+          return (
             <div className="table-title">
-                <div className="table-left-header">
-                    <div>Last</div>
-                    <div>Month</div>
-                </div>
+              <div className="table-left-header">
+                <div>Last</div>
+                <div>Month</div>
+              </div>
 
-                <div className="primary-percentage-label">
-                    {currentValue
-                        ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
-                        : '-'}
-                </div>
+              <div className="primary-percentage-label">
+                {currentValue
+                  ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
+                  : '-'}
+              </div>
 
-                <div className={`secondary-percentage-label ${cssClass}`}>
-                    {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
-                </div>
+              <div className={`secondary-percentage-label ${cssClass}`}>
+                {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
+              </div>
             </div>
-        );
-    },
-    accessorKey: 'last_month_original',
-    size: 95,
-    cell: ({ row }) => {
-        const app = row.original;
+          );
+        },
+        accessorKey: 'last_month_original',
+        size: 95,
+        cell: ({ row }) => {
+          const app = row.original;
 
-        // Get values
-        const lastMonth = parseFloat(String(app?.last_month_original).replace(/[^\d.-]/g, ''));
-        const previousMonth = parseFloat(String(app?.previous_month_original ?? 0).replace(/[^\d.-]/g, ''));
+          // FIX #2: Get values based on row_type
+          const lastMonth = parseFloat(String(app?.last_month_original).replace(/[^\d.-]/g, ''));
+          const previousMonth = parseFloat(
+            String(app?.previous_month_original ?? 0).replace(/[^\d.-]/g, '')
+          );
 
-        // Calculate percentage: (last_month / previous_month) × 100
-        let percentageValue = 0;
-        if (previousMonth !== 0 && previousMonth != null && !isNaN(previousMonth)) {
+          let percentageValue = 0;
+          if (previousMonth !== 0 && previousMonth != null && !isNaN(previousMonth)) {
             percentageValue = (lastMonth / Math.abs(previousMonth)) * 100;
-        } else {
+          } else {
             percentageValue = lastMonth === 0 ? 0 : 100;
-        }
+          }
 
-        // Determine CSS class based on row_type
-        let cssClass = '';
-        const diff = lastMonth - previousMonth;
+          let cssClass = '';
+          const diff = lastMonth - previousMonth;
 
-        if (app.row_type === 'Revenue') {
+          if (app.row_type === 'Revenue') {
             if (diff >= 10 || diff <= -10) {
-                cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
+              cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
             }
-        } else if (app.row_type === 'eCPM') {
-            cssClass = percentageValue >= 50 ? 'ecpm-increase' : 'ecpm-decrease';
-        } else if (app.row_type === 'Impressions') {
+          } else if (app.row_type === 'eCPM') {
+            if (percentageValue >= 50) {
+              cssClass = 'ecpm-increase';
+            } else {
+              cssClass = 'ecpm-decrease';
+            }
+          } else if (app.row_type === 'Impressions') {
             if (diff >= 5000 || diff <= -5000) {
-                cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
+              cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
             }
-        }
+          }
 
-        return (
+          return (
             <div
-                className="last-month-cell no-select cursor-pointer"
-                onDoubleClick={handleDoubleClick}
+              className="last-month-cell no-select cursor-pointer"
+              onDoubleClick={handleDoubleClick}
             >
-                <div className="primary-percentage-label last-month-column">
-                    {app.last_month_original
-                        ? indianNumberFormat(formatValue(app.last_month_original))
-                        : '-'}
-                </div>
+              <div className="primary-percentage-label last-month-column">
+                {app.last_month_original
+                  ? indianNumberFormat(formatValue(app.last_month_original))
+                  : '-'}
+              </div>
 
-                <div className={`secondary-percentage-label ${cssClass}`}>
-                    {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-                </div>
+              <div className={`secondary-percentage-label ${cssClass}`}>
+                {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
+              </div>
             </div>
-        );
-    },
-    sortingFn: numericSortingFn,
-    meta: {
-        omit: !checkMark.some((item) => item.type_auto_name == 'Last Month'),
-        omitValue: 'Last Month',
-    },
-},
+          );
+        },
+        sortingFn: numericSortingFn,
+        meta: {
+          omit: !checkMark.some((item) => item.type_auto_name == 'Last Month'),
+          omitValue: 'Last Month',
+        },
+      },
 
       {
         id: 'this_month',
@@ -389,8 +380,7 @@ export function useAccountColumns({
                         )}
                       >
                         {summaryData?.[1]?.Impressions?.this_month
-                          ? '$' +
-                            indianNumberFormat(
+                          ? indianNumberFormat(
                               formatValue(
                                 String(microValueConvert(summaryData?.[1]?.Impressions?.this_month))
                               )
@@ -437,9 +427,15 @@ export function useAccountColumns({
           const app = row.original;
           let cssClass = '';
           let percentageValue = 0;
+
+          // FIX #2: Use row-specific values for this_month calculations
           if (app.row_type === 'Revenue') {
-            const yesterdayValue = parseFloat(app?.last_month_original?.replace(/[^\d.-]/g, ''));
-            const currentValue = parseFloat(app?.this_month_original?.replace(/[^\d.-]/g, ''));
+            const yesterdayValue = parseFloat(
+              String(app?.last_month_original).replace(/[^\d.-]/g, '')
+            );
+            const currentValue = parseFloat(
+              String(app?.this_month_original).replace(/[^\d.-]/g, '')
+            );
             let percentChange = 0;
             if (yesterdayValue !== 0) {
               percentChange = (currentValue / Math.abs(yesterdayValue)) * 100;
@@ -447,15 +443,21 @@ export function useAccountColumns({
               percentChange = currentValue === 0 ? 0 : 100;
             }
             percentageValue = percentChange;
-            if (currentValue - yesterdayValue >= 10 || currentValue - yesterdayValue < 10) {
+            if (currentValue - yesterdayValue >= 10 || currentValue - yesterdayValue <= -10) {
               if (percentChange >= 110) {
                 cssClass += ' revenue-increase';
+              } else if (percentChange <= 90) {
+                cssClass += ' revenue-decrease';
               }
             }
             app.percentage_change = String(percentChange ? percentChange : '0');
           } else if (app?.row_type === 'eCPM') {
-            const yesterdayValue = parseFloat(app?.last_month_original?.replace(/[^\d.-]/g, ''));
-            const currentValue = parseFloat(app?.this_month_original?.replace(/[^\d.-]/g, ''));
+            const yesterdayValue = parseFloat(
+              String(app?.last_month_original).replace(/[^\d.-]/g, '')
+            );
+            const currentValue = parseFloat(
+              String(app?.this_month_original).replace(/[^\d.-]/g, '')
+            );
             let percentChange = 0;
             if (yesterdayValue !== 0) {
               percentChange = (currentValue / Math.abs(yesterdayValue)) * 100;
@@ -465,11 +467,17 @@ export function useAccountColumns({
             percentageValue = percentChange;
             if (percentChange >= 50) {
               cssClass += ' ecpm-increase';
+            } else {
+              cssClass += ' ecpm-decrease';
             }
             app.percentage_change = String(percentChange ? percentChange : '0');
           } else if (app.row_type === 'Impressions') {
-            const yesterdayValue = parseFloat(app?.last_month_original?.replace(/[^\d.-]/g, ''));
-            const currentValue = parseFloat(app?.this_month_original?.replace(/[^\d.-]/g, ''));
+            const yesterdayValue = parseFloat(
+              String(app?.last_month_original).replace(/[^\d.-]/g, '')
+            );
+            const currentValue = parseFloat(
+              String(app?.this_month_original).replace(/[^\d.-]/g, '')
+            );
             let percentChange = 0;
             if (yesterdayValue !== 0) {
               percentChange = (currentValue / Math.abs(yesterdayValue)) * 100;
@@ -480,6 +488,8 @@ export function useAccountColumns({
             if (currentValue - yesterdayValue >= 5000 || currentValue - yesterdayValue <= -5000) {
               if (percentChange >= 50) {
                 cssClass += ' impression-increase';
+              } else if (percentChange < 50) {
+                cssClass += ' impression-decrease';
               }
             }
             app.percentage_change = String(percentChange ? percentChange : '0');
@@ -510,123 +520,122 @@ export function useAccountColumns({
       },
 
       {
-    id: 'total_month',
-    header: () => {
-        const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
+        id: 'total_month',
+        header: () => {
+          const isImpression = typeIndex?.length === 1 && typeIndex?.includes('3');
 
-        const currentValue = microValueConvert(
+          const currentValue = microValueConvert(
             isImpression
-                ? summaryData?.[1]?.Impressions?.total_month
-                : summaryData?.[0]?.Revenue?.total_month
-        );
+              ? summaryData?.[1]?.Impressions?.total_month
+              : summaryData?.[0]?.Revenue?.total_month
+          );
 
-        const previousValue = microValueConvert(
+          const previousValue = microValueConvert(
             isImpression
-                ? summaryData?.[1]?.Impressions?.total_previous_month
-                : summaryData?.[0]?.Revenue?.total_previous_month
-        );
+              ? summaryData?.[1]?.Impressions?.total_previous_month
+              : summaryData?.[0]?.Revenue?.total_previous_month
+          );
 
-        // Formula: (current / previous) × 100
-        let percentageVal = 0;
-        if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
+          let percentageVal = 0;
+          if (previousValue !== 0 && previousValue != null && !isNaN(previousValue)) {
             percentageVal = (currentValue / Math.abs(previousValue)) * 100;
-        } else {
+          } else {
             percentageVal = currentValue === 0 ? 0 : 100;
-        }
+          }
 
-        // CSS class for color
-        let cssClass = '';
-        const diff = currentValue - previousValue;
-        if (!isImpression) {
-            // Revenue: green if >= 110%, red if < 110%
+          let cssClass = '';
+          const diff = currentValue - previousValue;
+          if (!isImpression) {
             if (diff >= 10 || diff <= -10) {
-                cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
+              cssClass = percentageVal >= 110 ? 'revenue-increase' : 'revenue-decrease';
             }
-        } else {
-            // Impressions: green if >= 50%, red if < 50%
+          } else {
             if (diff >= 5000 || diff <= -5000) {
-                cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
+              cssClass = percentageVal >= 50 ? 'impression-increase' : 'impression-decrease';
             }
-        }
+          }
 
-        return (
+          return (
             <div className="table-title">
-                <div className="table-left-header">Total</div>
+              <div className="table-left-header">Total</div>
 
-                <div className="primary-percentage-label">
-                    {currentValue
-                        ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
-                        : '-'}
-                </div>
+              <div className="primary-percentage-label">
+                {currentValue
+                  ? (isImpression ? '' : '$') + indianNumberFormat(formatValue(currentValue))
+                  : '-'}
+              </div>
 
-                <div className={`secondary-percentage-label ${cssClass}`}>
-                    {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
-                </div>
+              <div className={`secondary-percentage-label ${cssClass}`}>
+                {percentageVal ? displayNumber(Math.abs(percentageVal)) + '%' : '-'}
+              </div>
             </div>
-        );
-    },
-    accessorKey: 'total_month_original',
-    size: 95,
-    cell: ({ row }) => {
-        const app = row.original;
+          );
+        },
+        accessorKey: 'total_month_original',
+        size: 95,
+        cell: ({ row }) => {
+          const app = row.original;
 
-        // Get values
-        const totalMonth = parseFloat(String(app?.total_month_original).replace(/[^\d.-]/g, ''));
-        const totalPreviousMonth = parseFloat(String(app?.total_previous_month_original ?? 0).replace(/[^\d.-]/g, ''));
+          const totalMonth = parseFloat(String(app?.total_month_original).replace(/[^\d.-]/g, ''));
+          const totalPreviousMonth = parseFloat(
+            String(app?.total_previous_month_original ?? 0).replace(/[^\d.-]/g, '')
+          );
 
-        // Calculate percentage: (total_month / total_previous_month) × 100
-        let percentageValue = 0;
-        if (totalPreviousMonth !== 0 && totalPreviousMonth != null && !isNaN(totalPreviousMonth)) {
+          let percentageValue = 0;
+          if (totalPreviousMonth !== 0 && totalPreviousMonth != null && !isNaN(totalPreviousMonth)) {
             percentageValue = (totalMonth / Math.abs(totalPreviousMonth)) * 100;
-        } else {
+          } else {
             percentageValue = totalMonth === 0 ? 0 : 100;
-        }
+          }
 
-        // Determine CSS class based on row_type
-        let cssClass = '';
-        const diff = totalMonth - totalPreviousMonth;
+          let cssClass = '';
+          const diff = totalMonth - totalPreviousMonth;
 
-        if (app.row_type === 'Revenue') {
+          if (app.row_type === 'Revenue') {
             if (diff >= 10 || diff <= -10) {
-                cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
+              cssClass = percentageValue >= 110 ? 'revenue-increase' : 'revenue-decrease';
             }
-        } else if (app.row_type === 'eCPM') {
-            cssClass = percentageValue >= 50 ? 'ecpm-increase' : 'ecpm-decrease';
-        } else if (app.row_type === 'Impressions') {
+          } else if (app.row_type === 'eCPM') {
+            if (percentageValue >= 50) {
+              cssClass = 'ecpm-increase';
+            } else {
+              cssClass = 'ecpm-decrease';
+            }
+          } else if (app.row_type === 'Impressions') {
             if (diff >= 5000 || diff <= -5000) {
-                cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
+              cssClass = percentageValue >= 50 ? 'impression-increase' : 'impression-decrease';
             }
-        }
+          }
 
-        app.total_percentage_change = String(percentageValue || '0');
+          app.total_percentage_change = String(percentageValue || '0');
 
-        return (
+          return (
             <div
-                className="last-month-cell no-select cursor-pointer"
-                onDoubleClick={handleDoubleClick}
+              className="last-month-cell no-select cursor-pointer"
+              onDoubleClick={handleDoubleClick}
             >
-                <div className="primary-percentage-label last-month-column">
-                    {app.total_month_original
-                        ? indianNumberFormat(formatValue(app.total_month_original))
-                        : '-'}
-                </div>
+              <div className="primary-percentage-label last-month-column">
+                {app.total_month_original
+                  ? indianNumberFormat(formatValue(app.total_month_original))
+                  : '-'}
+              </div>
 
-                <div className={`secondary-percentage-label ${cssClass}`}>
-                    {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
-                </div>
+              <div className={`secondary-percentage-label ${cssClass}`}>
+                {percentageValue ? displayNumber(Math.abs(percentageValue)) + '%' : '-'}
+              </div>
             </div>
-        );
-    },
-    sortingFn: numericSortingFn,
-    meta: {
-        omit:
+          );
+        },
+        sortingFn: numericSortingFn,
+        meta: {
+          omit:
             !shouldShowTotalMonth ||
             checkMark.some((item) => item.type_auto_name === 'Total'),
-        omitValue: 'Total',
-    },
-},
+          omitValue: 'Total',
+        },
+      },
     ],
-    [handleDoubleClick, percentageInfo, checkMark]
+    [handleDoubleClick, percentageInfo, checkMark, typeIndex, summaryData, percentageValue]
   );
 
   const dynamicColumns = useMemo(() => {
@@ -692,16 +701,16 @@ export function useAccountColumns({
         const dateString = Object.keys(obj)[0];
         if (monthFilterActive) {
           const [year, month] = dateString.split('-');
-          return { date: new Date(year, month - 1), data: obj[dateString] }; // Only use year and month
+          return { date: new Date(year, month - 1), data: obj[dateString] };
         } else if (weekFilterActive) {
           const m = moment(dateString, 'GGGG-[W]WW');
           return { date: m.toDate(), data: obj[dateString] };
         } else if (yearFilterActive) {
           const [year] = dateString.split('-');
-          return { date: new Date(year), data: obj[dateString] }; // Only use year
+          return { date: new Date(year), data: obj[dateString] };
         } else {
           const [day, month, year] = dateString.split('/');
-          return { date: new Date(year, month - 1, day), data: obj[dateString] }; // Use day, month, and year
+          return { date: new Date(year, month - 1, day), data: obj[dateString] };
         }
       });
 
@@ -711,14 +720,14 @@ export function useAccountColumns({
         const month = String(item?.date?.getMonth() + 1).padStart(2, '0');
         let dateString;
         if (monthFilterActive) {
-          dateString = `${year}-${month}`; // Only use year and month
+          dateString = `${year}-${month}`;
         } else if (weekFilterActive) {
           dateString = moment(item?.date).format('GGGG-[W]WW');
         } else if (yearFilterActive) {
-          dateString = `${year}`; // Only use year and month
+          dateString = `${year}`;
         } else {
           const day = String(item?.date?.getDate()).padStart(2, '0');
-          dateString = `${year}-${month}-${day}`; // Use year, month, and day
+          dateString = `${year}-${month}-${day}`;
         }
         return { [dateString]: item?.data };
       });
@@ -739,16 +748,13 @@ export function useAccountColumns({
         revenueValue = revenue;
         ecpmValue = ecpm;
         impressionsValue = impressions;
-        //total summary
         currentDateTotal = Object?.keys(data)[0];
         currentRevenue = microValueConvert(data[currentDateTotal].revenue);
         currentImpressions = microValueConvert(data[currentDateTotal].impressions);
 
         let inputDateObject;
-        // if (day && month && year) {
         if (currentDateTotal) {
           if (weekFilterActive && /^\d{4}-W\d{2}$/.test(currentDateTotal)) {
-            // Parse week format (YYYY-Www) using moment.js
             const [year, week] = currentDateTotal.split('-W');
             inputDateObject = moment()
               .year(parseInt(year))
@@ -1040,12 +1046,12 @@ export function useAccountColumns({
             const yesterdayData = monthFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevDate = new Date(currentReportDate);
-                  prevDate.setMonth(prevDate?.getMonth() - 1); // Set to the previous month
+                  prevDate.setMonth(prevDate?.getMonth() - 1);
                   const lastDayOfPrevMonth = new Date(
                     prevDate?.getFullYear(),
                     prevDate?.getMonth() + 1,
                     0
-                  ); // Get the last day of the previous month
+                  );
                   return (
                     new Date(prevData.report_date) <= lastDayOfPrevMonth &&
                     new Date(prevData.report_date) >
@@ -1054,15 +1060,15 @@ export function useAccountColumns({
                         new Date(currentReportDate).getMonth() - 1,
                         1
                       )
-                  ); // Ensure it's within the previous month
+                  );
                 })
               : yearFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevYearDate = new Date(currentReportDate);
-                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1); // Set to the previous year
+                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1);
                   return (
                     new Date(prevData.report_date).getFullYear() === prevYearDate.getFullYear()
-                  ); // Ensure it's within the previous year
+                  );
                 })
               : weekFilterActive
               ? app?.data_by_date.find((prevData) => {
@@ -1114,12 +1120,12 @@ export function useAccountColumns({
             const yesterdayData = monthFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevDate = new Date(currentReportDate);
-                  prevDate.setMonth(prevDate?.getMonth() - 1); // Set to the previous month
+                  prevDate.setMonth(prevDate?.getMonth() - 1);
                   const lastDayOfPrevMonth = new Date(
                     prevDate?.getFullYear(),
                     prevDate?.getMonth() + 1,
                     0
-                  ); // Get the last day of the previous month
+                  );
                   return (
                     new Date(prevData.report_date) <= lastDayOfPrevMonth &&
                     new Date(prevData.report_date) >
@@ -1128,15 +1134,15 @@ export function useAccountColumns({
                         new Date(currentReportDate).getMonth() - 1,
                         1
                       )
-                  ); // Ensure it's within the previous month
+                  );
                 })
               : yearFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevYearDate = new Date(currentReportDate);
-                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1); // Set to the previous year
+                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1);
                   return (
                     new Date(prevData.report_date).getFullYear() === prevYearDate.getFullYear()
-                  ); // Ensure it's within the previous year
+                  );
                 })
               : weekFilterActive
               ? app?.data_by_date.find((prevData) => {
@@ -1163,7 +1169,7 @@ export function useAccountColumns({
               if (yesterdayValue !== 0 && yesterdayValue !== null) {
                 percentChange = (currentValue / Math.abs(yesterdayValue)) * 100;
               } else {
-                percentChange = currentValue === 0 ? 0 : 100; // If yesterdayValue is 0, set percentChange to 100 if currentValue is not 0
+                percentChange = currentValue === 0 ? 0 : 100;
               }
               percentageValue = percentChange;
               if (lastDateInDashFormat !== matchingData?.report_date) {
@@ -1184,12 +1190,12 @@ export function useAccountColumns({
             const yesterdayData = monthFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevDate = new Date(currentReportDate);
-                  prevDate.setMonth(prevDate?.getMonth() - 1); // Set to the previous month
+                  prevDate.setMonth(prevDate?.getMonth() - 1);
                   const lastDayOfPrevMonth = new Date(
                     prevDate?.getFullYear(),
                     prevDate?.getMonth() + 1,
                     0
-                  ); // Get the last day of the previous month
+                  );
                   return (
                     new Date(prevData.report_date) <= lastDayOfPrevMonth &&
                     new Date(prevData.report_date) >
@@ -1198,15 +1204,15 @@ export function useAccountColumns({
                         new Date(currentReportDate).getMonth() - 1,
                         1
                       )
-                  ); // Ensure it's within the previous month
+                  );
                 })
               : yearFilterActive
               ? app?.data_by_date.find((prevData) => {
                   const prevYearDate = new Date(currentReportDate);
-                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1); // Set to the previous year
+                  prevYearDate.setFullYear(prevYearDate.getFullYear() - 1);
                   return (
                     new Date(prevData.report_date).getFullYear() === prevYearDate.getFullYear()
-                  ); // Ensure it's within the previous year
+                  );
                 })
               : weekFilterActive
               ? app?.data_by_date.find((prevData) => {
@@ -1223,9 +1229,6 @@ export function useAccountColumns({
                 );
 
             if (yesterdayData && matchingData) {
-              // const yesterdayValue = parseFloat(
-              //   yesterdayData?.report_value?.replace(/[^\d.-]/g, "")
-              // );
               const yesterdayValue = parseFloat(
                 yesterdayData?.report_value_original?.replace(/[^\d.-]/g, '')
               );
@@ -1238,7 +1241,7 @@ export function useAccountColumns({
               if (yesterdayValue !== 0 && yesterdayValue !== null) {
                 percentChange = (currentValue / Math.abs(yesterdayValue)) * 100;
               } else {
-                percentChange = currentValue === 0 ? 0 : 100; // If yesterdayValue is 0, set percentChange to 100 if currentValue is not 0
+                percentChange = currentValue === 0 ? 0 : 100;
               }
               percentageValue = percentChange;
               if (lastDateInDashFormat !== matchingData?.report_date) {
@@ -1309,6 +1312,11 @@ export function useAccountColumns({
     weekFilterActive,
     finalShowFilter,
     handleDoubleClick,
+    typeIndex,
+    summaryDateWise,
+    lastDateInDashFormat,
+    startDateInDashFormat,
+    selectedStartDate,
   ]);
 
   return [...staticColumns, ...dynamicColumns];

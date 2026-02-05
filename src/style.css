@@ -9580,16 +9580,6 @@ table.app-performance-table tr:not(:last-child) {
 	}
 }
 
-/* .report-table-box .rdt_TableHead .rdt_TableCol:hover {
-  border-left: 2px solid rgb(26, 115, 232);
-  border-right: 2px solid rgb(26, 115, 232);
-}
-.report-table-box .rdt_TableHead .rdt_TableCol {
-  will-change: opacity;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: width 0.3s ease-in-out;
-} */
-
 .app-info-dashboard .line-chart .line-chart-box {
 	width: 94%;
 	margin-left: 1px;
@@ -9604,6 +9594,12 @@ table.app-performance-table tr:not(:last-child) {
 .app-info-dashboard .primary-label-wrap .primary-label {
 	width: 88%;
 	/* width: auto; */
+}
+
+@media (max-width: 1500px) {
+  .home-overview {
+    margin: 8px 0px;
+  }
 }
 
 .home-overview .app-info-dashboard .primary-label-wrap .primary-label {
@@ -19494,7 +19490,7 @@ div:where(.swal2-container) {
 }
 
 .metric-dropdown-menu li {
-  padding: 6px 10px;
+  padding: 5px 10px;
   cursor: pointer;
   white-space: nowrap;
   font-size: 14px;
@@ -19566,6 +19562,11 @@ div:where(.swal2-container) {
     position: static;
     float: none;
   }
+
+  .app-overview-name,
+.app-overview-format {
+	max-width: 120px;
+}
 
   .app-performance-table {
     width: 100%;

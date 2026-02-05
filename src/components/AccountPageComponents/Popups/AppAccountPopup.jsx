@@ -45,33 +45,69 @@ const AppAccountPopup = ({
 	const [searchText, setSearchText] = useState('');
 	const [ignoreAppId, setIgnoreAppId] = useState(false);
 
+	// useEffect(() => {
+	// 	if (filterPopupData) {
+	// 		const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_app_filter'));
+
+	// 		const initialAppData = filterPopupData.map((v, index) => {
+	// 			const shouldUseAppId = appId && !ignoreAppId;
+	// 			const isSameAsProvidedId = shouldUseAppId && v.app_auto_id == appId;
+
+	// 			const isCheckedInLocal = localData?.some((app) => app.app_auto_id == v.app_auto_id);
+	// 			const isCheckedInAccountApp = accountApp.some(
+	// 				(app) => app.app_auto_id == v.app_auto_id && app.item_checked
+	// 			);
+	// 			const finalChecked = isSameAsProvidedId || isCheckedInLocal || isCheckedInAccountApp;
+	// 			return {
+	// 				...v,
+	// 				item_checked: finalChecked,
+	// 				id: index + 1,
+	// 			};
+	// 		});
+	// 		const filterAppData = initialAppData?.filter((item) => item?.item_checked);
+	// 		setaccountApp(filterAppData);
+	// 		sessionStorage.setItem(uniqueIdentifier + '_app_filter', JSON.stringify(filterAppData));
+
+	// 		setallAccounAppData(initialAppData);
+	// 		setfilteredAccountAppData(initialAppData);
+	// 	}
+	// }, [filterPopupData, appId, ignoreAppId]);
+
 	useEffect(() => {
-		if (filterPopupData) {
-			const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_app_filter'));
+  if (filterPopupData) {
+    const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_app_filter'));
 
-			const initialAppData = filterPopupData.map((v, index) => {
-				const shouldUseAppId = appId && !ignoreAppId;
-				const isSameAsProvidedId = shouldUseAppId && v.app_auto_id == appId;
+    // Only reinitialize if we don't already have data OR if filterPopupData changed
+    // Skip reinitialization if user is just interacting with the popup
+    if (allAccounAppData?.length > 0 && ignoreAppId) {
+      // Don't reinitialize, user is interacting
+      return;
+    }
 
-				const isCheckedInLocal = localData?.some((app) => app.app_auto_id == v.app_auto_id);
-				const isCheckedInAccountApp = accountApp.some(
-					(app) => app.app_auto_id == v.app_auto_id && app.item_checked
-				);
-				const finalChecked = isSameAsProvidedId || isCheckedInLocal || isCheckedInAccountApp;
-				return {
-					...v,
-					item_checked: finalChecked,
-					id: index + 1,
-				};
-			});
-			const filterAppData = initialAppData?.filter((item) => item?.item_checked);
-			setaccountApp(filterAppData);
-			sessionStorage.setItem(uniqueIdentifier + '_app_filter', JSON.stringify(filterAppData));
+    const initialAppData = filterPopupData.map((v, index) => {
+      const shouldUseAppId = appId && !ignoreAppId;
+      const isSameAsProvidedId = shouldUseAppId && v.app_auto_id == appId;
 
-			setallAccounAppData(initialAppData);
-			setfilteredAccountAppData(initialAppData);
-		}
-	}, [filterPopupData, appId, ignoreAppId]);
+      const isCheckedInLocal = localData?.some((app) => app.app_auto_id == v.app_auto_id);
+      const isCheckedInAccountApp = accountApp.some(
+        (app) => app.app_auto_id == v.app_auto_id && app.item_checked
+      );
+      const finalChecked = isSameAsProvidedId || isCheckedInLocal || isCheckedInAccountApp;
+      return {
+        ...v,
+        item_checked: finalChecked,
+        id: index + 1,
+      };
+    });
+
+    const filterAppData = initialAppData?.filter((item) => item?.item_checked);
+    setaccountApp(filterAppData);
+    sessionStorage.setItem(uniqueIdentifier + '_app_filter', JSON.stringify(filterAppData));
+
+    setallAccounAppData(initialAppData);
+    setfilteredAccountAppData(initialAppData);
+  }
+}, [filterPopupData, appId]);
 
 	useEffect(() => {
 		setcheckedAccountApp(allAccounAppData?.filter((item) => item.item_checked));
@@ -94,6 +130,7 @@ const AppAccountPopup = ({
 	const handleApply = (e, close) => {
 		setSelectedFilter('AppAccountPopup');
 		e.preventDefault();
+		close();
 		setSearchText('');
 		setfilteredAccountAppData(allAccounAppData);
 		setIsReportLoaderVisible(true);
@@ -124,29 +161,65 @@ const AppAccountPopup = ({
 		setCheckedUnit(null);
 		setGroupValue([]);
 		sessionStorage.removeItem(uniqueIdentifier + '_group_filter');
-		close();
-	};
-	const handleClose = (item) => {
-		setIgnoreAppId(true);
-		const updatedApp = allAccounAppData?.map((app) =>
-			app.app_auto_id === item.app_auto_id ? { ...app, item_checked: !app.item_checked } : app
-		);
-		setallAccounAppData(updatedApp);
-		setfilteredAccountAppData(updatedApp);
 	};
 
+	// const handleClose = (item) => {
+	// 	setIgnoreAppId(true);
+	// 	const updatedApp = allAccounAppData?.map((app) =>
+	// 		app.app_auto_id === item.app_auto_id ? { ...app, item_checked: !app.item_checked } : app
+	// 	);
+	// 	setallAccounAppData(updatedApp);
+	// 	setfilteredAccountAppData(updatedApp);
+	// };
+
+	const handleClose = (item) => {
+  setIgnoreAppId(true);
+
+  const updatedApp = allAccounAppData?.map((app) =>
+    app.app_auto_id === item.app_auto_id ? { ...app, item_checked: false } : app
+  );
+
+  setallAccounAppData(updatedApp);
+  setfilteredAccountAppData(updatedApp);
+
+  // ADD THIS: Also update accountApp and session storage immediately
+  const updatedAccountApp = accountApp.filter(
+    (app) => app.app_auto_id !== item.app_auto_id
+  );
+  setaccountApp(updatedAccountApp);
+  sessionStorage.setItem(
+    uniqueIdentifier + '_app_filter',
+    JSON.stringify(updatedAccountApp)
+  );
+  setcheckedAccountApp(updatedApp?.filter((item) => item.item_checked));
+};
+
+	// const handleClear = () => {
+	// 	const resetData = filterPopupData?.map((v) => ({
+	// 		...v,
+	// 		item_checked: false,
+	// 	}));
+	// 	const resetDataFilter = filteredAccountAppData?.map((v) => ({
+	// 		...v,
+	// 		item_checked: false,
+	// 	}));
+	// 	setallAccounAppData(resetData);
+	// 	setfilteredAccountAppData(resetDataFilter);
+	// };
+
 	const handleClear = () => {
-		const resetData = filterPopupData?.map((v) => ({
-			...v,
-			item_checked: false,
-		}));
-		const resetDataFilter = filteredAccountAppData?.map((v) => ({
-			...v,
-			item_checked: false,
-		}));
-		setallAccounAppData(resetData);
-		setfilteredAccountAppData(resetDataFilter);
-	};
+  const resetData = allAccounAppData?.map((v) => ({  // Changed from filterPopupData
+    ...v,
+    item_checked: false,
+  }));
+  const resetDataFilter = filteredAccountAppData?.map((v) => ({
+    ...v,
+    item_checked: false,
+  }));
+  setallAccounAppData(resetData);
+  setfilteredAccountAppData(resetDataFilter);
+  setcheckedAccountApp([]);  // ADD THIS LINE
+};
 
 	const handleSearch = (e) => {
 		const searchText = e.target.value?.toLowerCase();
