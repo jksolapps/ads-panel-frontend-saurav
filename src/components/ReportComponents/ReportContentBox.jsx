@@ -1540,6 +1540,7 @@ const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
           sortValue: 'AD_UNIT',
           headerClassName: 'sticky_cell',
           isDynamic: true,
+          ...getDimMeta('AD_UNIT'),
         },
       },
 
@@ -1682,7 +1683,7 @@ const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
       },
 
       {
-        id: 'IMPRESSION_RPM', // NOTE: matches your old sortValue for eCPM
+        id: 'IMPRESSION_RPM',
         accessorKey: 'observed_ecpm',
         header: () => (
           <div className="report-title">

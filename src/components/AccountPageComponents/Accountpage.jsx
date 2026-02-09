@@ -1322,6 +1322,7 @@ const Accountpage = () => {
             setCurrentUnitPage={setCurrentUnitPage}
             setAccountNewApp={setAccountNewApp}
             setAccountPlatform={setAccountPlatform}
+            setAccountGroupBy={() => {}}
           />
         );
       case 'AppAccountPopup':

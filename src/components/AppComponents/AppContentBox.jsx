@@ -40,6 +40,7 @@ const AppContentBox = () => {
     const stored = sessionStorage.getItem('app_content_app_filter');
     return stored ? JSON.parse(stored) : [];
   });
+  const [isSorting, setIsSorting] = useState(false);
 
   const APPS_LIST_QUERY_KEY = useMemo(
     () => [
@@ -84,6 +85,7 @@ const AppContentBox = () => {
   }, [JSON.stringify(accountAdmob), JSON.stringify(accountNewApp)]);
 
   const customSort = (column, sortDirection) => {
+    setIsSorting(true);
     setAppColumnName(column.id - 2);
     setAppOrder(sortDirection.toUpperCase());
   };
@@ -98,6 +100,17 @@ const AppContentBox = () => {
     refetchOnMount: 'ifStale',
     placeholderData: (prev) => prev,
   });
+
+    useEffect(() => {
+  if (!isSorting || !isSuccess) return;
+
+  queryClient.removeQueries({
+    queryKey: ['apps-list-table'],
+    exact: false,
+  });
+
+  setIsSorting(false);
+}, [isSorting, isSuccess]);
 
   const filterAccData = useMemo(() => {
     const fd = new FormData();

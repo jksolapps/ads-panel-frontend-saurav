@@ -163,7 +163,8 @@ const PerformanceTable = () => {
     refetch,
   } = useQueryFetch(
     [firstColumnDimension, secondColumnDimension, 'group_select', selectedGroup, finalDimension],
-    'analytics-report-all-apps-db',
+    // 'analytics-report-all-apps-db',
+    'analytics-report-from-aggregated-tables',
     formData,
     {
       staleTime: 60 * 1000,
@@ -1001,7 +1002,7 @@ const PerformanceTable = () => {
 
   const showOverlayLoader = isFetching || isLoaderVisible;
 
-  useTanStackTableHover([singleReportData, columnVisibility], '.single_app_report');
+  useTanStackTableHover([singleReportData, columnVisibility], '.all_apps_report');
 
   const ROW_HEIGHT = 36;
   const MAX_ROWS = 18;
@@ -1074,7 +1075,7 @@ const PerformanceTable = () => {
               </div>
 
               <GeneralTanStackTable
-                className="statistics_table single_app_report report-table-scroll"
+                className="statistics_table all_apps_report report-table-scroll"
                 data={singleReportData}
                 columns={tanstackColumns}
                 variant="sticky"

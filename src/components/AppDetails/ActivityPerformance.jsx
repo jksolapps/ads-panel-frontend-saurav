@@ -442,9 +442,13 @@ const ActivityPerformance = ({
 		setCostGraph(costData);
 	}, [apiResponse, apiSucesss, id]);
 
-	const hasData = activityPerformanceData && activityPerformanceData.length > 0;
-	const showMainLoader = isLoading && !hasData;
-	const showOverlayLoader = isFetching && hasData;
+	// const hasData = activityPerformanceData && activityPerformanceData.length > 0;
+	// const showMainLoader = isLoading && !hasData;
+	// const showOverlayLoader = isFetching && hasData;
+
+	const hasData = activityPerformanceData && Object.keys(activityPerformanceData).length > 0;
+const showMainLoader = (isLoading || isFetching) && !hasData;
+const showOverlayLoader = (isLoading || isFetching) && hasData;
 
 	// order-3
 	return (
