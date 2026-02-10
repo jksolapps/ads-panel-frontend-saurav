@@ -1002,7 +1002,7 @@ const PerformanceTable = () => {
 
   const showOverlayLoader = isFetching || isLoaderVisible;
 
-  useTanStackTableHover([singleReportData, columnVisibility], '.all_apps_report');
+  useTanStackTableHover([singleReportData, columnVisibility], '.single_app_report');
 
   const ROW_HEIGHT = 36;
   const MAX_ROWS = 18;
@@ -1075,7 +1075,7 @@ const PerformanceTable = () => {
               </div>
 
               <GeneralTanStackTable
-                className="statistics_table all_apps_report report-table-scroll"
+                className="statistics_table single_app_report report-table-scroll"
                 data={singleReportData}
                 columns={tanstackColumns}
                 variant="sticky"

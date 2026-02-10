@@ -1177,7 +1177,7 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 
 							{/* table */}
 							<GeneralTanStackTable
-								className='statistics_table single_app_report report-table-scroll'
+								className='statistics_table single_app_report single_app_report_freeze report-table-scroll'
 								data={singleReportData}
 								columns={tanstackColumns}
 								variant='sticky'

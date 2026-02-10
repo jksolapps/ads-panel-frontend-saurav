@@ -461,6 +461,12 @@
 		background: #fff;
 	}
 
+	.app_insights_table,
+	.custom_tan_stack_table {
+		z-index: 1 !important;
+		position: relative;
+	}
+
 	.monthly_analytics_wrap .three-icon-button {
 		position: relative !important;
 	}
@@ -1431,8 +1437,8 @@
 		position: unset !important;
 	} */
 
-	.custom_tan_stack_table:not(.single_app_report) .table_raw .table_cell,
-	.custom_tan_stack_table:not(.single_app_report) .table_head .table_head_cell {
+	.custom_tan_stack_table:not(.single_app_report_freeze) .table_raw .table_cell,
+	.custom_tan_stack_table:not(.single_app_report_freeze) .table_head .table_head_cell {
 		position: unset !important;
 	}
 
@@ -2438,8 +2444,9 @@
 } */
 
 @media (max-width: 640px) {
-	.single_app_report .table_raw .table_cell,
-	.single_app_report .table_head .table_head_cell {
+
+	.single_app_report_freeze .table_raw .table_cell,
+	.single_app_report_freeze .table_head .table_head_cell {
 		position: unset !important;
 	}
 }

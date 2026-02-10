@@ -510,13 +510,69 @@ const ReportContentBox = () => {
   }, [dimensionValue, allMatrixData, groupByValue, sortingColumn.id, finalDimension]);
 
   //FormData for api
+  // const reportFormData = useMemo(() => {
+  //   const fd = new FormData();
+
+  //   fd.append('user_id', localStorage.getItem('id'));
+  //   fd.append('user_token', localStorage.getItem('token'));
+  //   fd.append('sorting_order', sortingColumn.desc ? 'DESCENDING' : 'ASCENDING');
+  //   if (sortingColumnValue) fd.append('sorting_column', sortingColumnValue);
+  //   if (selectedGroup) fd.append('gg_id', selectedGroup);
+
+  //   if (finalCountry) fd.append('selected_country', finalCountry);
+  //   if (finalFormat) fd.append('selected_ad_format', finalFormat);
+  //   if (finalPlatform) fd.append('selected_app_platform', finalPlatform);
+  //   if (finalUnit) fd.append('selected_ad_units', finalUnit);
+
+  //   if (dateRange?.length > 0) {
+  //     fd.append('analytics_date_range', `${selectedStartDate}-${selectedEndDate}`);
+  //   }
+  //   if (finalDimension?.length > 0) {
+  //     fd.append('selected_dimension', finalDimension);
+  //   }
+  //   if (finalApp) {
+  //     fd.append('selected_apps', finalApp);
+  //   } else if (appId && !accountChecked) {
+  //     fd.append('selected_apps', appId);
+  //   }
+  //   if (finalSelectedAccount) fd.append('admob_auto_id', finalSelectedAccount);
+  //   if (finalGroup) fd.append('groupBy', finalGroup);
+  //   if (isUnitSwitch === true) fd.append('ad_unit_comparison', isUnitSwitch);
+
+  //   return fd;
+  // }, [
+  //   selectedGroup,
+  //   finalCountry,
+  //   finalFormat,
+  //   finalPlatform,
+  //   finalUnit,
+  //   order,
+  //   sortingColumnValue,
+  //   dateRange,
+  //   selectedStartDate,
+  //   selectedEndDate,
+  //   finalDimension,
+  //   finalApp,
+  //   appId,
+  //   accountChecked,
+  //   finalSelectedAccount,
+  //   finalGroup,
+  //   isUnitSwitch,
+  //   sortingColumn,
+  // ]);
+
+  //FormData for api
   const reportFormData = useMemo(() => {
     const fd = new FormData();
 
     fd.append('user_id', localStorage.getItem('id'));
     fd.append('user_token', localStorage.getItem('token'));
     fd.append('sorting_order', sortingColumn.desc ? 'DESCENDING' : 'ASCENDING');
-    if (sortingColumnValue) fd.append('sorting_column', sortingColumnValue);
+
+    // CRITICAL: Always append sorting column, with fallback to 'DATE'
+    const finalSortingColumn = sortingColumnValue || 'DATE';
+    fd.append('sorting_column', finalSortingColumn);
+
     if (selectedGroup) fd.append('gg_id', selectedGroup);
 
     if (finalCountry) fd.append('selected_country', finalCountry);
@@ -546,8 +602,8 @@ const ReportContentBox = () => {
     finalFormat,
     finalPlatform,
     finalUnit,
-    order,
-    sortingColumnValue,
+    sortingColumnValue, // Added this dependency
+    sortingColumn, // Keep this for sorting_order
     dateRange,
     selectedStartDate,
     selectedEndDate,
@@ -558,7 +614,6 @@ const ReportContentBox = () => {
     finalSelectedAccount,
     finalGroup,
     isUnitSwitch,
-    sortingColumn,
   ]);
 
   //Prev Data add
@@ -626,14 +681,17 @@ const ReportContentBox = () => {
   // const isAccountReady = finalSelectedAccount !== undefined;
   // const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
 
-  const isAccountReady = finalSelectedAccount !== undefined && finalSelectedAccount !== '' && finalSelectedAccount !== null;
-const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+  const isAccountReady =
+    finalSelectedAccount !== undefined &&
+    finalSelectedAccount !== '' &&
+    finalSelectedAccount !== null;
+  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
 
   useEffect(() => {
-  if (isQueryEnabled && !reportResponse) {
-    setMainLoaderVisible(true);
-  }
-}, [isQueryEnabled]);
+    if (isQueryEnabled && !reportResponse) {
+      setMainLoaderVisible(true);
+    }
+  }, [isQueryEnabled]);
 
   const {
     data: reportResponse,
@@ -2653,11 +2711,11 @@ const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
   // const showMainLoader = isPending && !isPlaceholderData;
   // const showOverlayLoader = isFetching && isPlaceholderData;
 
-//   const showMainLoader = !isFilterDataLoaded || (isQueryEnabled && isPending && !isPlaceholderData) || (isQueryEnabled && !reportResponse && !isPlaceholderData);
-// const showOverlayLoader = isFetching && isPlaceholderData;
+  //   const showMainLoader = !isFilterDataLoaded || (isQueryEnabled && isPending && !isPlaceholderData) || (isQueryEnabled && !reportResponse && !isPlaceholderData);
+  // const showOverlayLoader = isFetching && isPlaceholderData;
 
-const showMainLoader = mainLoaderVisible;
-const showOverlayLoader = isFetching && !isPending;
+  const showMainLoader = mainLoaderVisible;
+  const showOverlayLoader = isFetching && !isPending;
 
   const handleSortingChange = (updater) => {
     setSortingColumn((prev) => {

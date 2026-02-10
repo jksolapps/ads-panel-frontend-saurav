@@ -375,6 +375,114 @@ const Accountpage = () => {
     }));
     const startDate = new Date(selectedStartDate.split('/').reverse().join('-'));
     const endDate = new Date(selectedEndDate.split('/').reverse().join('-'));
+    // if (monthFilterActive) {
+    //   resonseInArray.forEach((app) => {
+    //     const monthlyData = {};
+    //     app.data_by_date?.forEach((entry) => {
+    //       const reportDate = new Date(entry.report_date);
+    //       const monthKey = entry.report_date.substring(0, 7);
+    //       if (!monthlyData[monthKey]) {
+    //         monthlyData[monthKey] = {
+    //           report_value_original: 0,
+    //           report_value: 0,
+    //         };
+    //       }
+    //       if (reportDate >= startDate && reportDate <= endDate) {
+    //         monthlyData[monthKey].report_value_original += Number(
+    //           entry.report_value_original.replace('$', '').replace(',', '')
+    //         );
+    //         const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
+    //         monthlyData[monthKey].report_value += Number(cleanedValue);
+    //       }
+    //     });
+    //     app.data_by_date = Object.keys(monthlyData)
+    //       .filter((month) => {
+    //         const monthDate = new Date(month + '-01');
+    //         const monthStartDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+    //         const monthEndDate = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+    //         return (
+    //           (monthStartDate >= startDate && monthStartDate <= endDate) ||
+    //           (monthEndDate >= startDate && monthEndDate <= endDate) ||
+    //           (monthStartDate <= startDate && monthEndDate >= endDate)
+    //         );
+    //       })
+    //       .map((month) => ({
+    //         report_date: month,
+    //         report_value_original:
+    //           app?.row_type == 'Impressions'
+    //             ? monthlyData[month].report_value_original.toFixed(2)
+    //             : `$${monthlyData[month].report_value_original.toFixed(2)}`,
+    //         report_value: `${monthlyData[month].report_value}`,
+    //       }));
+    //   });
+    // } else if (weekFilterActive) {
+    //   const startM = moment(selectedStartDate.split('/').reverse().join('-'));
+    //   const endM = moment(selectedEndDate.split('/').reverse().join('-'));
+    //   resonseInArray.forEach((app) => {
+    //     const weeklyData = {};
+    //     app.data_by_date?.forEach((entry) => {
+    //       const entryM = moment(entry.report_date, 'YYYY-MM-DD');
+    //       const weekKey = entryM.format('GGGG-[W]WW');
+    //       if (!weeklyData[weekKey]) {
+    //         weeklyData[weekKey] = {
+    //           report_value_original: 0,
+    //           report_value: 0,
+    //         };
+    //       }
+    //       if (entryM.isSameOrAfter(startM) && entryM.isSameOrBefore(endM)) {
+    //         weeklyData[weekKey].report_value_original += Number(
+    //           entry.report_value_original.replace('$', '').replace(',', '')
+    //         );
+    //         const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
+    //         weeklyData[weekKey].report_value += Number(cleanedValue);
+    //       }
+    //     });
+    //     app.data_by_date = Object.keys(weeklyData).map((week) => ({
+    //       report_date: week,
+    //       report_value_original:
+    //         app?.row_type == 'Impressions'
+    //           ? weeklyData[week].report_value_original.toFixed(2)
+    //           : `$${weeklyData[week].report_value_original.toFixed(2)}`,
+    //       report_value: `${weeklyData[week].report_value}`,
+    //     }));
+    //   });
+    // } else if (yearFilterActive) {
+    //   const startYear = new Date(selectedStartDate.split('/').reverse().join('-')).getFullYear();
+    //   const endYear = new Date(selectedEndDate.split('/').reverse().join('-')).getFullYear();
+
+    //   resonseInArray.forEach((app) => {
+    //     const yearlyData = {};
+    //     app.data_by_date?.forEach((entry) => {
+    //       const reportDate = new Date(entry.report_date);
+    //       const yearKey = reportDate.getFullYear();
+    //       if (!yearlyData[yearKey]) {
+    //         yearlyData[yearKey] = {
+    //           report_value_original: 0,
+    //           report_value: 0,
+    //         };
+    //       }
+    //       if (reportDate >= startDate && reportDate <= endDate) {
+    //         yearlyData[yearKey].report_value_original += Number(
+    //           entry.report_value_original.replace('$', '').replace(',', '')
+    //         );
+    //         const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
+    //         yearlyData[yearKey].report_value += Number(cleanedValue);
+    //       }
+    //     });
+    //     app.data_by_date = Object.keys(yearlyData)
+    //       .filter((year) => {
+    //         return year >= startYear && year <= endYear;
+    //       })
+    //       .map((year) => ({
+    //         report_date: year,
+    //         report_value_original: typeIndex?.includes('3')
+    //           ? yearlyData[year].report_value_original.toFixed(2)
+    //           : `$${yearlyData[year].report_value_original.toFixed(2)}`,
+    //         report_value: `${yearlyData[year].report_value}`,
+    //       }));
+    //   });
+    // }
+
     if (monthFilterActive) {
       resonseInArray.forEach((app) => {
         const monthlyData = {};
@@ -388,11 +496,12 @@ const Accountpage = () => {
             };
           }
           if (reportDate >= startDate && reportDate <= endDate) {
-            monthlyData[monthKey].report_value_original += Number(
-              entry.report_value_original.replace('$', '').replace(',', '')
-            );
-            const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
-            monthlyData[monthKey].report_value += Number(cleanedValue);
+            // Handle all data types properly - remove ALL non-numeric characters
+            const cleanedOriginal = String(entry.report_value_original).replace(/[^0-9.-]+/g, '');
+            monthlyData[monthKey].report_value_original += Number(cleanedOriginal) || 0;
+
+            const cleanedValue = String(entry.report_value).replace(/[^0-9.-]+/g, '');
+            monthlyData[monthKey].report_value += Number(cleanedValue) || 0;
           }
         });
         app.data_by_date = Object.keys(monthlyData)
@@ -408,11 +517,13 @@ const Accountpage = () => {
           })
           .map((month) => ({
             report_date: month,
+            // Keep as numeric string for impressions, add $ for revenue
             report_value_original:
-              app?.row_type == 'Impressions'
-                ? monthlyData[month].report_value_original.toFixed(2)
+              app?.row_type === 'Impressions'
+                ? monthlyData[month].report_value_original.toFixed(0)
                 : `$${monthlyData[month].report_value_original.toFixed(2)}`,
-            report_value: `${monthlyData[month].report_value}`,
+            // Always numeric string
+            report_value: monthlyData[month].report_value.toFixed(0),
           }));
       });
     } else if (weekFilterActive) {
@@ -421,7 +532,7 @@ const Accountpage = () => {
       resonseInArray.forEach((app) => {
         const weeklyData = {};
         app.data_by_date?.forEach((entry) => {
-          const entryM = moment(entry.report_date, 'YYYY-MM-DD');
+          const entryM = moment(entry.report_date, ['YYYY-MM-DD', 'GGGG-[W]WW']);
           const weekKey = entryM.format('GGGG-[W]WW');
           if (!weeklyData[weekKey]) {
             weeklyData[weekKey] = {
@@ -430,20 +541,21 @@ const Accountpage = () => {
             };
           }
           if (entryM.isSameOrAfter(startM) && entryM.isSameOrBefore(endM)) {
-            weeklyData[weekKey].report_value_original += Number(
-              entry.report_value_original.replace('$', '').replace(',', '')
-            );
-            const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
-            weeklyData[weekKey].report_value += Number(cleanedValue);
+            // Clean ALL non-numeric characters for both types
+            const cleanedOriginal = String(entry.report_value_original).replace(/[^0-9.-]+/g, '');
+            weeklyData[weekKey].report_value_original += Number(cleanedOriginal) || 0;
+
+            const cleanedValue = String(entry.report_value).replace(/[^0-9.-]+/g, '');
+            weeklyData[weekKey].report_value += Number(cleanedValue) || 0;
           }
         });
         app.data_by_date = Object.keys(weeklyData).map((week) => ({
           report_date: week,
           report_value_original:
-            app?.row_type == 'Impressions'
-              ? weeklyData[week].report_value_original.toFixed(2)
+            app?.row_type === 'Impressions'
+              ? weeklyData[week].report_value_original.toFixed(0)
               : `$${weeklyData[week].report_value_original.toFixed(2)}`,
-          report_value: `${weeklyData[week].report_value}`,
+          report_value: weeklyData[week].report_value.toFixed(0),
         }));
       });
     } else if (yearFilterActive) {
@@ -462,11 +574,12 @@ const Accountpage = () => {
             };
           }
           if (reportDate >= startDate && reportDate <= endDate) {
-            yearlyData[yearKey].report_value_original += Number(
-              entry.report_value_original.replace('$', '').replace(',', '')
-            );
-            const cleanedValue = entry.report_value.replace(/[^0-9.-]+/g, '');
-            yearlyData[yearKey].report_value += Number(cleanedValue);
+            // Clean ALL non-numeric characters
+            const cleanedOriginal = String(entry.report_value_original).replace(/[^0-9.-]+/g, '');
+            yearlyData[yearKey].report_value_original += Number(cleanedOriginal) || 0;
+
+            const cleanedValue = String(entry.report_value).replace(/[^0-9.-]+/g, '');
+            yearlyData[yearKey].report_value += Number(cleanedValue) || 0;
           }
         });
         app.data_by_date = Object.keys(yearlyData)
@@ -475,13 +588,15 @@ const Accountpage = () => {
           })
           .map((year) => ({
             report_date: year,
-            report_value_original: typeIndex?.includes('3')
-              ? yearlyData[year].report_value_original.toFixed(2)
-              : `$${yearlyData[year].report_value_original.toFixed(2)}`,
-            report_value: `${yearlyData[year].report_value}`,
+            report_value_original:
+              app?.row_type === 'Impressions'
+                ? yearlyData[year].report_value_original.toFixed(0)
+                : `$${yearlyData[year].report_value_original.toFixed(2)}`,
+            report_value: yearlyData[year].report_value.toFixed(0),
           }));
       });
     }
+
     const totals = {};
 
     resonseInArray?.forEach((item) => {
@@ -1080,7 +1195,8 @@ const Accountpage = () => {
               : weekFilterActive
                 ? moment(curr.report_date, 'GGGG-[W]WW').format('GGGG[W]WW')
                 : moment(curr.report_date, 'YYYY-MM-DD').format('DD/MM');
-          acc[monthDay] = indianNumberFormat(curr.report_value_original);
+          // acc[monthDay] = indianNumberFormat(curr.report_value_original);
+          acc[monthDay] = indianNumberFormat(curr.report_value?.replace(/[\$,]/g, ''));
           return acc;
         }, {}),
     };

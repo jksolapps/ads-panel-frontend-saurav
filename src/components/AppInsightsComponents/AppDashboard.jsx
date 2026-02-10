@@ -52,6 +52,9 @@ const AppDashboard = () => {
 	const [percentageInfo, setPercentageInfo] = useState(false);
 	const [totalFlag, setTotalFlag] = useState(false);
 	const [footerTotals, setFooterTotals] = useState({});
+
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
 	//table
 	const [mainData, setMainData] = useState([]);
 
@@ -110,6 +113,14 @@ const AppDashboard = () => {
 	const { campaignFilter: filterData } = useAppList();
 	const allAppsList  = filterData?.list_apps || [];
 
+	useEffect(() => {
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
 const appsList = useMemo(() => {
   return allAppsList.filter((app) => Number(app.app_visibility) === 1);
@@ -1699,7 +1710,6 @@ const appsList = useMemo(() => {
 		});
 
 		return [
-			// --- ID (no sorting) ---
 			col(
 				'row_id',
 				() => (
@@ -1719,7 +1729,6 @@ const appsList = useMemo(() => {
 				}
 			),
 
-			// --- App (string sorting) ---
 			col(
 				'app_display_name',
 				() => (
@@ -2047,7 +2056,7 @@ const appsList = useMemo(() => {
 				<div className='userBoxWrap user-section-wrapper '>
 					<div
 						className={`popup-full-wrapper reports-popup-box active analytics-page-topbar app-insights-topbar ${
-							isLoaderVisible ? 'app-insights-omit' : ''
+							isLoading && mainData.length === 0 ? 'app-insights-omit' : ''
 						}`}
 					>
 						<div className='action-bar-container'>
@@ -2058,7 +2067,8 @@ const appsList = useMemo(() => {
 											uniqueIdentifier={'app_insights'}
 											selectedStartDate={selectedStartDate}
 											selectedEndDate={selectedEndDate}
-											setIsTableLoaderVisible={setIsLoaderVisible}
+											// setIsTableLoaderVisible={setIsLoaderVisible}
+											setIsTableLoaderVisible={() => {}}
 											setMainDate={setFilterDate}
 											fetchFlags={fetchFlags}
 											setFetchFlags={setFetchFlags}
@@ -2129,7 +2139,8 @@ const appsList = useMemo(() => {
 						</div>
 					</div>
 
-					{isLoading && !apiResponse ? (
+					{/* {isLoading && !apiResponse ? ( */}
+					{isLoading && mainData.length === 0 ? (
 						<div className='shimmer-spinner'>
 							<Spinner animation='border' variant='secondary' />
 						</div>
@@ -2148,7 +2159,8 @@ const appsList = useMemo(() => {
 										className='app_insights_table'
 										height={rowHeight * 10}
 										rowHeight={rowHeight}
-										stickyColumns={2}
+										// stickyColumns={2}
+										  stickyColumns={windowWidth > 1200 ? 2 : 0}
 										enableSorting={true}
 										sorting={{
 											type: 'client',

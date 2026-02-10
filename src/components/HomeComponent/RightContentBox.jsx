@@ -32,10 +32,10 @@ const RightContentBox = () => {
 
   const location = useLocation();
 
-  const showAllAppsTable = useMemo(() => {
-    const params = new URLSearchParams(location.search);
-    return params.get('all-apps') === 'true';
-  }, [location.search]);
+  // const showAllAppsTable = useMemo(() => {
+  //   const params = new URLSearchParams(location.search);
+  //   return params.get('all-apps') === 'true';
+  // }, [location.search]);
 
   const earningsFormData = useMemo(() => {
     const data = new FormData();
@@ -196,11 +196,11 @@ const RightContentBox = () => {
                 />
               </div>
 
-              {showAllAppsTable && (
+              {/* {showAllAppsTable && (
                 <div className="single_app_report_table">
                   <PerformanceTable />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>
