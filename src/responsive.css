@@ -1248,6 +1248,13 @@
   } */
 }
 
+@media (max-width: 1340px) {
+	.card-content.is_analytics_app>.box2 {
+		width: calc(50% - 10px);
+		margin: 0 0 15px 0;
+	}
+}
+
 @media (max-width: 1310px) {
 	.app-performance-table .custom-app-box {
 		padding-right: 6px;
@@ -1358,6 +1365,10 @@
 		margin-left: 23px !important;
 	}
 
+	.app-overview .card-content.is_analytics_app > .box2 {
+		min-height: 80px;
+	}
+
 	/*.feed-cards {
 		grid-template-columns: repeat(1, 1fr);
 	} */
@@ -1427,10 +1438,10 @@
 		font-size: 22px !important;
 	}
 
-	.card-content.is_analytics_app>.box2 {
+	/* .card-content.is_analytics_app>.box2 {
 		width: calc(50% - 10px);
 		margin: 0 0 15px 0;
-	}
+	} */
 
 	/* .custom_tan_stack_table .table_raw .table_cell,
 	.custom_tan_stack_table .table_head .table_head_cell {
@@ -2198,10 +2209,11 @@
 
 	.none-selected-text {
 		position: absolute;
-		bottom: 0;
-		left: 0;
+		bottom: 3px;
+		left: 45px;
 		z-index: 1;
 		height: auto;
+		border-bottom: none;
 	}
 
 	.right-result-row {

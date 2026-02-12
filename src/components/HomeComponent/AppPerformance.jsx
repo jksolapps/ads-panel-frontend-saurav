@@ -197,7 +197,7 @@ const AppPerformance = ({ overviewSelect }) => {
         appPerformanceData?.[performanceSelect]?.length < 5 ? '' : 'app-performance-box'
       }`}
       style={{
-        overflow: "hidden"
+        overflow: 'hidden',
       }}
     >
       {isFetching && (
@@ -206,10 +206,7 @@ const AppPerformance = ({ overviewSelect }) => {
         </div>
       )}
 
-      <div
-        className="home-flex app-performance-popup app-perfomance-header"
-        style={{ marginTop: '15px' }}
-      >
+      <div className="home-flex app-performance-popup">
         <div className="dropdown-row ">
           <div
             className={`performance-select app-performance ${
@@ -222,7 +219,7 @@ const AppPerformance = ({ overviewSelect }) => {
               value={performanceOption.name}
               options={performanceOption}
               onChange={handleChange}
-              className="overview-select"
+              className="overview-select ad-unit-overview"
               classNamePrefix={`custom-overview-select`}
               styles={customStyles}
               isSearchable={false}
@@ -240,11 +237,10 @@ const AppPerformance = ({ overviewSelect }) => {
             />
           </div>
         </div>
-        <div
-          className="sm-title "
-          style={{ padding: '0px', marginTop: '10px', marginRight: '75px', textAlign: 'right' }}
-        >
-          App Performance
+        <div style={{ textAlign: 'center' }}>
+          <div className="sm-title app-performance-heading" style={{ marginTop: '5px' }}>
+            App Performance
+          </div>
         </div>
       </div>
 

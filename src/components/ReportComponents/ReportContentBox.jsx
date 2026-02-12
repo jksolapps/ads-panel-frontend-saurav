@@ -179,16 +179,13 @@ const ReportContentBox = () => {
     ?.map((item) => item?.id)
     ?.join(',');
 
-  const [finalSelectedAccount, setFinalSelectedAccount] = useState('');
-
-  useEffect(() => {
-    setFinalSelectedAccount(
-      selectedAccountData
-        ?.map((item) => {
-          return item?.admob_auto_id;
-        })
-        .join(',')
-    );
+  // Derive final selected account ids (comma separated) from context state
+  const finalSelectedAccount = useMemo(() => {
+    if (!selectedAccountData || selectedAccountData.length === 0) return '';
+    const ids = selectedAccountData
+      ?.map((item) => item?.admob_auto_id)
+      .filter(Boolean);
+    return ids.join(',');
   }, [selectedAccountData]);
 
   const finalGroupValue = groupByValue?.map((item) => {
@@ -315,7 +312,7 @@ const ReportContentBox = () => {
       all_app_list: visibleApps,
     });
 
-    // derive finalSelectedAccount from checked apps
+    // derive default selected account ids just for localStorage
     const checkedAccounts = withCheckFlags
       .filter((app) => app.item_checked)
       .map((app) => app.admob_auto_id);
@@ -330,31 +327,35 @@ const ReportContentBox = () => {
 
     if (resolvedAccount !== undefined) {
       localStorage.setItem('accountId', JSON.stringify(resolvedAccount));
-      setFinalSelectedAccount(resolvedAccount);
-    } else {
-      setFinalSelectedAccount('');
     }
 
     setIsFilterDataLoaded(true);
   }, [isApiSuccess, apiResponse]);
 
   useEffect(() => {
-    if (!apiResponse?.all_app_list || !finalSelectedAccount) return;
+    if (!apiResponse?.all_app_list) return;
 
     const allApps = apiResponse.all_app_list;
 
-    const accountArray = finalSelectedAccount
-      .split(',')
-      .map((account) => account.trim())
-      .filter(Boolean);
+    const accountArray =
+      typeof finalSelectedAccount === 'string' && finalSelectedAccount.length > 0
+        ? finalSelectedAccount
+            .split(',')
+            .map((account) => account.trim())
+            .filter(Boolean)
+        : [];
 
-    const uniqueAppList = allApps
-      .filter((item) => accountArray.includes(String(item.admob_auto_id)))
-      .map((item, i) => ({
-        ...item,
-        item_checked: false,
-        id: i + 1,
-      }));
+    // If no account is selected, show apps for all accounts.
+    const sourceApps =
+      accountArray.length > 0
+        ? allApps.filter((item) => accountArray.includes(String(item.admob_auto_id)))
+        : allApps;
+
+    const uniqueAppList = sourceApps.map((item, i) => ({
+      ...item,
+      item_checked: false,
+      id: i + 1,
+    }));
 
     // Build ad-unit structure
     const initialData = uniqueAppList.map((app) => ({
@@ -509,70 +510,13 @@ const ReportContentBox = () => {
     return finalDimension?.includes('DATE') ? 'DATE' : '';
   }, [dimensionValue, allMatrixData, groupByValue, sortingColumn.id, finalDimension]);
 
-  //FormData for api
-  // const reportFormData = useMemo(() => {
-  //   const fd = new FormData();
-
-  //   fd.append('user_id', localStorage.getItem('id'));
-  //   fd.append('user_token', localStorage.getItem('token'));
-  //   fd.append('sorting_order', sortingColumn.desc ? 'DESCENDING' : 'ASCENDING');
-  //   if (sortingColumnValue) fd.append('sorting_column', sortingColumnValue);
-  //   if (selectedGroup) fd.append('gg_id', selectedGroup);
-
-  //   if (finalCountry) fd.append('selected_country', finalCountry);
-  //   if (finalFormat) fd.append('selected_ad_format', finalFormat);
-  //   if (finalPlatform) fd.append('selected_app_platform', finalPlatform);
-  //   if (finalUnit) fd.append('selected_ad_units', finalUnit);
-
-  //   if (dateRange?.length > 0) {
-  //     fd.append('analytics_date_range', `${selectedStartDate}-${selectedEndDate}`);
-  //   }
-  //   if (finalDimension?.length > 0) {
-  //     fd.append('selected_dimension', finalDimension);
-  //   }
-  //   if (finalApp) {
-  //     fd.append('selected_apps', finalApp);
-  //   } else if (appId && !accountChecked) {
-  //     fd.append('selected_apps', appId);
-  //   }
-  //   if (finalSelectedAccount) fd.append('admob_auto_id', finalSelectedAccount);
-  //   if (finalGroup) fd.append('groupBy', finalGroup);
-  //   if (isUnitSwitch === true) fd.append('ad_unit_comparison', isUnitSwitch);
-
-  //   return fd;
-  // }, [
-  //   selectedGroup,
-  //   finalCountry,
-  //   finalFormat,
-  //   finalPlatform,
-  //   finalUnit,
-  //   order,
-  //   sortingColumnValue,
-  //   dateRange,
-  //   selectedStartDate,
-  //   selectedEndDate,
-  //   finalDimension,
-  //   finalApp,
-  //   appId,
-  //   accountChecked,
-  //   finalSelectedAccount,
-  //   finalGroup,
-  //   isUnitSwitch,
-  //   sortingColumn,
-  // ]);
-
-  //FormData for api
   const reportFormData = useMemo(() => {
     const fd = new FormData();
 
     fd.append('user_id', localStorage.getItem('id'));
     fd.append('user_token', localStorage.getItem('token'));
     fd.append('sorting_order', sortingColumn.desc ? 'DESCENDING' : 'ASCENDING');
-
-    // CRITICAL: Always append sorting column, with fallback to 'DATE'
-    const finalSortingColumn = sortingColumnValue || 'DATE';
-    fd.append('sorting_column', finalSortingColumn);
-
+    if (sortingColumnValue) fd.append('sorting_column', sortingColumnValue);
     if (selectedGroup) fd.append('gg_id', selectedGroup);
 
     if (finalCountry) fd.append('selected_country', finalCountry);
@@ -602,8 +546,8 @@ const ReportContentBox = () => {
     finalFormat,
     finalPlatform,
     finalUnit,
-    sortingColumnValue, // Added this dependency
-    sortingColumn, // Keep this for sorting_order
+    order,
+    sortingColumnValue,
     dateRange,
     selectedStartDate,
     selectedEndDate,
@@ -614,14 +558,13 @@ const ReportContentBox = () => {
     finalSelectedAccount,
     finalGroup,
     isUnitSwitch,
+    sortingColumn,
   ]);
 
-  //Prev Data add
   const format = 'DD/MM/YYYY';
   const rangeDiff =
     moment(selectedEndDate, format).diff(moment(selectedStartDate, format), 'days') + 1;
 
-  //consolidateData
   function consolidateData(data) {
     const mergedData = {};
 
@@ -678,14 +621,9 @@ const ReportContentBox = () => {
     });
   }
 
-  // const isAccountReady = finalSelectedAccount !== undefined;
+  const isAccountReady = selectedAccountData !== undefined;
   // const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
-
-  const isAccountReady =
-    finalSelectedAccount !== undefined &&
-    finalSelectedAccount !== '' &&
-    finalSelectedAccount !== null;
-  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded && !!finalSelectedAccount;
 
   useEffect(() => {
     if (isQueryEnabled && !reportResponse) {

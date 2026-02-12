@@ -195,8 +195,8 @@ function filterDataByDimensions(data, firstDimension, secondDimension, searchVal
           d.impressions > 0 ? ((d.clicks / d.impressions) * 100).toFixed(2) : '0.00'
         }%`,
         impr_per_user: d.active_users > 0 ? (d.impressions / d.active_users).toFixed(2) : '0.00',
-        arpu: `$${Number(d.arpu).toFixed(4)}`,
-        arpdau: `$${Number(d.arpdau).toFixed(4)}`,
+        arpu: `$${Number(d.arpu).toFixed(2)}`,
+        arpdau: `$${Number(d.arpdau).toFixed(2)}`,
         dau_av: indianNumberFormat(dauAv.toFixed(0)),
         av_rate: `${avRate.toFixed(2)}%`,
       };
@@ -274,7 +274,7 @@ function totalRecordsSum(data) {
   acc.total_profit = Number(acc.total_estimated_earnings - acc.total_cost).toFixed(2);
 
   acc.total_estimated_earnings = `$${Number(acc.total_estimated_earnings).toFixed(2)}`;
-  acc.total_arpu = `$${Number(acc.total_arpu).toFixed(4)}`;
+  acc.total_arpu = `$${Number(acc.total_arpu).toFixed(2)}`;
   acc.total_fsr = `$${Number(acc.total_fsr).toFixed(2)}`;
   acc.total_cost = `$${Number(acc.total_cost).toFixed(2)}`;
   acc.total_observed_ecpm = `$${Number(acc.total_observed_ecpm).toFixed(2)}`;
@@ -285,7 +285,7 @@ function totalRecordsSum(data) {
     acc.total_active_users > 0
       ? (acc.total_impressions / acc.total_active_users).toFixed(2)
       : '0.00';
-  acc.total_arpdau = `$${Number(acc.total_arpdau).toFixed(4)}`;
+  acc.total_arpdau = `$${Number(acc.total_arpdau).toFixed(2)}`;
   acc.total_dau_av = acc.total_dau_av;
 
   acc.total_av_rate =

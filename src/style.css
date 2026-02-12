@@ -17453,6 +17453,7 @@ div:where(.swal2-container) {
 .card-content.is_analytics_app > .box2 {
 	width: calc(33.33% - 10px);
 	margin: 0 15px 15px 0;
+	min-height: 115px;
 }
 
 .card-content.is_analytics_app > .box2:nth-child(3n) {

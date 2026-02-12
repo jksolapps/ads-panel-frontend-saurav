@@ -214,6 +214,7 @@ const AccountSelectPopup = ({
 		filterItemData: filteredAccountData,
 		setAllItemData: setAccountData,
 		setAllFilterData: setFilteredAccountData,
+		setCheckedItems: setcheckedAccount,
 	});
 
 	return (
@@ -299,7 +300,10 @@ const AccountSelectPopup = ({
 															type='checkbox'
 															className='ckkBox val'
 															checked={areAllCheckedIn()}
-															onChange={(event) => handleSelectAll(event)}
+															onChange={(event) => {
+																setAccountChecked(true);
+																handleSelectAll(event);
+															}}
 														/>
 														<span className='search-title'>Select All</span>
 													</label>

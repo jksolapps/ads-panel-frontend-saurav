@@ -1452,6 +1452,7 @@ const Accountpage = () => {
             setPageNumber={setAppPageNumber}
             setIsReportLoaderVisible={setIsReportLoaderVisible}
             setCurrentUnitPage={setCurrentUnitPage}
+            setGroupValue={() => {}}
           />
         );
       case 'AccountPlatFormPopup':
@@ -1463,6 +1464,9 @@ const Accountpage = () => {
             setPageNumber={setAppPageNumber}
             setIsReportLoaderVisible={setIsReportLoaderVisible}
             setCurrentUnitPage={setCurrentUnitPage}
+            setAccountPlatform={() => {}}
+            setGroupValue={() => {}}
+            setAccountGroupBy={() => {}}
           />
         );
       case 'TypePopup':

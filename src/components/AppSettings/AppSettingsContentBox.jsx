@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   MdHelpOutline,
   MdContentCopy,
@@ -14,7 +14,7 @@ import Footer from '../Footer';
 import { Spinner } from 'react-bootstrap';
 import { LuExternalLink } from 'react-icons/lu';
 import Tippy from '@tippyjs/react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { DataContext } from '../../context/DataContext';
 import AppDetailAppInfo from '../GeneralComponents/AppDetailAppInfo';
@@ -26,14 +26,26 @@ import { IoAnalytics } from 'react-icons/io5';
 const AppSettingsContentBox = ({ settingsData }) => {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const { role, appTab, setAppTab, setIsAppLoaderVisible, setIsSearched } = useContext(DataContext);
 
   const [copyAppId, setCopyAppId] = useState('');
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleCopyText = async (id) => {
     try {
@@ -47,13 +59,29 @@ const AppSettingsContentBox = ({ settingsData }) => {
     }
   };
   return (
-    <div className={`right-box-wrap app-setting-wrap ${
-        settingsData?.app_info?.is_app_property == '1' ? 'custom_analytics_app' : 'custom_normal_app'
-      }`}>
+    <div
+      className={`right-box-wrap app-setting-wrap ${
+        settingsData?.app_info?.is_app_property == '1'
+          ? 'custom_analytics_app'
+          : 'custom_normal_app'
+      }`}
+    >
       <div className="main-box-wrapper pdglr24 app-overview">
         <div className="main-box-row">
           <div className="custom_app_details_top">
-            <div className="app-info">
+            <div
+              className="app-info"
+              style={
+                windowWidth <= 417
+                  ? {
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '100%',
+                    }
+                  : {}
+              }
+            >
               <AppDetailAppInfo
                 app_auto_id={settingsData?.app_info?.app_auto_id}
                 app_icon={settingsData?.app_info?.app_icon}
@@ -63,6 +91,70 @@ const AppSettingsContentBox = ({ settingsData }) => {
                 app_store_id={settingsData?.app_info?.app_store_id}
                 admob_email={settingsData?.app_info?.admob_email}
               />
+
+              {windowWidth <= 417 && (
+                <Tippy
+                  content={
+                    <div className="custom_extra_menu_wrapper tippy_extra_submenu">
+                      <div className="custom_extra_menu">
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: true,
+                              settingPage: false,
+                              unitPage: false,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab?.detailsPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdOutlineSpeed />
+                          <span className="menu-item-label">App Overview</span>
+                        </Link>
+
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: false,
+                              settingPage: false,
+                              unitPage: true,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab.unitPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdOutlineSmartphone />
+                          <span className="menu-item-label">Ad Units</span>
+                        </Link>
+
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: false,
+                              settingPage: true,
+                              unitPage: false,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab.settingPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdSettingsApplications />
+                          <span className="menu-item-label">App Settings</span>
+                        </Link>
+                      </div>
+                    </div>
+                  }
+                  placement="right-start"
+                  interactive
+                  visible={isMenuOpen}
+                  onClickOutside={closeMenu}
+                  appendTo={() => document.body}
+                >
+                  <div className="three-dot-menu" onClick={toggleMenu}>
+                    <BsThreeDotsVertical size={20} />
+                  </div>
+                </Tippy>
+              )}
             </div>
             <SearchBar
               id={id}
@@ -129,67 +221,69 @@ const AppSettingsContentBox = ({ settingsData }) => {
                 <div />
               )}
 
-              <Tippy
-                content={
-                  <div className="custom_extra_menu_wrapper tippy_extra_submenu">
-                    <div className="custom_extra_menu">
-                      <Link
-                        onClick={() => {
-                          setAppTab({
-                            detailsPage: true,
-                            settingPage: false,
-                            unitPage: false,
-                          });
-                          closeMenu();
-                        }}
-                        className={appTab?.detailsPage ? 'section-menu active' : 'section-menu'}
-                      >
-                        <MdOutlineSpeed />
-                        <span className="menu-item-label">App Overview</span>
-                      </Link>
+              {windowWidth >= 418 && (
+                <Tippy
+                  content={
+                    <div className="custom_extra_menu_wrapper tippy_extra_submenu">
+                      <div className="custom_extra_menu">
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: true,
+                              settingPage: false,
+                              unitPage: false,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab?.detailsPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdOutlineSpeed />
+                          <span className="menu-item-label">App Overview</span>
+                        </Link>
 
-                      <Link
-                        onClick={() => {
-                          setAppTab({
-                            detailsPage: false,
-                            settingPage: false,
-                            unitPage: true,
-                          });
-                          closeMenu();
-                        }}
-                        className={appTab.unitPage ? 'section-menu active' : 'section-menu'}
-                      >
-                        <MdOutlineSmartphone />
-                        <span className="menu-item-label">Ad Units</span>
-                      </Link>
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: false,
+                              settingPage: false,
+                              unitPage: true,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab.unitPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdOutlineSmartphone />
+                          <span className="menu-item-label">Ad Units</span>
+                        </Link>
 
-                      <Link
-                        onClick={() => {
-                          setAppTab({
-                            detailsPage: false,
-                            settingPage: true,
-                            unitPage: false,
-                          });
-                          closeMenu();
-                        }}
-                        className={appTab.settingPage ? 'section-menu active' : 'section-menu'}
-                      >
-                        <MdSettingsApplications />
-                        <span className="menu-item-label">App Settings</span>
-                      </Link>
+                        <Link
+                          onClick={() => {
+                            setAppTab({
+                              detailsPage: false,
+                              settingPage: true,
+                              unitPage: false,
+                            });
+                            closeMenu();
+                          }}
+                          className={appTab.settingPage ? 'section-menu active' : 'section-menu'}
+                        >
+                          <MdSettingsApplications />
+                          <span className="menu-item-label">App Settings</span>
+                        </Link>
+                      </div>
                     </div>
+                  }
+                  placement="right-start"
+                  interactive
+                  visible={isMenuOpen}
+                  onClickOutside={closeMenu}
+                  appendTo={() => document.body}
+                >
+                  <div className="three-dot-menu" onClick={toggleMenu}>
+                    <BsThreeDotsVertical size={20} />
                   </div>
-                }
-                placement="right-start"
-                interactive
-                visible={isMenuOpen}
-                onClickOutside={closeMenu}
-                appendTo={() => document.body}
-              >
-                <div className="three-dot-menu" onClick={toggleMenu}>
-                  <BsThreeDotsVertical size={20} />
-                </div>
-              </Tippy>
+                </Tippy>
+              )}
             </div>
           </div>
           <div className="top-bar">

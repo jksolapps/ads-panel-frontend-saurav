@@ -236,7 +236,7 @@ const AdunitPerformance = ({
   const computedMaxHeight = (() => {
     const isSmall = window.innerWidth < 530;
     if (isAnalyticsApp) {
-      return isSmall ? '295px' : '290px';
+      return isSmall ? '295px' : '350px';
     }
     return isSmall ? '353px' : '350px';
   })();
@@ -323,7 +323,7 @@ const AdunitPerformance = ({
             style={{
               overflowY: 'auto',
               maxHeight: computedMaxHeight,
-              minHeight: computedMMinHeight
+              minHeight: computedMMinHeight,
             }}
           >
             <table className="app-performance-table ad-unit-performance adunit-table-row">
