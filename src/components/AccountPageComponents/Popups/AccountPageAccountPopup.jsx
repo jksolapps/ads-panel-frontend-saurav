@@ -406,9 +406,13 @@ const AccountPageAccountPopup = ({
 		}
 	}, [isPopoverOpen]);
 
+	// useEffect(() => {
+	// 	setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
+	// }, [filteredAccountData]);
+
 	useEffect(() => {
-		setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
-	}, [filteredAccountData]);
+  setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
+}, [allAccountData]);
 
 	const handleCheckboxChange = (platform, index) => {
 		const updatedFilteredData = filteredAccountData.map((item) =>
@@ -555,10 +559,10 @@ const AccountPageAccountPopup = ({
 			<PopoverContent>
 				{({ close }) => {
 					// Reset search and filtered data when popover content renders
-					React.useEffect(() => {
-						setSearchText('');
-						setfilteredAccountData(allAccountData);
-					}, []);
+					// React.useEffect(() => {
+					// 	setSearchText('');
+					// 	setfilteredAccountData(allAccountData);
+					// }, []);
 
 					return (
 					<div className={'checkbox_popover full-and-multi-filter account-page-act-filter'}>

@@ -78,6 +78,8 @@ const ReportContentBox = () => {
   const [order, setOrder] = useState('');
   const [columnName, setColumnName] = useState('');
   const [totalRecordsData, setTotalRecordsData] = useState([]);
+  const [isInitialReady, setIsInitialReady] = useState(false);
+
 
   // Small helpers to keep metric cell rendering consistent and concise
   const ConditionalTippy = ({ isUnitSwitch, previous, children }) =>
@@ -148,6 +150,13 @@ const ReportContentBox = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
+    useEffect(() => {
+  if (isFilterDataLoaded && dateRange?.length > 0) {
+    setIsInitialReady(true);
+  }
+}, [isFilterDataLoaded, dateRange]);
+
+
   // const finalApp = appValue?.map((item) => {
   // 	return item?.app_auto_id;
   // });
@@ -180,13 +189,23 @@ const ReportContentBox = () => {
     ?.join(',');
 
   // Derive final selected account ids (comma separated) from context state
+  // const finalSelectedAccount = useMemo(() => {
+  //   if (!selectedAccountData || selectedAccountData.length === 0) return '';
+  //   const ids = selectedAccountData
+  //     ?.map((item) => item?.admob_auto_id)
+  //     .filter(Boolean);
+  //   return ids.join(',');
+  // }, [selectedAccountData]);
+
   const finalSelectedAccount = useMemo(() => {
-    if (!selectedAccountData || selectedAccountData.length === 0) return '';
-    const ids = selectedAccountData
-      ?.map((item) => item?.admob_auto_id)
-      .filter(Boolean);
-    return ids.join(',');
-  }, [selectedAccountData]);
+  if (!selectedAccountData || selectedAccountData.length === 0) return null;
+
+  const ids = selectedAccountData
+    ?.map((item) => item?.admob_auto_id)
+    .filter(Boolean);
+
+  return ids.length > 0 ? ids.join(',') : null;
+}, [selectedAccountData]);
 
   const finalGroupValue = groupByValue?.map((item) => {
     return item?.value;
@@ -535,7 +554,10 @@ const ReportContentBox = () => {
     } else if (appId && !accountChecked) {
       fd.append('selected_apps', appId);
     }
-    if (finalSelectedAccount) fd.append('admob_auto_id', finalSelectedAccount);
+    // if (finalSelectedAccount) fd.append('admob_auto_id', finalSelectedAccount);
+    if (finalSelectedAccount !== null) {
+  fd.append('admob_auto_id', finalSelectedAccount);
+}
     if (finalGroup) fd.append('groupBy', finalGroup);
     if (isUnitSwitch === true) fd.append('ad_unit_comparison', isUnitSwitch);
 
@@ -622,8 +644,8 @@ const ReportContentBox = () => {
   }
 
   const isAccountReady = selectedAccountData !== undefined;
-  // const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
-  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded && !!finalSelectedAccount;
+  const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded;
+  // const isQueryEnabled = isAccountReady && !!dateRange && isFilterDataLoaded && !!finalSelectedAccount;
 
   useEffect(() => {
     if (isQueryEnabled && !reportResponse) {
@@ -661,7 +683,8 @@ const ReportContentBox = () => {
     {
       staleTime: 10 * 1000,
       refetchOnMount: 'ifStale',
-      enabled: isQueryEnabled,
+      // enabled: isQueryEnabled,
+      enabled: isInitialReady,
       placeholderData: (prev) => prev,
     }
   );
