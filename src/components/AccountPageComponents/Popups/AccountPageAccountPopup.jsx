@@ -1,479 +1,117 @@
-// /**
-//  * @format
-//  * @Platform
-//  */
+/** @format */
 
-// import React, { useContext, useEffect, useState } from 'react';
-// import { MdClose, MdSearch } from 'react-icons/md';
-// import { ReportContext } from '../../../context/ReportContext';
-// import { useLocation } from 'react-router-dom';
-// import { IoCloseOutline } from 'react-icons/io5';
-// import useSelectAll from '../../../hooks/useSelectAll';
-// import { Popover, PopoverContent, PopoverTrigger } from '../../../ui/Popover';
-
-// const AccountPageAccountPopup = ({
-// 	uniqueIdentifier,
-// 	filterPopupData,
-// 	setPageNumber,
-// 	setIsReportLoaderVisible,
-// 	selectedAccountData,
-// 	setCurrentUnitPage,
-// 	setAccountAdmob,
-// 	setAccountGroupBy,
-// 	setAccountNewApp,
-// 	setAccountPlatform,
-// }) => {
-// 	const {
-// 		popupFlags,
-// 		setPopupFlags,
-// 		allAccountData,
-// 		setallAccountData,
-// 		filteredAccountData,
-// 		setfilteredAccountData,
-// 		checkedAccount,
-// 		setcheckedAccount,
-// 		setUnitValue,
-// 		setaccountOrder,
-// 		setOrderToggle,
-// 		allAccounAppData,
-// 		setallAccounAppData,
-// 		filteredAccountAppData,
-// 		setfilteredAccountAppData,
-// 		setcheckedAccountApp,
-// 		allAccountPlatformData,
-// 		setallAccountPlatformData,
-// 		filteredAccountPlatformData,
-// 		setfilteredAccountPlatformData,
-// 		setcheckedAccountPlatform,
-// 		allUnitData,
-// 		setAllUnitData,
-// 		searchAllUnitData,
-// 		setSearchAllUnitData,
-// 		checkedUnit,
-// 		setCheckedUnit,
-
-// 		allAccountFilterPerformanceData,
-// 		setallAccountFilterPerformanceData,
-// 		filteredAccountFilterPerformanceData,
-// 		setfilteredAccountFilterPerformanceData,
-// 		checkedAccountFilterPerformance,
-// 		setcheckedAccountFilterPerformance,
-// 		setPerformanceData,
-// 		setSelectedFilter,
-// 	} = useContext(ReportContext);
-
-// 	//filtering_data
-
-// 	const [searchText, setSearchText] = useState('');
-// 	const location = useLocation();
-
-// 	useEffect(() => {
-// 		const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_admob_filter'));
-// 		const updatedData = filterPopupData?.map((item) => {
-// 			const isChecked = localData?.some((app) => app.admob_auto_id == item.admob_auto_id);
-// 			return { ...item, item_checked: isChecked ? isChecked : item?.item_checked };
-// 		});
-
-// 		setallAccountData(updatedData);
-// 		setfilteredAccountData(updatedData);
-// 	}, [filterPopupData]);
-
-// 	useEffect(() => {
-// 		setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
-// 	}, [filteredAccountData]);
-
-// 	const handleCheckboxChange = (platform, index) => {
-// 		const updatedFilteredData = filteredAccountData.map((item) =>
-// 			item.admob_auto_id === platform.admob_auto_id
-// 				? { ...item, item_checked: !item.item_checked }
-// 				: item
-// 		);
-// 		setfilteredAccountData(updatedFilteredData);
-// 		setcheckedAccount(updatedFilteredData.filter((item) => item.item_checked));
-
-// 		const updatedAllData = allAccountData.map((item) =>
-// 			item.admob_auto_id === updatedFilteredData[index].admob_auto_id
-// 				? { ...updatedFilteredData[index] }
-// 				: { ...item }
-// 		);
-// 		setallAccountData(updatedAllData);
-// 	};
-// 	const handleApply = (e, close) => {
-// 		e.preventDefault();
-// 		 close();
-// 		setSelectedFilter('AccountPageAccountPopup');
-// 		setSearchText('');
-// 		setIsReportLoaderVisible(true);
-// 		setPageNumber(1);
-// 		setAccountAdmob(checkedAccount);
-// 		sessionStorage.setItem(uniqueIdentifier + '_admob_filter', JSON.stringify(checkedAccount));
-// 		setPopupFlags(!popupFlags);
-
-// 		setAccountNewApp([]);
-// 		sessionStorage.removeItem(uniqueIdentifier + '_app_filter');
-
-// 		setAccountPlatform(null);
-// 		sessionStorage.removeItem(uniqueIdentifier + '_platform_filter');
-
-// 		setUnitValue(null);
-// 		setaccountOrder(null);
-// 		setOrderToggle(false);
-// 		setCurrentUnitPage(1);
-// 		setfilteredAccountAppData(
-// 			filteredAccountAppData.map((item) => ({ ...item, item_checked: false }))
-// 		);
-// 		setallAccounAppData(allAccounAppData.map((item) => ({ ...item, item_checked: false })));
-// 		setcheckedAccountApp(null);
-// 		setfilteredAccountFilterPerformanceData(
-// 			filteredAccountFilterPerformanceData.map((item) => ({ ...item, item_checked: false }))
-// 		);
-// 		setallAccountFilterPerformanceData(
-// 			allAccountFilterPerformanceData.map((item) => ({ ...item, item_checked: false }))
-// 		);
-// 		setcheckedAccountFilterPerformance(null);
-// 		setPerformanceData();
-// 		setfilteredAccountPlatformData(
-// 			filteredAccountPlatformData.map((item) => ({
-// 				...item,
-// 				item_checked: false,
-// 			}))
-// 		);
-// 		setallAccountPlatformData(
-// 			allAccountPlatformData.map((item) => ({ ...item, item_checked: false }))
-// 		);
-// 		setcheckedAccountPlatform(null);
-// 		setSearchAllUnitData(
-// 			searchAllUnitData?.map((group) => ({
-// 				...group,
-// 				group_apps: group.group_apps.map((unit) => ({
-// 					...unit,
-// 					unit_checked: false,
-// 				})),
-// 			}))
-// 		);
-// 		setAllUnitData(
-// 			allUnitData?.map((group) => ({
-// 				...group,
-// 				group_apps: group.group_apps.map((unit) => ({
-// 					...unit,
-// 					unit_checked: false,
-// 				})),
-// 			}))
-// 		);
-// 		setCheckedUnit(null);
-// 		setAccountGroupBy([]);
-// 		sessionStorage.removeItem(uniqueIdentifier + '_group_filter');
-// 		close();
-// 	};
-
-// 	const handleSearch = (e) => {
-// 		const searchText = e.target.value.toLowerCase();
-// 		const originalText = e.target.value;
-// 		setSearchText(originalText);
-// 		const updatedFilteredData = allAccountData.filter((item) =>
-// 			item.admob_email.toLowerCase().includes(searchText)
-// 		);
-
-// 		setfilteredAccountData(updatedFilteredData);
-// 	};
-
-// 	//Select all
-// 	const { areAllCheckedIn, handleSelectAll } = useSelectAll({
-// 		allItemData: allAccountData,
-// 		filterItemData: filteredAccountData,
-// 		setAllItemData: setallAccountData,
-// 		setAllFilterData: setfilteredAccountData,
-// 	});
-
-// 	return (
-// 		<Popover className='check-wrapper select-account-wrapper account-orderby-filter'>
-// 			<PopoverTrigger>
-// 				<a
-// 					className={
-// 						selectedAccountData?.length > 0 ? 'popover_filter filter-btn btn-active' : 'filter-btn'
-// 					}
-// 				>
-// 					<span>Account</span>
-// 					{selectedAccountData?.length > 0 && (
-// 						<>
-// 							<ul className='selected-item'>
-// 								<li className='selected-item-value'>:</li>
-// 								{selectedAccountData
-// 									?.map((item) => {
-// 										return item?.admob_email;
-// 									})
-// 									?.slice(0, 2)
-// 									?.map((item, index) => (
-// 										<li className='selected-item-value' key={index}>
-// 											{' '}
-// 											{item}{' '}
-// 										</li>
-// 									))}
-// 								{selectedAccountData?.length > 2 && <span>+{selectedAccountData?.length - 2} more </span>}
-// 							</ul>
-// 						</>
-// 					)}
-// 				</a>
-// 			</PopoverTrigger>
-
-// 			<PopoverContent>
-// 				{({ close }) => (
-// 					<div className={'checkbox_popover full-and-multi-filter account-page-act-filter'}>
-// 						<div className='filter-title-box'>
-// 							<span className='predicate-field-label'>Admob Account</span>
-// 							<a className='close-filter'>
-// 								<MdClose className='material-icons' onClick={close} />
-// 							</a>
-// 						</div>
-// 						<div className='check-boxes-inner'>
-// 							<div className='left-check-box box2'>
-// 								<div className='search-input'>
-// 									<div className='box'>
-// 										<input
-// 											className='input search-btn-input focus-border'
-// 											id='searchInput99'
-// 											onChange={handleSearch}
-// 											value={searchText}
-// 											required
-// 											placeholder='Search'
-// 											autoComplete='off'
-// 										/>
-// 										<a
-// 											href='#'
-// 											className='clear-icon-btn i-btn'
-// 											onClick={() => {
-// 												setSearchText('');
-// 												setcheckedAccount(allAccountData);
-// 												setfilteredAccountData(allAccountData);
-// 											}}
-// 										>
-// 											<IoCloseOutline className='material-icons' />
-// 										</a>
-// 										<a href='#' className='search-icon-btn i-btn'>
-// 											<MdSearch className='material-icons' />
-// 										</a>
-// 										<div className='border-active'></div>
-// 									</div>
-// 								</div>
-// 								<div className='all-select-row'>
-// 									<form id='report-account-class' onSubmit={(e) => handleApply(e, close)}>
-// 										{filteredAccountData?.length === 0 ? (
-// 											<div className='noResult'>
-// 												<p>No Result Found</p>
-// 											</div>
-// 										) : (
-// 											<>
-// 												<div className='box-check'>
-// 													<label>
-// 														<input
-// 															type='checkbox'
-// 															className='ckkBox val'
-// 															checked={areAllCheckedIn()}
-// 															onChange={(event) => handleSelectAll(event)}
-// 														/>
-// 														<span className='search-title'>Select All</span>
-// 													</label>
-// 												</div>
-// 												{filteredAccountData?.map((platform, index) => (
-// 													<div className='box-check' key={index}>
-// 														<label>
-// 															<input
-// 																type='checkbox'
-// 																name={platform?.admob_auto_id}
-// 																value={platform.item_checked ? platform.item_checked : index == 0}
-// 																checked={platform.item_checked}
-// 																onChange={() => handleCheckboxChange(platform, index)}
-// 															/>
-// 															<span>
-// 																<span className='search-title'>{platform?.admob_email}</span>
-// 															</span>
-// 														</label>
-// 													</div>
-// 												))}
-// 											</>
-// 										)}
-// 										<div className='apply-btn-wrap text-right'>
-// 											<button
-// 												type='submit'
-// 												className='apply-btn'
-// 												disabled={filteredAccountData?.length === 0 ?? true}
-// 											>
-// 												Apply
-// 											</button>
-// 										</div>
-// 									</form>
-// 								</div>
-// 							</div>
-// 						</div>
-// 					</div>
-// 				)}
-// 			</PopoverContent>
-// 		</Popover>
-// 	);
-// };
-
-// export default AccountPageAccountPopup;
-
-
-/**
- * @format
- * @Platform
- */
-
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { MdClose, MdSearch } from 'react-icons/md';
 import { ReportContext } from '../../../context/ReportContext';
-import { useLocation } from 'react-router-dom';
+import AccountPageAppBox from '../../GeneralComponents/AccountPageAppBox';
 import { IoCloseOutline } from 'react-icons/io5';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 import useSelectAll from '../../../hooks/useSelectAll';
+import EmptyListBox from '../../GeneralComponents/EmptyListBox';
 import { Popover, PopoverContent, PopoverTrigger } from '../../../ui/Popover';
 
-const AccountPageAccountPopup = ({
+const AppAccountPopup = ({
 	uniqueIdentifier,
+	appId = null,
 	filterPopupData,
 	setPageNumber,
 	setIsReportLoaderVisible,
 	selectedAccountData,
 	setCurrentUnitPage,
-	setAccountAdmob,
-	setAccountGroupBy,
-	setAccountNewApp,
-	setAccountPlatform,
+	accountApp,
+	setaccountApp,
+	setGroupValue,
 }) => {
 	const {
 		popupFlags,
 		setPopupFlags,
-		allAccountData,
-		setallAccountData,
-		filteredAccountData,
-		setfilteredAccountData,
-		checkedAccount,
-		setcheckedAccount,
-		setUnitValue,
-		setaccountOrder,
-		setOrderToggle,
+		filterFlag,
+		setFilterFlag,
 		allAccounAppData,
 		setallAccounAppData,
 		filteredAccountAppData,
 		setfilteredAccountAppData,
+		checkedAccountApp,
 		setcheckedAccountApp,
-		allAccountPlatformData,
-		setallAccountPlatformData,
-		filteredAccountPlatformData,
-		setfilteredAccountPlatformData,
-		setcheckedAccountPlatform,
 		allUnitData,
 		setAllUnitData,
 		searchAllUnitData,
 		setSearchAllUnitData,
 		checkedUnit,
 		setCheckedUnit,
-
-		allAccountFilterPerformanceData,
-		setallAccountFilterPerformanceData,
-		filteredAccountFilterPerformanceData,
-		setfilteredAccountFilterPerformanceData,
-		checkedAccountFilterPerformance,
-		setcheckedAccountFilterPerformance,
-		setPerformanceData,
 		setSelectedFilter,
 	} = useContext(ReportContext);
 
-	//filtering_data
-
 	const [searchText, setSearchText] = useState('');
-	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-	const location = useLocation();
+	const [ignoreAppId, setIgnoreAppId] = useState(false);
 
 	useEffect(() => {
-		const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_admob_filter'));
-		const updatedData = filterPopupData?.map((item) => {
-			const isChecked = localData?.some((app) => app.admob_auto_id == item.admob_auto_id);
-			return { ...item, item_checked: isChecked ? isChecked : item?.item_checked };
-		});
+  if (filterPopupData) {
+    const localData = JSON.parse(sessionStorage.getItem(uniqueIdentifier + '_app_filter'));
 
-		setallAccountData(updatedData);
-		setfilteredAccountData(updatedData);
-		// Reset search text when modal opens with fresh data
-		setSearchText('');
-	}, [filterPopupData]);
+    // Only reinitialize if we don't already have data OR if filterPopupData changed
+    // Skip reinitialization if user is just interacting with the popup
+    if (allAccounAppData?.length > 0 && ignoreAppId) {
+      // Don't reinitialize, user is interacting
+      return;
+    }
 
-	// Reset search and show all data when popover opens
+    const initialAppData = filterPopupData.map((v, index) => {
+      const shouldUseAppId = appId && !ignoreAppId;
+      const isSameAsProvidedId = shouldUseAppId && v.app_auto_id == appId;
+
+      const isCheckedInLocal = localData?.some((app) => app.app_auto_id == v.app_auto_id);
+      const isCheckedInAccountApp = accountApp.some(
+        (app) => app.app_auto_id == v.app_auto_id && app.item_checked
+      );
+      const finalChecked = isSameAsProvidedId || isCheckedInLocal || isCheckedInAccountApp;
+      return {
+        ...v,
+        item_checked: finalChecked,
+        id: index + 1,
+      };
+    });
+
+    const filterAppData = initialAppData?.filter((item) => item?.item_checked);
+    setaccountApp(filterAppData);
+    sessionStorage.setItem(uniqueIdentifier + '_app_filter', JSON.stringify(filterAppData));
+
+    setallAccounAppData(initialAppData);
+    setfilteredAccountAppData(initialAppData);
+  }
+}, [filterPopupData, appId]);
+
 	useEffect(() => {
-		if (isPopoverOpen) {
-			setSearchText('');
-			setfilteredAccountData(allAccountData);
-		}
-	}, [isPopoverOpen]);
+		setcheckedAccountApp(allAccounAppData?.filter((item) => item.item_checked));
+	}, [allAccounAppData, filteredAccountAppData, appId]);
 
-	// useEffect(() => {
-	// 	setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
-	// }, [filteredAccountData]);
-
-	useEffect(() => {
-  setcheckedAccount(allAccountData?.filter((item) => item.item_checked));
-}, [allAccountData]);
-
-	const handleCheckboxChange = (platform, index) => {
-		const updatedFilteredData = filteredAccountData.map((item) =>
-			item.admob_auto_id === platform.admob_auto_id
-				? { ...item, item_checked: !item.item_checked }
-				: item
+	const handleCheckboxChange = (app, index) => {
+		const updatedFilteredData = filteredAccountAppData.map((item) =>
+			item?.app_auto_id === app?.app_auto_id ? { ...item, item_checked: !item.item_checked } : item
 		);
-		setfilteredAccountData(updatedFilteredData);
-		setcheckedAccount(updatedFilteredData.filter((item) => item.item_checked));
-
-		const updatedAllData = allAccountData.map((item) =>
-			item.admob_auto_id === updatedFilteredData[index].admob_auto_id
+		setfilteredAccountAppData(updatedFilteredData);
+		setcheckedAccountApp(updatedFilteredData?.filter((item) => item.item_checked));
+		const updatedAllData = allAccounAppData.map((item) =>
+			item.app_auto_id === updatedFilteredData[index].app_auto_id
 				? { ...updatedFilteredData[index] }
 				: { ...item }
 		);
-		setallAccountData(updatedAllData);
+		setallAccounAppData(updatedAllData);
 	};
 
 	const handleApply = (e, close) => {
+		setSelectedFilter('AppAccountPopup');
 		e.preventDefault();
-		setSelectedFilter('AccountPageAccountPopup');
+		close();
 		setSearchText('');
+		setfilteredAccountAppData(allAccounAppData);
 		setIsReportLoaderVisible(true);
 		setPageNumber(1);
-		setAccountAdmob(checkedAccount);
-		sessionStorage.setItem(uniqueIdentifier + '_admob_filter', JSON.stringify(checkedAccount));
+		setFilterFlag(!filterFlag);
+		setaccountApp(checkedAccountApp);
+		sessionStorage.setItem(uniqueIdentifier + '_app_filter', JSON.stringify(checkedAccountApp));
 		setPopupFlags(!popupFlags);
-
-		setAccountNewApp([]);
-		sessionStorage.removeItem(uniqueIdentifier + '_app_filter');
-
-		setAccountPlatform(null);
-		sessionStorage.removeItem(uniqueIdentifier + '_platform_filter');
-
-		setUnitValue(null);
-		setaccountOrder(null);
-		setOrderToggle(false);
 		setCurrentUnitPage(1);
-		setfilteredAccountAppData(
-			filteredAccountAppData.map((item) => ({ ...item, item_checked: false }))
-		);
-		setallAccounAppData(allAccounAppData.map((item) => ({ ...item, item_checked: false })));
-		setcheckedAccountApp(null);
-		setfilteredAccountFilterPerformanceData(
-			filteredAccountFilterPerformanceData.map((item) => ({ ...item, item_checked: false }))
-		);
-		setallAccountFilterPerformanceData(
-			allAccountFilterPerformanceData.map((item) => ({ ...item, item_checked: false }))
-		);
-		setcheckedAccountFilterPerformance(null);
-		setPerformanceData();
-		setfilteredAccountPlatformData(
-			filteredAccountPlatformData.map((item) => ({
-				...item,
-				item_checked: false,
-			}))
-		);
-		setallAccountPlatformData(
-			allAccountPlatformData.map((item) => ({ ...item, item_checked: false }))
-		);
-		setcheckedAccountPlatform(null);
 		setSearchAllUnitData(
 			searchAllUnitData?.map((group) => ({
 				...group,
@@ -493,83 +131,97 @@ const AccountPageAccountPopup = ({
 			}))
 		);
 		setCheckedUnit(null);
-		setAccountGroupBy([]);
+		setGroupValue([]);
 		sessionStorage.removeItem(uniqueIdentifier + '_group_filter');
-		close();
+	};
+
+	// FIXED: handleClose only updates the checked state, not accountApp or sessionStorage
+	// Those will be updated when user clicks "Apply"
+	const handleClose = (item) => {
+		setIgnoreAppId(true);
+
+		const updatedApp = allAccounAppData?.map((app) =>
+			app.app_auto_id === item.app_auto_id ? { ...app, item_checked: false } : app
+		);
+
+		setallAccounAppData(updatedApp);
+		setfilteredAccountAppData(updatedApp);
+
+		// Only update checkedAccountApp - DON'T update accountApp or sessionStorage yet
+		// Those will be updated when user clicks "Apply"
+		setcheckedAccountApp(updatedApp?.filter((item) => item.item_checked));
+	};
+
+	const handleClear = () => {
+		const resetData = allAccounAppData?.map((v) => ({  // Changed from filterPopupData
+			...v,
+			item_checked: false,
+		}));
+		const resetDataFilter = filteredAccountAppData?.map((v) => ({
+			...v,
+			item_checked: false,
+		}));
+		setallAccounAppData(resetData);
+		setfilteredAccountAppData(resetDataFilter);
+		setcheckedAccountApp([]);  // ADD THIS LINE
 	};
 
 	const handleSearch = (e) => {
-		const searchText = e.target.value.toLowerCase();
+		const searchText = e.target.value?.toLowerCase();
 		const originalText = e.target.value;
 		setSearchText(originalText);
-		const updatedFilteredData = allAccountData.filter((item) =>
-			item.admob_email.toLowerCase().includes(searchText)
+		const updatedFilteredData = allAccounAppData.filter(
+			(item) =>
+				item?.app_display_name?.toLowerCase()?.includes(searchText) ||
+				item?.app_console_name?.toLowerCase()?.includes(searchText)
 		);
-
-		setfilteredAccountData(updatedFilteredData);
-	};
-
-	const handleClearSearch = () => {
-		setSearchText('');
-		setfilteredAccountData(allAccountData);
+		setfilteredAccountAppData(updatedFilteredData);
 	};
 
 	//Select all
 	const { areAllCheckedIn, handleSelectAll } = useSelectAll({
-		allItemData: allAccountData,
-		filterItemData: filteredAccountData,
-		setAllItemData: setallAccountData,
-		setAllFilterData: setfilteredAccountData,
+		allItemData: allAccounAppData,
+		filterItemData: filteredAccountAppData,
+		setAllItemData: setallAccounAppData,
+		setAllFilterData: setfilteredAccountAppData,
 	});
 
 	return (
-		<Popover
-			className='check-wrapper select-account-wrapper account-orderby-filter'
-			onOpenChange={setIsPopoverOpen}
-		>
+		<Popover className='check-wrapper column-filter app-account-filter custom_app_filter_popup'>
 			<PopoverTrigger>
 				<a
 					className={
-						selectedAccountData?.length > 0 ? 'popover_filter filter-btn btn-active' : 'filter-btn'
+						accountApp?.length > 0 ? 'popover_filter filter-btn btn-active' : 'popover_filter filter-btn'
 					}
 				>
-					<span>Account</span>
-					{selectedAccountData?.length > 0 && (
+					<span>App</span>
+					{accountApp?.length > 0 ? (
 						<>
 							<ul className='selected-item'>
 								<li className='selected-item-value'>:</li>
-								{selectedAccountData
+								{accountApp
 									?.map((item) => {
-										return item?.admob_email;
+										return item?.app_display_name;
 									})
 									?.slice(0, 2)
 									?.map((item, index) => (
 										<li className='selected-item-value' key={index}>
-											{' '}
 											{item}{' '}
 										</li>
 									))}
-								{selectedAccountData?.length > 2 && <span>+{selectedAccountData?.length - 2} more </span>}
+								{accountApp?.length > 2 && <span>+{accountApp?.length - 2} more </span>}
 							</ul>
 						</>
-					)}
+					) : null}
 				</a>
 			</PopoverTrigger>
-
 			<PopoverContent>
-				{({ close }) => {
-					// Reset search and filtered data when popover content renders
-					// React.useEffect(() => {
-					// 	setSearchText('');
-					// 	setfilteredAccountData(allAccountData);
-					// }, []);
-
-					return (
-					<div className={'checkbox_popover full-and-multi-filter account-page-act-filter'}>
+				{({ close }) => (
+					<div className='checkbox_popover full-and-multi-filter app-filter' id='Lorems'>
 						<div className='filter-title-box'>
-							<span className='predicate-field-label'>Admob Account</span>
-							<a className='close-filter'>
-								<MdClose className='material-icons' onClick={close} />
+							<span className='predicate-field-label'>App</span>
+							<a className='close-filter' onClick={close}>
+								<MdClose className='material-icons' />
 							</a>
 						</div>
 						<div className='check-boxes-inner'>
@@ -578,7 +230,7 @@ const AccountPageAccountPopup = ({
 									<div className='box'>
 										<input
 											className='input search-btn-input focus-border'
-											id='searchInput99'
+											id='searchInput66'
 											onChange={handleSearch}
 											value={searchText}
 											required
@@ -586,21 +238,23 @@ const AccountPageAccountPopup = ({
 											autoComplete='off'
 										/>
 										<a
-											href='#'
 											className='clear-icon-btn i-btn'
-											onClick={handleClearSearch}
+											onClick={() => {
+												setSearchText('');
+												setfilteredAccountAppData(allAccounAppData);
+											}}
 										>
 											<IoCloseOutline className='material-icons' />
 										</a>
-										<a href='#' className='search-icon-btn i-btn'>
+										<a className='search-icon-btn i-btn'>
 											<MdSearch className='material-icons' />
 										</a>
 										<div className='border-active'></div>
 									</div>
 								</div>
 								<div className='all-select-row'>
-									<form id='report-account-class' onSubmit={(e) => handleApply(e, close)}>
-										{filteredAccountData?.length === 0 ? (
+									<form onSubmit={(e) => handleApply(e, close)}>
+										{filteredAccountAppData?.length === 0 ? (
 											<div className='noResult'>
 												<p>No Result Found</p>
 											</div>
@@ -617,43 +271,83 @@ const AccountPageAccountPopup = ({
 														<span className='search-title'>Select All</span>
 													</label>
 												</div>
-												{filteredAccountData?.map((platform, index) => (
+												{filteredAccountAppData?.map((app, index) => (
 													<div className='box-check' key={index}>
 														<label>
 															<input
 																type='checkbox'
-																name={platform?.admob_auto_id}
-																value={platform.item_checked ? platform.item_checked : index == 0}
-																checked={platform.item_checked}
-																onChange={() => handleCheckboxChange(platform, index)}
+																name={app?.app_auto_id}
+																value={app?.app_display_name}
+																className='ckkBox val'
+																checked={app.item_checked}
+																onChange={() => handleCheckboxChange(app, index)}
 															/>
-															<span>
-																<span className='search-title'>{platform?.admob_email}</span>
-															</span>
+															<AccountPageAppBox
+																app_auto_id={app?.app_auto_id}
+																app_icon={app?.app_icon}
+																app_platform={app?.app_platform}
+																app_display_name={app?.app_display_name}
+																app_console_name={app?.app_console_name}
+																app_store_id={app?.app_store_id}
+															/>
 														</label>
 													</div>
 												))}
 											</>
 										)}
 										<div className='apply-btn-wrap text-right'>
-											<button
-												type='submit'
-												className='apply-btn'
-												disabled={filteredAccountData?.length === 0 ?? true}
-											>
+											<button type='submit' className='apply-btn'>
 												Apply
 											</button>
 										</div>
 									</form>
 								</div>
 							</div>
+							<div className='right-result-box box2'>
+								<div className='none-selected-text'>
+									<span></span>
+									<a className='custom-clear-all' onClick={handleClear}>
+										Clear all
+									</a>
+								</div>
+								<div className='right-result-row'>
+									{checkedAccountApp?.length === 0 && <EmptyListBox />}
+									{checkedAccountApp?.map((item, index) => (
+										<div className='result-box' key={index} onClick={() => handleClose(item)}>
+											<div className='permission-app app-item custom-app-box'>
+												<div className='app-img' style={{ marginLeft: '24px' }}>
+													<img alt='' loading='lazy' aria-hidden='true' src={item?.app_icon} />
+												</div>
+												<div className='label-container'>
+													<div className='primary-label-wrap'>
+														<div title={item?.app_display_name} className='primary-label'>
+															<span>{item?.app_display_name}</span>
+														</div>
+													</div>
+													{item?.app_console_name && (
+														<span className='secondary-label-wrap'>
+															<div target='_blank'>
+																<span className='secondary-label' style={{ cursor: 'pointer' }}>
+																	{item?.app_console_name}
+																</span>
+															</div>
+														</span>
+													)}
+												</div>
+												<a className='result-cancel-btn i-btn'>
+													<IoIosCloseCircleOutline className='material-icons' />
+												</a>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
 						</div>
 					</div>
-				);
-				}}
+				)}
 			</PopoverContent>
 		</Popover>
 	);
 };
 
-export default AccountPageAccountPopup;
+export default AppAccountPopup;

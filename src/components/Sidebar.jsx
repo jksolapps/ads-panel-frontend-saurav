@@ -446,7 +446,9 @@ const Sidebar = ({ appInfoDataFunction }) => {
 										<div key={item.key} className='menu-popup-box'>
 											<Tippy
 												content={
-													<div className='tippy_content_submenu' onClick={hide}>
+													<div className='tippy_content_submenu' onClick={hide} style={{
+											overflow: 'hidden'
+										}}>
 														{SidbarApp?.length === 0 ? (
 															<div className='app-list no-data-found'>
 																<div className='app-item'>
@@ -456,7 +458,6 @@ const Sidebar = ({ appInfoDataFunction }) => {
 																</div>
 															</div>
 														) : (
-															// SidbarApp?.slice(0, 5)?.map((app) => (
 																SidbarApp
 																	?.filter(app => Number(app?.app_visibility) === 1)
 																	?.slice(0, 5)

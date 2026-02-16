@@ -101,16 +101,16 @@ const AppContentBox = () => {
     placeholderData: (prev) => prev,
   });
 
-    useEffect(() => {
-  if (!isSorting || !isSuccess) return;
+  useEffect(() => {
+    if (!isSorting || !isSuccess) return;
 
-  queryClient.removeQueries({
-    queryKey: ['apps-list-table'],
-    exact: false,
-  });
+    queryClient.removeQueries({
+      queryKey: ['apps-list-table'],
+      exact: false,
+    });
 
-  setIsSorting(false);
-}, [isSorting, isSuccess]);
+    setIsSorting(false);
+  }, [isSorting, isSuccess]);
 
   const filterAccData = useMemo(() => {
     const fd = new FormData();
@@ -121,42 +121,6 @@ const AppContentBox = () => {
     }
     return fd;
   }, [selectedGroup]);
-
-  // const { data: appResponse, isSuccess: isAppSuccess } = useQueryFetch(
-  //   ['account-filter-data', 'group_select', selectedGroup],
-  //   'get-analytics-filtering-data',
-  //   filterAccData,
-  //   {
-  //     staleTime: 60 * 1000,
-  //     refetchOnMount: 'ifStale',
-  //   }
-  // );
-
-  // useEffect(() => {
-  //   if (!isAppSuccess || !appResponse) return;
-  //   const response = appResponse;
-  //   const uniqueAppData = response?.all_app_list
-  //   ?.filter((v, i, self) => self?.findIndex((t) => t?.admob_email === v?.admob_email) === i)
-  //   .map((v, i) => ({
-  //     ...v,
-  //     item_checked: false,
-  //     id: i,
-  //   }));
-
-  //   let data = response?.all_app_list;
-
-  //   const uniqueAppAutoIdObjects = [];
-  //   Object?.keys(data)?.forEach((key) => {
-  //     const entry = data[key];
-
-  //     if (!uniqueAppAutoIdObjects.some((obj) => obj?.app_auto_id === entry?.app_auto_id)) {
-  //       uniqueAppAutoIdObjects?.push(entry);
-  //     }
-  //   });
-
-  //   setFilterData(uniqueAppAutoIdObjects);
-  //   setFilterAccountData(uniqueAppData);
-  // }, [appResponse, isAppSuccess]);
 
   const { data: appResponse, isSuccess: isAppSuccess } = useQueryFetch(
     ['group_select', selectedGroup],
@@ -172,13 +136,15 @@ const AppContentBox = () => {
     if (!isAppSuccess || !appResponse) return;
     const response = appResponse;
     const uniqueAppData = response?.aaData
-    ?.filter((v, i, self) => self?.findIndex((t) => t?.app_admob_email === v?.app_admob_email) === i)
-    .map((v, i) => ({
-      ...v,
-      item_checked: false,
-      admob_email: v?.app_admob_email,
-      id: i,
-    }));
+      ?.filter(
+        (v, i, self) => self?.findIndex((t) => t?.app_admob_email === v?.app_admob_email) === i
+      )
+      .map((v, i) => ({
+        ...v,
+        item_checked: false,
+        admob_email: v?.app_admob_email,
+        id: i,
+      }));
 
     let data = response?.aaData;
 
@@ -249,19 +215,21 @@ const AppContentBox = () => {
         };
       });
 
-      // Update account-filter-data cache
-      queryClient.setQueriesData({ queryKey: ['global-campaign-list'], exact: false }, (oldData) => {
-        if (!oldData?.list_apps) return oldData;
+      queryClient.setQueriesData(
+        { queryKey: ['global-campaign-list'], exact: false },
+        (oldData) => {
+          if (!oldData?.list_apps) return oldData;
 
-        return {
-          ...oldData,
-          list_apps: oldData.list_apps.map((app) =>
-            Number(app.app_auto_id) === Number(appAutoId)
-              ? { ...app, app_visibility: nextVisibility }
-              : app
-          ),
-        };
-      });
+          return {
+            ...oldData,
+            list_apps: oldData.list_apps.map((app) =>
+              Number(app.app_auto_id) === Number(appAutoId)
+                ? { ...app, app_visibility: nextVisibility }
+                : app
+            ),
+          };
+        }
+      );
 
       const payload = new FormData();
       payload.append('user_id', localStorage.getItem('id'));
