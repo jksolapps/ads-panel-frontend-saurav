@@ -21,6 +21,7 @@ const AdUnitsPopup = ({
 		useContext(ReportContext);
 
 	const [allUnitData, setAllUnitData] = useState([]);
+	console.log("🚀 ~ AdUnitsPopup ~ allUnitData:", allUnitData)
 	const [searchText, setSearchText] = useState('');
 
 	const reportlocation = useLocation();
@@ -110,24 +111,53 @@ const AdUnitsPopup = ({
 	// ----------------------------
 	// SELECTED UNITS (derived from allUnitData)
 	// ----------------------------
-	const checkedUnit = useMemo(() => {
-		return safeArray(allUnitData).flatMap((app) =>
-			safeArray(app?.ad_units).filter((u) => isRealUnitRow(u) && u.unit_checked)
-		);
-	}, [allUnitData]);
+	// const checkedUnit = useMemo(() => {
+	// 	return safeArray(allUnitData).flatMap((app) =>
+	// 		safeArray(app?.ad_units).filter((u) => isRealUnitRow(u) && u.unit_checked)
+	// 	);
+	// }, [allUnitData]);
 
-	const groupedCheckedUnit = useMemo(() => {
-		return checkedUnit.reduce((acc, curr) => {
-			const idx = acc.findIndex((x) => x.app_name === curr.app_name);
-			if (idx !== -1) acc[idx].units.push(curr);
-			else acc.push({ app_name: curr.app_name, app_platform: curr.app_platform, units: [curr] });
-			return acc;
-		}, []);
-	}, [checkedUnit]);
+	const checkedUnit = useMemo(() => {
+	return safeArray(allUnitData).flatMap((app) =>
+		safeArray(app?.ad_units)
+			.filter((u) => isRealUnitRow(u) && u.unit_checked)
+			.map((u) => ({
+				...u,
+				app_auto_id: app?.app_auto_id,
+			}))
+	);
+}, [allUnitData]);
+
+	// const groupedCheckedUnit = useMemo(() => {
+	// 	return checkedUnit.reduce((acc, curr) => {
+	// 		const idx = acc.findIndex((x) => x.app_name === curr.app_name);
+	// 		if (idx !== -1) acc[idx].units.push(curr);
+	// 		else acc.push({ app_name: curr.app_name, app_platform: curr.app_platform, units: [curr] });
+	// 		return acc;
+	// 	}, []);
+	// }, [checkedUnit]);
 
 	// ----------------------------
 	// TOGGLES (simple)
 	// ----------------------------
+
+	const groupedCheckedUnit = useMemo(() => {
+	return checkedUnit.reduce((acc, curr) => {
+		const idx = acc.findIndex((x) => x.app_name === curr.app_name);
+		if (idx !== -1) {
+			acc[idx].units.push(curr);
+		} else {
+			acc.push({
+				app_name: curr.app_name,
+				app_platform: curr.app_platform,
+				app_auto_id: curr.app_auto_id,
+				units: [curr]
+			});
+		}
+		return acc;
+	}, []);
+}, [checkedUnit]);
+
 	const toggleUnitChecked = useCallback((app_auto_id, unit_auto_id) => {
 		setAllUnitData((prev) =>
 			safeArray(prev).map((app) => {
@@ -434,7 +464,11 @@ const AdUnitsPopup = ({
 														<div
 															className=' adunit-filter-children'
 															key={unitIndex}
-															onClick={() => handleClose(item)}
+															// onClick={() => handleClose(item)}
+															onClick={(e) => {
+																e.stopPropagation();
+																toggleUnitChecked(app.app_auto_id, item?.unit_auto_id);
+															}}
 														>
 															<li
 																className='search-title'

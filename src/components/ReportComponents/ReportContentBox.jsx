@@ -1,45 +1,38 @@
 /** @format */
 
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { DataContext } from '../../context/DataContext';
-import Footer from '../Footer';
-import Spinner from 'react-bootstrap/Spinner';
-import DateRangePopup from './Popups/DateRangePopup';
-import AppPopup from './Popups/AppPopup';
-import CountryPopup from './Popups/CountryPopup';
-import FormatPopup from './Popups/FormatPopup';
-import AppVersion from './Popups/AppVersion';
-import PlatformPopup from './Popups/PlatformPopup';
-import { ReportContext } from '../../context/ReportContext';
+import Tippy from '@tippyjs/react';
 import 'bootstrap/dist/css/bootstrap.css';
-import useGeneratePagination from '../../hooks/useGeneratePagination';
-import AdUnitsPopup from './Popups/AdUnitsPopup';
+import moment from 'moment';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import { CSVLink } from 'react-csv';
+import { BiGitCompare } from 'react-icons/bi';
+import { FiDownload } from 'react-icons/fi';
+import { MdMoreVert, MdOutlineEdit } from 'react-icons/md';
+import { useLocation } from 'react-router-dom';
+import { DataContext } from '../../context/DataContext';
+import { useGroupSettings } from '../../context/GroupSettingsContext';
+import { ReportContext } from '../../context/ReportContext';
+import { useQueryFetch } from '../../hooks/useQueryFetch';
+import useReorderedFilterOrder from '../../hooks/useReorderedFilterOrder';
+import useStickyOnScroll from '../../hooks/useStickyOnScroll';
+import { all_ad_formats } from '../../utils/filter_list.json';
+import { indianNumberFormat } from '../../utils/helper';
+import filterUtilsPopupData from '../../utils/report_filter.json';
+import Footer from '../Footer';
+import GeneralTanStackTable from '../GeneralComponents/GeneralTanStackTable';
+import GeneralTinyAppBox from '../GeneralComponents/GeneralTinyAppBox';
+import GeneralCountry from '../GeneralFilters/GeneralCountry';
+import GeneralDataFilter from '../GeneralFilters/GeneralDataFilter';
+import GeneralDateRange from '../GeneralFilters/GeneralDateRange';
+import GeneralPlatform from '../GeneralFilters/GeneralPlatform';
 import DimensionBox from './DimensionBox';
-import { MdMoreVert } from 'react-icons/md';
-import { useLocation, useNavigate } from 'react-router-dom';
 import MatrixBox from './MatrixBox';
 import AccountSelectPopup from './Popups/AccountSelectPopup';
-import { CSVLink } from 'react-csv';
-import { FiDownload } from 'react-icons/fi';
-import { MdOutlineEdit } from 'react-icons/md';
-import filterUtilsPopupData from '../../utils/report_filter.json';
+import AdUnitsPopup from './Popups/AdUnitsPopup';
+import AppPopup from './Popups/AppPopup';
+import AppVersion from './Popups/AppVersion';
 import GroupByFilter from './Popups/GroupByFilter';
-import moment from 'moment';
-import { indianNumberFormat } from '../../utils/helper';
-import { BiGitCompare } from 'react-icons/bi';
-import useStickyOnScroll from '../../hooks/useStickyOnScroll';
-import GeneralTinyAppBox from '../GeneralComponents/GeneralTinyAppBox';
-import { useGroupSettings } from '../../context/GroupSettingsContext';
-import { useQueryFetch } from '../../hooks/useQueryFetch';
-import GeneralTanStackTable from '../GeneralComponents/GeneralTanStackTable';
-import GeneralDateRange from '../GeneralFilters/GeneralDateRange';
-
-import { all_ad_formats } from '../../utils/filter_list.json';
-import GeneralDataFilter from '../GeneralFilters/GeneralDataFilter';
-import GeneralCountry from '../GeneralFilters/GeneralCountry';
-import GeneralPlatform from '../GeneralFilters/GeneralPlatform';
-import useReorderedFilterOrder from '../../hooks/useReorderedFilterOrder';
-import Tippy from '@tippyjs/react';
 
 const ReportContentBox = () => {
   const { sharedData, sharedMatrixData } = useContext(DataContext);
@@ -156,16 +149,6 @@ const ReportContentBox = () => {
   }
 }, [isFilterDataLoaded, dateRange]);
 
-
-  // const finalApp = appValue?.map((item) => {
-  // 	return item?.app_auto_id;
-  // });
-  // const finalCountry = countryValue?.map((item) => {
-  // 	return item?.alpha2_code;
-  // });
-  // const finalFormat = formatValue?.map((item) => item?.type);
-  // const finalPlatform = platformValue?.map((item) => item?.platform_value);
-
   const finalVersion = appVersionData?.map((item) => {
     return {
       app_display_name: item.app_display_name,
@@ -188,24 +171,13 @@ const ReportContentBox = () => {
     ?.map((item) => item?.id)
     ?.join(',');
 
-  // Derive final selected account ids (comma separated) from context state
-  // const finalSelectedAccount = useMemo(() => {
-  //   if (!selectedAccountData || selectedAccountData.length === 0) return '';
-  //   const ids = selectedAccountData
-  //     ?.map((item) => item?.admob_auto_id)
-  //     .filter(Boolean);
-  //   return ids.join(',');
-  // }, [selectedAccountData]);
-
   const finalSelectedAccount = useMemo(() => {
-  if (!selectedAccountData || selectedAccountData.length === 0) return null;
+    if (!selectedAccountData || selectedAccountData.length === 0) return null;
 
-  const ids = selectedAccountData
-    ?.map((item) => item?.admob_auto_id)
-    .filter(Boolean);
+    const ids = selectedAccountData?.map((item) => item?.admob_auto_id).filter(Boolean);
 
-  return ids.length > 0 ? ids.join(',') : null;
-}, [selectedAccountData]);
+    return ids.length > 0 ? ids.join(',') : null;
+  }, [selectedAccountData]);
 
   const finalGroupValue = groupByValue?.map((item) => {
     return item?.value;
@@ -232,72 +204,13 @@ const ReportContentBox = () => {
     }
   );
 
-  // useEffect(() => {
-  // 	if (!isApiSuccess || !apiResponse || apiResponse.status_code !== 1) return;
-
-  // 	const allApps = apiResponse.all_app_list || [];
-
-  // 	// read localStorage safely
-  // 	let selectedAppId = null;
-  // 	const raw = localStorage.getItem('accountId');
-  // 	if (raw) {
-  // 		try {
-  // 			selectedAppId = JSON.parse(raw);
-  // 		} catch {
-  // 			selectedAppId = raw;
-  // 		}
-  // 	}
-
-  // 	// unique by email
-  // 	const uniqueAppData = allApps.filter(
-  // 		(app, idx, arr) => arr.findIndex((t) => t.admob_email === app.admob_email) === idx
-  // 	);
-
-  // 	// map with check flags
-  // 	const withCheckFlags = uniqueAppData.map((app, index) => {
-  // 		const isSelected = selectedAppId != null && app.admob_auto_id == selectedAppId;
-  // 		return {
-  // 			...app,
-  // 			item_checked: selectedAppId != null ? isSelected : index === 0,
-  // 			id: index + 1,
-  // 		};
-  // 	});
-
-  // 	setFilterAccountData(withCheckFlags);
-  // 	setFilterPopupData(apiResponse);
-
-  // 	// derive finalSelectedAccount from checked apps
-  // 	const checkedAccounts = withCheckFlags
-  // 		.filter((app) => app.item_checked)
-  // 		.map((app) => app.admob_auto_id);
-
-  // 	let resolvedAccount = undefined;
-
-  // 	if (checkedAccounts.length > 0) {
-  // 		resolvedAccount = checkedAccounts.join(',');
-  // 	} else if (withCheckFlags.length > 0) {
-  // 		resolvedAccount = String(withCheckFlags[0].admob_auto_id);
-  // 	}
-
-  // 	if (resolvedAccount !== undefined) {
-  // 		localStorage.setItem('accountId', JSON.stringify(resolvedAccount));
-  // 		setFinalSelectedAccount(resolvedAccount);
-  // 	} else {
-  // 		setFinalSelectedAccount('');
-  // 	}
-
-  // 	setIsFilterDataLoaded(true);
-  // }, [isApiSuccess, apiResponse]);
-
   useEffect(() => {
     if (!isApiSuccess || !apiResponse || apiResponse.status_code !== 1) return;
 
     const allApps = apiResponse.all_app_list || [];
 
-    // Filter only visible apps (app_visibility === "1" or 1)
     const visibleApps = allApps.filter((app) => Number(app.app_visibility) === 1);
 
-    // read localStorage safely
     let selectedAppId = null;
     const raw = localStorage.getItem('accountId');
     if (raw) {
@@ -308,7 +221,6 @@ const ReportContentBox = () => {
       }
     }
 
-    // unique by email from visible apps only
     const uniqueAppData = visibleApps.filter(
       (app, idx, arr) => arr.findIndex((t) => t.admob_email === app.admob_email) === idx
     );
@@ -898,6 +810,94 @@ const ReportContentBox = () => {
   let appBool = false;
   let adUnitValue = false;
 
+  const getSortablePrimitive = (value) => {
+    if (value == null) return null;
+    if (typeof value === 'number') return value;
+
+    const str = String(value).trim();
+    if (!str) return null;
+
+    // currency / numbers / percent (remove common formatting)
+    const numeric = str.replace(/[$,%\s,]/g, '');
+    if (numeric && !Number.isNaN(Number(numeric))) return Number(numeric);
+
+    // common date forms used in this report
+    const m = moment(str, ['YYYY-MM-DD', 'DD/MM/YYYY', 'YYYYMMDD', 'YYYYMM'], true);
+    if (m.isValid()) return m.valueOf();
+
+    return str.toLowerCase();
+  };
+
+  const resolveSortField = (sortId) => {
+    if (!sortId) return '';
+
+    // sortId is TanStack column `id`; map it to the actual row field
+    switch (sortId) {
+      // dimensions
+      case 'APP':
+        return 'app_display_name';
+      case 'DATE':
+        return 'report_date';
+      case 'COUNTRY':
+        return 'country_name';
+      case 'AD_UNIT':
+        return 'au_display_name';
+      case 'APP_VERSION_NAME':
+        return 'app_version';
+
+      // metrics
+      case 'ESTIMATED_EARNINGS':
+        return 'estimated_earnings';
+      case 'IMPRESSION_RPM':
+        return 'observed_ecpm';
+      case 'AD_REQUESTS':
+        return 'ad_requests';
+      case 'MATCHED_REQUESTS':
+        return 'matched_requests';
+      case 'IMPRESSIONS':
+        return 'impressions';
+      case 'CLICKS':
+        return 'clicks';
+      case 'MATCH_RATE':
+        return 'match_rate';
+      case 'SHOW_RATE':
+        return 'show_rate';
+      case 'IMPRESSION_CTR':
+        return 'impression_ctr';
+
+      default:
+        return sortId;
+    }
+  };
+
+  const sortRowsByCurrentSorting = (rows, sortId, desc) => {
+    if (!Array.isArray(rows) || rows.length <= 1) return rows;
+    if (!sortId) return rows;
+
+    const key = resolveSortField(sortId);
+
+    const sorted = [...rows].sort((a, b) => {
+      const av = getSortablePrimitive(a?.[key]);
+      const bv = getSortablePrimitive(b?.[key]);
+
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+
+      if (typeof av === 'number' && typeof bv === 'number') return av - bv;
+
+      return String(av).localeCompare(String(bv));
+    });
+
+    return desc ? sorted.reverse() : sorted;
+  };
+
+  const setSortedTableRows = (rows) => {
+    const sortId = sortingColumn?.id;
+    const desc = !!sortingColumn?.desc;
+    setUpdatedTableNewData(sortRowsByCurrentSorting(rows, sortId, desc));
+  };
+
   // ad unit filter starts
   useEffect(() => {
     if (filterPopupData?.all_app_list?.length > 0 && tableNewData?.aaData?.length > 0) {
@@ -1061,7 +1061,7 @@ const ReportContentBox = () => {
                 versionItem.name === item.app_version
             )
           );
-          setUpdatedTableNewData(filteredData);
+          setSortedTableRows(filteredData);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
@@ -1082,7 +1082,7 @@ const ReportContentBox = () => {
             setcheckedAppVersion(null);
           }
 
-          setUpdatedTableNewData(filterByadUnitData);
+          setSortedTableRows(filterByadUnitData);
         }
       } else if (unitValue?.length > 0) {
         // ad unit condtion
@@ -1197,7 +1197,7 @@ const ReportContentBox = () => {
                 versionItem.name === item.app_version
             )
           );
-          setUpdatedTableNewData(filteredData);
+          setSortedTableRows(filteredData);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
@@ -1218,7 +1218,7 @@ const ReportContentBox = () => {
             setcheckedAppVersion(null);
           }
 
-          setUpdatedTableNewData(filterByadUnitData);
+          setSortedTableRows(filterByadUnitData);
         }
       } else {
         //filter for appversion
@@ -1311,7 +1311,7 @@ const ReportContentBox = () => {
             admob_currency_code: 'USD',
             app_display_name: 'Total',
           };
-          setUpdatedTableNewData(filteredData);
+          setSortedTableRows(filteredData);
           setTotalRecordsData(totalResults);
         } else {
           if (appVersionData?.length > 0) {
@@ -1332,13 +1332,13 @@ const ReportContentBox = () => {
             );
             setcheckedAppVersion(null);
           }
-          setUpdatedTableNewData(updatedTableNewData);
+          setSortedTableRows(updatedTableNewData);
         }
       }
     } else {
-      setUpdatedTableNewData([]);
+      setSortedTableRows([]);
     }
-  }, [filterPopupData, tableNewData]);
+  }, [filterPopupData, tableNewData, sortingColumn]);
 
   //Matrix report
   const finalMatrix = allMatrixData.map((data) => {
@@ -2668,12 +2668,6 @@ const ReportContentBox = () => {
   );
 
   const { addClass } = useStickyOnScroll({ topSpace: 15 });
-
-  // const showMainLoader = isPending && !isPlaceholderData;
-  // const showOverlayLoader = isFetching && isPlaceholderData;
-
-  //   const showMainLoader = !isFilterDataLoaded || (isQueryEnabled && isPending && !isPlaceholderData) || (isQueryEnabled && !reportResponse && !isPlaceholderData);
-  // const showOverlayLoader = isFetching && isPlaceholderData;
 
   const showMainLoader = mainLoaderVisible;
   const showOverlayLoader = isFetching && !isPending;
