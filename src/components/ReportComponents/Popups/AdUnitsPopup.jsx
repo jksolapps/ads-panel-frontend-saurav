@@ -21,7 +21,6 @@ const AdUnitsPopup = ({
 		useContext(ReportContext);
 
 	const [allUnitData, setAllUnitData] = useState([]);
-	console.log("🚀 ~ AdUnitsPopup ~ allUnitData:", allUnitData)
 	const [searchText, setSearchText] = useState('');
 
 	const reportlocation = useLocation();

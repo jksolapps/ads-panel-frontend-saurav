@@ -770,7 +770,7 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 				),
 				size: dynamicColumnWidthCal({
 					value: totalRecordsData?.total_ad_requests,
-					minWidth: 100,
+					minWidth: 150,
 				}),
 				meta: {
 					alignMent: 'right',
@@ -839,7 +839,7 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 				),
 				size: dynamicColumnWidthCal({
 					value: totalRecordsData?.total_impressions,
-					minWidth: 100,
+					minWidth: 150,
 				}),
 				meta: {
 					alignMent: 'right',
@@ -862,7 +862,7 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 				),
 				size: dynamicColumnWidthCal({
 					value: totalRecordsData?.total_active_users,
-					minWidth: 100,
+					minWidth: 150,
 				}),
 				meta: {
 					alignMent: 'right',
@@ -968,9 +968,9 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 				accessorFn: (row) => parseIntSafe(row.impr_per_user),
 				header: () =>
 					totalRecordsData ? (
-						headerWithTotal('Impression/User', indianNumberFormat(totalRecordsData.total_impr_per_user))
+						headerWithTotal('Impr/User', indianNumberFormat(totalRecordsData.total_impr_per_user))
 					) : (
-						<div className='report-title custom_right_head'>Impression/User</div>
+						<div className='report-title custom_right_head'>Impr/User</div>
 					),
 				cell: ({ row }) => (
 					<div className='report_column_box custom_right_head'>{row.original?.impr_per_user}</div>
@@ -1023,7 +1023,7 @@ const AppDetailsTable = ({ appId, appInfo }) => {
 				),
 				size: dynamicColumnWidthCal({
 					value: totalRecordsData?.total_clicks,
-					minWidth: 100,
+					minWidth: 130,
 				}),
 				meta: {
 					alignMent: 'right',

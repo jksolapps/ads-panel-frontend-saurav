@@ -1,7 +1,7 @@
 /** @format */
 
 import { useQueryClient } from '@tanstack/react-query';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import DataTable from 'react-data-table-component';
 import { ReactComponent as TableSortArrow } from '../../assets/images/arrow-dwon.svg';
@@ -26,21 +26,22 @@ const AppContentBox = () => {
   const [appPageNumber, setAppPageNumber] = useState(1);
   const [appPageLength] = useState(100);
   const [appTotalPages, setAppTotalPages] = useState('');
-  const [appPaginationList, setAppPaginationList] = useState([]);
   const [appOrder, setAppOrder] = useState('');
   const [appColumnName, setAppColumnName] = useState('');
   const [selectedFilterOrder, setSelectedFilterOrder] = useState([]);
   const [filterAccountData, setFilterAccountData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [accountAdmob, setAccountAdmob] = useState(() => {
-    const stored = sessionStorage.getItem('app_content_admob_filter');
+    const stored = sessionStorage.getItem('account_admob_filter');
     return stored ? JSON.parse(stored) : [];
   });
   const [accountNewApp, setAccountNewApp] = useState(() => {
-    const stored = sessionStorage.getItem('app_content_app_filter');
+    const stored = sessionStorage.getItem('account_app_filter');
     return stored ? JSON.parse(stored) : [];
   });
   const [isSorting, setIsSorting] = useState(false);
+
+  const pendingVisibilityOverrides = useRef({});
 
   const APPS_LIST_QUERY_KEY = useMemo(
     () => [
@@ -98,8 +99,43 @@ const AppContentBox = () => {
   } = useQueryFetch(APPS_LIST_QUERY_KEY, 'apps-list', formData, {
     staleTime: 1000 * 60 * 5,
     refetchOnMount: 'ifStale',
-    placeholderData: (prev) => prev,
+    placeholderData: (prev) => {
+      if (!prev?.aaData) return prev;
+      const overrides = pendingVisibilityOverrides.current;
+      if (Object.keys(overrides).length === 0) return prev;
+      return {
+        ...prev,
+        aaData: prev.aaData.map((app) => {
+          const override = overrides[String(app.app_auto_id)];
+          return override !== undefined ? { ...app, app_visibility: override } : app;
+        }),
+      };
+    },
   });
+
+  useEffect(() => {
+    if (!isSuccess || !appList?.aaData) return;
+    const overrides = pendingVisibilityOverrides.current;
+    if (Object.keys(overrides).length === 0) return;
+
+    const hasStaleData = appList.aaData.some((app) => {
+      const override = overrides[String(app.app_auto_id)];
+      return override !== undefined && Number(app.app_visibility) !== override;
+    });
+
+    if (!hasStaleData) return;
+
+    queryClient.setQueryData(APPS_LIST_QUERY_KEY, (oldData) => {
+      if (!oldData?.aaData) return oldData;
+      return {
+        ...oldData,
+        aaData: oldData.aaData.map((app) => {
+          const override = overrides[String(app.app_auto_id)];
+          return override !== undefined ? { ...app, app_visibility: override } : app;
+        }),
+      };
+    });
+  }, [isSuccess, appList, APPS_LIST_QUERY_KEY]);
 
   useEffect(() => {
     if (!isSorting || !isSuccess) return;
@@ -167,18 +203,32 @@ const AppContentBox = () => {
     setAppTotalPages(totalPages);
   }, [isSuccess, appList]);
 
-  useEffect(() => {
-    const paginationLinks = useGeneratePagination(appTotalPages);
-    setAppPaginationList(paginationLinks);
-  }, [appTotalPages]);
+  const paginationLinks = useGeneratePagination(appTotalPages);
 
   const handleToggleVisibility = async (appAutoId, currentVisibility) => {
     const nextVisibility = currentVisibility ? 0 : 1;
+    const appAutoIdStr = String(appAutoId);
+
+    pendingVisibilityOverrides.current = {
+      ...pendingVisibilityOverrides.current,
+      [appAutoIdStr]: nextVisibility,
+    };
 
     try {
       queryClient.setQueryData(APPS_LIST_QUERY_KEY, (oldData) => {
         if (!oldData?.aaData) return oldData;
+        return {
+          ...oldData,
+          aaData: oldData.aaData.map((app) =>
+            Number(app.app_auto_id) === Number(appAutoId)
+              ? { ...app, app_visibility: nextVisibility }
+              : app
+          ),
+        };
+      });
 
+      queryClient.setQueriesData({ queryKey: ['apps-list-table'], exact: false }, (oldData) => {
+        if (!oldData?.aaData) return oldData;
         return {
           ...oldData,
           aaData: oldData.aaData.map((app) =>
@@ -191,7 +241,6 @@ const AppContentBox = () => {
 
       queryClient.setQueriesData({ queryKey: ['global-app-list'], exact: false }, (oldData) => {
         if (!oldData?.aaData) return oldData;
-
         return {
           ...oldData,
           aaData: oldData.aaData.map((app) =>
@@ -204,7 +253,6 @@ const AppContentBox = () => {
 
       queryClient.setQueriesData({ queryKey: ['account-filter-data'], exact: false }, (oldData) => {
         if (!oldData?.all_app_list) return oldData;
-
         return {
           ...oldData,
           all_app_list: oldData.all_app_list.map((app) =>
@@ -219,7 +267,6 @@ const AppContentBox = () => {
         { queryKey: ['global-campaign-list'], exact: false },
         (oldData) => {
           if (!oldData?.list_apps) return oldData;
-
           return {
             ...oldData,
             list_apps: oldData.list_apps.map((app) =>
@@ -238,6 +285,10 @@ const AppContentBox = () => {
 
       await useAppsApi('toggle-app-visibility', payload);
 
+      const updatedOverrides = { ...pendingVisibilityOverrides.current };
+      delete updatedOverrides[appAutoIdStr];
+      pendingVisibilityOverrides.current = updatedOverrides;
+
       flushAllCachesExcept(queryClient, [
         'apps-list-table',
         'global-app-list',
@@ -247,7 +298,12 @@ const AppContentBox = () => {
       ]);
     } catch (err) {
       console.error(err);
-      queryClient.invalidateQueries(['apps-list-table']);
+
+      const updatedOverrides = { ...pendingVisibilityOverrides.current };
+      delete updatedOverrides[appAutoIdStr];
+      pendingVisibilityOverrides.current = updatedOverrides;
+
+      queryClient.invalidateQueries({ queryKey: ['apps-list-table'], exact: false });
     }
   };
 
@@ -420,7 +476,7 @@ const AppContentBox = () => {
                   paginationComponent={() => (
                     <CustomPaginationComponent
                       pageNumber={appPageNumber}
-                      paginationList={appPaginationList}
+                      paginationList={paginationLinks}
                       setPageNumber={setAppPageNumber}
                     />
                   )}
