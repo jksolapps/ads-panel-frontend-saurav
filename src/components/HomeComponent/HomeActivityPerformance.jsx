@@ -149,13 +149,15 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
     });
   }, [activityData]);
 
+  /** -------- Render -------- */
   const renderCard = (title, tooltip, chartKey, htmlValue, tooltips = {}, link = null, hasEcpmHoverBox = false, leftToolCondition = null) => (
+    // <div className='box2 graph-height'>
     <div className="box2 graph-est">
       <div className="scorecard-name">
         {link ? <Link to={link}>{title}</Link> : title}
-        <div className={`tooltip-row ${hasEcpmHoverBox ? ' ecpm-hover-box' : ''}`}>
+        <div className={`tooltip-row${hasEcpmHoverBox ? ' ecpm-hover-box' : ''}`}>
           <MdHelpOutline className="help_icon" />
-          <div className={`tooltip-box ${leftToolCondition !== null ? (leftToolCondition ? ' left-tool' : '') : ''}`}>
+          <div className={`tooltip-box${leftToolCondition !== null ? (leftToolCondition ? ' left-tool' : '') : ''}`}>
             <div className="content-container">{tooltip}</div>
           </div>
         </div>
@@ -266,7 +268,7 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
           },
           null,
           false,
-          true
+          false
         )}
 
         {renderCard(
@@ -291,7 +293,7 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
                 ?.total_estimated_match_rate_tooltip_previous,
           },
           null,
-          true,
+          false,
           false
         )}
 
@@ -320,8 +322,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
               activityPerformanceData?.activity_performance?.ecpm
                 ?.total_estimated_ecpm_tooltip_previous,
           },
-          null,
-          true
+         null,
+          true,
+          false
         )}
 
         {renderCard(
@@ -340,8 +343,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
               activityPerformanceData?.activity_performance?.cost
                 ?.total_estimated_cost_tooltip_previous,
           },
-          null,
-          true
+         null,
+          false,
+          false
         )}
 
         {renderCard(
