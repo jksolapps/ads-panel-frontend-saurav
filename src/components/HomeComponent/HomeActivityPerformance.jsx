@@ -149,16 +149,13 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
     });
   }, [activityData]);
 
-  /** -------- Render -------- */
-  const renderCard = (title, tooltip, chartKey, htmlValue, tooltips = {}, link = null) => (
-    // <div className='box2 graph-height'>
+  const renderCard = (title, tooltip, chartKey, htmlValue, tooltips = {}, link = null, hasEcpmHoverBox = false, leftToolCondition = null) => (
     <div className="box2 graph-est">
       <div className="scorecard-name">
         {link ? <Link to={link}>{title}</Link> : title}
-        {/* <div className={`tooltip-row ${title == 'eCPM' || title == 'Cost' ? 'ecpm-hover-box' : ''} `}> */}
-        <div className={`tooltip-row`}>
+        <div className={`tooltip-row ${hasEcpmHoverBox ? ' ecpm-hover-box' : ''}`}>
           <MdHelpOutline className="help_icon" />
-          <div className="tooltip-box">
+          <div className={`tooltip-box ${leftToolCondition !== null ? (leftToolCondition ? ' left-tool' : '') : ''}`}>
             <div className="content-container">{tooltip}</div>
           </div>
         </div>
@@ -242,7 +239,10 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.requests
                 ?.total_estimated_requests_tooltip_previous,
-          }
+          },
+          null,
+          false,
+          false
         )}
 
         {renderCard(
@@ -263,7 +263,10 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.impr
                 ?.total_estimated_impr_tooltip_previous,
-          }
+          },
+          null,
+          false,
+          true
         )}
 
         {renderCard(
@@ -286,7 +289,10 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.match_rate
                 ?.total_estimated_match_rate_tooltip_previous,
-          }
+          },
+          null,
+          true,
+          false
         )}
 
         {renderCard(
@@ -313,7 +319,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.ecpm
                 ?.total_estimated_ecpm_tooltip_previous,
-          }
+          },
+          null,
+          true
         )}
 
         {renderCard(
@@ -331,7 +339,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.cost
                 ?.total_estimated_cost_tooltip_previous,
-          }
+          },
+          null,
+          true
         )}
 
         {renderCard(
@@ -354,6 +364,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
               activityPerformanceData?.activity_performance?.active_users
                 ?.total_active_users_tooltip_previous,
           }
+          ,
+          null,
+          true
         )}
 
         {renderCard(
@@ -377,7 +390,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
             previous:
               activityPerformanceData?.activity_performance?.impr_per_user
                 ?.total_impr_per_user_tooltip_previous,
-          }
+          },
+          null,
+          true
         )}
 
         {renderCard(
@@ -398,7 +413,9 @@ const HomeActivityPerformance = ({ overviewSelect }) => {
               activityPerformanceData?.activity_performance?.roas?.total_roas_tooltip_current,
             previous:
               activityPerformanceData?.activity_performance?.roas?.total_roas_tooltip_previous,
-          }
+          },
+          null,
+          true
         )}
       </div>
     </div>

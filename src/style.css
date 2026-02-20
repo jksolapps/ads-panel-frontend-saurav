@@ -9596,10 +9596,6 @@ table.app-performance-table tr:not(:last-child) {
 	/* width: auto; */
 }
 
-.home-overview {
-	height: 100vh;
-}
-
 @media (max-width: 1500px) {
   .home-overview {
     margin: 8px 0px;
