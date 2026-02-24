@@ -271,7 +271,8 @@ const Sidebar = ({ appInfoDataFunction }) => {
 
 	useEffect(() => {
 		// if (!sidebarSelectApp) return;
-		if (!Array.isArray(sidebarSelectApp)) return;
+		// if (!Array.isArray(sidebarSelectApp)) return;
+		if (!Array.isArray(sidebarSelectApp) || !Array.isArray(selectedIds)) return;
 
 		const presentInSelectedIds = sidebarSelectApp?.filter((item) =>
 			selectedIds.includes(item.app_auto_id)
