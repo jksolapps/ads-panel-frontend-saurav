@@ -3,7 +3,7 @@
 import Tippy from '@tippyjs/react';
 import 'bootstrap/dist/css/bootstrap.css';
 import moment from 'moment';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import { CSVLink } from 'react-csv';
 import { BiGitCompare } from 'react-icons/bi';
@@ -72,7 +72,6 @@ const ReportContentBox = () => {
   const [columnName, setColumnName] = useState('');
   const [totalRecordsData, setTotalRecordsData] = useState([]);
   const [isInitialReady, setIsInitialReady] = useState(false);
-
 
   // Small helpers to keep metric cell rendering consistent and concise
   const ConditionalTippy = ({ isUnitSwitch, previous, children }) =>
@@ -143,11 +142,11 @@ const ReportContentBox = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
-    useEffect(() => {
-  if (isFilterDataLoaded && dateRange?.length > 0) {
-    setIsInitialReady(true);
-  }
-}, [isFilterDataLoaded, dateRange]);
+  useEffect(() => {
+    if (isFilterDataLoaded && dateRange?.length > 0) {
+      setIsInitialReady(true);
+    }
+  }, [isFilterDataLoaded, dateRange]);
 
   const finalVersion = appVersionData?.map((item) => {
     return {
@@ -468,8 +467,8 @@ const ReportContentBox = () => {
     }
     // if (finalSelectedAccount) fd.append('admob_auto_id', finalSelectedAccount);
     if (finalSelectedAccount !== null) {
-  fd.append('admob_auto_id', finalSelectedAccount);
-}
+      fd.append('admob_auto_id', finalSelectedAccount);
+    }
     if (finalGroup) fd.append('groupBy', finalGroup);
     if (isUnitSwitch === true) fd.append('ad_unit_comparison', isUnitSwitch);
 
@@ -1010,24 +1009,33 @@ const ReportContentBox = () => {
           value.matched_requests = value?.total_matched_requests.toLocaleString('en-IN');
 
           let finalObserver_ecpm = 0;
-          if (
-            value.estimated_earnings.replace('$', '') == 0 ||
-            value.estimated_earnings.replace('$', '') == 0.0 ||
-            value.estimated_earnings == null ||
-            value.estimated_earnings == undefined ||
-            value.total_impressions == 0 ||
-            value.total_impressions == null ||
-            value.total_impressions == undefined
-          ) {
-            finalObserver_ecpm = '$0';
+          // if (
+          //   value.estimated_earnings.replace('$', '') == 0 ||
+          //   value.estimated_earnings.replace('$', '') == 0.0 ||
+          //   value.estimated_earnings == null ||
+          //   value.estimated_earnings == undefined ||
+          //   value.total_impressions == 0 ||
+          //   value.total_impressions == null ||
+          //   value.total_impressions == undefined
+          // ) {
+          //   finalObserver_ecpm = '$0';
+          // } else {
+          //   finalObserver_ecpm =
+          //     '$' +
+          //     (
+          //       (removeIndianCommas(value.estimated_earnings.replace('$', '')) /
+          //         value.total_impressions) *
+          //       1000
+          //     ).toFixed(2);
+          // }
+          const earningsNum = parseFloat(
+            removeIndianCommas(value.estimated_earnings?.replace('$', '') || 0)
+          );
+
+          if (!earningsNum || value.total_impressions === 0) {
+            finalObserver_ecpm = '$0.00';
           } else {
-            finalObserver_ecpm =
-              '$' +
-              (
-                (removeIndianCommas(value.estimated_earnings.replace('$', '')) /
-                  value.total_impressions) *
-                1000
-              ).toFixed(2);
+            finalObserver_ecpm = '$' + ((earningsNum / value.total_impressions) * 1000).toFixed(2);
           }
 
           finalObserver_ecpm == '$0'
@@ -1053,15 +1061,71 @@ const ReportContentBox = () => {
           filterByadUnitData.push(value);
         });
         //adversion filtering of adunit filter data
+        // if (finalVersion?.length > 0 && adVersionBool) {
+        //   const filteredData = filterByadUnitData.filter((item) =>
+        //     finalVersion?.some(
+        //       (versionItem) =>
+        //         versionItem.app_display_name === item.app_display_name &&
+        //         versionItem.name === item.app_version
+        //     )
+        //   );
+        //   setSortedTableRows(filteredData);
+        // }
         if (finalVersion?.length > 0 && adVersionBool) {
-          const filteredData = filterByadUnitData.filter((item) =>
+          const filteredData = updatedTableNewData?.filter((item) =>
             finalVersion?.some(
               (versionItem) =>
                 versionItem.app_display_name === item.app_display_name &&
                 versionItem.name === item.app_version
             )
           );
+
+          // 🔥 CALCULATE TOTAL FROM FILTERED DATA
+          const totals = filteredData.reduce(
+            (acc, item) => {
+              acc.earnings += parseFloat(item.estimated_earnings.replace(/[$,]/g, '') || 0);
+              acc.requests += parseInt(item.ad_requests.replace(/,/g, '') || 0);
+              acc.matched += parseInt(item.matched_requests.replace(/,/g, '') || 0);
+              acc.impressions += parseInt(item.impressions.replace(/,/g, '') || 0);
+              acc.clicks += parseInt(item.clicks.replace(/,/g, '') || 0);
+              return acc;
+            },
+            {
+              earnings: 0,
+              requests: 0,
+              matched: 0,
+              impressions: 0,
+              clicks: 0,
+            }
+          );
+
+          const calculatedTotals = {
+            total_estimated_earnings: `$${totals.earnings.toFixed(2)}`,
+            total_ad_requests: totals.requests.toLocaleString(),
+            total_matched_requests: totals.matched.toLocaleString(),
+            total_impressions: totals.impressions.toLocaleString(),
+            total_clicks: totals.clicks.toLocaleString(),
+            total_match_rate:
+              totals.requests > 0
+                ? `${((totals.matched / totals.requests) * 100).toFixed(2)}%`
+                : '0%',
+            total_show_rate:
+              totals.matched > 0
+                ? `${((totals.impressions / totals.matched) * 100).toFixed(2)}%`
+                : '0%',
+            total_impression_ctr:
+              totals.impressions > 0
+                ? `${((totals.clicks / totals.impressions) * 100).toFixed(2)}%`
+                : '0%',
+            total_observed_ecpm:
+              totals.impressions > 0
+                ? `$${((totals.earnings / totals.impressions) * 1000).toFixed(2)}`
+                : '$0.00',
+            app_display_name: 'Total',
+          };
+
           setSortedTableRows(filteredData);
+          setTotalRecordsData(calculatedTotals);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
@@ -1189,15 +1253,71 @@ const ReportContentBox = () => {
 
           filterByadUnitData.push(value);
         });
+        // if (finalVersion?.length > 0 && adVersionBool) {
+        //   const filteredData = filterByadUnitData.filter((item) =>
+        //     finalVersion?.some(
+        //       (versionItem) =>
+        //         versionItem.app_display_name === item.app_display_name &&
+        //         versionItem.name === item.app_version
+        //     )
+        //   );
+        //   setSortedTableRows(filteredData);
+        // }
         if (finalVersion?.length > 0 && adVersionBool) {
-          const filteredData = filterByadUnitData.filter((item) =>
+          const filteredData = updatedTableNewData?.filter((item) =>
             finalVersion?.some(
               (versionItem) =>
                 versionItem.app_display_name === item.app_display_name &&
                 versionItem.name === item.app_version
             )
           );
+
+          // 🔥 CALCULATE TOTAL FROM FILTERED DATA
+          const totals = filteredData.reduce(
+            (acc, item) => {
+              acc.earnings += parseFloat(item.estimated_earnings.replace(/[$,]/g, '') || 0);
+              acc.requests += parseInt(item.ad_requests.replace(/,/g, '') || 0);
+              acc.matched += parseInt(item.matched_requests.replace(/,/g, '') || 0);
+              acc.impressions += parseInt(item.impressions.replace(/,/g, '') || 0);
+              acc.clicks += parseInt(item.clicks.replace(/,/g, '') || 0);
+              return acc;
+            },
+            {
+              earnings: 0,
+              requests: 0,
+              matched: 0,
+              impressions: 0,
+              clicks: 0,
+            }
+          );
+
+          const calculatedTotals = {
+            total_estimated_earnings: `$${totals.earnings.toFixed(2)}`,
+            total_ad_requests: totals.requests.toLocaleString(),
+            total_matched_requests: totals.matched.toLocaleString(),
+            total_impressions: totals.impressions.toLocaleString(),
+            total_clicks: totals.clicks.toLocaleString(),
+            total_match_rate:
+              totals.requests > 0
+                ? `${((totals.matched / totals.requests) * 100).toFixed(2)}%`
+                : '0%',
+            total_show_rate:
+              totals.matched > 0
+                ? `${((totals.impressions / totals.matched) * 100).toFixed(2)}%`
+                : '0%',
+            total_impression_ctr:
+              totals.impressions > 0
+                ? `${((totals.clicks / totals.impressions) * 100).toFixed(2)}%`
+                : '0%',
+            total_observed_ecpm:
+              totals.impressions > 0
+                ? `$${((totals.earnings / totals.impressions) * 1000).toFixed(2)}`
+                : '$0.00',
+            app_display_name: 'Total',
+          };
+
           setSortedTableRows(filteredData);
+          setTotalRecordsData(calculatedTotals);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
@@ -2662,8 +2782,12 @@ const ReportContentBox = () => {
     storageKey: 'reportState',
     persist: true,
   });
+
   const renderedComponents = useMemo(
-    () => orderFilter.map((name) => renderComponent(name)).filter(Boolean),
+    () =>
+      orderFilter
+        .map((name) => <React.Fragment key={name}>{renderComponent(name)}</React.Fragment>)
+        .filter(Boolean),
     [orderFilter, renderComponent]
   );
 

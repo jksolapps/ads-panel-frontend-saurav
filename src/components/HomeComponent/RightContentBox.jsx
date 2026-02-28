@@ -9,7 +9,7 @@ import Select from 'react-select';
 import { overViewSelectOption } from '../../utils/helper';
 import { DataContext } from '../../context/DataContext';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchBar from '../GeneralComponents/SearchBar';
 import { useQueryFetch } from '../../hooks/useQueryFetch';
 import { useGroupSettings } from '../../context/GroupSettingsContext';
@@ -29,13 +29,6 @@ const RightContentBox = () => {
 
   const [count, setCount] = useState(1);
   const intervalRef = useRef(null);
-
-  const location = useLocation();
-
-  // const showAllAppsTable = useMemo(() => {
-  //   const params = new URLSearchParams(location.search);
-  //   return params.get('all-apps') === 'true';
-  // }, [location.search]);
 
   const earningsFormData = useMemo(() => {
     const data = new FormData();
@@ -196,11 +189,9 @@ const RightContentBox = () => {
                 />
               </div>
 
-              {/* {showAllAppsTable && (
                 <div className="single_app_report_table">
                   <PerformanceTable />
                 </div>
-              )} */}
             </div>
           </div>
         </div>

@@ -162,7 +162,7 @@ export default function useCampaignAnalyticsColumns({
 			size: calculateColumnWidth(
 				total?.advertiserAdCost ? `$${Number(total?.advertiserAdCost).toFixed(2)}` : '-',
 				9,
-				120
+				140
 			),
 			meta: {
 				sortValue: 'advertiserAdCost',

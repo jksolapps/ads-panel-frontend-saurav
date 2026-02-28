@@ -230,6 +230,13 @@
 	.profile_name {
 		display: none;
 	}
+
+	    .search-result-box {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95vw !important;
+		max-width: none !important;
+    }
 }
 
 @media (max-width: 399px) {
@@ -267,12 +274,20 @@
 		max-width: 264px !important;
 	}
 
+	.custom_app_filter_popup.check-wrapper .checkbox_popover .app-item .app-img {
+		min-width: 30px !important;
+	}
+
 	.custom_app_details_top {
 		align-items: center !important;
 	}
 
 	.app-img {
 		margin-right: 0px !important;
+	}
+
+	.custom-tiny-app-box .app-img {
+		min-width: 32px !important;
 	}
 
 	.app-icon {
@@ -1487,9 +1502,9 @@
 		width: calc(40% - 114px);
 	} */
 
-	.new_parent_wrap .home-overview .top-bar div:last-child {
+	/* .new_parent_wrap .home-overview .top-bar div:last-child {
 		display: none;
-	}
+	} */
 
 	.new_parent_wrap .home-overview .top-bar .custom-search-filter {
 		transform: none;
@@ -1635,9 +1650,10 @@
 	}
 
 	.search-result-box {
-		left: 50%;
-		transform: translateX(-50%);
+		/* left: 50%; */
+		/* transform: translateX(-50%); */
 		width: 95vw !important;
+		max-width: 274px;
 	}
 
 	.tab-top-bar .tab-item {
@@ -2207,14 +2223,36 @@
 		text-align: center;
 	} */
 
-	.none-selected-text {
+	/* .none-selected-text {
+		position: absolute;
+		bottom: 1px;
+		z-index: 1;
+		height: auto;
+		border-bottom: none;
+	}
+
+	.analytics-filter-box .checkbox_popover .check-boxes-inner .right-result-box .none-selected-text {
 		position: absolute;
 		bottom: 3px;
 		left: 45px;
 		z-index: 1;
 		height: auto;
 		border-bottom: none;
-	}
+	} */
+
+	.none-selected-text {
+    position: absolute;
+    bottom: 1px;
+    z-index: 1;
+    height: auto;
+    border-bottom: none;
+    left: unset;
+}
+
+.analytics-none-selected {
+    left: 45px !important;
+    bottom: 3px !important;
+}
 
 	.right-result-row {
 		border-top: 1px solid #e0e0e0;
@@ -2456,7 +2494,6 @@
 } */
 
 @media (max-width: 640px) {
-
 	.single_app_report_freeze .table_raw .table_cell,
 	.single_app_report_freeze .table_head .table_head_cell {
 		position: unset !important;

@@ -297,7 +297,7 @@ const AnalyticsMonthBox = () => {
 							</div>
 							<div className='more-button three-icon-button'>
 								<MdMoreVert className='material-icons' />
-								<div className='more-box w-250 analytics_csv'>
+								<div className='more-box w-250 analytics_csv cohort_box'>
 									<div className='border-box'>
 										{csvData?.length > 0 && (
 											<CSVLink className='downloadbtn' filename='cohort.csv' data={csvData}>

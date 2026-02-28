@@ -326,7 +326,7 @@ const ArpuMainBox = () => {
 											</CSVLink>
 										)}
 									</div>
-									<div className='border-box'>
+									<div className='border-box usd_dollar_padding'>
 										<div className='border-box-icon'>
 											<RiExchangeDollarLine color='#5f6368' size={22} />
 											<span className='show-button'>USD</span>

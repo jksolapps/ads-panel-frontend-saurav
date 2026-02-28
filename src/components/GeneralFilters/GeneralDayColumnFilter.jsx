@@ -17,6 +17,7 @@ const GeneralDayColumnFilter = ({
 	setDayCheckedColumn,
 	setPageNumber,
 	setIsReportLoaderVisible = () => {},
+	noneSelectedClass = ''
 }) => {
 	const { setReportSelectedFilter } = useContext(ReportContext);
 
@@ -260,7 +261,11 @@ const GeneralDayColumnFilter = ({
 								</div>
 							</div>
 							<div className='right-result-box box2'>
-								<div className='none-selected-text'>
+								{/* <div className='none-selected-text'> */}
+								<div
+								//  className='none-selected-text'
+								className={`none-selected-text ${noneSelectedClass || ''}`}
+								 >
 									<span></span>
 									<a className='custom-clear-all' onClick={handleClear}>
 										Clear All

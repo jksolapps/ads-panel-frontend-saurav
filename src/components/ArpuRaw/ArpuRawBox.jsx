@@ -292,7 +292,7 @@ const ArpuRawBox = () => {
 											</CSVLink>
 										)}
 									</div>
-									<div className='border-box'>
+									<div className='border-box usd_dollar_padding'>
 										<div className='border-box-icon'>
 											<RiExchangeDollarLine color='#3c434aff' size={22} />
 											<span className='show-button'>USD</span>

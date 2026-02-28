@@ -110,7 +110,7 @@ export function PopoverContent({ children }) {
 				className={ctx.className}
 				style={{
 					...ctx.floatingStyles,
-					zIndex: 999,
+					zIndex: 9999,
 					...ctx.wrapperStyle,
 				}}
 				{...ctx.getFloatingProps()}

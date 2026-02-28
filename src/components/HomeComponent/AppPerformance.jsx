@@ -408,7 +408,7 @@ const AppPerformance = ({ overviewSelect }) => {
                 <tbody>
                   {appPerformanceData?.[performanceSelect]?.map((app, index) => {
                     return (
-                      <tr key={index} className="app-info-dashboard">
+                      <tr key={index} className="app-info-dashboard app_performance">
                         <td>{index + 1}</td>
                         <td onClick={handleClick}>
                           <AppInfoBox

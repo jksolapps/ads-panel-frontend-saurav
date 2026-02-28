@@ -1251,3 +1251,7 @@
   background: #333333;
   color: #ffffff;
 }
+
+.dark_mode .feed-cards .card-content .box2 a {
+	color: white;
+}

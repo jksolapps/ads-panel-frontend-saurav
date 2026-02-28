@@ -696,6 +696,7 @@ const AnalyticsBox = () => {
 						setDayCheckedColumn={setDayCheckedColumn}
 						setPageNumber={setCurrentUnitPage}
 						setIsReportLoaderVisible={setIsAnalyticsLoaderVisible}
+						noneSelectedClass="analytics-none-selected"
 					/>
 				);
 			default:

@@ -473,7 +473,13 @@ const HeatmapBox = ({ heatmapApp, setHeatmapApp }) => {
 		isCountryChecked,
 		selectedActivity,
 	]);
-	const renderedComponents = orderFilter?.map((componentName) => renderComponent(componentName));
+	// const renderedComponents = orderFilter?.map((componentName) => renderComponent(componentName));
+
+	const renderedComponents = orderFilter?.map((componentName) => (
+  		<React.Fragment key={componentName}>
+    		{renderComponent(componentName)}
+  		</React.Fragment>
+	));
 
 	const isIOS =
 		/iPhone|iPad|iPod/i.test(navigator.userAgent) || /iPhone X/i.test(navigator.userAgent);

@@ -18265,7 +18265,7 @@ div:where(.swal2-container) {
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
-	padding: 10px 15px;
+	/* padding: 10px 15px; */
 }
 
 .retention_pp_wrap .border-box .show-button {
@@ -18539,7 +18539,8 @@ div:where(.swal2-container) {
 }
 
 .new_parent_wrap .retention_pp_wrap .more-button.three-icon-button .arpu_csv .downloadbtn {
-	padding: 0 !important;
+	/* padding: 0 !important; */
+	padding: 10px 15px !important;
 	display: flex;
 	align-items: center;
 	line-height: initial;
@@ -19641,4 +19642,34 @@ div:where(.swal2-container) {
     right: 50%;
     transform: translateX(85%) !important;
   }
+}
+
+.more_btn_box .border-box .downloadbtn {
+	display: flex;
+	align-items: center;
+}
+
+.more_btn_box .more_btn_item {
+	line-height: 32px;
+}
+
+.retention_pp_wrap .usd_dollar_padding {
+	padding: 10px 15px;
+}
+
+.app_performance td {
+	padding: 0px 4px;
+}
+
+.retention_tanstack_table .sticky_cell {
+	z-index: 10 !important;
+}
+
+.more_btn_box .time-stamp {
+	margin-top: 0px !important;
+	margin-right: 4px;
+}
+
+.cohort_box {
+	z-index: 999999 !important;
 }

@@ -460,9 +460,14 @@ $(document).on('click', '.apply-btn', function () {
 	$('.checkboxes.active').removeClass('active').slideUp(0);
 });
 
-$(document).on('click', '.more-button', function (e) {
-	$(this).toggleClass('more-open');
+// $(document).on('click', '.more-button', function (e) {
+// 	$(this).toggleClass('more-open');
+// 	e.stopPropagation();
+// });
+
+$(document).on('click', '.more-button .material-icons', function (e) {
 	e.stopPropagation();
+	$(this).closest('.more-button').toggleClass('more-open');
 });
 
 $(document).on('click', 'body:not(border-box)', function () {
