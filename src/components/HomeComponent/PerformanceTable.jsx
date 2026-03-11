@@ -449,15 +449,19 @@ const PerformanceTable = () => {
 
         const v = dimensionValueLabel(firstColumnDimension, row.original);
         return (
-          <div className="report_column_box custom_word_ellipsis">
-            <div className="report_main_value" title={v}>
+          <div className="report_column_box custom_word_ellipsis" >
+            <div className="report_main_value" style={{ textAlign: firstColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start' }} title={v}>
               {v}
             </div>
           </div>
         );
       },
       size: dimensionHeaderWidth(firstColumnDimension),
-      meta: { alignMent: 'center', headerClassName: 'custom_report_column' },
+      meta: {
+        // alignMent: 'center',
+        alignMent: firstColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
+        headerClassName: 'custom_report_column',
+      },
       sortingFn: 'basic',
     };
 
@@ -505,7 +509,7 @@ const PerformanceTable = () => {
           : '(not set)';
         return (
           <div className="report_column_box custom_word_ellipsis">
-            <div className="report_main_value" title={v}>
+            <div className="report_main_value" style={{ textAlign: secondColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start' }} title={v}>
               {v}
             </div>
           </div>
@@ -513,7 +517,8 @@ const PerformanceTable = () => {
       },
       size: secondColumnDimension ? dimensionHeaderWidth(secondColumnDimension) : 130,
       meta: {
-        alignMent: 'center',
+        // alignMent: 'center',
+        alignMent: secondColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
         headerClassName: 'custom_report_column',
         omit: !secondColumnDimension,
       },
