@@ -897,6 +897,31 @@ const ReportContentBox = () => {
     setUpdatedTableNewData(sortRowsByCurrentSorting(rows, sortId, desc));
   };
 
+  useEffect(() => {
+    if (appVersionData?.length > 0) {
+      setappVersionData([]);
+      setcheckedAppVersion(null);
+
+      const resetAll = (allAppVersionData || []).map((item) => ({
+        ...item,
+        versions: item?.versions?.map((version) => ({
+          ...version,
+          item_checked: false,
+        })),
+      }));
+      setallAppVersionData(resetAll);
+
+      const resetFiltered = (filteredAppVersionData || []).map((item) => ({
+        ...item,
+        versions: item?.versions?.map((version) => ({
+          ...version,
+          item_checked: false,
+        })),
+      }));
+      setfilteredAppVersionData(resetFiltered);
+    }
+  }, [finalApp]);
+
   // ad unit filter starts
   useEffect(() => {
     if (filterPopupData?.all_app_list?.length > 0 && tableNewData?.aaData?.length > 0) {
@@ -1129,12 +1154,21 @@ const ReportContentBox = () => {
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
+            // setallAppVersionData(
+            //   allAppVersionData?.forEach((item) => {
+            //     item?.versions?.forEach((version) => {
+            //       version.item_checked = false;
+            //     });
+            //   })
+            // );
             setallAppVersionData(
-              allAppVersionData?.forEach((item) => {
-                item?.versions?.forEach((version) => {
-                  version.item_checked = false;
-                });
-              })
+              (allAppVersionData || []).map((item) => ({
+                ...item,
+                versions: item?.versions?.map((version) => ({
+                  ...version,
+                  item_checked: false,
+                })),
+              }))
             );
             setfilteredAppVersionData(
               filteredAppVersionData?.forEach((item) => {
@@ -1321,12 +1355,21 @@ const ReportContentBox = () => {
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
+            // setallAppVersionData(
+            //   allAppVersionData?.forEach((item) => {
+            //     item?.versions?.forEach((version) => {
+            //       version.item_checked = false;
+            //     });
+            //   })
+            // );
             setallAppVersionData(
-              allAppVersionData?.forEach((item) => {
-                item?.versions?.forEach((version) => {
-                  version.item_checked = false;
-                });
-              })
+              (allAppVersionData || []).map((item) => ({
+                ...item,
+                versions: item?.versions?.map((version) => ({
+                  ...version,
+                  item_checked: false,
+                })),
+              }))
             );
             setfilteredAppVersionData(
               filteredAppVersionData?.forEach((item) => {
@@ -1436,12 +1479,21 @@ const ReportContentBox = () => {
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
+            // setallAppVersionData(
+            //   allAppVersionData?.forEach((item) => {
+            //     item?.versions?.forEach((version) => {
+            //       version.item_checked = false;
+            //     });
+            //   })
+            // );
             setallAppVersionData(
-              allAppVersionData?.forEach((item) => {
-                item?.versions?.forEach((version) => {
-                  version.item_checked = false;
-                });
-              })
+              (allAppVersionData || []).map((item) => ({
+                ...item,
+                versions: item?.versions?.map((version) => ({
+                  ...version,
+                  item_checked: false,
+                })),
+              }))
             );
             setfilteredAppVersionData(
               filteredAppVersionData?.forEach((item) => {
