@@ -495,7 +495,7 @@
 		{
 			"item_id": "10",
 			"api_key": "app_display_name",
-			"key": "All Apps",
+			"key": "Apps",
 			"selected": false,
 			"child": false,
 			"api_Value": "ALL_APPS",

@@ -13462,6 +13462,16 @@ table.app-performance-table tr:not(:last-child) {
 	text-align: center;
 }
 
+.single_app_report .custom_word_ellipsis > .app-item,
+.single_app_report_table .custom_word_ellipsis > .app-item {
+	overflow: visible;
+}
+
+.single_app_report .custom_word_ellipsis > .app-item .primary-label-wrap,
+.single_app_report_table .custom_word_ellipsis > .app-item .primary-label-wrap {
+	padding-right: 8px; /* breathing room after last icon */
+}
+
 .single_app_report_table .custom_word_ellipsis {
 	min-width: 120px;
 }

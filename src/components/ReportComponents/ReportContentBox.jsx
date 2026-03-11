@@ -1151,6 +1151,7 @@ const ReportContentBox = () => {
 
           setSortedTableRows(filteredData);
           setTotalRecordsData(calculatedTotals);
+          setSummaryData(calculatedTotals);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);
@@ -1352,6 +1353,7 @@ const ReportContentBox = () => {
 
           setSortedTableRows(filteredData);
           setTotalRecordsData(calculatedTotals);
+          setSummaryData(calculatedTotals);
         } else {
           if (appVersionData?.length > 0) {
             setappVersionData([]);

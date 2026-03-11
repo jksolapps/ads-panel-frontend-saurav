@@ -351,7 +351,7 @@ const PerformanceTable = () => {
       case 'APP_VERSION_NAME':
         return 155;
       case 'ALL_APPS':
-        return 280;
+        return 250
       default:
         return 110;
     }

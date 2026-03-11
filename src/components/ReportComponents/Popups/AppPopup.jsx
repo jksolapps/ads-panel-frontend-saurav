@@ -9,6 +9,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import useSelectAll from '../../../hooks/useSelectAll';
 import EmptyListBox from '../../GeneralComponents/EmptyListBox';
 import { Popover, PopoverContent, PopoverTrigger } from '../../../ui/Popover';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AppPopup = ({
 	filterPopupData,
@@ -35,6 +36,9 @@ const AppPopup = ({
 	} = useContext(ReportContext);
 
 	const [searchText, setSearchText] = useState('');
+
+	const reportlocation = useLocation();
+	const navigate = useNavigate();
 
 	var queryString = window.location.search;
 	var queryParams = {};
@@ -95,6 +99,7 @@ const AppPopup = ({
 		setSearchText('');
 		setFilteredAppData(allAppData);
 		setIsReportLoaderVisible(true);
+		navigate(reportlocation.pathname?.state === '');
 		setFilterFlag(!filterFlag);
 		setAppValue(checkedApp);
 		setPopupFlags(!popupFlags);
