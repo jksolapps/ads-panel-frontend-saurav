@@ -1584,13 +1584,19 @@ const checkedDimIds = useMemo(
   [dimensionValue]
 );
 
+// const showEngagementColumns = useMemo(() => {
+//   const hasApp = checkedDimIds.has('APP');
+//   const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
+//   return hasApp && otherDims.length === 0;
+// }, [checkedDimIds]);
+
 const showEngagementColumns = useMemo(() => {
+  if (groupByValue?.length > 0) return false;
   const hasApp = checkedDimIds.has('APP');
   const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
   return hasApp && otherDims.length === 0;
-}, [checkedDimIds]);
+}, [checkedDimIds, groupByValue]);
 
-  // inside ReportContentBox.jsx
   const columns = useMemo(() => {
     // helper: dimension omit + pin_key coming from your dimensionValue
     const getDimMeta = (sortId) => {
