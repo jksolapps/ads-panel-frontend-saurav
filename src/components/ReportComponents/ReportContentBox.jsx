@@ -142,18 +142,34 @@ const ReportContentBox = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
-  useEffect(() => {
-    if (isFilterDataLoaded && dateRange?.length > 0) {
-      setIsInitialReady(true);
-    }
-  }, [isFilterDataLoaded, dateRange]);
+  // useEffect(() => {
+  //   if (isFilterDataLoaded && dateRange?.length > 0) {
+  //     setIsInitialReady(true);
+  //   }
+  // }, [isFilterDataLoaded, dateRange]);
 
-  const finalVersion = appVersionData?.map((item) => {
-    return {
+  useEffect(() => {
+  if (!isInitialReady && isFilterDataLoaded && dateRange?.length > 0) {
+    setIsInitialReady(true);
+  }
+}, [isFilterDataLoaded, dateRange]);
+
+  // const finalVersion = appVersionData?.map((item) => {
+  //   return {
+  //     app_display_name: item.app_display_name,
+  //     name: item.name,
+  //   };
+  // });
+
+  const finalVersion = useMemo(
+  () =>
+    appVersionData?.map((item) => ({
       app_display_name: item.app_display_name,
       name: item.name,
-    };
-  });
+    })),
+  [appVersionData]
+);
+
   const refUnit = (unitValue ?? [])
     .filter((u) => u?.unit_checked && u?.unit_auto_id != null && u?.unit_auto_id !== '')
     .map((u) => u.unit_auto_id);
@@ -178,9 +194,14 @@ const ReportContentBox = () => {
     return ids.length > 0 ? ids.join(',') : null;
   }, [selectedAccountData]);
 
-  const finalGroupValue = groupByValue?.map((item) => {
-    return item?.value;
-  });
+  // const finalGroupValue = groupByValue?.map((item) => {
+  //   return item?.value;
+  // });
+
+  const finalGroupValue = useMemo(
+  () => groupByValue?.map((item) => item?.value),
+  [groupByValue]
+);
 
   //First API call
   const filterAccData = useMemo(() => {
@@ -479,7 +500,7 @@ const ReportContentBox = () => {
     finalFormat,
     finalPlatform,
     finalUnit,
-    order,
+    // order,
     sortingColumnValue,
     dateRange,
     selectedStartDate,
@@ -711,8 +732,8 @@ const ReportContentBox = () => {
             item?.hasOwnProperty('app_version') &&
             item?.app_version
           ) {
-            const { app_display_name, app_version, app_platform } = item;
-            const displayNameWithPlatform = `${app_display_name} (${app_platform})`;
+            const { app_display_name, app_version, app_platform, app_icon, app_console_name } = item;
+            const displayNameWithPlatform = `${app_display_name} (${app_platform}) (${app_icon}) (${app_console_name})`;
             if (!appVersionsMap.has(displayNameWithPlatform)) {
               appVersionsMap.set(displayNameWithPlatform, [
                 {
@@ -741,10 +762,12 @@ const ReportContentBox = () => {
 
         const organizedVersions = [];
         for (const [displayNameWithPlatform, versions] of appVersionsMap) {
-          const [app_display_name, app_platform] = displayNameWithPlatform.split(' (');
+          const [app_display_name, app_platform, app_icon, app_console_name] = displayNameWithPlatform.split(' (');
           organizedVersions.push({
             app_display_name,
             app_platform: app_platform.slice(0, -1),
+            app_icon: app_icon.slice(0, -1),
+            app_console_name: app_console_name.slice(0, -1),
             versions,
           });
         }
@@ -1551,6 +1574,22 @@ const ReportContentBox = () => {
     return parseFloat(Math.abs(change.toFixed(2))) + '%';
   }
 
+const checkedDimIds = useMemo(
+  () =>
+    new Set(
+      (dimensionValue || [])
+        .filter((d) => d?.dimension_checked)
+        .map((d) => d.id)
+    ),
+  [dimensionValue]
+);
+
+const showEngagementColumns = useMemo(() => {
+  const hasApp = checkedDimIds.has('APP');
+  const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
+  return hasApp && otherDims.length === 0;
+}, [checkedDimIds]);
+
   // inside ReportContentBox.jsx
   const columns = useMemo(() => {
     // helper: dimension omit + pin_key coming from your dimensionValue
@@ -2111,287 +2150,293 @@ const ReportContentBox = () => {
         },
       },
 
-      // {
-      //   id: 'ACTIVE_USER',
-      //   accessorKey: 'active_users',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">Active users</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_active_users,
-      //             prevTotalRecordsData?.total_active_users
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.active_users || '0';
-      //     const previous = r?.prev_active_users || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'ACTIVE_USER',
+        accessorKey: 'active_users',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">Active users</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_active_users,
+                  prevTotalRecordsData?.total_active_users
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.active_users || '0';
+          const previous = r?.prev_active_users || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'ACTIVE_USER',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('ACTIVE_USER', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'ACTIVE_USER',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('ACTIVE_USER', false),
+          ...getMatrixMeta('ACTIVE_USER', !showEngagementColumns),
+        },
+      },
 
-      // {
-      //   id: 'ARPU',
-      //   accessorKey: 'arpu',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">ARPU</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_arpu,
-      //             prevTotalRecordsData?.total_arpu
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.arpu || '0';
-      //     const previous = r?.prev_arpu || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'ARPU',
+        accessorKey: 'arpu',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">ARPU</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_arpu,
+                  prevTotalRecordsData?.total_arpu
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.arpu || '0';
+          const previous = r?.prev_arpu || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'ARPU',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('ARPU', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'ARPU',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('ARPU', false),
+          ...getMatrixMeta('ARPU', !showEngagementColumns),
+        },
+      },
 
-      // {
-      //   id: 'ARPDAU',
-      //   accessorKey: 'arpdau',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">ARPDAU</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_arpdau,
-      //             prevTotalRecordsData?.total_arpdau
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.arpdau || '0';
-      //     const previous = r?.prev_arpdau || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'ARPDAU',
+        accessorKey: 'arpdau',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">ARPDAU</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_arpdau,
+                  prevTotalRecordsData?.total_arpdau
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.arpdau || '0';
+          const previous = r?.prev_arpdau || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'ARPDAU',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('ARPDAU', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'ARPDAU',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('ARPDAU', false),
+          ...getMatrixMeta('ARPDAU', !showEngagementColumns),
+        },
+      },
 
-      // {
-      //   id: 'DAU_AV',
-      //   accessorKey: 'dau_av',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">DAU AV</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_dau_av,
-      //             prevTotalRecordsData?.total_dau_av
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.dau_av || '0';
-      //     const previous = r?.prev_dau_av || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'DAU_AV',
+        accessorKey: 'dau_av',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">DAU AV</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_dau_av,
+                  prevTotalRecordsData?.total_dau_av
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.dau_av || '0';
+          const previous = r?.prev_dau_av || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'DAU_AV',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('DAU_AV', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'DAU_AV',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('DAU_AV', false),
+          ...getMatrixMeta('DAU_AV', !showEngagementColumns),
+        },
+      },
 
-      // {
-      //   id: 'AV_RATE',
-      //   accessorKey: 'av_rate',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">AV RATE</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_av_rate,
-      //             prevTotalRecordsData?.total_av_rate
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.av_rate || '0';
-      //     const previous = r?.prev_av_rate || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'AV_RATE',
+        accessorKey: 'av_rate',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">AV RATE</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_av_rate,
+                  prevTotalRecordsData?.total_av_rate
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.av_rate || '0';
+          const previous = r?.prev_av_rate || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'AV_RATE',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('AV_RATE', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'AV_RATE',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('AV_RATE', false),
+          ...getMatrixMeta('AV_RATE', !showEngagementColumns),
+        },
+      },
 
-      // {
-      //   id: 'IMPR_PER_USER',
-      //   accessorKey: 'impr_per_user',
-      //   header: () => (
-      //     <div className="report-title">
-      //       <div className="report-header">Impression/User</div>
-      //       {!!totalRecordsData && (
-      //         <div className="report-total">
-      //           {getHighlightedTotal(
-      //             totalRecordsData?.total_impr_per_user,
-      //             prevTotalRecordsData?.total_impr_per_user
-      //           )}
-      //         </div>
-      //       )}
-      //     </div>
-      //   ),
-      //   cell: ({ row }) => {
-      //     const r = row.original;
-      //     const current = r?.impr_per_user || '0';
-      //     const previous = r?.prev_impr_per_user || '0';
-      //     const highlightClass = getHighlightClass(current, previous);
+      {
+        id: 'IMPR_PER_USER',
+        accessorKey: 'impr_per_user',
+        header: () => (
+          <div className="report-title">
+            <div className="report-header">Impression/User</div>
+            {!!totalRecordsData && (
+              <div className="report-total">
+                {getHighlightedTotal(
+                  totalRecordsData?.total_impr_per_user,
+                  prevTotalRecordsData?.total_impr_per_user
+                )}
+              </div>
+            )}
+          </div>
+        ),
+        cell: ({ row }) => {
+          const r = row.original;
+          const current = r?.impr_per_user || '0';
+          const previous = r?.prev_impr_per_user || '0';
+          const highlightClass = getHighlightClass(current, previous);
 
-      //     const currentValue = Number(String(current).replace(/,/g, ''));
-      //     const previousValue = Number(String(previous).replace(/,/g, ''));
-      //     const percentageMove = calculatePercentageChange(currentValue, previousValue);
+          const currentValue = Number(String(current).replace(/,/g, ''));
+          const previousValue = Number(String(previous).replace(/,/g, ''));
+          const percentageMove = calculatePercentageChange(currentValue, previousValue);
 
-      //     return (
-      //       <MetricCell
-      //         isUnitSwitch={isUnitSwitch}
-      //         current={current}
-      //         previous={previous}
-      //         highlightClass={highlightClass}
-      //         percentageMove={percentageMove}
-      //       />
-      //     );
-      //   },
-      //   enableSorting: true,
-      //   minSize: 120,
-      //   size: 120,
-      //   meta: {
-      //     sortValue: 'IMPR_PER_USER',
-      //     alignMent: 'right',
-      //     isDynamic: true,
-      //     ...getMatrixMeta('IMPR_PER_USER', false),
-      //   },
-      // },
+          return (
+            <MetricCell
+              isUnitSwitch={isUnitSwitch}
+              current={current}
+              previous={previous}
+              highlightClass={highlightClass}
+              percentageMove={percentageMove}
+            />
+          );
+        },
+        enableSorting: true,
+        minSize: 120,
+        size: 120,
+        meta: {
+          sortValue: 'IMPR_PER_USER',
+          alignMent: 'right',
+          isDynamic: true,
+          // ...getMatrixMeta('IMPR_PER_USER', false),
+          ...getMatrixMeta('IMPR_PER_USER', !showEngagementColumns),
+        },
+      },
 
       {
         id: 'SHOW_RATE',
@@ -2544,6 +2589,7 @@ const ReportContentBox = () => {
     prevTotalRecordsData,
     groupByValue,
     finalMatrix,
+    showEngagementColumns,
     getHighlightClass,
     calculatePercentageChange,
     calculatePercentageChangeOfPercentage,
@@ -2560,22 +2606,44 @@ const ReportContentBox = () => {
   const matrixOrderSource =
     (sharedMatrixData?.columns?.length ? sharedMatrixData.columns : allMatrixData) || [];
 
+  // const orderedColumns = useMemo(() => {
+  //   const orderedDims = dimOrderSource
+  //     .filter((d) => d?.dimension_checked)
+  //     .map((d) => columnById.get(d.id))
+  //     .filter(Boolean);
+
+  //   const orderedMatrix = matrixOrderSource
+  //     .filter((m) => m?.matrix_checked)
+  //     .map((m) => columnById.get(m.name))
+  //     .filter(Boolean);
+
+  //   // merge
+  //   const merged = [...orderedDims, ...orderedMatrix];
+
+  //   return merged.filter((c) => !c?.meta?.omit);
+  // }, [dimOrderSource, matrixOrderSource, columnById]);
+
+  const ENGAGEMENT_MATRIX_NAMES = new Set([
+  'ACTIVE_USER', 'ARPU', 'ARPDAU', 'DAU_AV', 'AV_RATE', 'IMPR_PER_USER'
+]);
+
   const orderedColumns = useMemo(() => {
-    const orderedDims = dimOrderSource
-      .filter((d) => d?.dimension_checked)
-      .map((d) => columnById.get(d.id))
-      .filter(Boolean);
+  const orderedDims = dimOrderSource
+    .filter((d) => d?.dimension_checked)
+    .map((d) => columnById.get(d.id))
+    .filter(Boolean);
 
-    const orderedMatrix = matrixOrderSource
-      .filter((m) => m?.matrix_checked)
-      .map((m) => columnById.get(m.name))
-      .filter(Boolean);
+  const orderedMatrix = matrixOrderSource
+    .filter((m) => m?.matrix_checked)
+    // ← ADD THIS: skip engagement metrics when not allowed
+    .filter((m) => showEngagementColumns || !ENGAGEMENT_MATRIX_NAMES.has(m.name))
+    .map((m) => columnById.get(m.name))
+    .filter(Boolean);
 
-    // merge
-    const merged = [...orderedDims, ...orderedMatrix];
+  const merged = [...orderedDims, ...orderedMatrix];
 
-    return merged.filter((c) => !c?.meta?.omit);
-  }, [dimOrderSource, matrixOrderSource, columnById]);
+  return merged.filter((c) => !c?.meta?.omit);
+}, [dimOrderSource, matrixOrderSource, columnById, showEngagementColumns]);
 
   const stickyColumnIds = useMemo(() => {
     return (orderedColumns || []).filter((c) => c?.meta?.pin_key).map((c) => c.id);
@@ -3048,6 +3116,7 @@ const ReportContentBox = () => {
                         setIsReportLoaderVisible={setIsReportLoaderVisible}
                         setCurrentUnitPage={setCurrentUnitPage}
                         isFetching={isFetching}
+                        showEngagementColumns={showEngagementColumns}
                       />
                     </div>
                   )}

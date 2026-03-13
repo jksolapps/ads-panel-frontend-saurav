@@ -9,6 +9,9 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import EmptyListBox from '../../GeneralComponents/EmptyListBox';
 import { Popover, PopoverContent, PopoverTrigger } from '../../../ui/Popover';
 
+import PlayStoreIcon from "../../../assets/images/playstore.png";
+import AppStoreIcon from "../../../assets/images/appstore.png";
+
 const AppVersion = ({
 	AppVersion,
 	setIsReportLoaderVisible = () => {},
@@ -62,7 +65,7 @@ const AppVersion = ({
 					const matchingVersion = matchedVersions.find((match) => match.name === version.name);
 					return {
 						...version,
-						item_checked: matchingVersion?.item_checked || false, // Set default to false if no match
+						item_checked: matchingVersion?.item_checked || false,
 					};
 				}),
 			};
@@ -193,9 +196,14 @@ const AppVersion = ({
 		if (existingAppIndex !== -1) {
 			acc[existingAppIndex].versions.push(curr);
 		} else {
+			  const parentApp = allAppVersionData?.find(
+            (app) => app.app_display_name === curr?.app_display_name
+        );
 			acc.push({
 				app_display_name: curr?.app_display_name,
 				app_platform: curr?.app_platform,
+				app_icon: parentApp?.app_icon,
+				app_console_name: parentApp?.app_console_name,
 				versions: [curr],
 			});
 		}
@@ -216,11 +224,9 @@ const AppVersion = ({
 					{appVersionData?.length > 0 && (
 						<>
 							<ul className='selected-item'>
-								:
+								<li className='selected-item-value'>:</li>
 								{appVersionData
-									?.map((item) => {
-										return item?.name;
-									})
+									?.map((item) => item?.name)
 									?.slice(0, 2)
 									?.map((item, index) => (
 										<li className='selected-item-value' key={index}>
@@ -289,12 +295,34 @@ const AppVersion = ({
 															}
 															key={appIndex}
 														>
-															<label>
+															<label className='ad_unit_app_icon'>
+																<img
+																			alt=""
+																			loading="lazy"
+																			aria-hidden="true"
+																			className={
+																				app?.app_icon?.length == 0 || app?.app_icon == undefined
+																					? "app-icon default-icon"
+																					: "app-icon"
+																			}
+																			src={
+																				(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
+																				app?.app_icon == undefined
+																					? PlayStoreIcon
+																					: app?.app_icon?.length == 0 && app?.app_platform == 1
+																					? AppStoreIcon
+																					: app?.app_icon
+																			}
+																		/>
 																<span>
 																	<span className='search-title'>{app?.app_display_name}</span>
-																	<div className='secondary-label'>
-																		Free | {app?.app_platform || app?.app_platform}
-																	</div>
+																	{/* <div className='secondary-label'>
+																		{app?.app_console_name} | {app?.app_platform || app?.app_platform}
+																	</div> */}
+																																	<div className="secondary-label">
+  <span className="console-name">{app?.app_console_name}</span>
+  <span className="platform"> | {app?.app_platform}</span>
+</div>
 																</span>
 															</label>
 															<a className='arrow-btn'>
@@ -351,10 +379,32 @@ const AppVersion = ({
 														}
 														key={appIndex}
 													>
-														<label className='filter-adunitbox-label' style={{ marginBottom: '5px' }}>
+														<label className='filter-adunitbox-label ad_unit_app_icon' style={{ marginBottom: '5px' }}>
+															<img
+																			alt=""
+																			loading="lazy"
+																			aria-hidden="true"
+																			className={
+																				app?.app_icon?.length == 0 || app?.app_icon == undefined
+																					? "app-icon default-icon"
+																					: "app-icon"
+																			}
+																			src={
+																				(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
+																				app?.app_icon == undefined
+																					? PlayStoreIcon
+																					: app?.app_icon?.length == 0 && app?.app_platform == 1
+																					? AppStoreIcon
+																					: app?.app_icon
+																			}
+																		/>
 															<span>
 																<span className='search-title filter-adunitbox-span'>{app?.app_display_name}</span>
-																<div className='secondary-label'>Free | {app?.app_platform}</div>
+																{/* <div className='secondary-label'>{app?.app_console_name} | {app?.app_platform}</div> */}
+																<div className="secondary-label">
+  <span className="console-name">{app?.app_console_name}</span>
+  <span className="platform"> | {app?.app_platform}</span>
+</div>
 															</span>
 														</label>
 														<a className='arrow-btn'>

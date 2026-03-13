@@ -6,12 +6,19 @@ import { DataContext } from '../../context/DataContext';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { RiDraggable } from 'react-icons/ri';
 
-const MatrixBox = ({ setPageNumber, setCurrentUnitPage, isFetching = false }) => {
+const ENGAGEMENT_MATRIX_NAMES = new Set([
+  'ACTIVE_USER', 'ARPU', 'ARPDAU', 'DAU_AV', 'AV_RATE', 'IMPR_PER_USER'
+]);
+
+const MatrixBox = ({ setPageNumber, setCurrentUnitPage, isFetching = false, showEngagementColumns  }) => {
 	const { allMatrixData, setAllMatrixData, setMatrixBoxCheck } = useContext(ReportContext);
 	const { setSharedMatrixData } = useContext(DataContext);
 
 	const handleCheck = (item) => {
 		setMatrixBoxCheck(true);
+
+		 if (!showEngagementColumns && ENGAGEMENT_MATRIX_NAMES.has(item.name)) return;
+
 		const updatedMatrix = allMatrixData?.map((matrix) => {
 			if (matrix.matrix_auto_id === item.matrix_auto_id && matrix.matrix_checked) {
 				return {
@@ -52,6 +59,16 @@ const MatrixBox = ({ setPageNumber, setCurrentUnitPage, isFetching = false }) =>
 		sessionStorage.setItem('matrix_items', JSON.stringify(reorderedItems));
 		setSharedMatrixData({ columns: reorderedItems });
 	};
+
+	  const visibleMatrixData = allMatrixData?.filter(
+    (m) => !ENGAGEMENT_MATRIX_NAMES.has(m.name) || showEngagementColumns
+  );
+
+   const visibleWithOriginalIndex = visibleMatrixData?.map((m) => ({
+    ...m,
+    _originalIndex: allMatrixData.findIndex((orig) => orig.matrix_auto_id === m.matrix_auto_id),
+  }));
+
 	return (
 		<div className='dimension-box'>
 			<div className='dimension-title'>Metrics</div>
@@ -65,7 +82,7 @@ const MatrixBox = ({ setPageNumber, setCurrentUnitPage, isFetching = false }) =>
 								{...provided.droppableProps}
 								ref={provided.innerRef}
 							>
-								{allMatrixData?.map((matrix, index) => (
+								{visibleWithOriginalIndex?.map((matrix, index) => (
 									<Draggable
 										key={String(matrix.matrix_auto_id)}
 										draggableId={String(matrix.matrix_auto_id)}

@@ -5,6 +5,9 @@ import { MdClose, MdSearch, MdExpandMore } from 'react-icons/md';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import PlayStoreIcon from "../../../assets/images/playstore.png";
+import AppStoreIcon from "../../../assets/images/appstore.png";
+
 import { ReportContext } from '../../../context/ReportContext';
 import EmptyListBox from '../../GeneralComponents/EmptyListBox';
 import { Popover, PopoverContent, PopoverTrigger } from '../../../ui/Popover';
@@ -123,6 +126,10 @@ const AdUnitsPopup = ({
 			.map((u) => ({
 				...u,
 				app_auto_id: app?.app_auto_id,
+				app_icon: app?.app_icon || '', // add icon
+				app_console_name: app?.app_console_name || '', // add console name
+				app_name: app?.app_display_name || app?.app_name, // normalize name
+				app_platform: app?.app_platform
 			}))
 	);
 }, [allUnitData]);
@@ -148,6 +155,8 @@ const AdUnitsPopup = ({
 		} else {
 			acc.push({
 				app_name: curr.app_name,
+				app_icon: curr.app_icon,
+				app_console_name: curr.app_console_name,
 				app_platform: curr.app_platform,
 				app_auto_id: curr.app_auto_id,
 				units: [curr]
@@ -377,13 +386,35 @@ const AdUnitsPopup = ({
 																	/>
 																</div>
 
-																<label>
+																<label className='ad_unit_app_icon'>
+																		<img
+																			alt=""
+																			loading="lazy"
+																			aria-hidden="true"
+																			className={
+																				app?.app_icon?.length == 0 || app?.app_icon == undefined
+																					? "app-icon default-icon"
+																					: "app-icon"
+																			}
+																			src={
+																				(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
+																				app?.app_icon == undefined
+																					? PlayStoreIcon
+																					: app?.app_icon?.length == 0 && app?.app_platform == 1
+																					? AppStoreIcon
+																					: app?.app_icon
+																			}
+																		/>
 																	<div>
 																		<span className='search-title'>{app?.app_display_name}</span>
-																		<div className='secondary-label'>
+																		{/* <div className='secondary-label'>
 																			Free |{' '}
 																			{(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}
-																		</div>
+																		</div> */}
+																																																<div className="secondary-label">
+  <span className="console-name">{app?.app_console_name}</span>
+  <span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
+</div>
 																	</div>
 																</label>
 
@@ -445,12 +476,36 @@ const AdUnitsPopup = ({
 												}
 												key={appIndex}
 											>
-												<label className='filter-adunitbox-label' style={{ marginBottom: '5px' }}>
+												<label className='filter-adunitbox-label ad_unit_app_icon' style={{ marginBottom: '5px' }}>
+
+<img
+																			alt=""
+																			loading="lazy"
+																			aria-hidden="true"
+																			className={
+																				app?.app_icon?.length == 0 || app?.app_icon == undefined
+																					? "app-icon default-icon"
+																					: "app-icon"
+																			}
+																			src={
+																				(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
+																				app?.app_icon == undefined
+																					? PlayStoreIcon
+																					: app?.app_icon?.length == 0 && app?.app_platform == 1
+																					? AppStoreIcon
+																					: app?.app_icon
+																			}
+																		/>
+
 													<span>
 														<span className='search-title filter-adunitbox-span'>{app?.app_name}</span>
-														<div className='secondary-label'>
+														{/* <div className='secondary-label'>
 															Free | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}
-														</div>
+														</div> */}
+																														<div className="secondary-label">
+  <span className="console-name">{app?.app_console_name}</span>
+  <span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
+</div>
 													</span>
 												</label>
 
