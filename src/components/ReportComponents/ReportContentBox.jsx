@@ -2754,7 +2754,7 @@ const showEngagementColumns = useMemo(() => {
       active_users: 'Active users',
       arpu: 'ARPU',
       arpdau: 'ARPDAU',
-      dau_av: 'DAU_AV',
+      dau_av: 'DAU AV',
       av_rate: 'AV Rate',
       impr_per_user: 'Impression/User',
       show_rate: 'Show rate (%)',
