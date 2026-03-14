@@ -110,9 +110,6 @@ const AdUnitsPopup = ({
 		}));
 	}, [allUnitData, searchText]);
 
-	// ----------------------------
-	// SELECTED UNITS (derived from allUnitData)
-	// ----------------------------
 	// const checkedUnit = useMemo(() => {
 	// 	return safeArray(allUnitData).flatMap((app) =>
 	// 		safeArray(app?.ad_units).filter((u) => isRealUnitRow(u) && u.unit_checked)
@@ -142,10 +139,6 @@ const AdUnitsPopup = ({
 	// 		return acc;
 	// 	}, []);
 	// }, [checkedUnit]);
-
-	// ----------------------------
-	// TOGGLES (simple)
-	// ----------------------------
 
 	const groupedCheckedUnit = useMemo(() => {
 	return checkedUnit.reduce((acc, curr) => {
@@ -242,9 +235,6 @@ const AdUnitsPopup = ({
 		[filteredData]
 	);
 
-	// ----------------------------
-	// UI handlers
-	// ----------------------------
 	const handleSearch = (e) => setSearchText(e.target.value || '');
 
 	const handleClear = () => {
@@ -374,7 +364,7 @@ const AdUnitsPopup = ({
 														>
 															<div
 																className='group-input-flex ad-unit-input-field'
-																style={{ padding: '6px 12px', alignItems: 'center' }}
+																style={{ padding: '2.5px 9px', alignItems: 'center' }}
 															>
 																<div className='group-filter-input'>
 																	<input
@@ -407,14 +397,10 @@ const AdUnitsPopup = ({
 																		/>
 																	<div>
 																		<span className='search-title'>{app?.app_display_name}</span>
-																		{/* <div className='secondary-label'>
-																			Free |{' '}
-																			{(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}
-																		</div> */}
-																																																<div className="secondary-label">
-  <span className="console-name">{app?.app_console_name}</span>
-  <span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
-</div>
+																			<div className="secondary-label">
+																				<span className="console-name">{app?.app_console_name}</span>
+																				<span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
+																			</div>
 																	</div>
 																</label>
 
@@ -477,35 +463,31 @@ const AdUnitsPopup = ({
 												key={appIndex}
 											>
 												<label className='filter-adunitbox-label ad_unit_app_icon' style={{ marginBottom: '5px' }}>
-
-<img
-																			alt=""
-																			loading="lazy"
-																			aria-hidden="true"
-																			className={
-																				app?.app_icon?.length == 0 || app?.app_icon == undefined
-																					? "app-icon default-icon"
-																					: "app-icon"
-																			}
-																			src={
-																				(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
-																				app?.app_icon == undefined
-																					? PlayStoreIcon
-																					: app?.app_icon?.length == 0 && app?.app_platform == 1
-																					? AppStoreIcon
-																					: app?.app_icon
-																			}
-																		/>
+													<img
+														alt=""
+														loading="lazy"
+														aria-hidden="true"
+														className={
+															app?.app_icon?.length == 0 || app?.app_icon == undefined
+																? "app-icon default-icon"
+																: "app-icon"
+														}
+														src={
+															(app?.app_icon?.length == 0 && app?.app_platform == 2) ||
+															app?.app_icon == undefined
+																? PlayStoreIcon
+																: app?.app_icon?.length == 0 && app?.app_platform == 1
+																? AppStoreIcon
+																: app?.app_icon
+														}
+													/>
 
 													<span>
 														<span className='search-title filter-adunitbox-span'>{app?.app_name}</span>
-														{/* <div className='secondary-label'>
-															Free | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}
-														</div> */}
-																														<div className="secondary-label">
-  <span className="console-name">{app?.app_console_name}</span>
-  <span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
-</div>
+															<div className="secondary-label">
+																<span className="console-name">{app?.app_console_name}</span>
+																<span className="platform"> | {(app?.app_platform == 1 && 'IOS') || (app?.app_platform == 2 && 'Android')}</span>
+															</div>
 													</span>
 												</label>
 

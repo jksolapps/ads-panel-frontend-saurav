@@ -5473,7 +5473,7 @@ input.add-filter {
 .full-and-multi-filter .check-boxes-inner .all-select-row label>span {
 	line-height: 120%;
 	font-weight: 400;
-	padding-inline: 5px;
+	padding-inline: 0px;
 
 	/* padding-right: 56px; */
 	max-width: calc(100%);
@@ -14452,7 +14452,7 @@ table.app-performance-table tr:not(:last-child) {
 }
 
 .ad-unit-filter .search-title {
-	margin-bottom: 2px;
+	margin-bottom: 0px;
 }
 
 .custom_app_filter_popup.check-wrapper .checkboxes .app-item .secondary-label,

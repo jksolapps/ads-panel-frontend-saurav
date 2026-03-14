@@ -1128,7 +1128,6 @@ const ReportContentBox = () => {
             )
           );
 
-          // 🔥 CALCULATE TOTAL FROM FILTERED DATA
           const totals = filteredData.reduce(
             (acc, item) => {
               acc.earnings += parseFloat(item.estimated_earnings.replace(/[$,]/g, '') || 0);
@@ -1330,7 +1329,6 @@ const ReportContentBox = () => {
             )
           );
 
-          // 🔥 CALCULATE TOTAL FROM FILTERED DATA
           const totals = filteredData.reduce(
             (acc, item) => {
               acc.earnings += parseFloat(item.estimated_earnings.replace(/[$,]/g, '') || 0);
@@ -1632,7 +1630,6 @@ const showEngagementColumns = useMemo(() => {
     };
 
     return [
-      // ===== DIMENSIONS =====
       {
         id: 'APP',
         accessorKey: 'app_display_name',
@@ -1871,8 +1868,6 @@ const showEngagementColumns = useMemo(() => {
           ...getDimMeta('APP_VERSION_NAME'),
         },
       },
-
-      // ===== METRICS (MATRIX) =====
       {
         id: 'ESTIMATED_EARNINGS',
         accessorKey: 'estimated_earnings',
@@ -2756,12 +2751,12 @@ const showEngagementColumns = useMemo(() => {
       matched_requests: 'Matched requests',
       match_rate: 'Match rate (%)',
       impressions: 'Impressions',
-      // active_users: 'Active users',
-      // arpu: 'ARPU',
-      // arpdau: 'ARPDAU',
-      // dau_av: 'DAU_AV',
-      // av_rate: 'AV Rate',
-      // impr_per_user: 'Impression/User',
+      active_users: 'Active users',
+      arpu: 'ARPU',
+      arpdau: 'ARPDAU',
+      dau_av: 'DAU_AV',
+      av_rate: 'AV Rate',
+      impr_per_user: 'Impression/User',
       show_rate: 'Show rate (%)',
       clicks: 'Clicks',
       impression_ctr: 'CTR (%)',
