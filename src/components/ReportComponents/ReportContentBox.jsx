@@ -149,10 +149,10 @@ const ReportContentBox = () => {
   // }, [isFilterDataLoaded, dateRange]);
 
   useEffect(() => {
-  if (!isInitialReady && isFilterDataLoaded && dateRange?.length > 0) {
-    setIsInitialReady(true);
-  }
-}, [isFilterDataLoaded, dateRange]);
+    if (!isInitialReady && isFilterDataLoaded && dateRange?.length > 0) {
+      setIsInitialReady(true);
+    }
+  }, [isFilterDataLoaded, dateRange]);
 
   // const finalVersion = appVersionData?.map((item) => {
   //   return {
@@ -162,13 +162,13 @@ const ReportContentBox = () => {
   // });
 
   const finalVersion = useMemo(
-  () =>
-    appVersionData?.map((item) => ({
-      app_display_name: item.app_display_name,
-      name: item.name,
-    })),
-  [appVersionData]
-);
+    () =>
+      appVersionData?.map((item) => ({
+        app_display_name: item.app_display_name,
+        name: item.name,
+      })),
+    [appVersionData]
+  );
 
   const refUnit = (unitValue ?? [])
     .filter((u) => u?.unit_checked && u?.unit_auto_id != null && u?.unit_auto_id !== '')
@@ -198,10 +198,7 @@ const ReportContentBox = () => {
   //   return item?.value;
   // });
 
-  const finalGroupValue = useMemo(
-  () => groupByValue?.map((item) => item?.value),
-  [groupByValue]
-);
+  const finalGroupValue = useMemo(() => groupByValue?.map((item) => item?.value), [groupByValue]);
 
   //First API call
   const filterAccData = useMemo(() => {
@@ -732,7 +729,8 @@ const ReportContentBox = () => {
             item?.hasOwnProperty('app_version') &&
             item?.app_version
           ) {
-            const { app_display_name, app_version, app_platform, app_icon, app_console_name } = item;
+            const { app_display_name, app_version, app_platform, app_icon, app_console_name } =
+              item;
             const displayNameWithPlatform = `${app_display_name} (${app_platform}) (${app_icon}) (${app_console_name})`;
             if (!appVersionsMap.has(displayNameWithPlatform)) {
               appVersionsMap.set(displayNameWithPlatform, [
@@ -762,7 +760,8 @@ const ReportContentBox = () => {
 
         const organizedVersions = [];
         for (const [displayNameWithPlatform, versions] of appVersionsMap) {
-          const [app_display_name, app_platform, app_icon, app_console_name] = displayNameWithPlatform.split(' (');
+          const [app_display_name, app_platform, app_icon, app_console_name] =
+            displayNameWithPlatform.split(' (');
           organizedVersions.push({
             app_display_name,
             app_platform: app_platform.slice(0, -1),
@@ -1572,28 +1571,23 @@ const ReportContentBox = () => {
     return parseFloat(Math.abs(change.toFixed(2))) + '%';
   }
 
-const checkedDimIds = useMemo(
-  () =>
-    new Set(
-      (dimensionValue || [])
-        .filter((d) => d?.dimension_checked)
-        .map((d) => d.id)
-    ),
-  [dimensionValue]
-);
+  const checkedDimIds = useMemo(
+    () => new Set((dimensionValue || []).filter((d) => d?.dimension_checked).map((d) => d.id)),
+    [dimensionValue]
+  );
 
-// const showEngagementColumns = useMemo(() => {
-//   const hasApp = checkedDimIds.has('APP');
-//   const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
-//   return hasApp && otherDims.length === 0;
-// }, [checkedDimIds]);
+  // const showEngagementColumns = useMemo(() => {
+  //   const hasApp = checkedDimIds.has('APP');
+  //   const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
+  //   return hasApp && otherDims.length === 0;
+  // }, [checkedDimIds]);
 
-const showEngagementColumns = useMemo(() => {
-  if (groupByValue?.length > 0) return false;
-  const hasApp = checkedDimIds.has('APP');
-  const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
-  return hasApp && otherDims.length === 0;
-}, [checkedDimIds, groupByValue]);
+  const showEngagementColumns = useMemo(() => {
+    if (groupByValue?.length > 0) return false;
+    const hasApp = checkedDimIds.has('APP');
+    const otherDims = [...checkedDimIds].filter((id) => id !== 'APP' && id !== 'DATE');
+    return hasApp && otherDims.length === 0;
+  }, [checkedDimIds, groupByValue]);
 
   const columns = useMemo(() => {
     // helper: dimension omit + pin_key coming from your dimensionValue
@@ -2625,26 +2619,31 @@ const showEngagementColumns = useMemo(() => {
   // }, [dimOrderSource, matrixOrderSource, columnById]);
 
   const ENGAGEMENT_MATRIX_NAMES = new Set([
-  'ACTIVE_USER', 'ARPU', 'ARPDAU', 'DAU_AV', 'AV_RATE', 'IMPR_PER_USER'
-]);
+    'ACTIVE_USER',
+    'ARPU',
+    'ARPDAU',
+    'DAU_AV',
+    'AV_RATE',
+    'IMPR_PER_USER',
+  ]);
 
   const orderedColumns = useMemo(() => {
-  const orderedDims = dimOrderSource
-    .filter((d) => d?.dimension_checked)
-    .map((d) => columnById.get(d.id))
-    .filter(Boolean);
+    const orderedDims = dimOrderSource
+      .filter((d) => d?.dimension_checked)
+      .map((d) => columnById.get(d.id))
+      .filter(Boolean);
 
-  const orderedMatrix = matrixOrderSource
-    .filter((m) => m?.matrix_checked)
-    // ← ADD THIS: skip engagement metrics when not allowed
-    .filter((m) => showEngagementColumns || !ENGAGEMENT_MATRIX_NAMES.has(m.name))
-    .map((m) => columnById.get(m.name))
-    .filter(Boolean);
+    const orderedMatrix = matrixOrderSource
+      .filter((m) => m?.matrix_checked)
+      // ← ADD THIS: skip engagement metrics when not allowed
+      .filter((m) => showEngagementColumns || !ENGAGEMENT_MATRIX_NAMES.has(m.name))
+      .map((m) => columnById.get(m.name))
+      .filter(Boolean);
 
-  const merged = [...orderedDims, ...orderedMatrix];
+    const merged = [...orderedDims, ...orderedMatrix];
 
-  return merged.filter((c) => !c?.meta?.omit);
-}, [dimOrderSource, matrixOrderSource, columnById, showEngagementColumns]);
+    return merged.filter((c) => !c?.meta?.omit);
+  }, [dimOrderSource, matrixOrderSource, columnById, showEngagementColumns]);
 
   const stickyColumnIds = useMemo(() => {
     return (orderedColumns || []).filter((c) => c?.meta?.pin_key).map((c) => c.id);
@@ -2700,10 +2699,25 @@ const showEngagementColumns = useMemo(() => {
     for (const m of matrixKeys) keys.push(m.key);
 
     // filter rows and strip $ where needed (same as your code) :contentReference[oaicite:1]{index=1}
+    // const filteredRows = (rows || []).map((item) => {
+    //   const out = {};
+    //   keys.forEach((key) => {
+    //     if (key === 'estimated_earnings' || key === 'observed_ecpm') {
+    //       out[key] = item?.[key]?.replace?.('$', '') ?? item?.[key];
+    //     } else {
+    //       out[key] = item?.[key];
+    //     }
+    //   });
+    //   return out;
+    // });
+
+    // AFTER
+    const DOLLAR_FIELDS = new Set(['estimated_earnings', 'observed_ecpm', 'arpu', 'arpdau']);
+
     const filteredRows = (rows || []).map((item) => {
       const out = {};
       keys.forEach((key) => {
-        if (key === 'estimated_earnings' || key === 'observed_ecpm') {
+        if (DOLLAR_FIELDS.has(key)) {
           out[key] = item?.[key]?.replace?.('$', '') ?? item?.[key];
         } else {
           out[key] = item?.[key];
