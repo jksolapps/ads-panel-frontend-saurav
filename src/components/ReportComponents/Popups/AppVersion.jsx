@@ -46,6 +46,7 @@ const AppVersion = ({
 						ele.item_checked = true;
 					}
 				});
+				 v.versions.sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true, sensitivity: 'base' }));
 				return v;
 			});
 

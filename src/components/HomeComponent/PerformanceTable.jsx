@@ -80,11 +80,23 @@ const PerformanceTable = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
   const [fetchFlag, setFetchFlag] = useState(false);
 
+  // const isOnlyMonthYearSelected = useMemo(() => {
+  //   return (
+  //     (firstColumnDimension === 'MONTH' || firstColumnDimension === 'YEAR' || firstColumnDimension === 'ALL_APPS') &&
+  //     !secondColumnDimension
+  //   );
+  // }, [firstColumnDimension, secondColumnDimension]);
+
+  const MONTH_YEAR_APP_DIMS = new Set(['MONTH', 'YEAR', 'ALL_APPS']);
+
   const isOnlyMonthYearSelected = useMemo(() => {
-    return (
-      (firstColumnDimension === 'MONTH' || firstColumnDimension === 'YEAR') &&
-      !secondColumnDimension
-    );
+    const firstIsValid = MONTH_YEAR_APP_DIMS.has(firstColumnDimension);
+
+    if (!secondColumnDimension) return firstIsValid;
+
+    const secondIsValid = MONTH_YEAR_APP_DIMS.has(secondColumnDimension);
+
+    return firstIsValid && secondIsValid;
   }, [firstColumnDimension, secondColumnDimension]);
 
   const [columnVisibility, setColumnVisibility] = useState({
@@ -351,7 +363,7 @@ const PerformanceTable = () => {
       case 'APP_VERSION_NAME':
         return 155;
       case 'ALL_APPS':
-        return 250
+        return 250;
       default:
         return 110;
     }
@@ -449,8 +461,14 @@ const PerformanceTable = () => {
 
         const v = dimensionValueLabel(firstColumnDimension, row.original);
         return (
-          <div className="report_column_box custom_word_ellipsis" >
-            <div className="report_main_value" style={{ textAlign: firstColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start' }} title={v}>
+          <div className="report_column_box custom_word_ellipsis">
+            <div
+              className="report_main_value"
+              style={{
+                textAlign: firstColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
+              }}
+              title={v}
+            >
               {v}
             </div>
           </div>
@@ -509,7 +527,13 @@ const PerformanceTable = () => {
           : '(not set)';
         return (
           <div className="report_column_box custom_word_ellipsis">
-            <div className="report_main_value" style={{ textAlign: secondColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start' }} title={v}>
+            <div
+              className="report_main_value"
+              style={{
+                textAlign: secondColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
+              }}
+              title={v}
+            >
               {v}
             </div>
           </div>
@@ -554,7 +578,7 @@ const PerformanceTable = () => {
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_cost,
-          minWidth: 125,
+          minWidth: 120,
         }),
         meta: {
           alignMent: 'right',
@@ -594,7 +618,7 @@ const PerformanceTable = () => {
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_estimated_earnings,
-          minWidth: 125,
+          minWidth: 120,
         }),
         meta: {
           alignMent: 'right',
@@ -639,7 +663,7 @@ const PerformanceTable = () => {
         },
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_roas,
-          minWidth: 100,
+          minWidth: 80,
         }),
         meta: {
           alignMent: 'right',
@@ -789,7 +813,7 @@ const PerformanceTable = () => {
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_observed_ecpm,
-          minWidth: 90,
+          minWidth: 80,
         }),
         meta: {
           alignMent: 'right',
@@ -950,7 +974,7 @@ const PerformanceTable = () => {
         ),
         size: dynamicColumnWidthCal({
           value: totalRecordsData?.total_impression_ctr,
-          minWidth: 100,
+          minWidth: 80,
         }),
         meta: {
           alignMent: 'right',

@@ -90,7 +90,13 @@ const AdUnitsPopup = ({
 				.map((u) => {
 					const key = `${String(u?.unit_display_name ?? '')}__${String(u?.ad_unit_id ?? '')}`;
 					return { ...u, unit_checked: selectedSet.has(key) };
-				}),
+				}) .sort((a, b) =>
+        String(b?.unit_display_name || '').localeCompare(
+          String(a?.unit_display_name || ''),
+          undefined,
+          { numeric: true, sensitivity: 'base' }
+        )
+      ),
 		}));
 
 		setAllUnitData(next);
