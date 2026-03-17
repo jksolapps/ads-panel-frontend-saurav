@@ -101,21 +101,38 @@ const AdUnitsContentBox = ({ appInfo }) => {
 
   //Search
   const [searchText, setSearchText] = useState('');
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const searchText = e.target.value;
-    setSearchText(searchText);
-    setAdUnitData(
-      adSearchUnitData.filter((app) => {
-        return (
-          app?.au_format_display_name.toLowerCase().includes(searchText) ||
-          app?.au_id.toLowerCase().includes(searchText)
-        );
-      })
-    );
-  };
 
-  // Table Data
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   const searchText = e.target.value;
+  //   setSearchText(searchText);
+  //   setAdUnitData(
+  //     adSearchUnitData.filter((app) => {
+  //       return (
+  //         app?.au_format_display_name.toLowerCase().includes(searchText) ||
+  //         app?.au_id.toLowerCase().includes(searchText) ||
+  //         app?.au_display_name.toLowerCase().includes(searchText)
+  //       );
+  //     })
+  //   );
+  // };
+
+  const handleSearch = (e) => {
+  e.preventDefault();
+  const value = e.target.value.toLowerCase();
+  setSearchText(value);
+
+  const filteredData = adSearchUnitData.filter((app) => {
+    return (
+      app?.au_format_display_name?.toLowerCase().includes(value) ||
+      app?.au_id?.toLowerCase().includes(value) ||
+      app?.au_display_name?.toLowerCase().includes(value)
+    );
+  });
+
+  setAdUnitData(filteredData);
+};
+
   const columns = [
     {
       name: 'Id',

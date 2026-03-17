@@ -20,6 +20,7 @@ import SecondColumnFilter from '../AppDetails/Filters/SecondColumnFilter';
 import ColumnOmitModal from '../AppDetails/Filters/ColumnOmitModal';
 import AppInfoBox from '../GeneralComponents/AppInfoBox';
 import { useGroupSettings } from '../../context/GroupSettingsContext';
+import GeneralTinyAppBox from '../GeneralComponents/GeneralTinyAppBox';
 
 const makeWorker = () => {
   return new Worker(new URL('../../workers/all_apps.worker.js', import.meta.url), {
@@ -363,7 +364,7 @@ const PerformanceTable = () => {
       case 'APP_VERSION_NAME':
         return 155;
       case 'ALL_APPS':
-        return 250;
+        return 140;
       default:
         return 110;
     }
@@ -447,13 +448,14 @@ const PerformanceTable = () => {
         if (firstColumnDimension === 'ALL_APPS') {
           return (
             <div className="report_column_box custom_word_ellipsis">
-              <AppInfoBox
-                app_auto_id={row.original?.app_auto_id}
-                app_icon={row.original?.app_icon}
-                app_platform={row.original?.app_platform}
-                app_display_name={row.original?.app_display_name}
-                app_console_name={row.original?.app_console_name}
-                app_store_id={row.original?.app_store_id}
+              <GeneralTinyAppBox
+                uniqueIdentifier="performance_table"
+                app_auto_id={row?.original?.app_auto_id}
+                app_icon={row?.original?.app_icon}
+                app_platform={row?.original?.app_platform}
+                app_display_name={row?.original?.app_display_name}
+                app_console_name={row?.original?.app_console_name}
+                app_store_id={row?.original?.app_store_id}
               />
             </div>
           );
@@ -510,13 +512,14 @@ const PerformanceTable = () => {
         if (secondColumnDimension === 'ALL_APPS') {
           return (
             <div className="report_column_box custom_word_ellipsis">
-              <AppInfoBox
-                app_auto_id={row.original?.app_auto_id}
-                app_icon={row.original?.app_icon}
-                app_platform={row.original?.app_platform}
-                app_display_name={row.original?.app_display_name}
-                app_console_name={row.original?.app_console_name}
-                app_store_id={row.original?.app_store_id}
+              <GeneralTinyAppBox
+                uniqueIdentifier="performance_table"
+                app_auto_id={row?.original?.app_auto_id}
+                app_icon={row?.original?.app_icon}
+                app_platform={row?.original?.app_platform}
+                app_display_name={row?.original?.app_display_name}
+                app_console_name={row?.original?.app_console_name}
+                app_store_id={row?.original?.app_store_id}
               />
             </div>
           );
