@@ -81,14 +81,15 @@ const PerformanceTable = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
   const [fetchFlag, setFetchFlag] = useState(false);
 
-  // const isOnlyMonthYearSelected = useMemo(() => {
-  //   return (
-  //     (firstColumnDimension === 'MONTH' || firstColumnDimension === 'YEAR' || firstColumnDimension === 'ALL_APPS') &&
-  //     !secondColumnDimension
-  //   );
-  // }, [firstColumnDimension, secondColumnDimension]);
-
   const MONTH_YEAR_APP_DIMS = new Set(['MONTH', 'YEAR', 'ALL_APPS']);
+
+  const COST_ALLOWED_DIMS = new Set(['MONTH', 'YEAR', 'COUNTRY', 'ALL_APPS']);
+
+  const showCostColumn = useMemo(() => {
+    const firstAllowed = COST_ALLOWED_DIMS.has(firstColumnDimension);
+    const secondAllowed = !secondColumnDimension || COST_ALLOWED_DIMS.has(secondColumnDimension);
+    return firstAllowed && secondAllowed;
+  }, [firstColumnDimension, secondColumnDimension]);
 
   const isOnlyMonthYearSelected = useMemo(() => {
     const firstIsValid = MONTH_YEAR_APP_DIMS.has(firstColumnDimension);
@@ -117,19 +118,14 @@ const PerformanceTable = () => {
     IMPRESSION_CTR: true,
   });
 
-    const isCountrySelected = useMemo(() => {
-  return firstColumnDimension === 'COUNTRY' || secondColumnDimension === 'COUNTRY';
-}, [firstColumnDimension, secondColumnDimension]);
-
   useEffect(() => {
     setColumnVisibility((prev) => ({
       ...prev,
-      // AD_COST: isOnlyMonthYearSelected,
-       AD_COST: isOnlyMonthYearSelected || isCountrySelected,
+      AD_COST: showCostColumn,
       ROAS: isOnlyMonthYearSelected,
       PROFIT: isOnlyMonthYearSelected,
     }));
-  }, [isOnlyMonthYearSelected]);
+  }, [isOnlyMonthYearSelected, showCostColumn]);
 
   const user_id = localStorage.getItem('id');
   const user_token = localStorage.getItem('token');
