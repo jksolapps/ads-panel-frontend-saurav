@@ -142,11 +142,22 @@ const AdUnitsContentBox = ({ appInfo }) => {
     },
     {
       name: 'Ad units',
-      selector: (row) => row['au_id'],
+      selector: (row) => row['au_display_name'],
       cell: (units) => (
         <div className="copy-text ad-units">
           <div className="copy-box">
             <div className="unit-name">{units?.au_display_name}</div>
+          </div>
+        </div>
+      ),
+      sortable: true,
+    },
+    {
+      name: 'Ad unit Id',
+      selector: (row) => row['au_id'],
+      cell: (units) => (
+        <div className="copy-text ad-units">
+          <div className="copy-box">
             <span className="id-text" onClick={() => handleCopyText(units?.au_id)}>
               {units?.au_id}
               <MdContentCopy className="material-icons" />
@@ -155,7 +166,7 @@ const AdUnitsContentBox = ({ appInfo }) => {
           </div>
         </div>
       ),
-      sortable: true,
+      width: '350px',
     },
     {
       name: 'Ad format',
