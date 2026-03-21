@@ -117,10 +117,15 @@ const PerformanceTable = () => {
     IMPRESSION_CTR: true,
   });
 
+    const isCountrySelected = useMemo(() => {
+  return firstColumnDimension === 'COUNTRY' || secondColumnDimension === 'COUNTRY';
+}, [firstColumnDimension, secondColumnDimension]);
+
   useEffect(() => {
     setColumnVisibility((prev) => ({
       ...prev,
-      AD_COST: isOnlyMonthYearSelected,
+      // AD_COST: isOnlyMonthYearSelected,
+       AD_COST: isOnlyMonthYearSelected || isCountrySelected,
       ROAS: isOnlyMonthYearSelected,
       PROFIT: isOnlyMonthYearSelected,
     }));

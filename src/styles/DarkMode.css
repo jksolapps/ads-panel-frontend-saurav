@@ -1255,3 +1255,15 @@
 .dark_mode .feed-cards .card-content .box2 a {
 	color: white;
 }
+
+.dark_mode .table_without_virtualization table > tbody > tr:nth-child(odd) {
+	background: transparent !important;
+}
+
+.dark_mode .custom_min_user_count {
+	color: white;
+}
+
+.dark_mode .custom_min_user_count::placeholder {
+	color: white;
+}
