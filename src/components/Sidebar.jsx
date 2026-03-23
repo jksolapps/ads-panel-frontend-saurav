@@ -349,6 +349,8 @@ const Sidebar = ({ appInfoDataFunction }) => {
 							'theme',
 							'id',
 							'main_app_group',
+							'performance_table_state',
+							'app_performance_metrics'
 						]);
 
 						for (let i = localStorage.length - 1; i >= 0; i--) {

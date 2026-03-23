@@ -64,6 +64,8 @@ const TopBar = () => {
 							'theme',
 							'id',
 							'main_app_group',
+							'app_performance_metrics',
+							'performance_table_state'
 						]);
 
 						for (let i = localStorage.length - 1; i >= 0; i--) {

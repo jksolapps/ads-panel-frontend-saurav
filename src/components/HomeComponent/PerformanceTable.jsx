@@ -5,10 +5,8 @@ import { MdClose, MdMoreVert } from 'react-icons/md';
 import { FiDownload } from 'react-icons/fi';
 import { IoEyeOff } from 'react-icons/io5';
 import { useQueryClient } from '@tanstack/react-query';
-
 import { indianNumberFormat } from '../../utils/helper';
 import { all_apps_dimension } from '../../utils/table_helper.json';
-
 import { useQueryFetch } from '../../hooks/useQueryFetch';
 import GeneralTanStackTable from '../GeneralComponents/GeneralTanStackTable';
 import { useTanStackTableHover } from '../../hooks/useTanStackTableHover';
@@ -56,28 +54,78 @@ function versionToSortableInt(parts) {
   return (parts[0] || 0) * 1_000_000 + (parts[1] || 0) * 1_000 + (parts[2] || 0);
 }
 
+const PERF_TABLE_SESSION_KEY = 'performance_table_state';
+
+const DEFAULT_COLUMN_VISIBILITY = {
+  AD_COST: false,
+  ESTIMATED_EARNINGS: true,
+  ROAS: false,
+  CUMULATIVE_EARNINGS: false,
+  CUMULATIVE_ROAS: false,
+  PROFIT: false,
+  IMPRESSION_RPM: true,
+  AD_REQUESTS: true,
+  MATCH_RATE: true,
+  IMPRESSIONS: true,
+  SHOW_RATE: true,
+  CLICKS: true,
+  IMPRESSION_CTR: true,
+};
+
+const getStoredTableState = () => {
+  try {
+    const stored = localStorage.getItem(PERF_TABLE_SESSION_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return {
+        firstColumnDimension: parsed.firstColumnDimension || 'MONTH',
+        secondColumnDimension: parsed.secondColumnDimension || null,
+        columnVisibility: parsed.columnVisibility
+          ? { ...DEFAULT_COLUMN_VISIBILITY, ...parsed.columnVisibility }
+          : null,
+      };
+    }
+  } catch {}
+  return { firstColumnDimension: 'MONTH', secondColumnDimension: null, columnVisibility: null };
+};
+
+const persistTableState = (firstDim, secondDim, colVis) => {
+  try {
+    localStorage.setItem(
+      PERF_TABLE_SESSION_KEY,
+      JSON.stringify({
+        firstColumnDimension: firstDim,
+        secondColumnDimension: secondDim,
+        columnVisibility: colVis,
+      })
+    );
+  } catch {}
+};
+
 const PerformanceTable = () => {
   const { selectedGroup } = useGroupSettings();
   const queryClient = useQueryClient();
+  const storedState = getStoredTableState();
 
   const [singleReportData, setSingleReportData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [csvData, setCsvData] = useState([]);
   const [totalRecordsData, setTotalRecordsData] = useState(null);
-
-  const [firstColumnDimension, setFirstColumnDimension] = useState('MONTH');
-  const [secondColumnDimension, setSecondColumnDimension] = useState(null);
+  // const [firstColumnDimension, setFirstColumnDimension] = useState('MONTH');
+  // const [secondColumnDimension, setSecondColumnDimension] = useState(null);
+  const [firstColumnDimension, setFirstColumnDimension] = useState(
+    storedState.firstColumnDimension
+  );
+  const [secondColumnDimension, setSecondColumnDimension] = useState(
+    storedState.secondColumnDimension
+  );
   const [availableFilters, setAvailableFilters] = useState(all_apps_dimension);
-
   const [isOpen, setIsOpen] = useState(false);
   const [secondIsOpen, setSecondIsOpen] = useState(false);
   const [secondArrow, setSecondArrow] = useState(false);
-
   const [omitModalShow, setOmitModalShow] = useState(false);
-
   const [searchText, setSearchText] = useState('');
   const timeoutRef = useRef(null);
-
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
   const [fetchFlag, setFetchFlag] = useState(false);
 
@@ -101,31 +149,67 @@ const PerformanceTable = () => {
     return firstIsValid && secondIsValid;
   }, [firstColumnDimension, secondColumnDimension]);
 
-  const [columnVisibility, setColumnVisibility] = useState({
-    AD_COST: isOnlyMonthYearSelected,
-    ESTIMATED_EARNINGS: true,
-    ROAS: isOnlyMonthYearSelected,
-    CUMULATIVE_EARNINGS: false,
-    CUMULATIVE_ROAS: false,
-    PROFIT: isOnlyMonthYearSelected,
+  // const [columnVisibility, setColumnVisibility] = useState({
+  //   AD_COST: isOnlyMonthYearSelected,
+  //   ESTIMATED_EARNINGS: true,
+  //   ROAS: isOnlyMonthYearSelected,
+  //   CUMULATIVE_EARNINGS: false,
+  //   CUMULATIVE_ROAS: false,
+  //   PROFIT: isOnlyMonthYearSelected,
+  //   IMPRESSION_RPM: true,
+  //   AD_REQUESTS: true,
+  //   MATCH_RATE: true,
+  //   IMPRESSIONS: true,
+  //   SHOW_RATE: true,
+  //   CLICKS: true,
+  //   IMPRESSION_CTR: true,
+  // });
 
-    IMPRESSION_RPM: true,
-    AD_REQUESTS: true,
-    MATCH_RATE: true,
-    IMPRESSIONS: true,
-    SHOW_RATE: true,
-    CLICKS: true,
-    IMPRESSION_CTR: true,
-  });
-
-  useEffect(() => {
-    setColumnVisibility((prev) => ({
-      ...prev,
+  const [columnVisibility, setColumnVisibility] = useState(() => {
+    if (storedState.columnVisibility) return storedState.columnVisibility;
+    return {
+      ...DEFAULT_COLUMN_VISIBILITY,
       AD_COST: showCostColumn,
       ROAS: isOnlyMonthYearSelected,
       PROFIT: isOnlyMonthYearSelected,
-    }));
+    };
+  });
+
+  // useEffect(() => {
+  //   setColumnVisibility((prev) => ({
+  //     ...prev,
+  //     AD_COST: showCostColumn,
+  //     ROAS: isOnlyMonthYearSelected,
+  //     PROFIT: isOnlyMonthYearSelected,
+  //   }));
+  // }, [isOnlyMonthYearSelected, showCostColumn]);
+
+  useEffect(() => {
+    setColumnVisibility((prev) => {
+      const next = {
+        ...prev,
+        AD_COST: showCostColumn,
+        ROAS: isOnlyMonthYearSelected,
+        PROFIT: isOnlyMonthYearSelected,
+      };
+      persistTableState(firstColumnDimension, secondColumnDimension, next);
+      return next;
+    });
   }, [isOnlyMonthYearSelected, showCostColumn]);
+
+  useEffect(() => {
+    persistTableState(firstColumnDimension, secondColumnDimension, columnVisibility);
+  }, [firstColumnDimension, secondColumnDimension]);
+
+  const handleSetFirstColumnDimension = (dim) => {
+    setFirstColumnDimension(dim);
+    persistTableState(dim, secondColumnDimension, columnVisibility);
+  };
+
+  const handleSetSecondColumnDimension = (dim) => {
+    setSecondColumnDimension(dim);
+    persistTableState(firstColumnDimension, dim, columnVisibility);
+  };
 
   const user_id = localStorage.getItem('id');
   const user_token = localStorage.getItem('token');
@@ -138,7 +222,6 @@ const PerformanceTable = () => {
       : convertYearToMonth(firstColumnDimension);
   }, [firstColumnDimension, secondColumnDimension]);
 
-  // Map visible table columns to CSV keys for the worker
   const visibleCsvKeys = useMemo(
     () => ({
       cost: Boolean(columnVisibility.AD_COST),
@@ -256,7 +339,6 @@ const PerformanceTable = () => {
         });
       }
     } else {
-      // Handle empty data or error
       setSingleReportData([]);
       setCsvData([]);
       setTotalRecordsData(null);
@@ -265,13 +347,10 @@ const PerformanceTable = () => {
     }
   }, [apiResponse, apiSucesss, firstColumnDimension, secondColumnDimension]);
 
-  // Recompute CSV whenever visible columns change (hide/show modal) or dimensions/search change
   useEffect(() => {
     if (!workerRef.current) return;
-    // Ensure we have base data to process
     const baseData = searchData?.length ? searchData : [];
 
-    // Only process if we have data
     if (baseData.length === 0) {
       setSingleReportData([]);
       setCsvData([]);
@@ -437,9 +516,11 @@ const PerformanceTable = () => {
             secondIsOpen={secondIsOpen}
             setSecondIsOpen={setSecondIsOpen}
             firstColumnDimension={firstColumnDimension}
-            setFirstColumnDimension={setFirstColumnDimension}
+            // setFirstColumnDimension={setFirstColumnDimension}
             secondColumnDimension={secondColumnDimension}
-            setSecondColumnDimension={setSecondColumnDimension}
+            // setSecondColumnDimension={setSecondColumnDimension}
+            setFirstColumnDimension={handleSetFirstColumnDimension}
+            setSecondColumnDimension={handleSetSecondColumnDimension}
             fetchFlag={fetchFlag}
             setFetchFlag={setFetchFlag}
           />
@@ -479,7 +560,6 @@ const PerformanceTable = () => {
       },
       size: dimensionHeaderWidth(firstColumnDimension),
       meta: {
-        // alignMent: 'center',
         alignMent: firstColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
         headerClassName: 'custom_report_column',
       },
@@ -500,9 +580,11 @@ const PerformanceTable = () => {
             secondArrow={secondArrow}
             setSecondArrow={setSecondArrow}
             firstColumnDimension={firstColumnDimension}
-            setFirstColumnDimension={setFirstColumnDimension}
+            // setFirstColumnDimension={setFirstColumnDimension}
             secondColumnDimension={secondColumnDimension}
-            setSecondColumnDimension={setSecondColumnDimension}
+            // setSecondColumnDimension={setSecondColumnDimension}
+            setFirstColumnDimension={handleSetFirstColumnDimension}
+            setSecondColumnDimension={handleSetSecondColumnDimension}
             fetchFlag={fetchFlag}
             setFetchFlag={setFetchFlag}
             setSearchText={setSearchText}
@@ -545,7 +627,6 @@ const PerformanceTable = () => {
       },
       size: secondColumnDimension ? dimensionHeaderWidth(secondColumnDimension) : 130,
       meta: {
-        // alignMent: 'center',
         alignMent: secondColumnDimension === 'APP_VERSION_NAME' ? 'center' : 'start',
         headerClassName: 'custom_report_column',
         omit: !secondColumnDimension,
@@ -1009,12 +1090,24 @@ const PerformanceTable = () => {
     }));
   }, [tanstackColumns]);
 
+  // const applyModalColumns = (updatedCols) => {
+  //   const updatedVisibility = {};
+  //   updatedCols.forEach((col) => {
+  //     updatedVisibility[col.sortValue] = !col.omit;
+  //   });
+  //   setColumnVisibility((prev) => ({ ...prev, ...updatedVisibility }));
+  // };
+
   const applyModalColumns = (updatedCols) => {
     const updatedVisibility = {};
     updatedCols.forEach((col) => {
       updatedVisibility[col.sortValue] = !col.omit;
     });
-    setColumnVisibility((prev) => ({ ...prev, ...updatedVisibility }));
+    setColumnVisibility((prev) => {
+      const next = { ...prev, ...updatedVisibility };
+      persistTableState(firstColumnDimension, secondColumnDimension, next);
+      return next;
+    });
   };
 
   const showOverlayLoader = isFetching || isLoaderVisible;

@@ -13,6 +13,23 @@ import { formatDate, microValueConvert } from '../../utils/helper';
 import CanvasChartItem from '../ChartComponents/AreaChartForRightBox';
 import AppInfoBox from '../GeneralComponents/AppInfoBox';
 
+const METRICS_SESSION_KEY = 'app_performance_metrics';
+
+const getStoredMetrics = () => {
+  try {
+    const stored = localStorage.getItem(METRICS_SESSION_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return {
+        impressionMetric: parsed.impressionMetric || 'impr',
+        extraMetric: parsed.extraMetric || null,
+      };
+    }
+  } catch {
+  }
+  return { impressionMetric: 'impr', extraMetric: null };
+};
+
 const AppPerformance = ({ overviewSelect }) => {
   const { setData } = useContext(DataContext);
   const { selectedGroup } = useGroupSettings();
@@ -25,8 +42,9 @@ const AppPerformance = ({ overviewSelect }) => {
   const [showPlusDropdown, setShowPlusDropdown] = useState(false);
   const [showExtraDropdown, setShowExtraDropdown] = useState(false);
   const [showImpressionDropdown, setShowImpressionDropdown] = useState(false);
-  const [extraMetric, setExtraMetric] = useState(null);
-  const [impressionMetric, setImpressionMetric] = useState('impr');
+  const storedMetrics = getStoredMetrics();
+  const [extraMetric, setExtraMetric] = useState(storedMetrics.extraMetric);
+  const [impressionMetric, setImpressionMetric] = useState(storedMetrics.impressionMetric);
 
   const plusDropdownRef = useRef(null);
   const extraDropdownRef = useRef(null);
@@ -58,6 +76,12 @@ const AppPerformance = ({ overviewSelect }) => {
   const plusDropdownOptions = getAvailableOptions();
   const extraColumnDropdownOptions = getAvailableOptions();
   const impressionDropdownOptions = getAvailableOptions();
+  const persistMetrics = (impression, extra) => {
+    localStorage.setItem(
+      METRICS_SESSION_KEY,
+      JSON.stringify({ impressionMetric: impression, extraMetric: extra })
+    );
+  };
 
   const formData = new FormData();
   if (window?.innerWidth < 767) formData.append('is_mobile_device', 'true');
@@ -177,11 +201,25 @@ const AppPerformance = ({ overviewSelect }) => {
     return app?.[metricKey] ?? '';
   };
 
-  const onPlusSelect = (key) => setExtraMetric(key);
-  const onExtraColumnSelect = (key) => setExtraMetric(key);
-  const onImpressionSelect = (key) => setImpressionMetric(key);
+  const onPlusSelect = (key) => {
+    setExtraMetric(key);
+    persistMetrics(impressionMetric, key);
+  };
 
-  const removeExtraMetric = () => setExtraMetric(null);
+  const onExtraColumnSelect = (key) => {
+    setExtraMetric(key);
+    persistMetrics(impressionMetric, key);
+  };
+
+  const onImpressionSelect = (key) => {
+    setImpressionMetric(key);
+    persistMetrics(key, extraMetric);
+  };
+
+  const removeExtraMetric = () => {
+    setExtraMetric(null);
+    persistMetrics(impressionMetric, null);
+  };
 
   const shouldRenderChartColumn = !isMobile;
   const shouldKeepChartPlaceholder = isMobile;

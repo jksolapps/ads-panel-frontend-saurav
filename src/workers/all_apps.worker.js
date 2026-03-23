@@ -1,6 +1,5 @@
 /** @format */
 
-// ✅ Use moment for ALL date logic (no manual date parsing)
 import moment from 'moment';
 
 const nfIN = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 2 });
@@ -106,7 +105,6 @@ function filterDataByDimensions(data, firstDimension, secondDimension, searchVal
         const yearMap = new Map();
 
         for (const row of data) {
-            // ✅ moment handles year extraction (report_date can be YYYYMM or YYYYMMDD)
             const year = moment(String(row.report_date ?? ''), ['YYYYMM', 'YYYYMMDD']).format('YYYY');
 
             const k1 = firstDimension.includes('YEAR') ? year : row[renderSearchDimension(firstDimension)];
@@ -139,7 +137,6 @@ function filterDataByDimensions(data, firstDimension, secondDimension, searchVal
                     impressions: 0,
                     clicks: 0,
                     count: 0,
-                    // keep dimension fields if present
                     au_display_name: row.au_display_name,
                     country_name: row.country_name,
                     au_format: row.au_format,
@@ -200,7 +197,6 @@ function filterDataByDimensions(data, firstDimension, secondDimension, searchVal
         });
     }
 
-    // search filter
     return data.filter((item) => {
         const v1 = firstKey ? formatDimensionValue(firstDimension, item[firstKey]) : null;
         const v2 = secondKey ? formatDimensionValue(secondDimension, item[secondKey]) : null;
@@ -305,7 +301,6 @@ function computeCsvRows({
             observed_ecpm: String(item.observed_ecpm ?? '').replace('$', ''),
         };
 
-        // Compute values but only include in CSV if visible
         const costVal = parseMoney(item.cost);
         const earnVal = parseMoney(item.estimated_earnings);
         const fsrVal = parseMoney(item.fsr);
@@ -345,7 +340,6 @@ function computeCsvRows({
         return updated;
     });
 
-    // active columns - respect metric visibility and restrict dimensions to the selected ones
     const activeColumns = new Set();
     const dimKeys = new Set([
         'app_display_name',
@@ -358,7 +352,6 @@ function computeCsvRows({
         'app_version',
     ]);
     const allowedDimensionKeys = new Set();
-    // Always include report_date (represents Month/Week/Year)
     allowedDimensionKeys.add('report_date');
     const firstKey = renderSearchDimension(firstColumnDimension);
     const secondKey = renderSearchDimension(secondColumnDimension);
@@ -367,13 +360,11 @@ function computeCsvRows({
 
     sanitizedData.forEach((item) => {
         Object.keys(km).forEach((key) => {
-            // Metrics governed by visibility map
             if (!dimKeys.has(key)) {
                 if (Object.prototype.hasOwnProperty.call(visibleCsvKeys, key)) {
                     if (!visibleCsvKeys[key]) return;
                 }
             } else {
-                // Dimension fields: only include if part of the selected dimensions
                 if (!allowedDimensionKeys.has(key)) return;
             }
             const label = km[key];
@@ -402,7 +393,6 @@ function computeCsvRows({
     const firstColumnKey = finalData.length > 0 ? Object.keys(finalData[0])?.[0] : km.report_date;
     const totalRow = { [firstColumnKey]: 'Total' };
 
-    // ✅ Always ensure totals exist (compute if not passed)
     const ensuredTotals = totalRecordsData || totalRecordsSum(csvData || []);
 
     if (ensuredTotals) {
@@ -410,7 +400,6 @@ function computeCsvRows({
             const newKey = key.replace('total_', '');
             if (!km[newKey]) continue;
 
-            // add totals only for visible columns
             if (Object.prototype.hasOwnProperty.call(visibleCsvKeys, newKey)) {
                 if (!visibleCsvKeys[newKey]) continue;
             }
